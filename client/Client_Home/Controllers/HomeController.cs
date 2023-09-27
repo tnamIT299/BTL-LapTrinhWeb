@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace BTL_LapTrinhWeb_official_.Controllers
+namespace Client_Home.Controllers
 {
     public class HomeController : Controller
     {

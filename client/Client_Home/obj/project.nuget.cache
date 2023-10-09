@@ -1,5 +1,6 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "fj9ME7UvTNs91QpP5I/tdbKSL74qv5abehEqSgI+Xix0GQ7R9afpBzcQjLMROWeWvqHQ7GW94l+tWJ7XM3N3vw==",
   "success": true,
   "projectFilePath": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\Client_Home.csproj",
@@ -242,5 +243,11 @@
     "C:\\Users\\admin\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
+=======
+  "dgSpecHash": "kG1GdG/9USO86QD4wM2/EyRabCmI8QnvlxHJK08rmnNzzBv45GCt+NcOajeSNIaddxnQxzZdH37mEm9VvyExlQ==",
+  "success": true,
+  "projectFilePath": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\Client_Home.csproj",
+  "expectedPackageFiles": [],
+>>>>>>> 45acf466fbd5613afb3d0e1308ec5e2a8fe97149
   "logs": []
 }

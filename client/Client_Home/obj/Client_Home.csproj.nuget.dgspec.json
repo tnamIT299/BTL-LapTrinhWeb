@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\Client_Home.csproj": {}
   },
   "projects": {
@@ -15,6 +16,22 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+    "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\Client_Home.csproj": {}
+  },
+  "projects": {
+    "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\Client_Home.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\Client_Home.csproj",
+        "projectName": "Client_Home",
+        "projectPath": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\Client_Home.csproj",
+        "packagesPath": "C:\\Users\\huypro\\.nuget\\packages\\",
+        "outputPath": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\huypro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 45acf466fbd5613afb3d0e1308ec5e2a8fe97149
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

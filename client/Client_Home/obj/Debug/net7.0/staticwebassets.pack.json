@@ -1,471 +1,471 @@
 {
   "Files": [
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Client_Home.bundle.scp.css",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Client_Home.bundle.scp.css",
       "PackagePath": "staticwebassets\\Client_Home.bundle.scp.css"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\css\\bootstrap.min.css",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\css\\elegant-icons.css",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\css\\elegant-icons.css",
       "PackagePath": "staticwebassets\\css\\elegant-icons.css"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\css\\font-awesome.min.css",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\css\\font-awesome.min.css",
       "PackagePath": "staticwebassets\\css\\font-awesome.min.css"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\css\\jquery-ui.min.css",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\css\\jquery-ui.min.css",
       "PackagePath": "staticwebassets\\css\\jquery-ui.min.css"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\css\\nice-select.css",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\css\\nice-select.css",
       "PackagePath": "staticwebassets\\css\\nice-select.css"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\css\\owl.carousel.min.css",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\css\\owl.carousel.min.css",
       "PackagePath": "staticwebassets\\css\\owl.carousel.min.css"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\css\\site.css",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\css\\slicknav.min.css",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\css\\slicknav.min.css",
       "PackagePath": "staticwebassets\\css\\slicknav.min.css"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\css\\style.css",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\css\\style.css",
       "PackagePath": "staticwebassets\\css\\style.css"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\favicon.ico",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\fonts\\ElegantIcons.eot",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\fonts\\ElegantIcons.eot",
       "PackagePath": "staticwebassets\\fonts\\ElegantIcons.eot"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\fonts\\ElegantIcons.svg",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\fonts\\ElegantIcons.svg",
       "PackagePath": "staticwebassets\\fonts\\ElegantIcons.svg"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\fonts\\ElegantIcons.ttf",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\fonts\\ElegantIcons.ttf",
       "PackagePath": "staticwebassets\\fonts\\ElegantIcons.ttf"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\fonts\\ElegantIcons.woff",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\fonts\\ElegantIcons.woff",
       "PackagePath": "staticwebassets\\fonts\\ElegantIcons.woff"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\fonts\\FontAwesome.otf",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\fonts\\FontAwesome.otf",
       "PackagePath": "staticwebassets\\fonts\\FontAwesome.otf"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\fonts\\fontawesome-webfont.eot",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\fonts\\fontawesome-webfont.eot",
       "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.eot"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\fonts\\fontawesome-webfont.svg",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\fonts\\fontawesome-webfont.svg",
       "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.svg"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\fonts\\fontawesome-webfont.ttf",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\fonts\\fontawesome-webfont.ttf",
       "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.ttf"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\fonts\\fontawesome-webfont.woff",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\fonts\\fontawesome-webfont.woff",
       "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.woff"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\fonts\\fontawesome-webfont.woff2",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\fonts\\fontawesome-webfont.woff2",
       "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.woff2"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\img\\banner.jpg",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\img\\banner.jpg",
       "PackagePath": "staticwebassets\\img\\banner.jpg"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\img\\blog-1.jpg",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\img\\blog-1.jpg",
       "PackagePath": "staticwebassets\\img\\blog-1.jpg"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\img\\blog-2.jpg",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\img\\blog-2.jpg",
       "PackagePath": "staticwebassets\\img\\blog-2.jpg"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\img\\blog-3.jpg",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\img\\blog-3.jpg",
       "PackagePath": "staticwebassets\\img\\blog-3.jpg"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\img\\blog-4.jpg",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\img\\blog-4.jpg",
       "PackagePath": "staticwebassets\\img\\blog-4.jpg"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\img\\blog-5.jpg",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\img\\blog-5.jpg",
       "PackagePath": "staticwebassets\\img\\blog-5.jpg"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\img\\blog-6.jpg",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\img\\blog-6.jpg",
       "PackagePath": "staticwebassets\\img\\blog-6.jpg"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\img\\imgTitle.png",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\img\\imgTitle.png",
       "PackagePath": "staticwebassets\\img\\imgTitle.png"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\img\\language.png",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\img\\language.png",
       "PackagePath": "staticwebassets\\img\\language.png"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\img\\logo.png",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\img\\logo.png",
       "PackagePath": "staticwebassets\\img\\logo.png"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\img\\payment-item.png",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\img\\payment-item.png",
       "PackagePath": "staticwebassets\\img\\payment-item.png"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\js\\bootstrap.min.js",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\js\\bootstrap.min.js"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\js\\jquery-3.3.1.min.js",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\js\\jquery-3.3.1.min.js",
       "PackagePath": "staticwebassets\\js\\jquery-3.3.1.min.js"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\js\\jquery-ui.min.js",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\js\\jquery-ui.min.js",
       "PackagePath": "staticwebassets\\js\\jquery-ui.min.js"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\js\\jquery.nice-select.min.js",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\js\\jquery.nice-select.min.js",
       "PackagePath": "staticwebassets\\js\\jquery.nice-select.min.js"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\js\\jquery.slicknav.js",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\js\\jquery.slicknav.js",
       "PackagePath": "staticwebassets\\js\\jquery.slicknav.js"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\js\\main.js",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\js\\main.js",
       "PackagePath": "staticwebassets\\js\\main.js"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\js\\mixitup.min.js",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\js\\mixitup.min.js",
       "PackagePath": "staticwebassets\\js\\mixitup.min.js"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\js\\owl.carousel.min.js",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\js\\owl.carousel.min.js",
       "PackagePath": "staticwebassets\\js\\owl.carousel.min.js"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\js\\site.js",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\scss\\_base.scss",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\scss\\_base.scss",
       "PackagePath": "staticwebassets\\scss\\_base.scss"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\scss\\_blog-details.scss",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\scss\\_blog-details.scss",
       "PackagePath": "staticwebassets\\scss\\_blog-details.scss"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\scss\\_blog-sidebar.scss",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\scss\\_blog-sidebar.scss",
       "PackagePath": "staticwebassets\\scss\\_blog-sidebar.scss"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\scss\\_blog.scss",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\scss\\_blog.scss",
       "PackagePath": "staticwebassets\\scss\\_blog.scss"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\scss\\_breadcrumb.scss",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\scss\\_breadcrumb.scss",
       "PackagePath": "staticwebassets\\scss\\_breadcrumb.scss"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\scss\\_checkout.scss",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\scss\\_checkout.scss",
       "PackagePath": "staticwebassets\\scss\\_checkout.scss"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\scss\\_contact.scss",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\scss\\_contact.scss",
       "PackagePath": "staticwebassets\\scss\\_contact.scss"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\scss\\_footer.scss",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\scss\\_footer.scss",
       "PackagePath": "staticwebassets\\scss\\_footer.scss"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\scss\\_header.scss",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\scss\\_header.scss",
       "PackagePath": "staticwebassets\\scss\\_header.scss"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\scss\\_hero.scss",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\scss\\_hero.scss",
       "PackagePath": "staticwebassets\\scss\\_hero.scss"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\scss\\_home-page.scss",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\scss\\_home-page.scss",
       "PackagePath": "staticwebassets\\scss\\_home-page.scss"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\scss\\_mixins.scss",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\scss\\_mixins.scss",
       "PackagePath": "staticwebassets\\scss\\_mixins.scss"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\scss\\_responsive.scss",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\scss\\_responsive.scss",
       "PackagePath": "staticwebassets\\scss\\_responsive.scss"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\scss\\_shop-details.scss",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\scss\\_shop-details.scss",
       "PackagePath": "staticwebassets\\scss\\_shop-details.scss"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\scss\\_shop-grid.scss",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\scss\\_shop-grid.scss",
       "PackagePath": "staticwebassets\\scss\\_shop-grid.scss"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\scss\\_shoping-cart.scss",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\scss\\_shoping-cart.scss",
       "PackagePath": "staticwebassets\\scss\\_shoping-cart.scss"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\scss\\_sidebar.scss",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\scss\\_sidebar.scss",
       "PackagePath": "staticwebassets\\scss\\_sidebar.scss"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\scss\\_variable.scss",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\scss\\_variable.scss",
       "PackagePath": "staticwebassets\\scss\\_variable.scss"
     },
     {
-      "Id": "C:\\Javascript\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\scss\\style.scss",
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\scss\\style.scss",
       "PackagePath": "staticwebassets\\scss\\style.scss"
     },
     {

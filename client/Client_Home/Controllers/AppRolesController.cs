@@ -11,6 +11,7 @@ namespace Client_Home.Controllers
         {
             _roleManager = roleManager;
         }
+
         public IActionResult Index()
         {
             var roles = _roleManager.Roles;

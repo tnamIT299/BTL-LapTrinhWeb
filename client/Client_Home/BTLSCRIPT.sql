@@ -9,6 +9,7 @@ CREATE TABLE Customers (
     birthday VARCHAR(255),
     RewardPoints INT,
     Rank VARCHAR(50),
+	gender bit,
 	userID int
 );
 CREATE TABLE Employees (
@@ -20,7 +21,7 @@ CREATE TABLE Employees (
     DateHired DATE,
     BirthDate DATE,
     CitizenID VARCHAR(20),
-    Gender CHAR(1),
+    Gender bit,
     Email VARCHAR(255),
     PhoneNumber VARCHAR(15)
 );
@@ -133,15 +134,20 @@ CREATE TABLE ProductBatches (
 	barcode varchar(50),
     FOREIGN KEY (ProductID) REFERENCES Products(ProductID)
 );
-CREATE TABLE ImportProduct (
-    ImportID int NOT NULL,
-    ProductID int NOT NULL,
+CREATE TABLE Orders (
+    OrderID int PRIMARY KEY,
     SupplierID int NOT NULL,
-    Quantity int NOT NULL,
-    ImportDate date NOT NULL,
-    PRIMARY KEY (ImportID),
-    FOREIGN KEY (ProductID) REFERENCES Products(ProductID),
-    FOREIGN KEY (SupplierID) REFERENCES Suppliers(SupplierID)
+    OrderDate date NOT NULL,
+	totalAmount money
 );
+
+CREATE TABLE OrderDetails (
+    OrderDetailID int PRIMARY KEY,
+    OrderID int NOT NULL,
+    ProductID int NOT NULL,
+    Quantity int NOT NULL,
+    UnitPrice money
+);
+
 
 

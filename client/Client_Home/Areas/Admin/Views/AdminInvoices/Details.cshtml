@@ -1,0 +1,120 @@
+﻿@model Client_Home.Models.Invoice
+
+@{
+    ViewData["Title"] = "Chi tiết hóa đơn";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="main-content">
+    <div class="page-header">
+        <h2 class="header-title">Chi tiết hóa đơn</h2>
+        <div class="header-sub-title">
+            <nav class="breadcrumb breadcrumb-dash">
+                <a href="#" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chính</a>
+                <a class="breadcrumb-item" href="#">Danh sách hóa đơn</a>
+                <span class="breadcrumb-item active">Chi tiết hóa đơn</span>
+            </nav>
+        </div>
+    </div>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <div id="invoice" class="p-h-30">
+                    <div class="m-t-15 lh-2">
+                        <div class="inline-block">
+                            <img class="img-fluid" src="assets/images/logo/logo.png" alt="">
+                            <address class="p-l-10">
+                                <span class="font-weight-semibold text-dark">PH MART</span><br>
+                                <span>141 Đồng Khởi, Bến Nghé</span><br>
+                                <span>Quận 1, TP. Hồ Chí Minh</span><br>
+                                <abbr class="text-dark" title="Phone">Phone:</abbr>
+                                <span>113</span>
+                            </address>
+                        </div>
+                        <div class="float-right">
+                            <h2>Hóa đơn</h2>
+                        </div>
+                    </div>
+                    <div class="row m-t-20 lh-2">
+                        <div class="col-sm-9">
+                            <h3 class="p-l-10 m-t-10">Địa chỉ giao hàng: </h3>
+                            <address class="p-l-10 m-t-10">
+                                <span class="font-weight-semibold text-dark">Tại cửa hàng</span><br>
+                            </address>
+
+                            <p class="p-l-10 m-t-10 text-dark">Tên khách hàng: @Html.DisplayFor(model => model.Customer.LastName)</p>
+
+                            <p class="p-l-10 m-t-10 text-dark">Tên nhân viên: @Html.DisplayFor(model => model.Employee.FirstName) @Html.DisplayFor(model => model.Employee.LastName)</p>
+
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="m-t-80">
+                                <div class="text-dark text-uppercase d-inline-block">
+                                    <span class="font-weight-semibold text-dark">Số hóa đơn :</span>
+                                </div>
+                                <div class="float-right"> @Html.DisplayFor(model => model.InvoiceId)</div>
+                            </div>
+                            <div class="text-dark text-uppercase d-inline-block">
+                                <span class="font-weight-semibold text-dark">Date :</span>
+                            </div>
+                            <div class="float-right">@Html.DisplayFor(model => model.CreatedDate)</div>
+                        </div>
+                    </div>
+                    <div class="m-t-20">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Tên SP</th>
+                                        <th>Số lượng</th>
+                                        <th>Giá</th>
+                                        <th>Thành tiền</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        @foreach ( var item in Model.InvoiceDetails)
+                                        {
+                                            <td>@item.Product.Name</td>
+                                            <td>@item.Quantity</td>
+                                            <td>@item.Price</td>
+                                            decimal? total = item?.Quantity * item?.Price;
+                                            <td>@total</td>
+                                        }
+                                        
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row m-t-30 lh-1-8">
+                            <div class="col-sm-12">
+                                <div class="float-right text-right">
+                                    <p>Tổng tiền (đã bao gồm VAT): @Html.DisplayFor(model => model.TotalAmount)</p>
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-t-30 lh-2">
+                            <div class="col-sm-12">
+                                <div class="border-bottom p-v-20">
+                                    <p class="text-opacity"><small>Lưu ý: PH Mart chỉ xuất hóa đơn trong ngày, Quý khách vui lòng liên hệ thu ngân để được hỗ trợ. Quý khách có thể in bản sao hóa đơn VAT tại trang web www.phmart.com</small></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-v-20">
+                            <div class="col-sm-6">
+                                <img class="img-fluid text-opacity m-t-5" width="100" src="assets/images/logo/logo.png" alt="">
+                            </div>
+                            <div class="col-sm-6 text-right">
+                                <small><span class="font-weight-semibold text-dark">Tổng đài:</span>113</small>
+                                <br>
+                                <small>phmartsupport@gmail.com</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

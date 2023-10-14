@@ -15,11 +15,11 @@ public partial class Invoice
 
     public int? ShippingId { get; set; }
 
-    public byte[] CreatedDate { get; set; } = null!;
-
     public decimal? TotalAmount { get; set; }
 
     public string? Status { get; set; }
+
+    public DateTime? CreatedDate { get; set; }
 
     public virtual Customer? Customer { get; set; }
 

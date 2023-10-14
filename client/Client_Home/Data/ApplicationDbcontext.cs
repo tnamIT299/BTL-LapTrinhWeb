@@ -6,7 +6,7 @@ namespace Client_Home.Data
 {
     public class ApplicationDbcontext : IdentityDbContext
     {
-        public ApplicationDbcontext(DbContextOptions options) : base(options)
+        public ApplicationDbcontext(DbContextOptions<ApplicationDbcontext> options) : base(options)
         {
 
         }

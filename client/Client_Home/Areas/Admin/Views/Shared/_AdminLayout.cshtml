@@ -11,7 +11,7 @@
 
     <!-- page css -->
     <link href="~/Adminassets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet">
-
+    <link href="~/Adminassets/vendors/datatables/dataTables.bootstrap.min.css" rel="stylesheet">
     <!-- Core css -->
     <link href="~/Adminassets/css/app.min.css" rel="stylesheet">
 </head>
@@ -198,10 +198,10 @@
                 <!-- Footer START -->
                 <footer class="footer">
                     <div class="footer-content">
-                        <p class="m-b-0">Copyright © 2019 Theme_Nate. All rights reserved.</p>
+                        <p class="m-b-0">Được làm bởi Phú Huy và những con báo</p>
                         <span>
-                            <a href="" class="text-gray m-r-15">Term &amp; Conditions</a>
-                            <a href="" class="text-gray">Privacy &amp; Policy</a>
+                            <a href="" class="text-gray m-r-15">Ước gì được 10 điểm</a>
+                            <a href="" class="text-gray">Xin cảm ơn cô ạ</a>
                         </span>
                     </div>
                 </footer>
@@ -378,14 +378,17 @@
     
     <!-- Core Vendors JS -->
     <script src="~/Adminassets/js/vendors.min.js"></script>
-
     <!-- page js -->
     <script src="~/Adminassets/vendors/chartjs/Chart.min.js"></script>
     <script src="~/Adminassets/js/pages/dashboard-e-commerce.js"></script>
-
     <!-- Core JS -->
     <script src="~/Adminassets/js/app.min.js"></script>
-
+    <script src="~/adminassets/vendors/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/adminassets/vendors/datatables/dataTables.bootstrap.min.js"></script>
+    <script src="~/adminassets/js/pages/e-commerce-order-list.js"></script>
+    @await Component.InvokeAsync("Notyf")
+    @await RenderSectionAsync("Scripts", required: false)
+    
 </body>
 
 </html>

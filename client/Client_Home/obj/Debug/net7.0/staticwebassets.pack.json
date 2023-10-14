@@ -5,6 +5,18 @@
       "PackagePath": "staticwebassets\\Client_Home.bundle.scp.css"
     },
     {
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\AdminImages\\Barcodes\\3-11032023.png",
+      "PackagePath": "staticwebassets\\AdminImages\\Barcodes\\3-11032023.png"
+    },
+    {
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\AdminImages\\Barcodes\\3-11052023.png",
+      "PackagePath": "staticwebassets\\AdminImages\\Barcodes\\3-11052023.png"
+    },
+    {
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\AdminImages\\Barcodes\\qrcode.png",
+      "PackagePath": "staticwebassets\\AdminImages\\Barcodes\\qrcode.png"
+    },
+    {
       "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\Adminassets\\css\\app.min.css",
       "PackagePath": "staticwebassets\\Adminassets\\css\\app.min.css"
     },
@@ -259,6 +271,10 @@
     {
       "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\Adminassets\\images\\others\\coffee-app-thumb.jpg",
       "PackagePath": "staticwebassets\\Adminassets\\images\\others\\coffee-app-thumb.jpg"
+    },
+    {
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\Adminassets\\images\\others\\dairy-products.png",
+      "PackagePath": "staticwebassets\\Adminassets\\images\\others\\dairy-products.png"
     },
     {
       "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\Adminassets\\images\\others\\error-1.png",

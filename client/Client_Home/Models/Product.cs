@@ -17,7 +17,7 @@ public partial class Product
 
     public int? CategoryId { get; set; }
 
-    public string? ImageUrl { get; set; }
+    public string? ThumbnailUrl { get; set; }
 
     public string? VideoUrl { get; set; }
 
@@ -31,15 +31,17 @@ public partial class Product
 
     public bool? Active { get; set; }
 
-    public byte[] DateAdded { get; set; } = null!;
-
     public int? SupplierId { get; set; }
+
+    public DateTime? DateAdded { get; set; }
 
     public virtual Category? Category { get; set; }
 
     public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; } = new List<InvoiceDetail>();
 
     public virtual ICollection<ProductBatch> ProductBatches { get; set; } = new List<ProductBatch>();
+
+    public virtual ICollection<ProductSubImage> ProductSubImages { get; set; } = new List<ProductSubImage>();
 
     public virtual Supplier? Supplier { get; set; }
 }

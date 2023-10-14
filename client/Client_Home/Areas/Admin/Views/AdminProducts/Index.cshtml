@@ -1,0 +1,155 @@
+﻿@model IEnumerable<Client_Home.Models.Product>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="main-content">
+    <div class="page-header">
+        <h2 class="header-title">Danh sách sản phẩm</h2>
+        <div class="header-sub-title">
+            <nav class="breadcrumb breadcrumb-dash">
+                <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
+                <a class="breadcrumb-item" href="#">Quản lý sản phẩm</a>
+                <span class="breadcrumb-item active">Danh sách sản phẩm</span>
+            </nav>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="row m-b-30">
+                <div class="col-lg-6">
+                    <div class="d-md-flex">
+                        <div class="m-b-10">
+                            <h3>Danh sách sản phẩm</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 text-right">
+
+                    <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Export">
+                        <button class="btn btn-primary">
+                            <i class="anticon anticon-file-excel m-r-5"></i>
+                            <span>Xuất file Excel</span>
+                        </button>
+                    </a>
+                </div>
+                <div class="col-lg-3 text-right">
+                    <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Create">
+                        <button class="btn btn-primary">
+                            <i class="anticon anticon-plus-circle m-r-5"></i>
+                            <span>Thêm sản phẩm</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover e-commerce-table">
+                    <thead>
+                        <tr>
+                            <th>
+                                <div class="checkbox">
+                                    <input id="checkAll" type="checkbox">
+                                    <label for="checkAll" class="m-b-0"></label>
+                                </div>
+                            </th>
+                            <th>
+                                Hình ảnh
+                            </th>
+                            <th>
+                                Tên
+                            </th>
+                            <th>
+                                Giá bán
+                            </th>
+                            <th>
+                                Tổng số lượng
+                            </th>
+                            <th>
+                                Trạng thái
+                            </th>
+                            <th>
+                                Danh mục
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @if (Model != null)
+                        {
+                            int i = 1;
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <div class="checkbox">
+                                            <input id="@("check-item-" + i)" type="checkbox">
+                                            <label for="@("check-item-" + i)" class="m-b-0"></label>
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        @if (item.ThumbnailUrl.Contains("~"))
+                                        {
+                                            <div class="d-flex align-items-center">
+                                                <img class="img-fluid rounded" src="@Url.Content(item.ThumbnailUrl)" style="max-width: 60px" alt="">
+                                            </div>
+                                        }
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.SellPrice)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TotalQuantity)
+                                    </td>
+                                    <td>
+
+                                        <div class="d-flex align-items-center">
+                                            @if(item.Active == true){
+                                                <div class="badge badge-success badge-dot m-r-10"></div>
+                                                <div>Đang bán</div>
+                                            }
+                                            else
+                                            {
+                                                <div class="badge badge-danger badge-dot m-r-10"></div>
+                                                <div>Ngưng bán</div>
+                                            }
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                                    </td>
+
+                                    <td class="text-right">
+                                        <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Details" asp-route-id="@item.ProductId">
+                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xem chi tiết sản phẩm">
+                                                <i class="anticon anticon-eye"></i>
+                                            </button>
+                                        </a>
+                                        <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Edit" asp-route-id="@item.ProductId">
+                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right" title="Sửa thông tin sản phẩm">
+                                                <i class="anticon anticon-edit"></i>
+                                            </button>
+                                        </a>
+                                        <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Delete" asp-route-id="@item.ProductId">
+                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xóa sản phẩm này">
+                                                <i class="anticon anticon-delete"></i>
+                                            </button>
+                                        </a>
+                                    </td>
+                                </tr>
+                                i++;
+                            }
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

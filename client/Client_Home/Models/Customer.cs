@@ -15,7 +15,7 @@ public partial class Customer
 
     public string? Phone { get; set; }
 
-    public string? Birthday { get; set; }
+    public DateTime? Birthday { get; set; }
 
     public int? RewardPoints { get; set; }
 

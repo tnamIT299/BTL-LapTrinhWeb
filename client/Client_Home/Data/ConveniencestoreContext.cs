@@ -16,6 +16,8 @@ public partial class ConveniencestoreContext : DbContext
     {
     }
 
+    public virtual DbSet<Account> Accounts { get; set; }
+
     public virtual DbSet<Category> Categories { get; set; }
 
     public virtual DbSet<Customer> Customers { get; set; }
@@ -36,6 +38,10 @@ public partial class ConveniencestoreContext : DbContext
 
     public virtual DbSet<ProductBatch> ProductBatches { get; set; }
 
+    public virtual DbSet<ProductSubImage> ProductSubImages { get; set; }
+
+    public virtual DbSet<Role> Roles { get; set; }
+
     public virtual DbSet<Salary> Salaries { get; set; }
 
     public virtual DbSet<Shipping> Shippings { get; set; }
@@ -46,10 +52,51 @@ public partial class ConveniencestoreContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=.\\PHUHUYIT;Initial Catalog=CONVENIENCESTORE;Integrated Security=True; TrustServerCertificate=True");
+        => optionsBuilder.UseSqlServer("Server = .\\PHUHUYIT;Initial Catalog=CONVENIENCESTORE;Integrated Security=True; TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Account>(entity =>
+        {
+            entity.HasKey(e => e.Accountid).HasName("PK__ACCOUNTS__1F64FDFCD3B51490");
+
+            entity.ToTable("ACCOUNTS");
+
+            entity.Property(e => e.Accountid).HasColumnName("ACCOUNTID");
+            entity.Property(e => e.Active)
+                .IsRequired()
+                .HasDefaultValueSql("((1))")
+                .HasColumnName("active");
+            entity.Property(e => e.Createdate)
+                .HasColumnType("datetime")
+                .HasColumnName("CREATEDATE");
+            entity.Property(e => e.Email)
+                .HasMaxLength(50)
+                .HasColumnName("EMAIL");
+            entity.Property(e => e.Fullname)
+                .HasMaxLength(150)
+                .HasColumnName("FULLNAME");
+            entity.Property(e => e.Lastlogin)
+                .HasColumnType("datetime")
+                .HasColumnName("LASTLOGIN");
+            entity.Property(e => e.Password)
+                .HasMaxLength(50)
+                .HasColumnName("PASSWORD");
+            entity.Property(e => e.Phone)
+                .HasMaxLength(12)
+                .IsUnicode(false)
+                .HasColumnName("PHONE");
+            entity.Property(e => e.Roleid).HasColumnName("ROLEID");
+            entity.Property(e => e.Salt)
+                .HasMaxLength(10)
+                .IsFixedLength()
+                .HasColumnName("SALT");
+
+            entity.HasOne(d => d.Role).WithMany(p => p.Accounts)
+                .HasForeignKey(d => d.Roleid)
+                .HasConstraintName("FK__ACCOUNTS__ROLEID__74AE54BC");
+        });
+
         modelBuilder.Entity<Category>(entity =>
         {
             entity.HasKey(e => e.CategoryId).HasName("PK__Categori__19093A2B10713FBC");
@@ -74,8 +121,7 @@ public partial class ConveniencestoreContext : DbContext
 
             entity.Property(e => e.CustomerId).HasColumnName("customerID");
             entity.Property(e => e.Birthday)
-                .HasMaxLength(255)
-                .IsUnicode(false)
+                .HasColumnType("date")
                 .HasColumnName("birthday");
             entity.Property(e => e.Email)
                 .HasMaxLength(255)
@@ -131,8 +177,7 @@ public partial class ConveniencestoreContext : DbContext
 
             entity.Property(e => e.InvoiceId).HasColumnName("InvoiceID");
             entity.Property(e => e.CreatedDate)
-                .IsRowVersion()
-                .IsConcurrencyToken()
+                .HasColumnType("datetime")
                 .HasColumnName("createdDate");
             entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
             entity.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
@@ -230,8 +275,7 @@ public partial class ConveniencestoreContext : DbContext
                 .HasColumnName("bestsellerFlag");
             entity.Property(e => e.CategoryId).HasColumnName("categoryID");
             entity.Property(e => e.DateAdded)
-                .IsRowVersion()
-                .IsConcurrencyToken()
+                .HasColumnType("date")
                 .HasColumnName("dateAdded");
             entity.Property(e => e.Description)
                 .HasColumnType("text")
@@ -246,10 +290,6 @@ public partial class ConveniencestoreContext : DbContext
             entity.Property(e => e.HomeFlag)
                 .HasDefaultValueSql("((0))")
                 .HasColumnName("homeFlag");
-            entity.Property(e => e.ImageUrl)
-                .HasMaxLength(255)
-                .IsUnicode(false)
-                .HasColumnName("imageUrl");
             entity.Property(e => e.Name)
                 .HasMaxLength(100)
                 .IsUnicode(false)
@@ -258,6 +298,10 @@ public partial class ConveniencestoreContext : DbContext
                 .HasColumnType("decimal(10, 2)")
                 .HasColumnName("sellPrice");
             entity.Property(e => e.SupplierId).HasColumnName("SupplierID");
+            entity.Property(e => e.ThumbnailUrl)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("thumbnailUrl");
             entity.Property(e => e.TotalQuantity).HasColumnName("totalQuantity");
             entity.Property(e => e.VideoUrl)
                 .HasMaxLength(255)
@@ -296,6 +340,38 @@ public partial class ConveniencestoreContext : DbContext
                 .HasForeignKey(d => d.ProductId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__ProductBa__Produ__59FA5E80");
+        });
+
+        modelBuilder.Entity<ProductSubImage>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__productS__3214EC2730036022");
+
+            entity.ToTable("productSubImage");
+
+            entity.Property(e => e.Id).HasColumnName("ID");
+            entity.Property(e => e.ImgUrl)
+                .HasMaxLength(255)
+                .HasColumnName("imgUrl");
+            entity.Property(e => e.ProductId).HasColumnName("productID");
+
+            entity.HasOne(d => d.Product).WithMany(p => p.ProductSubImages)
+                .HasForeignKey(d => d.ProductId)
+                .HasConstraintName("FK__productSu__produ__160F4887");
+        });
+
+        modelBuilder.Entity<Role>(entity =>
+        {
+            entity.HasKey(e => e.Roleid).HasName("PK__ROLES__006568E9599A1705");
+
+            entity.ToTable("ROLES");
+
+            entity.Property(e => e.Roleid).HasColumnName("ROLEID");
+            entity.Property(e => e.Description)
+                .HasMaxLength(255)
+                .HasColumnName("DESCRIPTION");
+            entity.Property(e => e.Rolename)
+                .HasMaxLength(50)
+                .HasColumnName("ROLENAME");
         });
 
         modelBuilder.Entity<Salary>(entity =>

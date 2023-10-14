@@ -1,0 +1,244 @@
+﻿@model Client_Home.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="main-content">
+    <div class="page-header no-gutters has-tab">
+        <div class="d-md-flex m-b-15 align-items-center justify-content-between">
+            <div class="media align-items-center m-b-15">
+                <div class="avatar avatar-image rounded" style="height: 70px; width: 70px">
+                    @if (Model.ThumbnailUrl.Contains("~"))
+                    {
+                    <div class="d-flex align-items-center">
+                        <img class="img-fluid rounded" src="@Url.Content(Model.ThumbnailUrl)" style="max-width: 60px" alt="">
+                    </div>
+                    }
+                </div>
+                <div class="m-l-15">
+                    <h4 class="m-b-0">@Html.DisplayFor(model => model.Name)</h4>
+                    <p class="text-muted m-b-0">Code: @Html.DisplayFor(model => model.ProductId)</p>
+                </div>
+            </div>
+            <div class="m-b-15">
+                <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Edit" asp-route-id="@Model.ProductId">
+                <button class="btn btn-primary" >
+                    <i class="anticon anticon-edit" ></i>
+                    <span>Edit</span>
+                </button>
+                </a>
+            </div>
+        </div>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#product-overview">Overview</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#product-images">Product Images</a>
+            </li>
+        </ul>
+    </div>
+    <div class="container-fluid">
+        <div class="tab-content m-t-15">
+            <div class="tab-pane fade show active" id="product-overview">
+                <div class="row">
+@*                     <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="media align-items-center">
+                                    <i class="font-size-40 text-success anticon anticon-smile"></i>
+                                    <div class="m-l-15">
+                                        <p class="m-b-0 text-muted">10 ratings</p>
+                                        <div class="star-rating m-t-5">
+                                            <input type="radio" id="star3-5" name="rating-3" value="5" checked disabled /><label for="star3-5" title="5 star"></label>
+                                            <input type="radio" id="star3-4" name="rating-3" value="4" disabled /><label for="star3-4" title="4 star"></label>
+                                            <input type="radio" id="star3-3" name="rating-3" value="3" disabled /><label for="star3-3" title="3 star"></label>
+                                            <input type="radio" id="star3-2" name="rating-3" value="2" disabled /><label for="star3-2" title="2 star"></label>
+                                            <input type="radio" id="star3-1" name="rating-3" value="1" disabled /><label for="star3-1" title="1 star"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="media align-items-center">
+                                    <i class="font-size-40 text-primary anticon anticon-shopping-cart"></i>
+                                    <div class="m-l-15">
+                                        <p class="m-b-0 text-muted">Sales</p>
+                                        <h3 class="m-b-0 ls-1">1,521</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="media align-items-center">
+                                    <i class="font-size-40 text-primary anticon anticon-message"></i>
+                                    <div class="m-l-15">
+                                        <p class="m-b-0 text-muted">Reviews</p>
+                                        <h3 class="m-b-0 ls-1">27</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> *@
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="media align-items-center">
+                                    <i class="font-size-40 text-primary anticon anticon-stock"></i>
+                                    <div class="m-l-15">
+                                        <p class="m-b-0 text-muted">Tổng số lượng tồn kho</p>
+                                        <h3 class="m-b-0 ls-1">@Html.DisplayFor(model => model.TotalQuantity)</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Thông tin cơ bản</h4>
+                        <div class="table-responsive">
+                            <table class="product-info-table m-t-20">
+                                <tbody>
+                                    <tr>
+                                        <td>Giá bán:</td>
+                                        <td class="text-dark font-weight-semibold">@Html.DisplayFor(model => model.SellPrice) vnđ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Danh mục:</td>
+                                        <td>@Html.DisplayFor(model => model.Category.CategoryName) </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nhà cung cấp:</td>
+                                        <td>@Html.DisplayFor(model => model.Supplier.SupplierName)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ngày tạo:</td>
+                                        <td>@Html.DisplayFor(model => model.DateAdded)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Trạng thái:</td>
+                                        <td>
+                                            @if (Model.Active == true)
+                                            {
+                                                <span class="badge badge-pill badge-cyan">Đang bán</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge badge-pill badge-red">Ngừng bán</span>
+                                            }
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>% giảm giá:</td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Discount);
+                                        </td>
+                                        <td>Giá sau khi giảm:</td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.DiscountPrice);
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Các lô hàng</h4>
+                        <div class="table-responsive">
+                            <table class="product-info-table m-t-20">
+                                <tbody>
+                                    <tr>
+                                        <td>Mã lô</td>
+                                        <td>Ngày sản xuất</td>
+                                        <td>Ngày hết hạn</td>
+                                        <td>Giá nhập</td>
+                                        <td>Số lượng</td>
+                                        <td>Mã barcode</td>
+                                    </tr>
+                                    
+
+                                        @foreach (var pbatch in Model.ProductBatches)
+                                    {
+                                        <tr>
+                                            <td>@pbatch.BatchId</td>
+                                            <td>@pbatch.ManufactureDate</td>
+                                            <td>@pbatch.ExpiryDate</td>
+                                            <td>@pbatch.ImportPrice</td>
+                                            <td>@pbatch.Quantity</td>
+
+                                            @{
+                                                int productName = Model.ProductId;
+                                                string productionDate = pbatch?.ManufactureDate?.ToString("ddMMyyyy");
+                                                string fileName = productName + "-" + productionDate;
+                                                string filePath = fileName + ".png";
+                                                
+                                                if (pbatch.Barcode == null)
+                                                {
+                                                    <p>@filePath 2</p>
+                                                    <img src="@Url.Action("GenerateQR", "AdminQR", new { data = fileName, fileName = filePath, batchID = productName });" />
+                                                    string url = Url.Content("~/AdminImages/Barcodes/" + filePath);
+                                                    <td>
+                                                        <div class="d-flex align-items-center">
+                                                            <img class="img-fluid rounded" src="@url" style="max-width: 60px" alt="">
+                                                        </div>
+                                                    </td>
+                                                }
+                                                else
+                                                {
+                                                    string imgFile = Url.Content("~/adminimages/barcodes/" + filePath);
+                                                    <td>
+                                                        <div class="d-flex align-items-center">
+                                                            <img class="img-fluid rounded" src="@imgFile" style="max-width: 60px" alt="">
+                                                        </div>
+                                                    </td>
+
+                                                }
+                                            }
+                                        </tr>
+                                        }
+                             
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Mô tả sản phẩm</h4>
+                    </div>
+                    <div class="card-body">
+                         @Html.DisplayFor(model => model.Description);
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="product-images">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            @foreach (var image in Model.ProductSubImages)
+                            {
+                                <div class="col-md-3">
+                                    <img class="img-fluid" src="@image.ImgUrl" alt="@Model.Name" />
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

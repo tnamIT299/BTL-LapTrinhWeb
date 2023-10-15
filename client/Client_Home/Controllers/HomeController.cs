@@ -1,5 +1,7 @@
-﻿using Client_Home.Models;
+﻿using Client_Home.Data;
+using Client_Home.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace Client_Home.Controllers
@@ -7,15 +9,17 @@ namespace Client_Home.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ConveniencestoreContext _context;
+        public HomeController(/*ILogger<HomeController> logger, */ConveniencestoreContext context)
         {
-            _logger = logger;
+            //_logger = logger;
+            _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var conveniencestoreContext = _context.Products.Include(p => p.Category).Include(p => p.Supplier);
+            return View(await conveniencestoreContext.ToListAsync());
         }
         public IActionResult Shop()
         {

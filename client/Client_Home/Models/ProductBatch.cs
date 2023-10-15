@@ -15,8 +15,6 @@ public partial class ProductBatch
 
     public DateTime? ExpiryDate { get; set; }
 
-    public decimal ImportPrice { get; set; }
-
     public int? Quantity { get; set; }
 
     public string? Barcode { get; set; }

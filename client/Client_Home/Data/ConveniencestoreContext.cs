@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Client_Home.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace Client_Home.Data;
@@ -52,10 +53,12 @@ public partial class ConveniencestoreContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server = .\\PHUHUYIT;Initial Catalog=CONVENIENCESTORE;Integrated Security=True; TrustServerCertificate=True");
+        => optionsBuilder.UseSqlServer("server=.\\SQLEXPRESS01;database=CONVENIENCESTORE;Encrypt=False;Integrated Security=true;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.UseCollation("Latin1_General_CI_AS");
+
         modelBuilder.Entity<Account>(entity =>
         {
             entity.HasKey(e => e.Accountid).HasName("PK__ACCOUNTS__1F64FDFCD3B51490");
@@ -180,6 +183,9 @@ public partial class ConveniencestoreContext : DbContext
                 .HasColumnType("datetime")
                 .HasColumnName("createdDate");
             entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
+            entity.Property(e => e.DeliveryCost)
+                .HasColumnType("decimal(10, 2)")
+                .HasColumnName("deliveryCost");
             entity.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
             entity.Property(e => e.PaymentId).HasColumnName("PaymentID");
             entity.Property(e => e.ShippingId).HasColumnName("ShippingID");
@@ -290,6 +296,9 @@ public partial class ConveniencestoreContext : DbContext
             entity.Property(e => e.HomeFlag)
                 .HasDefaultValueSql("((0))")
                 .HasColumnName("homeFlag");
+            entity.Property(e => e.ImportPrice)
+                .HasColumnType("decimal(10, 0)")
+                .HasColumnName("importPrice");
             entity.Property(e => e.Name)
                 .HasMaxLength(100)
                 .IsUnicode(false)
@@ -330,9 +339,6 @@ public partial class ConveniencestoreContext : DbContext
                 .HasMaxLength(255)
                 .IsUnicode(false);
             entity.Property(e => e.ExpiryDate).HasColumnType("date");
-            entity.Property(e => e.ImportPrice)
-                .HasColumnType("decimal(10, 2)")
-                .HasColumnName("importPrice");
             entity.Property(e => e.ManufactureDate).HasColumnType("date");
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
 
@@ -378,6 +384,8 @@ public partial class ConveniencestoreContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PK__Salaries__3214EC27DC986AA3");
 
+            entity.ToTable(tb => tb.HasTrigger("trg_UpdateTotal"));
+
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.Bonus).HasColumnType("decimal(10, 2)");
             entity.Property(e => e.Deductions).HasColumnType("decimal(10, 2)");
@@ -398,7 +406,6 @@ public partial class ConveniencestoreContext : DbContext
             entity.ToTable("Shipping");
 
             entity.Property(e => e.ShippingId).HasColumnName("ShippingID");
-            entity.Property(e => e.Cost).HasColumnType("decimal(10, 2)");
             entity.Property(e => e.MethodName)
                 .HasMaxLength(100)
                 .IsUnicode(false);
@@ -464,6 +471,16 @@ public partial class ConveniencestoreContext : DbContext
         });
 
         OnModelCreatingPartial(modelBuilder);
+    }
+
+    internal object CreateAsync(IdentityRole identityRole)
+    {
+        throw new NotImplementedException();
+    }
+
+    internal object RoleExistsAsync(string? name)
+    {
+        throw new NotImplementedException();
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

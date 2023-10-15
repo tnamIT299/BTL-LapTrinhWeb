@@ -35,6 +35,8 @@ public partial class Product
 
     public DateTime? DateAdded { get; set; }
 
+    public decimal? ImportPrice { get; set; }
+
     public virtual Category? Category { get; set; }
 
     public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; } = new List<InvoiceDetail>();

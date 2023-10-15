@@ -11,9 +11,5 @@ public partial class Shipping
 
     public string? Provider { get; set; }
 
-    public decimal? Cost { get; set; }
-
-    public int? EstimatedDeliveryTime { get; set; }
-
     public virtual ICollection<Invoice> Invoices { get; set; } = new List<Invoice>();
 }

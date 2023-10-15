@@ -17,6 +17,7 @@ namespace Client_Home.Migrations.Conveniencestore
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .UseCollation("Latin1_General_CI_AS")
                 .HasAnnotation("ProductVersion", "7.0.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
@@ -30,6 +31,13 @@ namespace Client_Home.Migrations.Conveniencestore
                         .HasColumnName("ACCOUNTID");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Accountid"));
+
+                    b.Property<bool?>("Active")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasColumnName("active")
+                        .HasDefaultValueSql("((1))");
 
                     b.Property<DateTime?>("Createdate")
                         .HasColumnType("datetime")
@@ -69,9 +77,6 @@ namespace Client_Home.Migrations.Conveniencestore
                         .HasColumnType("nchar(10)")
                         .HasColumnName("SALT")
                         .IsFixedLength();
-
-                    b.Property<bool?>("active")
-                        .HasColumnType("bit");
 
                     b.HasKey("Accountid")
                         .HasName("PK__ACCOUNTS__1F64FDFCD3B51490");
@@ -117,10 +122,8 @@ namespace Client_Home.Migrations.Conveniencestore
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CustomerId"));
 
-                    b.Property<string>("Birthday")
-                        .HasMaxLength(255)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(255)")
+                    b.Property<DateTime?>("Birthday")
+                        .HasColumnType("date")
                         .HasColumnName("birthday");
 
                     b.Property<string>("Email")
@@ -233,16 +236,17 @@ namespace Client_Home.Migrations.Conveniencestore
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("InvoiceId"));
 
-                    b.Property<byte[]>("CreatedDate")
-                        .IsConcurrencyToken()
-                        .IsRequired()
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("rowversion")
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime")
                         .HasColumnName("createdDate");
 
                     b.Property<int?>("CustomerId")
                         .HasColumnType("int")
                         .HasColumnName("CustomerID");
+
+                    b.Property<decimal?>("DeliveryCost")
+                        .HasColumnType("decimal(10, 2)")
+                        .HasColumnName("deliveryCost");
 
                     b.Property<int?>("EmployeeId")
                         .HasColumnType("int")
@@ -410,11 +414,8 @@ namespace Client_Home.Migrations.Conveniencestore
                         .HasColumnType("int")
                         .HasColumnName("categoryID");
 
-                    b.Property<byte[]>("DateAdded")
-                        .IsConcurrencyToken()
-                        .IsRequired()
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("rowversion")
+                    b.Property<DateTime?>("DateAdded")
+                        .HasColumnType("date")
                         .HasColumnName("dateAdded");
 
                     b.Property<string>("Description")
@@ -437,11 +438,9 @@ namespace Client_Home.Migrations.Conveniencestore
                         .HasColumnName("homeFlag")
                         .HasDefaultValueSql("((0))");
 
-                    b.Property<string>("ImageUrl")
-                        .HasMaxLength(255)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(255)")
-                        .HasColumnName("imageUrl");
+                    b.Property<decimal?>("ImportPrice")
+                        .HasColumnType("decimal(10, 0)")
+                        .HasColumnName("importPrice");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -457,6 +456,12 @@ namespace Client_Home.Migrations.Conveniencestore
                     b.Property<int?>("SupplierId")
                         .HasColumnType("int")
                         .HasColumnName("SupplierID");
+
+                    b.Property<string>("ThumbnailUrl")
+                        .HasMaxLength(255)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(255)")
+                        .HasColumnName("thumbnailUrl");
 
                     b.Property<int>("TotalQuantity")
                         .HasColumnType("int")
@@ -501,10 +506,6 @@ namespace Client_Home.Migrations.Conveniencestore
                     b.Property<DateTime?>("ExpiryDate")
                         .HasColumnType("date");
 
-                    b.Property<decimal>("ImportPrice")
-                        .HasColumnType("decimal(10, 2)")
-                        .HasColumnName("importPrice");
-
                     b.Property<DateTime?>("ManufactureDate")
                         .HasColumnType("date");
 
@@ -521,6 +522,33 @@ namespace Client_Home.Migrations.Conveniencestore
                     b.HasIndex("ProductId");
 
                     b.ToTable("ProductBatches");
+                });
+
+            modelBuilder.Entity("Client_Home.Models.ProductSubImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("ID");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ImgUrl")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("imgUrl");
+
+                    b.Property<int?>("ProductId")
+                        .HasColumnType("int")
+                        .HasColumnName("productID");
+
+                    b.HasKey("Id")
+                        .HasName("PK__productS__3214EC2730036022");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("productSubImage", (string)null);
                 });
 
             modelBuilder.Entity("Client_Home.Models.Role", b =>
@@ -584,7 +612,10 @@ namespace Client_Home.Migrations.Conveniencestore
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("Salaries");
+                    b.ToTable("Salaries", t =>
+                        {
+                            t.HasTrigger("trg_UpdateTotal");
+                        });
                 });
 
             modelBuilder.Entity("Client_Home.Models.Shipping", b =>
@@ -595,12 +626,6 @@ namespace Client_Home.Migrations.Conveniencestore
                         .HasColumnName("ShippingID");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShippingId"));
-
-                    b.Property<decimal?>("Cost")
-                        .HasColumnType("decimal(10, 2)");
-
-                    b.Property<int?>("EstimatedDeliveryTime")
-                        .HasColumnType("int");
 
                     b.Property<string>("MethodName")
                         .HasMaxLength(100)
@@ -813,6 +838,16 @@ namespace Client_Home.Migrations.Conveniencestore
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("Client_Home.Models.ProductSubImage", b =>
+                {
+                    b.HasOne("Client_Home.Models.Product", "Product")
+                        .WithMany("ProductSubImages")
+                        .HasForeignKey("ProductId")
+                        .HasConstraintName("FK__productSu__produ__160F4887");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("Client_Home.Models.Salary", b =>
                 {
                     b.HasOne("Client_Home.Models.Employee", "Employee")
@@ -869,6 +904,8 @@ namespace Client_Home.Migrations.Conveniencestore
                     b.Navigation("InvoiceDetails");
 
                     b.Navigation("ProductBatches");
+
+                    b.Navigation("ProductSubImages");
                 });
 
             modelBuilder.Entity("Client_Home.Models.Role", b =>

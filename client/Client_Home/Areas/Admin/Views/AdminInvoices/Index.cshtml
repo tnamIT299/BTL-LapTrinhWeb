@@ -1,41 +1,54 @@
-﻿@model IEnumerable<Client_Home.Models.Invoice>
-
+﻿@using PagedList.Core.Mvc
+@model PagedList.Core.IPagedList<Client_Home.Models.Invoice>
 @{
+    int CurrentPage = ViewBag.CurrentPage;
     ViewData["Title"] = "Danh sách hóa đơn";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 <div class="main-content">
     <div class="page-header">
-        <h2 class="header-title">Danh sách hóa đơn</h2>
+        <h2 class="header-title">Quản lý hóa đơn</h2>
         <div class="header-sub-title">
             <nav class="breadcrumb breadcrumb-dash">
                 <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
-                <a class="breadcrumb-item" href="#">Quản lý hóa đơn</a>
-                <span class="breadcrumb-item active">Danh sách hóa đơn</span>
+                <span class="breadcrumb-item active">Quản lý hóa đơn : page @CurrentPage</span>
             </nav>
         </div>
     </div>
     <div class="card">
         <div class="card-body">
             <div class="row m-b-30">
-                <div class="col-lg-6">
+                <div class="col-lg-7">
                     <div class="d-md-flex">
+                        <div class="m-b-10 m-r-15">
+                            <select class="custom-select" style="min-width: 200px;">
+                                <option selected>Catergory</option>
+                                <option value="all">All</option>
+                                <option value="homeDeco">Home Decoration</option>
+                                <option value="eletronic">Eletronic</option>
+                                <option value="jewellery">Jewellery</option>
+                            </select>
+                        </div>
                         <div class="m-b-10">
-                            <h3>Danh sách hóa đơn</h3>
+                            <select class="custom-select" style="min-width: 200px;">
+                                <option selected>Status</option>
+                                <option value="all">All</option>
+                                <option value="inStock">In Stock </option>
+                                <option value="outOfStock">Out of Stock</option>
+                            </select>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 text-right">
-
-                    <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Export">
+                <div class="col-lg-2 text-right">
+                    <a asp-area="Admin" asp-controller="AdminInvoices" asp-action="ExportToExcel">
                         <button class="btn btn-primary">
                             <i class="anticon anticon-file-excel m-r-5"></i>
-                            <span>Xuất file Excel</span>
+                            <span>Xuất file excel</span>
                         </button>
                     </a>
                 </div>
                 <div class="col-lg-3 text-right">
-                    <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Create">
+                    <a asp-area="Admin" asp-controller="AdminInvoices" asp-action="Create">
                         <button class="btn btn-primary">
                             <i class="anticon anticon-plus-circle m-r-5"></i>
                             <span>Thêm hóa đơn</span>
@@ -48,19 +61,13 @@
                     <thead>
                         <tr>
                             <th>
-                                <div class="checkbox">
-                                    <input id="checkAll" type="checkbox">
-                                    <label for="checkAll" class="m-b-0"></label>
-                                </div>
-                            </th>
-                            <th>
                                 Số hóa đơn
                             </th>
                             <th>
                                 Tên khách hàng
                             </th>
                             <th>
-                                Tên nhân viên 
+                                Tên nhân viên
                             </th>
                             <th>
                                 Ngày tạo
@@ -75,38 +82,32 @@
                         </tr>
                     </thead>
                     <tbody>
-
-                        @if (Model != null)
-                        {
-                            int i = 1;
-                            @foreach (var item in Model)
+                        <tr>
+                            @if (Model != null)
                             {
+                                int i = 1;
+                                @foreach (var item in Model)
+                                {
                                 <tr>
+
                                     <td>
-                                        <div class="checkbox">
-                                            <input id="@("check-item-" + i)" type="checkbox">
-                                            <label for="@("check-item-" + i)" class="m-b-0"></label>
-                                        </div>
+                                            @Html.DisplayFor(modelItem => item.InvoiceId)
+                                    </td>
+                                    <td>
+                                            @Html.DisplayFor(modelItem => item.Customer.LastName)
+                                    </td>
+                                    <td>
+                                            @Html.DisplayFor(modelItem => item.Employee.LastName)
+                                    </td>
+                                    <td>
+                                            @Html.DisplayFor(modelItem => item.CreatedDate)
+                                    </td>
+                                    <td>
+                                            @Html.DisplayFor(modelItem => item.Status)
                                     </td>
 
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.InvoiceId)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Customer.LastName)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Employee.LastName)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.CreatedDate)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Status)
-                                    </td>
-
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.TotalAmount)
+                                            @Html.DisplayFor(modelItem => item.TotalAmount)
                                     </td>
 
                                     <td class="text-right">
@@ -127,12 +128,18 @@
                                         </a>
                                     </td>
                                 </tr>
-                                i++;
+                                    i++;
+                                }
                             }
-                        }
-
+                        </tr>
                     </tbody>
                 </table>
+                <div aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <pager class="page-container" list="@Model" asp-area="Admin" asp-controller="AdminInvoices" asp-action="Index"></pager>
+                    </ul>
+
+                </div>
             </div>
         </div>
     </div>

@@ -22,4 +22,5 @@ public partial class Supplier
     public string? Phone { get; set; }
 
     public virtual ICollection<Product> Products { get; set; } = new List<Product>();
+    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 }

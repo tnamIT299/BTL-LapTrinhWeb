@@ -9,8 +9,6 @@ public partial class ProductBatch
 
     public int ProductId { get; set; }
 
-    public string? BatchNumber { get; set; }
-
     public DateTime? ManufactureDate { get; set; }
 
     public DateTime? ExpiryDate { get; set; }
@@ -18,6 +16,10 @@ public partial class ProductBatch
     public int? Quantity { get; set; }
 
     public string? Barcode { get; set; }
+
+    public decimal? ImportPrice { get; set; }
+
+    public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; } = new List<InvoiceDetail>();
 
     public virtual Product Product { get; set; } = null!;
 }

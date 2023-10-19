@@ -30,4 +30,6 @@ public partial class Employee
     public virtual ICollection<Invoice> Invoices { get; set; } = new List<Invoice>();
 
     public virtual ICollection<Salary> Salaries { get; set; } = new List<Salary>();
+
+    public virtual User? User { get; set; }
 }

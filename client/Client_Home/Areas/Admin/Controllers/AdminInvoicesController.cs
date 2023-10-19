@@ -21,10 +21,14 @@ namespace Client_Home.Areas.Admin.Controllers
         }
 
         // GET: Admin/AdminInvoices
-        public async Task<IActionResult> Index()
+        public IActionResult Index(int? page)
         {
-            var conveniencestoreContext = _context.Invoices.Include(i => i.Customer).Include(i => i.Employee).Include(i => i.Payment).Include(i => i.Shipping);
-            return View(await conveniencestoreContext.ToListAsync());
+            var pageNumber = page == null || page <= 0 ? 1 : page.Value;
+            var pageSize = 50;
+            var isInvoice = _context.Invoices.Include(i => i.Customer).Include(i => i.Employee).AsNoTracking().OrderByDescending(x => x.InvoiceId);
+            PagedList.Core.IPagedList<Invoice> models = new PagedList.Core.PagedList<Invoice>(isInvoice, pageNumber, pageSize);
+            ViewBag.CurrentPage = pageNumber;
+            return View(models);
         }
 
         // GET: Admin/AdminInvoices/Details/5
@@ -41,6 +45,7 @@ namespace Client_Home.Areas.Admin.Controllers
                 .Include(i => i.Payment)
                 .Include(i => i.Shipping)
                 .Include(i => i.InvoiceDetails)
+                .ThenInclude(id => id.ProductBatch)
                 .ThenInclude(id => id.Product)
                 .FirstOrDefaultAsync(m => m.InvoiceId == id);
             if (invoice == null)

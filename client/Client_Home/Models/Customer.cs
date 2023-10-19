@@ -19,13 +19,15 @@ public partial class Customer
 
     public int? RewardPoints { get; set; }
 
-    public string? Rank { get; set; }
-
-    public bool? Gender { get; set; }
+    public int? Rank { get; set; }
 
     public int? UserId { get; set; }
+
+    public bool? Gender { get; set; }
 
     public virtual ICollection<Invoice> Invoices { get; set; } = new List<Invoice>();
 
     public virtual ICollection<ShippingLocation> ShippingLocations { get; set; } = new List<ShippingLocation>();
+
+    public virtual User? User { get; set; }
 }

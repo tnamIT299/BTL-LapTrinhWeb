@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "9qQ0uL/P5YHVnAlpZfJvy7kCmojzAPKjRJ2uMAITJztQ6aSPHafywmwDlSVa93rMaEscyz2dwQIzQpFUmLiSLw==",
+  "dgSpecHash": "54WJsrF0UpMWfQbHC49Chy+3eheuPbzN5fJD9lYJLAmJK6WoVk+8bTplqkX39jzBDTcKhJsDNhwdT0getBxsPw==",
   "success": true,
   "projectFilePath": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\Client_Home.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\admin\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\bouncycastle\\1.8.9\\bouncycastle.1.8.9.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\chart.js\\3.7.1\\chart.js.3.7.1.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\closedxml\\0.102.1\\closedxml.0.102.1.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\documentformat.openxml\\2.16.0\\documentformat.openxml.2.16.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\excelnumberformat\\1.1.0\\excelnumberformat.1.1.0.nupkg.sha512",

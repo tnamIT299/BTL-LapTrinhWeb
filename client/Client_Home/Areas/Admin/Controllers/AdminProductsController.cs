@@ -84,6 +84,7 @@ namespace Client_Home.Areas.Admin.Controllers
             ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierId", product.SupplierId);
             return View(product);
         }
+        [HttpPost]
 
         // GET: Admin/AdminProducts/Edit/5
         public async Task<IActionResult> Edit(int? id)

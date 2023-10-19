@@ -20,4 +20,6 @@ public partial class ShippingLocation
     public bool? IsDefault { get; set; }
 
     public virtual Customer? Customer { get; set; }
+
+    public virtual ICollection<Shipping> Shippings { get; set; } = new List<Shipping>();
 }

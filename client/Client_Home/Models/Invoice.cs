@@ -21,6 +21,8 @@ public partial class Invoice
 
     public DateTime? CreatedDate { get; set; }
 
+    public decimal? DeliveryCost { get; set; }
+
     public virtual Customer? Customer { get; set; }
 
     public virtual Employee? Employee { get; set; }

@@ -9,61 +9,127 @@
 
 <h4>Product</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+<link href="assets/css/app.min.css" rel="stylesheet">
+<div class="main-content">
+    <form>
+        <div class="page-header no-gutters has-tab">
+            <div class="d-md-flex m-b-15 align-items-center justify-content-between">
+                <div class="media align-items-center m-b-15">
+                    <div class="avatar avatar-image rounded" style="height: 70px; width: 70px">
+                        <img src="assets/images/others/thumb-16.jpg" alt="">
+                    </div>
+                    <div class="m-l-15">
+                        <h4 class="m-b-0">Skinny Men Blazer</h4>
+                        <p class="text-muted m-b-0">Code: #5325</p>
+                    </div>
+                </div>
+                <div class="m-b-15">
+                    <button class="btn btn-primary">
+                        <i class="anticon anticon-save"></i>
+                        <span>Save</span>
+                    </button>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#product-edit-basic">Basic Info</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#product-edit-option">Option Info</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#product-edit-description">Description</a>
+                </li>
+            </ul>
+        </div>
+        <div class="tab-content m-t-15">
+            <div class="tab-pane fade show active" id="product-edit-basic">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label class="font-weight-semibold" for="productName">Product Name</label>
+                            <input type="text" class="form-control" id="productName" placeholder="Product Name" value="Skinny Men Blazer">
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-semibold" for="productPrice">Price</label>
+                            <input type="text" class="form-control" id="productPrice" placeholder="Price" value="$ 199">
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-semibold" for="productCategory">Category</label>
+                            <select class="custom-select" id="productCategory">
+                                <option value="cloths" selected>Cloths</option>
+                                <option value="homeDecoration">Home Decoration</option>
+                                <option value="eletronic">Eletronic</option>
+                                <option value="jewellery">Jewellery</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-semibold" for="productBrand">Brand</label>
+                            <input type="text" class="form-control" id="productBrand" placeholder="Brand" value="H&M">
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-semibold" for="productStatus">Status</label>
+                            <select class="custom-select" id="productStatus">
+                                <option value="inStock" selected>In Stock</option>
+                                <option value="outOfStock">Out of Stock</option>
+                                <option value="pending">Pending</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="SellPrice" class="control-label"></label>
-                <input asp-for="SellPrice" class="form-control" />
-                <span asp-validation-for="SellPrice" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TotalQuantity" class="control-label"></label>
-                <input asp-for="TotalQuantity" class="form-control" />
-                <span asp-validation-for="TotalQuantity" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CategoryId" class="control-label"></label>
-                <select asp-for="CategoryId" class ="form-control" asp-items="ViewBag.CategoryId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="ThumbnailUrl" class="control-label"></label>
-                <input asp-for="ThumbnailUrl" class="form-control" />
-                <span asp-validation-for="ThumbnailUrl" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="VideoUrl" class="control-label"></label>
-                <input asp-for="VideoUrl" class="form-control" />
-                <span asp-validation-for="VideoUrl" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Discount" class="control-label"></label>
-                <input asp-for="Discount" class="form-control" />
-                <span asp-validation-for="Discount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SupplierId" class="control-label"></label>
-                <select asp-for="SupplierId" class ="form-control" asp-items="ViewBag.SupplierId"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+            <div class="tab-pane fade" id="product-edit-option">
+                <div class="card">
+                    <div class="card-body">
+                        @* Up load file*@
+                        <label for="input-25">Planets and Satellites</label>
+                        <div class="file-loading">
+                            <input id="input-25" name="input25[]" type="file" multiple>
+                        </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+                        <div class="form-group">
+                            <label class="font-weight-semibold" for="productColors">Colors</label>
+                            <select class="select2" id="productColors" multiple="multiple">
+                                <option value="db" selected>Dark Blue</option>
+                                <option value="g" selected>Gray</option>
+                                <option value="gb" selected>Gray Blue</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-semibold" for="productFit">Fit</label>
+                            <select class="custom-select" id="productFit">
+                                <option value="skinny" selected>Skinny</option>
+                                <option value="slim">Slim</option>
+                                <option value="regular">Regular</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-semibold" for="productMaterial">Material</label>
+                            <select class="select2" id="productMaterial" multiple="multiple">
+                                <option value="polyester" selected>Polyester</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-semibold" for="productShip">Ship From</label>
+                            <select class="custom-select" id="productShip">
+                                <option value="columbia" selected>Columbia</option>
+                                <option value="brazil">Brazil</option>
+                                <option value="chile">Chile</option>
+                                <option value="argentina">Argentina</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="product-edit-description">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="productDescription">
+                            <p>Special cloth alert. The key to more success is to have a lot of pillows. Surround yourself with angels, positive energy, beautiful people, beautiful souls, clean heart, angel. They will try to close the door on you, just open it. A major key, never panic. Don’t panic, when it gets crazy and rough, don’t panic, stay calm. They key is to have every key, the key to open every door.The other day the grass was brown, now it’s green because I ain’t give up. Never surrender. Lion! I’m up to something. Always remember in the jungle there’s a lot of they in there, after you overcome they, you will make it to paradise.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
-

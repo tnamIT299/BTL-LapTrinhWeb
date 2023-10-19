@@ -7,13 +7,19 @@ public partial class Shipping
 {
     public int ShippingId { get; set; }
 
-    public string? MethodName { get; set; }
+    public DateTime? ExpectedDate { get; set; }
 
-    public string? Provider { get; set; }
+    public string? TimeSlot { get; set; }
 
-    public decimal? Cost { get; set; }
+    public DateTime? CompleteTime { get; set; }
 
-    public int? EstimatedDeliveryTime { get; set; }
+    public decimal? ShippingCost { get; set; }
+
+    public string? ShipperName { get; set; }
+
+    public int? LocationId { get; set; }
 
     public virtual ICollection<Invoice> Invoices { get; set; } = new List<Invoice>();
+
+    public virtual ShippingLocation? Location { get; set; }
 }

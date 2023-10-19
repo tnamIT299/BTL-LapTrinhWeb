@@ -13,17 +13,17 @@ using ClosedXML.Excel;
 namespace Client_Home.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class AdminAccountsController : Controller
+    public class AdminUsersController : Controller
     {
         private readonly ConveniencestoreContext _context;
         public INotyfService _notifyService { get; }
-        public AdminAccountsController(ConveniencestoreContext context, INotyfService notifyService)
+        public AdminUsersController(ConveniencestoreContext context, INotyfService notifyService)
         {
             _context = context;
             _notifyService = notifyService;
         }
 
-        // GET: Admin/AdminAccounts
+        // GET: Admin/AdminUsers
         public async Task<IActionResult> Index()
         {
             ViewData["QuyenTruyCap"] = new SelectList(_context.Roles, "Roleid", "Description");
@@ -33,78 +33,78 @@ namespace Client_Home.Areas.Admin.Controllers
             status.Add(new SelectListItem() { Text = "Block", Value = "0" });
             ViewData["isStatus"] = status;
 
-            var conveniencestoreContext = _context.Accounts.Include(a => a.Role);
+            var conveniencestoreContext = _context.Users.Include(a => a.Role);
             return View(await conveniencestoreContext.ToListAsync());
         }
 
-        // GET: Admin/AdminAccounts/Details/5
+        // GET: Admin/AdminUsers/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Accounts == null)
+            if (id == null || _context.Users == null)
             {
                 return NotFound();
             }
 
-            var account = await _context.Accounts
+            var user = await _context.Users
                 .Include(a => a.Role)
-                .FirstOrDefaultAsync(m => m.Accountid == id);
-            if (account == null)
+                .FirstOrDefaultAsync(m => m.UserId == id);
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return View(account);
+            return View(user);
         }
 
-        // GET: Admin/AdminAccounts/Create
+        // GET: Admin/AdminUsers/Create
         public IActionResult Create()
         {
             ViewData["Roleid"] = new SelectList(_context.Roles, "Roleid", "Roleid");
             return View();
         }
 
-        // POST: Admin/AdminAccounts/Create
+        // POST: Admin/AdminUsers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Accountid,Phone,Email,Password,Salt,Fullname,Roleid,Lastlogin,Createdate")] Account account)
+        public async Task<IActionResult> Create([Bind("UserId,Phone,Email,Password,Salt,Fullname,Roleid,Lastlogin,Createdate")] User user)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(account);
+                _context.Add(user);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Roleid"] = new SelectList(_context.Roles, "Roleid", "Roleid", account.Roleid);
-            return View(account);
+            ViewData["Roleid"] = new SelectList(_context.Roles, "Roleid", "Roleid", user.Roleid);
+            return View(user);
         }
 
-        // GET: Admin/AdminAccounts/Edit/5
+        // GET: Admin/AdminUsers/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Accounts == null)
+            if (id == null || _context.Users == null)
             {
                 return NotFound();
             }
 
-            var account = await _context.Accounts.FindAsync(id);
-            if (account == null)
+            var user = await _context.Users.FindAsync(id);
+            if (user == null)
             {
                 return NotFound();
             }
-            ViewData["Roleid"] = new SelectList(_context.Roles, "Roleid", "Roleid", account.Roleid);
-            return View(account);
+            ViewData["Roleid"] = new SelectList(_context.Roles, "Roleid", "Roleid", user.Roleid);
+            return View(user);
         }
 
-        // POST: Admin/AdminAccounts/Edit/5
+        // POST: Admin/AdminUsers/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Accountid,Phone,Email,Password,Salt,Fullname,Roleid,Lastlogin,Createdate")] Account account)
+        public async Task<IActionResult> Edit(int id, [Bind("UserId,Phone,Email,Password,Salt,Fullname,Roleid,Lastlogin,Createdate")] User user)
         {
-            if (id != account.Accountid)
+            if (id != user.UserId)
             {
                 return NotFound();
             }
@@ -113,12 +113,12 @@ namespace Client_Home.Areas.Admin.Controllers
             {
                 try
                 {
-                    _context.Update(account);
+                    _context.Update(user);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AccountExists(account.Accountid))
+                    if (!userExists(user.UserId))
                     {
                         return NotFound();
                     }
@@ -129,60 +129,60 @@ namespace Client_Home.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Roleid"] = new SelectList(_context.Roles, "Roleid", "Roleid", account.Roleid);
-            return View(account);
+            ViewData["Roleid"] = new SelectList(_context.Roles, "Roleid", "Roleid", user.Roleid);
+            return View(user);
         }
 
-        // GET: Admin/AdminAccounts/Delete/5
+        // GET: Admin/AdminUsers/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Accounts == null)
+            if (id == null || _context.Users == null)
             {
                 return NotFound();
             }
 
-            var account = await _context.Accounts
+            var user = await _context.Users
                 .Include(a => a.Role)
-                .FirstOrDefaultAsync(m => m.Accountid == id);
-            if (account == null)
+                .FirstOrDefaultAsync(m => m.UserId == id);
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return View(account);
+            return View(user);
         }
 
-        // POST: Admin/AdminAccounts/Delete/5
+        // POST: Admin/AdminUsers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Accounts == null)
+            if (_context.Users == null)
             {
-                return Problem("Entity set 'ConveniencestoreContext.Accounts'  is null.");
+                return Problem("Entity set 'ConveniencestoreContext.Users'  is null.");
             }
-            var account = await _context.Accounts.FindAsync(id);
-            if (account != null)
+            var user = await _context.Users.FindAsync(id);
+            if (user != null)
             {
-                _context.Accounts.Remove(account);
+                _context.Users.Remove(user);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool AccountExists(int id)
+        private bool userExists(int id)
         {
-          return (_context.Accounts?.Any(e => e.Accountid == id)).GetValueOrDefault();
+          return (_context.Users?.Any(e => e.UserId == id)).GetValueOrDefault();
         }
-        // GET: Admin/AdminAccounts/ExportToExcel
+        // GET: Admin/AdminUsers/ExportToExcel
         public async Task<IActionResult> ExportToExcel()
         {
             using (var workbook = new XLWorkbook())
             {
-                var worksheet = workbook.Worksheets.Add("Accounts");
+                var worksheet = workbook.Worksheets.Add("Users");
                 var currentRow = 1;
-                worksheet.Cell(currentRow, 1).Value = "Accountid";
+                worksheet.Cell(currentRow, 1).Value = "UserId";
                 worksheet.Cell(currentRow, 2).Value = "Fullname";
                 worksheet.Cell(currentRow, 3).Value = "Phone";
                 worksheet.Cell(currentRow, 4).Value = "Email";
@@ -193,21 +193,21 @@ namespace Client_Home.Areas.Admin.Controllers
                 worksheet.Cell(currentRow, 9).Value = "Lastlogin";
                 worksheet.Cell(currentRow, 10).Value = "Createdate";
 
-                if (_context.Accounts != null)
+                if (_context.Users != null)
                 {
-                    foreach (var account in await _context.Accounts.ToListAsync())
+                    foreach (var user in await _context.Users.ToListAsync())
                     {
                         currentRow++;
-                        worksheet.Cell(currentRow, 1).Value = account.Accountid;
-                        worksheet.Cell(currentRow, 2).Value = account.Fullname;
-                        worksheet.Cell(currentRow, 3).Value = account.Phone;
-                        worksheet.Cell(currentRow, 4).Value = account.Email;
-                        worksheet.Cell(currentRow, 5).Value = account.Password;
-                        worksheet.Cell(currentRow, 6).Value = account.Salt;
-                        worksheet.Cell(currentRow, 7).Value = (XLCellValue)account.Active;
-                        worksheet.Cell(currentRow, 8).Value = account.Roleid;
-                        worksheet.Cell(currentRow, 9).Value = account.Lastlogin;
-                        worksheet.Cell(currentRow, 10).Value = account.Createdate;
+                        worksheet.Cell(currentRow, 1).Value = user.UserId;
+                        worksheet.Cell(currentRow, 2).Value = user.Fullname;
+                        worksheet.Cell(currentRow, 3).Value = user.Phone;
+                        worksheet.Cell(currentRow, 4).Value = user.Email;
+                        worksheet.Cell(currentRow, 5).Value = user.Password;
+                        worksheet.Cell(currentRow, 6).Value = user.Salt;
+                        worksheet.Cell(currentRow, 7).Value = (XLCellValue)user.Active;
+                        worksheet.Cell(currentRow, 8).Value = user.Roleid;
+                        worksheet.Cell(currentRow, 9).Value = user.Lastlogin;
+                        worksheet.Cell(currentRow, 10).Value = user.Createdate;
 
                     }
                 }
@@ -220,7 +220,7 @@ namespace Client_Home.Areas.Admin.Controllers
                     return File(
                         content,
                         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                        "Accounts.xlsx");
+                        "Users.xlsx");
                 }
             }
         }

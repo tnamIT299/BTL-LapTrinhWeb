@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "vKhVshXDUVRYM9sGGOLQicLIzcmat6+qjKUX4woIHLLjemJkOpiOV2NmgYqF1tR5FQYVIJ3yB6wxSMx5ntg/4w==",
+  "dgSpecHash": "b3zvrll4eOTM7j4Ns6F/WTlKim5t1msZF9btrKesDVrHcVTVt9b7hSCNlxD67Uwk5lP5GDtB9RS3Fb2m7IZfWQ==",
   "success": true,
   "projectFilePath": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\Client_Home.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\huypro\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\huypro\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\huypro\\.nuget\\packages\\bouncycastle\\1.8.9\\bouncycastle.1.8.9.nupkg.sha512",
+    "C:\\Users\\huypro\\.nuget\\packages\\chart.js\\3.7.1\\chart.js.3.7.1.nupkg.sha512",
     "C:\\Users\\huypro\\.nuget\\packages\\closedxml\\0.102.1\\closedxml.0.102.1.nupkg.sha512",
     "C:\\Users\\huypro\\.nuget\\packages\\documentformat.openxml\\2.16.0\\documentformat.openxml.2.16.0.nupkg.sha512",
     "C:\\Users\\huypro\\.nuget\\packages\\excelnumberformat\\1.1.0\\excelnumberformat.1.1.0.nupkg.sha512",

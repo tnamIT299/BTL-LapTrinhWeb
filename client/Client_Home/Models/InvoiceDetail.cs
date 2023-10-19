@@ -9,7 +9,7 @@ public partial class InvoiceDetail
 
     public int? InvoiceId { get; set; }
 
-    public int? ProductId { get; set; }
+    public int? ProductBatchId { get; set; }
 
     public int? Quantity { get; set; }
 
@@ -17,5 +17,5 @@ public partial class InvoiceDetail
 
     public virtual Invoice? Invoice { get; set; }
 
-    public virtual Product? Product { get; set; }
+    public virtual ProductBatch? ProductBatch { get; set; }
 }

@@ -12,4 +12,8 @@ public partial class Order
     public DateTime OrderDate { get; set; }
 
     public decimal? TotalAmount { get; set; }
+
+    public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
+
+    public virtual Supplier Supplier { get; set; } = null!;
 }

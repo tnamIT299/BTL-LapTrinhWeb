@@ -1,16 +1,13 @@
 ﻿using Client_Home.Models;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Client_Home.Data
 {
-    public class ApplicationDbcontext : IdentityDbContext
+    public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbcontext(DbContextOptions<ApplicationDbcontext> options) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-
         }
-        public DbSet<SalesLeadEntity> SalesLead { get; set;}
-        public DbSet<ApplicationUser> ApplicationUser { get; set;}
+        public DbSet<SalesLeadEntity> SalesLeadEntities { get; set;}
     }
 }

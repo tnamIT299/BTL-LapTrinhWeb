@@ -6,8 +6,14 @@ using AspNetCoreHero.ToastNotification;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 // Add services to the container.
-//builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("dbCONVENIENCESTORE")));
 builder.Services.AddDbContext<ConveniencestoreContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("dbCONVENIENCESTORE")));
+//builder.Services.AddDefaultIdentity<IdentityUser>().AddDefaultTokenProviders()
+ //   .AddRoles<IdentityRole>()
+ //   .AddEntityFrameworkStores<ApplicationDbContext>();
     options.UseSqlServer(builder.Configuration.GetConnectionString("dbCONVENIENCESTORE")));
 builder.Services.AddDefaultIdentity<IdentityUser>().AddDefaultTokenProviders()
     .AddRoles<IdentityRole>()

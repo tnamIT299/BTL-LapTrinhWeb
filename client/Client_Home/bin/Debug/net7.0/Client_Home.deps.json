@@ -48,6 +48,7 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "7.0.10",
           "PagedList": "1.17.0",
           "PagedList.Core.Mvc": "3.0.0",
+          "PagedList.Mvc": "4.5.0",
           "QRCoder": "1.4.3",
           "X.PagedList": "8.4.7",
           "X.PagedList.Mvc.Core": "8.4.7",
@@ -2453,6 +2454,20 @@
         },
         "compile": {
           "lib/netcoreapp3.0/PagedList.Core.Mvc.dll": {}
+        }
+      },
+      "PagedList.Mvc/4.5.0": {
+        "dependencies": {
+          "PagedList": "1.17.0"
+        },
+        "runtime": {
+          "lib/net40/PagedList.Mvc.dll": {
+            "assemblyVersion": "4.5.0.0",
+            "fileVersion": "4.5.0.0"
+          }
+        },
+        "compile": {
+          "lib/net40/PagedList.Mvc.dll": {}
         }
       },
       "QRCoder/1.4.3": {
@@ -6177,6 +6192,13 @@
       "sha512": "sha512-cfMopTUyfyDcZ/HL58w9DWmlb6M9yYYaJ0i3c1j8bGeZCHRyfX3Y5rDnPa1olFdqJmh8sRIx2aKMczGe++E9sA==",
       "path": "pagedlist.core.mvc/3.0.0",
       "hashPath": "pagedlist.core.mvc.3.0.0.nupkg.sha512"
+    },
+    "PagedList.Mvc/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-D0M4qW2g4a9cwG8ozIKUnJheCrm5GpFTceqUl63AXWaAVnTgk+TysZYUOGMsBRuzid8aF+/E8b0bXM6+90jiEw==",
+      "path": "pagedlist.mvc/4.5.0",
+      "hashPath": "pagedlist.mvc.4.5.0.nupkg.sha512"
     },
     "QRCoder/1.4.3": {
       "type": "package",

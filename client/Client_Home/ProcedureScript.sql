@@ -129,7 +129,7 @@ BEGIN
     SET NOCOUNT ON;
 
     SELECT
-        *--SUM(i.TotalAmount ) - SUM(id.Quantity * (pb.importPrice)) - SUM(s.Total) as LoiNhuan
+        SUM(i.TotalAmount ) - SUM(id.Quantity * (pb.importPrice)) - SUM(s.Total) as LoiNhuan
     FROM
         Invoices i
     JOIN

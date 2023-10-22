@@ -12,46 +12,7 @@
 <body>
     <div class="humberger__menu__overlay"></div>
     <header class="header">
-        <div class="header__top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="header__top__left">
-                            <ul>
-                                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                                <li>Free Shipping for all Order of $99</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="header__top__right">
-                            <div class="header__top__right__social">
-                                <a class="nav-link text-dark" asp-controller="Leads" asp-action="Index">Sales Lead</a>
-                            </div>
-                            <div class="header__top__right__social">
-                                <a class="nav-link text-dark" asp-controller="AppRoles" asp-action="Index">Roles</a>
-                            </div>
-                            <div class="header__top__right__social">
-                                <a class="nav-link text-dark" asp-area="Admin" asp-controller="Home" asp-action="Index">Chỗ bố m vào giao diện admin</a>
-                            </div>
-                            <partial name="_LoginPartial"></partial>
-                            <div class="header__top__right__language">
-                                <img src="/img/language.png" alt="">
-                                <div>English</div>
-                                <span class="arrow_carrot-down"></span>
-                                <ul>
-                                    <li><a href="#">English</a></li>
-                                    <li><a href="#">Vietnamese</a></li>
-                                </ul>
-                            </div>
-                            <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> Login</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
@@ -83,8 +44,10 @@
                         <ul>
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                             @await Component.InvokeAsync("CartWidget")
+                            <li><a class="login" href="#">Login</a></li>
+                            <li class="register__li"><a class="register" href="#">Register</a></li>
                         </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
+                        
                     </div>
                 </div>
             </div>

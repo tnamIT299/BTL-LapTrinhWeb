@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 using Client_Home.Data;
 using Client_Home.Models;
 using ClosedXML.Excel;
-using AspNetCoreHero.ToastNotification.Abstractions;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
@@ -16,25 +15,17 @@ namespace Client_Home.Areas.Admin.Controllers
     public class AdminProductsController : Controller
     {
         private readonly ConveniencestoreContext _context;
-        public INotyfService _notifyService { get; }
-        public AdminProductsController(ConveniencestoreContext context, INotyfService notifyService)
+
+        public AdminProductsController(ConveniencestoreContext context)
         {
             _context = context;
-            _notifyService = notifyService;
         }
 
         // GET: Admin/AdminProducts
-        public async Task<IActionResult> Index(int? page)
+        public async Task<IActionResult> Index()
         {
-            //var pageNumber = page == null || page <= 0 ? 1 : page.Value;
-            //var pageSize = 10;
-            //var isProduct = _context.Products.Include(p => p.Category).Include(p=>p.Supplier).AsNoTracking().OrderByDescending(x => x.Name);
-            //PagedList.Core.IPagedList<Product> models = new PagedList.Core.PagedList<Product>(isProduct, pageNumber, pageSize);
-            //ViewBag.CurrentPage = pageNumber;
-            //return View(models);
-            return _context.Products != null ?
-                         View(await _context.Products.Include(p =>p.Category).Include(p => p.Supplier).ToListAsync()) :
-                         Problem("Entity set 'ConveniencestoreContext.Products'  is null.");
+            var conveniencestoreContext = _context.Products.Include(p => p.Category).Include(p => p.Supplier);
+            return View(await conveniencestoreContext.ToListAsync());
         }
 
         // GET: Admin/AdminProducts/Details/5
@@ -62,8 +53,8 @@ namespace Client_Home.Areas.Admin.Controllers
         // GET: Admin/AdminProducts/Create
         public IActionResult Create()
         {
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId");
-            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierId");
+            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName");
+            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierName");
             return View();
         }
 
@@ -72,7 +63,7 @@ namespace Client_Home.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductId,Name,Description,SellPrice,TotalQuantity,CategoryId,ImageUrl,VideoUrl,Discount,DiscountPrice,BestsellerFlag,HomeFlag,Active,DateAdded,SupplierId")] Product product)
+        public async Task<IActionResult> Create([Bind("ProductId,Name,Description,SellPrice,TotalQuantity,CategoryId,ThumbnailUrl,VideoUrl,Discount,DiscountPrice,BestsellerFlag,HomeFlag,Active,SupplierId,DateAdded,Qrcode")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -80,11 +71,10 @@ namespace Client_Home.Areas.Admin.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId", product.CategoryId);
-            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierId", product.SupplierId);
+            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", product.CategoryId);
+            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierName", product.SupplierId);
             return View(product);
         }
-        [HttpPost]
 
         // GET: Admin/AdminProducts/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -99,8 +89,8 @@ namespace Client_Home.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId", product.CategoryId);
-            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierId", product.SupplierId);
+            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", product.CategoryId);
+            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierName", product.SupplierId);
             return View(product);
         }
 
@@ -109,7 +99,7 @@ namespace Client_Home.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductId,Name,Description,SellPrice,TotalQuantity,CategoryId,ImageUrl,VideoUrl,Discount,DiscountPrice,BestsellerFlag,HomeFlag,Active,DateAdded,SupplierId")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("ProductId,Name,Description,SellPrice,TotalQuantity,CategoryId,ThumbnailUrl,VideoUrl,Discount,DiscountPrice,BestsellerFlag,HomeFlag,Active,SupplierId,DateAdded,Qrcode")] Product product)
         {
             if (id != product.ProductId)
             {
@@ -136,8 +126,8 @@ namespace Client_Home.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId", product.CategoryId);
-            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierId", product.SupplierId);
+            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", product.CategoryId);
+            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierName", product.SupplierId);
             return View(product);
         }
 

@@ -1,9 +1,9 @@
 ﻿@model IEnumerable<Client_Home.Models.Product>
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
-
 <div class="main-content">
     <div class="page-header">
         <h2 class="header-title">Danh sách sản phẩm</h2>
@@ -90,7 +90,7 @@
                                     </td>
 
                                     <td>
-                                        @if (item.ThumbnailUrl.Contains("~"))
+                                        @if (item.ThumbnailUrl!=null)
                                         {
                                             <div class="d-flex align-items-center">
                                                 <img class="img-fluid rounded" src="@Url.Content(item.ThumbnailUrl)" style="max-width: 60px" alt="">
@@ -109,7 +109,8 @@
                                     <td>
 
                                         <div class="d-flex align-items-center">
-                                            @if(item.Active == true){
+                                            @if (item.Active == true)
+                                            {
                                                 <div class="badge badge-success badge-dot m-r-10"></div>
                                                 <div>Đang bán</div>
                                             }

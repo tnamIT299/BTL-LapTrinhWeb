@@ -10,6 +10,8 @@ using Client_Home.Models;
 using ClosedXML.Excel;
 using PagedList;
 using AspNetCoreHero.ToastNotification.Abstractions;
+using Client_Home.Areas.Admin.Models;
+using Client_Home.Areas.DTO.Customers;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
@@ -64,12 +66,12 @@ namespace Client_Home.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CustomerId,FirstName,LastName,Email,Phone,Birthday,RewardPoints,Rank,Gender,UserId")] Customer customer)
+        public async Task<IActionResult> Create([Bind("CustomerId,FirstName,LastName,Email,Phone,Birthday,RewardPoints,Rank,Gender,UserId")] AddCustomer customer)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(customer);
-                await _context.SaveChangesAsync();
+                //_context.Add(customer);
+                //await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(customer);

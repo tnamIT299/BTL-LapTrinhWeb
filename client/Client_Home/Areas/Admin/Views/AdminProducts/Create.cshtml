@@ -48,12 +48,23 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label class="font-weight-semibold" for="productName">Product Name</label>
-                            <input type="text" class="form-control" id="productName" placeholder="Product Name" value="Skinny Men Blazer">
+                            <input type="text" class="form-control" id="productName" placeholder="Product Name">
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-semibold" for="productID">Product ID</label>
+                            <input type="text" class="form-control" id="productID" placeholder="Product ID">
                         </div>
                         <div class="form-group">
                             <label class="font-weight-semibold" for="productPrice">Price</label>
                             <input type="text" class="form-control" id="productPrice" placeholder="Price" value="$ 199">
                         </div>
+
+                        <div class="form-group">
+                            <label class="font-weight-semibold" for="productTotalQty">Total Quantity</label>
+                            <input type="text" class="form-control" id="productTotalQty" placeholder="0">
+                        </div>
+
+
                         <div class="form-group">
                             <label class="font-weight-semibold" for="productCategory">Category</label>
                             <select class="custom-select" id="productCategory">
@@ -64,9 +75,14 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label class="font-weight-semibold" for="productBrand">Brand</label>
-                            <input type="text" class="form-control" id="productBrand" placeholder="Brand" value="H&M">
+                            <label class="font-weight-semibold" for="productBrand">Supplier</label>
+                            <select class="custom-select" id="productBrand">
+                                <option value="inStock" selected>Phenazopyridine Hydrochloride</option>
+                                <option value="outOfStock">Cefdinir</option>
+                                <option value="pending">Childrens Pain and Fever</option>
+                            </select>
                         </div>
+
                         <div class="form-group">
                             <label class="font-weight-semibold" for="productStatus">Status</label>
                             <select class="custom-select" id="productStatus">
@@ -78,46 +94,41 @@
                     </div>
                 </div>
             </div>
+
+
             <div class="tab-pane fade" id="product-edit-option">
                 <div class="card">
                     <div class="card-body">
                         @* Up load file*@
-                        <label for="input-25">Planets and Satellites</label>
-                        <div class="file-loading">
-                            <input id="input-25" name="input25[]" type="file" multiple>
+                        <div class="form-group">
+                        <label class="font-weight-semibold" for="productColors">Thumnail</label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="customFile">
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="font-weight-semibold" for="productColors">Colors</label>
-                            <select class="select2" id="productColors" multiple="multiple">
-                                <option value="db" selected>Dark Blue</option>
-                                <option value="g" selected>Gray</option>
-                                <option value="gb" selected>Gray Blue</option>
-                            </select>
+                        <label class="font-weight-semibold" for="productColors">Video Illustration</label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="customFile">
+                            <label class="custom-file-label" for="customFile">Choose file</label>
                         </div>
+                        </div>
+
+
                         <div class="form-group">
-                            <label class="font-weight-semibold" for="productFit">Fit</label>
-                            <select class="custom-select" id="productFit">
-                                <option value="skinny" selected>Skinny</option>
-                                <option value="slim">Slim</option>
-                                <option value="regular">Regular</option>
-                            </select>
+                            <label class="font-weight-semibold" for="percentDiscount">Discount</label>
+                            <input type="text" class="form-control" id="percentDiscount" placeholder="0">
                         </div>
+
+
                         <div class="form-group">
-                            <label class="font-weight-semibold" for="productMaterial">Material</label>
-                            <select class="select2" id="productMaterial" multiple="multiple">
-                                <option value="polyester" selected>Polyester</option>
-                            </select>
+                            <label class="font-weight-semibold" for="priceDiscount">Discount Price</label>
+                            <input type="text" class="form-control" id="priceDiscount" placeholder="0">
                         </div>
-                        <div class="form-group">
-                            <label class="font-weight-semibold" for="productShip">Ship From</label>
-                            <select class="custom-select" id="productShip">
-                                <option value="columbia" selected>Columbia</option>
-                                <option value="brazil">Brazil</option>
-                                <option value="chile">Chile</option>
-                                <option value="argentina">Argentina</option>
-                            </select>
-                        </div>
+
+
                     </div>
                 </div>
             </div>

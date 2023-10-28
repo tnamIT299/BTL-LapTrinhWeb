@@ -13,7 +13,6 @@ public partial class ConveniencestoreContext : DbContext
     public ConveniencestoreContext()
     {
     }
-
     public ConveniencestoreContext(DbContextOptions<ConveniencestoreContext> options)
         : base(options)
     {

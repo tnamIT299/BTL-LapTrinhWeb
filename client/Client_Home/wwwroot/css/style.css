@@ -502,11 +502,11 @@ ol {
 	margin-right: 25px;
 }
 
-.header__cart ul li {
-	list-style: none;
-	display: inline-block;
-	margin-right: 15px;
-}
+	.header__cart ul li {
+		list-style: none;
+		display: inline-block;
+		margin-right: 15px;
+	}
 
 .header__cart ul li:last-child {
 	margin-right: 0;
@@ -3466,4 +3466,147 @@ ol {
 	.blog__details__hero__text h2 {
 		font-size: 24px;
 	}
+}
+.login{
+	font-size:16px;
+	font-weight:700;
+	color:#333;
+
+}
+.login:hover {
+	color: #7fad39;
+}
+
+.register {
+	font-size: 16px;
+	font-weight: 700;
+	color: #333;
+}
+.register:hover {
+	color: #7fad39;
+}
+.register__li{
+	position:absolute;
+}
+.cart__count {
+	position: relative;
+	top: -7px;
+	left: -14px;
+	color: #333;
+	font-weight: 600;
+	font-size: 14px;
+}
+.cart {
+	padding:0 5px;
+	color: #333;
+	
+}
+	.cart:hover {
+		color: #7fad39;
+	}
+
+.card {
+	border: none
+}
+
+.product {
+	background-color: #eee
+}
+
+.brand {
+	font-size: 13px
+}
+
+.act-price {
+	color: red;
+	font-weight: 700
+}
+
+.dis-price {
+	text-decoration: line-through
+}
+
+.about {
+	font-size: 14px
+}
+
+.color {
+	margin-bottom: 10px
+}
+
+label.radio {
+	cursor: pointer
+}
+
+	label.radio input {
+		position: absolute;
+		top: 0;
+		left: 0;
+		visibility: hidden;
+		pointer-events: none
+	}
+
+	label.radio span {
+		padding: 2px 9px;
+		border: 2px solid #ff0000;
+		display: inline-block;
+		color: #ff0000;
+		border-radius: 3px;
+		text-transform: uppercase
+	}
+
+	label.radio input:checked + span {
+		border-color: #ff0000;
+		background-color: #ff0000;
+		color: #fff
+	}
+
+.btn-danger {
+	background-color: #ff0000 !important;
+	border-color: #ff0000 !important
+}
+
+	.btn-danger:hover {
+		background-color: #da0606 !important;
+		border-color: #da0606 !important
+	}
+
+	.btn-danger:focus {
+		box-shadow: none
+	}
+
+.cart i {
+	margin-right: 10px
+}	
+.css_cart{
+	padding-left:7px;
+}
+.minus{
+	color :#333;
+	font-size:20px;
+	font-weight:800;
+}
+.minus1 {
+	color : #333;
+	margin-left:13px;
+}
+.minus:hover{
+	color :#333
+}
+.logout{
+	display :flex;
+
+}
+.text-color {
+	color: #333;
+	font-size: 16px;
+	font-family: sans-serif;
+	font-weight: 600;
+	margin: -22px;
+}
+.text-color1 {
+	color: #333;
+	font-size: 16px;
+	font-family: sans-serif;
+	font-weight: 600;
 }

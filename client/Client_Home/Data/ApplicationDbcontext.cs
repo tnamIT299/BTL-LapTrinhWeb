@@ -4,13 +4,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Client_Home.Data
 {
-    public class ApplicationDbcontext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext
     {
-        public ApplicationDbcontext(DbContextOptions<ApplicationDbcontext> options) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-
         }
-        public DbSet<SalesLeadEntity> SalesLead { get; set;}
-        public DbSet<ApplicationUser> ApplicationUser { get; set;}
+        public DbSet<SalesLeadEntity> SalesLeadEntities { get; set;}
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS01;database=CONVENIENCESTORE;Encrypt=False;Integrated Security=true;");
+        }
     }
 }

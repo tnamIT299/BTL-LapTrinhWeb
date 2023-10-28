@@ -22,14 +22,31 @@ namespace Client_Home.Controllers
         }
 
         // GET: Products
-        public IActionResult Index(int? page)
+        public IActionResult Index(int? page, string searchString,string  CurrentFilter)
         {
-            var pageNumber = page == null || page<=0 ? 1 : page.Value;
-            var pageSize = 8;
+            
+            if(searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = CurrentFilter;
+            }
             var lsProducts = _context.Products.AsNoTracking()
-                .OrderByDescending(x=>x.ProductId);
+                .OrderByDescending(x => x.ProductId);
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                searchString = searchString.ToLower();
+                lsProducts = (IOrderedQueryable<Product>)lsProducts.Where(x => x.Name.ToLower().Contains(searchString));
+
+            }
+            var pageNumber = page == null || page <= 0 ? 1 : page.Value;
+            var pageSize = 8;
             PagedList.Core.IPagedList<Product> model = new PagedList.Core.PagedList<Product>(lsProducts, pageNumber, pageSize);
             ViewBag.CurrentPage = pageNumber;
+
+
             return View(model);
 
         }

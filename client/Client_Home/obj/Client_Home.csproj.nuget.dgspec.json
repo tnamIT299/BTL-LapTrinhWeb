@@ -98,6 +98,10 @@
               "target": "Package",
               "version": "[3.0.0, )"
             },
+            "PagedList.Mvc": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
             "QRCoder": {
               "target": "Package",
               "version": "[1.4.3, )"

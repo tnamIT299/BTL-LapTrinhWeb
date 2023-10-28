@@ -7,37 +7,35 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Client_Home.Data;
 using Client_Home.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace Client_Home.Controllers
 {
     public class LeadsController : Controller
     {
-        private readonly ApplicationDbcontext _context;
+        private readonly ApplicationDbContext _context;
 
-        public LeadsController(ApplicationDbcontext context)
+        public LeadsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
         // GET: Leads
-        [Authorize(Roles = "Admin,Sales")]
         public async Task<IActionResult> Index()
         {
-            return _context.SalesLead != null ?
-                        View(await _context.SalesLead.ToListAsync()) :
-                        Problem("Entity set 'ApplicationDbcontext.SalesLead'  is null.");
+              return _context.SalesLeadEntities != null ? 
+                          View(await _context.SalesLeadEntities.ToListAsync()) :
+                          Problem("Entity set 'ApplicationDbContext.SalesLeadEntities'  is null.");
         }
-        [Authorize(Roles = "Admin,Sales")]
+
         // GET: Leads/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.SalesLead == null)
+            if (id == null || _context.SalesLeadEntities == null)
             {
                 return NotFound();
             }
 
-            var salesLeadEntity = await _context.SalesLead
+            var salesLeadEntity = await _context.SalesLeadEntities
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (salesLeadEntity == null)
             {
@@ -46,13 +44,13 @@ namespace Client_Home.Controllers
 
             return View(salesLeadEntity);
         }
-        [Authorize(Roles = "Admin,Sales")]
+
         // GET: Leads/Create
         public IActionResult Create()
         {
             return View();
         }
-        [Authorize(Roles = "Admin,Sales")]
+
         // POST: Leads/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -68,23 +66,23 @@ namespace Client_Home.Controllers
             }
             return View(salesLeadEntity);
         }
-        [Authorize(Roles = "Admin,Sales")]
+
         // GET: Leads/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.SalesLead == null)
+            if (id == null || _context.SalesLeadEntities == null)
             {
                 return NotFound();
             }
 
-            var salesLeadEntity = await _context.SalesLead.FindAsync(id);
+            var salesLeadEntity = await _context.SalesLeadEntities.FindAsync(id);
             if (salesLeadEntity == null)
             {
                 return NotFound();
             }
             return View(salesLeadEntity);
         }
-        [Authorize(Roles = "Admin,Sales")]
+
         // POST: Leads/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -119,16 +117,16 @@ namespace Client_Home.Controllers
             }
             return View(salesLeadEntity);
         }
-        [Authorize(Roles = "Admin")]
+
         // GET: Leads/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.SalesLead == null)
+            if (id == null || _context.SalesLeadEntities == null)
             {
                 return NotFound();
             }
 
-            var salesLeadEntity = await _context.SalesLead
+            var salesLeadEntity = await _context.SalesLeadEntities
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (salesLeadEntity == null)
             {
@@ -137,29 +135,29 @@ namespace Client_Home.Controllers
 
             return View(salesLeadEntity);
         }
-        [Authorize(Roles = "Admin")]
+
         // POST: Leads/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.SalesLead == null)
+            if (_context.SalesLeadEntities == null)
             {
-                return Problem("Entity set 'ApplicationDbcontext.SalesLead'  is null.");
+                return Problem("Entity set 'ApplicationDbContext.SalesLeadEntities'  is null.");
             }
-            var salesLeadEntity = await _context.SalesLead.FindAsync(id);
+            var salesLeadEntity = await _context.SalesLeadEntities.FindAsync(id);
             if (salesLeadEntity != null)
             {
-                _context.SalesLead.Remove(salesLeadEntity);
+                _context.SalesLeadEntities.Remove(salesLeadEntity);
             }
-
+            
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool SalesLeadEntityExists(int id)
         {
-            return (_context.SalesLead?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.SalesLeadEntities?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

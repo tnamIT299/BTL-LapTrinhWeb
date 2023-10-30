@@ -10,9 +10,9 @@ namespace Client_Home.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ConveniencestoreContext _context;
-        public HomeController(/*ILogger<HomeController> logger, */ConveniencestoreContext context)
+        public HomeController(ILogger<HomeController> logger, ConveniencestoreContext context)
         {
-            //_logger = logger;
+            _logger = logger;
             _context = context;
         }
 

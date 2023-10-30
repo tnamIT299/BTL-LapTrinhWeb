@@ -4,29 +4,44 @@
     ViewData["Title"] = "Details";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
+<style>
+    /* Đặt kích thước của carousel */
+    .carousel {
+        margin: auto;
+        width: 50%; /* Điều chỉnh kích thước theo nhu cầu */
+    }
 
+    /* Đổi màu của các control thành đen */
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        filter: invert(100%); /* Chuyển màu thành đen */
+    }
+</style>
 
 <div class="main-content">
     <div class="page-header no-gutters has-tab">
         <div class="d-md-flex m-b-15 align-items-center justify-content-between">
             <div class="media align-items-center m-b-15">
                 <div class="avatar avatar-image rounded" style="height: 70px; width: 70px">
-                    @if (Model.ThumbnailUrl.Contains("~"))
+                    @if (Model.ThumbnailUrl != null)
                     {
-                    <div class="d-flex align-items-center">
-                        <img class="img-fluid rounded" src="@Url.Content(Model.ThumbnailUrl)" style="max-width: 60px" alt="">
-                    </div>
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid rounded" src="@Url.Content(Model.ThumbnailUrl)" style="max-width: 60px" alt="">
+                        </div>
+                    }else{
+                        <img src="assets/images/others/thumb-16.jpg" alt="">
                     }
+                    
                 </div>
                 <div class="m-l-15">
-                    <h4 class="m-b-0">@Html.DisplayFor(model => model.Name)</h4>
-                    <p class="text-muted m-b-0">Code: @Html.DisplayFor(model => model.ProductId)</p>
+                    <h4 class="m-b-0">@Model.Name</h4>
+                    <p class="text-muted m-b-0">Mã QR: @Model.Qrcode</p>
                 </div>
             </div>
             <div class="m-b-15">
                 <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Edit" asp-route-id="@Model.ProductId">
-                <button class="btn btn-primary" >
-                    <i class="anticon anticon-edit" ></i>
+                <button class="btn btn-primary">
+                    <i class="anticon anticon-edit"></i>
                     <span>Edit</span>
                 </button>
                 </a>
@@ -34,10 +49,7 @@
         </div>
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#product-overview">Overview</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#product-images">Product Images</a>
+                <a class="nav-link active" data-toggle="tab" href="#product-overview">Tổng quan</a>
             </li>
         </ul>
     </div>
@@ -45,13 +57,13 @@
         <div class="tab-content m-t-15">
             <div class="tab-pane fade show active" id="product-overview">
                 <div class="row">
-@*                     <div class="col-md-3">
+                    <div class="col-md-3">
                         <div class="card">
                             <div class="card-body">
                                 <div class="media align-items-center">
                                     <i class="font-size-40 text-success anticon anticon-smile"></i>
                                     <div class="m-l-15">
-                                        <p class="m-b-0 text-muted">10 ratings</p>
+                                        <p class="m-b-0 text-muted">10 Xếp hạng</p>
                                         <div class="star-rating m-t-5">
                                             <input type="radio" id="star3-5" name="rating-3" value="5" checked disabled /><label for="star3-5" title="5 star"></label>
                                             <input type="radio" id="star3-4" name="rating-3" value="4" disabled /><label for="star3-4" title="4 star"></label>
@@ -70,7 +82,7 @@
                                 <div class="media align-items-center">
                                     <i class="font-size-40 text-primary anticon anticon-shopping-cart"></i>
                                     <div class="m-l-15">
-                                        <p class="m-b-0 text-muted">Sales</p>
+                                        <p class="m-b-0 text-muted">Lượng đã bán trong tháng</p>
                                         <h3 class="m-b-0 ls-1">1,521</h3>
                                     </div>
                                 </div>
@@ -83,21 +95,21 @@
                                 <div class="media align-items-center">
                                     <i class="font-size-40 text-primary anticon anticon-message"></i>
                                     <div class="m-l-15">
-                                        <p class="m-b-0 text-muted">Reviews</p>
+                                        <p class="m-b-0 text-muted">Đánh giá</p>
                                         <h3 class="m-b-0 ls-1">27</h3>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div> *@
+                    </div>
                     <div class="col-md-3">
                         <div class="card">
                             <div class="card-body">
                                 <div class="media align-items-center">
                                     <i class="font-size-40 text-primary anticon anticon-stock"></i>
                                     <div class="m-l-15">
-                                        <p class="m-b-0 text-muted">Tổng số lượng tồn kho</p>
-                                        <h3 class="m-b-0 ls-1">@Html.DisplayFor(model => model.TotalQuantity)</h3>
+                                        <p class="m-b-0 text-muted">Số lượng tồn kho</p>
+                                        <h3 class="m-b-0 ls-1">152</h3>
                                     </div>
                                 </div>
                             </div>
@@ -106,47 +118,26 @@
                 </div>
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Thông tin cơ bản</h4>
+                        <h4 class="card-title">Thông tin sản phẩm</h4>
                         <div class="table-responsive">
                             <table class="product-info-table m-t-20">
                                 <tbody>
                                     <tr>
                                         <td>Giá bán:</td>
-                                        <td class="text-dark font-weight-semibold">@Html.DisplayFor(model => model.SellPrice) vnđ</td>
+                                        <td class="text-dark font-weight-semibold">@Model.SellPrice</td>
                                     </tr>
                                     <tr>
                                         <td>Danh mục:</td>
-                                        <td>@Html.DisplayFor(model => model.Category.CategoryName) </td>
+                                        <td>@Model.Category.CategoryName</td>
                                     </tr>
                                     <tr>
                                         <td>Nhà cung cấp:</td>
-                                        <td>@Html.DisplayFor(model => model.Supplier.SupplierName)</td>
+                                        <td>@Model.Supplier.SupplierName</td>
                                     </tr>
                                     <tr>
-                                        <td>Ngày tạo:</td>
-                                        <td>@Html.DisplayFor(model => model.DateAdded)</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Trạng thái:</td>
+                                        <td>Status:</td>
                                         <td>
-                                            @if (Model.Active == true)
-                                            {
-                                                <span class="badge badge-pill badge-cyan">Đang bán</span>
-                                            }
-                                            else
-                                            {
-                                                <span class="badge badge-pill badge-red">Ngừng bán</span>
-                                            }
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>% giảm giá:</td>
-                                        <td>
-                                            @Html.DisplayFor(model => model.Discount);
-                                        </td>
-                                        <td>Giá sau khi giảm:</td>
-                                        <td>
-                                            @Html.DisplayFor(model => model.DiscountPrice);
+                                            <span class="badge badge-pill badge-cyan">Đang bán</span>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -156,59 +147,84 @@
                 </div>
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Các lô hàng</h4>
+                        <h4 class="card-title">Hình ảnh sản phẩm</h4>
+
+                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                            @if (Model.ProductSubImages.Count != 0)
+                            {
+                                <div class="carousel-inner">
+                                    @for (int i = 0; i < Model.ProductSubImages.Count; i++)
+                                    {
+                                        <div class="carousel-item @(i == 0 ? "active" : "")">
+                                            <img src="@Url.Content(Model.ProductSubImages.ElementAt(i).ImgUrl)" class="d-block w-100" alt="...">
+                                        </div>
+                                    }
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselExampleControls" data-slide="prev">
+                                    <span class="carousel-control-prev-icon"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleControls" data-slide="next">
+                                    <span class="carousel-control-next-icon"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            }
+                            else
+                            {
+                                <p>Không có</p>
+                            }
+                        </div>
+
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Thông tin lô</h4>
                         <div class="table-responsive">
                             <table class="product-info-table m-t-20">
                                 <tbody>
                                     <tr>
-                                        <td>Mã lô</td>
                                         <td>Ngày sản xuất</td>
-                                        <td>Ngày hết hạn</td>
+                                        <td>Hạn sử dụng</td>
                                         <td>Số lượng</td>
-                                        <td>Mã barcode</td>
+                                        <td>Giá nhập</td>
+                                        <td>Barcode</td>
                                     </tr>
-                                    
-
-                                        @foreach (var pbatch in Model.ProductBatches)
-                                    {
-                                        <tr>
-                                            <td>@pbatch.BatchId</td>
-                                            <td>@pbatch.ManufactureDate</td>
-                                            <td>@pbatch.ExpiryDate</td>
-                                            <td>@pbatch.ImportPrice</td>
-                                            <td>@pbatch.Quantity</td>
-
-                                            @{
-                                                int productName = Model.ProductId;
-                                                string productionDate = pbatch?.ManufactureDate?.ToString("ddMMyyyy");
-                                                string fileName = productName + "-" + productionDate;
-                                                string filePath = fileName + ".png";
+                                    <tr>
+                                        @* @if (Model.ProductBatches != null)
+                                        { *@
+                                            @foreach (var item in Model.ProductBatches)
+                                            {
+                                            <tr>
                                                 
-                                                if (pbatch.Barcode == null)
-                                                {
-                                                    <p>@filePath 2</p>
-                                                    <img src="@Url.Action("GenerateQR", "AdminQR", new { data = fileName, fileName = filePath, batchID = productName });" />
-                                                    string url = Url.Content("~/AdminImages/Barcodes/" + filePath);
-                                                    <td>
-                                                        <div class="d-flex align-items-center">
-                                                            <img class="img-fluid rounded" src="@url" style="max-width: 60px" alt="">
-                                                        </div>
-                                                    </td>
-                                                }
-                                                else
-                                                {
-                                                    string imgFile = Url.Content("~/adminimages/barcodes/" + filePath);
-                                                    <td>
-                                                        <div class="d-flex align-items-center">
-                                                            <img class="img-fluid rounded" src="@imgFile" style="max-width: 60px" alt="">
-                                                        </div>
-                                                    </td>
+                                                <td>
+                                                        @Html.DisplayFor(modelItem => item.ManufactureDate)
+                                                </td>
+                                                <td>
+                                                        @Html.DisplayFor(modelItem => item.ExpiryDate)
+                                                </td>
+                                                <td>
+                                                        @Html.DisplayFor(modelItem => item.Quantity)
+                                                </td>
+                                                <td>
+                                                        @Html.DisplayFor(modelItem => item.ImportPrice)
+                                                </td>
 
-                                                }
+                                                <td>                                                    
+                                                    @{
+                                                        string newDateString = item.ManufactureDate.Value.ToString("ddMMyyyy");
+                                                        string data = item.ProductId.ToString() + newDateString;
+                                                        string fileName = data + ".webp";
+                                                        string filePath = "~/adminimages/barcodes/" + fileName;
+                                                    <img src="@Url.Action("GenerateQR", "AdminQR", new { data = data, fileName = fileName })" hidden></img>
+                                                        <img src="@Url.Content(filePath)" style="height: 70px; width: 70px" />
+                                                    }                                             
+                                                    
+                                                </td>
+                                            </tr>
                                             }
-                                        </tr>
-                                        }
-                             
+                                        @* } *@
+                                    </tr>
                                     
                                 </tbody>
                             </table>
@@ -217,27 +233,15 @@
                 </div>
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Mô tả sản phẩm</h4>
+                        <h4 class="card-title">Product Description</h4>
                     </div>
                     <div class="card-body">
-                         @Html.DisplayFor(model => model.Description);
+                        <p>Special cloth alert. The key to more success is to have a lot of pillows. Surround yourself with angels, positive energy, beautiful people, beautiful souls, clean heart, angel. They will try to close the door on you, just open it. A major key, never panic. Don’t panic, when it gets crazy and rough, don’t panic, stay calm. They key is to have every key, the key to open every door.</p>
+                        <p>The other day the grass was brown, now it’s green because I ain’t give up. Never surrender. Lion! I’m up to something. Always remember in the jungle there’s a lot of they in there, after you overcome they, you will make it to paradise.</p>
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="product-images">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            @foreach (var image in Model.ProductSubImages)
-                            {
-                                <div class="col-md-3">
-                                    <img class="img-fluid" src="@image.ImgUrl" alt="@Model.Name" />
-                                </div>
-                            }
-                        </div>
-                    </div>
-                </div>
-            </div>
+           
         </div>
     </div>
 </div>

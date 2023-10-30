@@ -9,12 +9,14 @@ builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("dbCONVENIENCESTORE")));
 builder.Services.AddDbContext<ConveniencestoreContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("dbCONVENIENCESTORE")));
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-   .AddEntityFrameworkStores<ApplicationDbContext>();
+//builder.Services.AddDefaultIdentity<IdentityUser>().AddDefaultTokenProviders()
+ //   .AddRoles<IdentityRole>()
+ //   .AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddDefaultIdentity<IdentityUser>().AddDefaultTokenProviders()
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<ConveniencestoreContext>();
 
 builder.Services.AddNotyf(config =>
 {

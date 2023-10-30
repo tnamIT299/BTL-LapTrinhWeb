@@ -18,6 +18,7 @@ namespace Client_Home.Areas.Admin.Controllers
             byte[] qrCodeImage = qrCode.GetGraphic(20);
 
             var path = Path.Combine("D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\AdminImages\\Barcodes\\", fileName);
+            
             System.IO.File.WriteAllBytes(path, qrCodeImage);
 
             return Ok(path);

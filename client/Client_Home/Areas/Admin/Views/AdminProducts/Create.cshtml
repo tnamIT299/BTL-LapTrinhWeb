@@ -4,42 +4,86 @@
     ViewData["Title"] = "Create";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
-
-<h1>Create</h1>
-
-<h4>Product</h4>
-<hr />
 <link href="assets/css/app.min.css" rel="stylesheet">
+<style>
+    .image-preview {
+        position: relative;
+        display: inline-block;
+        margin: 10px;
+        border: 1px solid #ccc;
+        width: 150px; /* Set a fixed width for the image preview */
+        height: 150px; /* Set a fixed height for the image preview */
+        overflow: hidden; /* Ensure icons stay within bounds */
+    }
+
+    .delete-icon,
+    .pin-icon {
+        position: absolute;
+        top: 5px;
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0.7);
+        padding: 5px;
+    }
+
+    .pin-icon {
+        right: 5px; /* Position pin icon on the top right */
+    }
+
+    .delete-icon {
+        left: 5px; /* Position delete icon on the top left */
+    }
+
+    .select-image {
+        display: block;
+        width: 20%;
+        padding: 10px 0;
+        border-radius: 15px;
+        background: var(--blue);
+        color: #fff;
+        font-weight: 500;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        transition: all .3s ease;
+    }
+
+        .select-image:hover {
+            background: var(--dark-blue);
+        }
+
+    .pinned {
+        border: 5px solid #0071FF; /* Change this color to the highlight color you want */
+        box-sizing: border-box;
+    }
+    .large-input{
+        width: 650px;
+    }
+    .small-input{
+        
+        width: 300px;
+    }
+    .large-input,.small-input,.remove-button{
+        margin-right: 20px;
+        margin-bottom: 20px;
+
+    }
+</style>
 <div class="main-content">
     <form>
         <div class="page-header no-gutters has-tab">
             <div class="d-md-flex m-b-15 align-items-center justify-content-between">
-                <div class="media align-items-center m-b-15">
-                    <div class="avatar avatar-image rounded" style="height: 70px; width: 70px">
-                        <img src="assets/images/others/thumb-16.jpg" alt="">
-                    </div>
-                    <div class="m-l-15">
-                        <h4 class="m-b-0">Skinny Men Blazer</h4>
-                        <p class="text-muted m-b-0">Code: #5325</p>
-                    </div>
-                </div>
-                <div class="m-b-15">
-                    <button class="btn btn-primary">
-                        <i class="anticon anticon-save"></i>
-                        <span>Save</span>
-                    </button>
-                </div>
             </div>
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#product-edit-basic">Basic Info</a>
+                    <a class="nav-link active" data-toggle="tab" href="#product-edit-basic">Thông tin cơ bản</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#product-edit-option">Option Info</a>
+                    <a class="nav-link" data-toggle="tab" href="#product-edit-description">Mô tả</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#product-edit-description">Description</a>
-                </li>
+                <button class="btn btn-primary">
+                    <i class="anticon anticon-save"></i>
+                    <span>Save</span>
+                </button>
             </ul>
         </div>
         <div class="tab-content m-t-15">
@@ -47,87 +91,58 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="form-group">
-                            <label class="font-weight-semibold" for="productName">Product Name</label>
-                            <input type="text" class="form-control" id="productName" placeholder="Product Name">
+                            <label class="font-weight-semibold" for="productName">Tên sản phẩm</label>
+                            <input type="text" class="form-control" id="productName" placeholder="Product Name" value="Trứng gà">
                         </div>
                         <div class="form-group">
-                            <label class="font-weight-semibold" for="productID">Product ID</label>
-                            <input type="text" class="form-control" id="productID" placeholder="Product ID">
-                        </div>
-                        <div class="form-group">
-                            <label class="font-weight-semibold" for="productPrice">Price</label>
-                            <input type="text" class="form-control" id="productPrice" placeholder="Price" value="$ 199">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="font-weight-semibold" for="productTotalQty">Total Quantity</label>
-                            <input type="text" class="form-control" id="productTotalQty" placeholder="0">
-                        </div>
-
-
-                        <div class="form-group">
-                            <label class="font-weight-semibold" for="productCategory">Category</label>
-                            <select class="custom-select" id="productCategory">
-                                <option value="cloths" selected>Cloths</option>
-                                <option value="homeDecoration">Home Decoration</option>
-                                <option value="eletronic">Eletronic</option>
-                                <option value="jewellery">Jewellery</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="font-weight-semibold" for="productBrand">Supplier</label>
-                            <select class="custom-select" id="productBrand">
-                                <option value="inStock" selected>Phenazopyridine Hydrochloride</option>
-                                <option value="outOfStock">Cefdinir</option>
-                                <option value="pending">Childrens Pain and Fever</option>
-                            </select>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label class="font-weight-semibold" for="userName">Giá bán</label>
+                                    <input type="text" class="form-control" id="userName" placeholder="User Name" value="1000 vnđ">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="font-weight-semibold" for="email">Mã QR</label>
+                                    <input type="text" class="form-control" id="email" placeholder="email" value="1111111111">
+                                </div>
+                            </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="font-weight-semibold" for="productStatus">Status</label>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label class="font-weight-semibold" for="userName">Số lượng/ khối lượng</label>
+                                    <input type="text" class="form-control" id="userName" placeholder="User Name" value="2, 0.5">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="font-weight-semibold" for="email">Đơn vị tính</label>
+                                    <input type="text" class="form-control" id="email" placeholder="email" value="kg, gram, ml, lít, chai, bình, lốc, thùng, ...">
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="font-weight-semibold" for="productCategory">Danh mục sản phẩm</label>
+                            <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-semibold" for="productBrand">Nhà cung cấp</label>
+                            <select asp-for="SupplierId" class="form-control" asp-items="ViewBag.SupplierId"></select>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="font-weight-semibold" for="productStatus">Trạng thái</label>
                             <select class="custom-select" id="productStatus">
-                                <option value="inStock" selected>In Stock</option>
-                                <option value="outOfStock">Out of Stock</option>
-                                <option value="pending">Pending</option>
+                                <option value="inStock" selected>Đang bán</option>
+                                <option value="outOfStock">Ngưng bán</option>
+                                <option value="pending">Hết hàng</option>
                             </select>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="tab-pane fade" id="product-edit-option">
-                <div class="card">
-                    <div class="card-body">
-                        @* Up load file*@
-                        <div class="form-group">
-                        <label class="font-weight-semibold" for="productColors">Thumnail</label>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="customFile">
-                            <label class="custom-file-label" for="customFile">Choose file</label>
-                        </div>
-                        </div>
-
-                        <div class="form-group">
-                        <label class="font-weight-semibold" for="productColors">Video Illustration</label>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="customFile">
-                            <label class="custom-file-label" for="customFile">Choose file</label>
-                        </div>
-                        </div>
-
-
-                        <div class="form-group">
-                            <label class="font-weight-semibold" for="percentDiscount">Discount</label>
-                            <input type="text" class="form-control" id="percentDiscount" placeholder="0">
-                        </div>
-
-
-                        <div class="form-group">
-                            <label class="font-weight-semibold" for="priceDiscount">Discount Price</label>
-                            <input type="text" class="form-control" id="priceDiscount" placeholder="0">
-                        </div>
-
+                        <label class="font-weight-semibold" for="productStatus">Hình ảnh sản phẩm</label>
+                        <input type="file" id="fileInput" multiple accept="image/*" hidden>
+                        <div id="imagePreviews"></div>
+                        <button class=" btn btn-primary select-image" id="selectImageButton">Tải hình ảnh</button>
 
                     </div>
                 </div>
@@ -135,12 +150,100 @@
             <div class="tab-pane fade" id="product-edit-description">
                 <div class="card">
                     <div class="card-body">
-                        <div id="productDescription">
-                            <p>Special cloth alert. The key to more success is to have a lot of pillows. Surround yourself with angels, positive energy, beautiful people, beautiful souls, clean heart, angel. They will try to close the door on you, just open it. A major key, never panic. Don’t panic, when it gets crazy and rough, don’t panic, stay calm. They key is to have every key, the key to open every door.The other day the grass was brown, now it’s green because I ain’t give up. Never surrender. Lion! I’m up to something. Always remember in the jungle there’s a lot of they in there, after you overcome they, you will make it to paradise.</p>
+                        <div id="descriptions">
+                            
+
                         </div>
+                        <button type="button" class="btn btn-primary" id="add-button">Thêm thuộc tính</button>
                     </div>
                 </div>
             </div>
         </div>
     </form>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const selectImageButton = document.getElementById('selectImageButton');
+        const fileInput = document.getElementById('fileInput');
+        const imagePreviews = document.getElementById('imagePreviews');
+        let pinnedImage = null; // Track the currently pinned image
+        selectImageButton.addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent default form submission behavior
+            fileInput.click(); // Trigger a click on the file input
+        });
+
+        fileInput.addEventListener('change', handleFileUpload);
+
+        function handleFileUpload(event) {
+            const files = event.target.files;
+
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const reader = new FileReader();
+
+                reader.onload = function () {
+                    const preview = createImagePreview(file, reader.result);
+                    imagePreviews.appendChild(preview);
+                }
+
+                reader.readAsDataURL(file);
+            }
+        }
+
+
+        function createImagePreview(file, src) {
+            const preview = document.createElement('div');
+            preview.classList.add('image-preview');
+
+            const image = document.createElement('img');
+            image.src = src;
+            image.style.width = '100%';
+            image.style.height = '100%';
+            preview.appendChild(image);
+
+            const deleteIcon = document.createElement('span');
+            deleteIcon.classList.add('delete-icon');
+            deleteIcon.innerHTML = 'X';
+            deleteIcon.addEventListener('click', function () {
+                preview.remove();
+            });
+            preview.appendChild(deleteIcon);
+
+            const pinIcon = document.createElement('span');
+            pinIcon.classList.add('pin-icon');
+            pinIcon.innerHTML = '📌';
+            pinIcon.addEventListener('click', function () {
+                if (pinnedImage) {
+                    pinnedImage.classList.remove('pinned');
+                }
+                pinnedImage = preview;
+                pinnedImage.classList.add('pinned');
+                imagePreviews.prepend(preview);
+            });
+            preview.appendChild(pinIcon);
+
+            return preview;
+        }
+    });
+
+    document.getElementById('add-button').addEventListener('click', function () {
+        var descriptions = document.getElementById('descriptions');
+        var newDescription = document.createElement('div');
+        newDescription.innerHTML = `
+                <div class="form-row">
+                    <input type="text" class="form-control small-input" name="Name" />
+                    <input type="text" class=" form-control large-input" name="Value" />
+                        <button class="btn btn-primary remove-button">X</button>
+                </div>
+            `;
+        descriptions.appendChild(newDescription);
+
+        // Add event listener for remove button
+        var removeButton = newDescription.querySelector('.remove-button');
+        removeButton.addEventListener('click', function () {
+            this.parentNode.remove();
+        });
+    });
+
+</script>
+

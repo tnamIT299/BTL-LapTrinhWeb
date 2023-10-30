@@ -25,64 +25,67 @@
             <div class="row">
               <div class="col-lg-6 px-5 py-4">
 
-                <h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Your products</h3>
-                                @foreach(var line in Model?.Lines)
+                <h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Danh sách sản phẩm</h3>
+                               @if(Model != null)
                                 {
-                                    <div class="d-flex align-items-center mb-5">
-                                        <div class="flex-shrink-0">
-                                            <img src="@line.Product.ThumbnailUrl"
-                                                 class="img-fluid" style="width: 150px;" alt="Generic placeholder image">
-                                        </div>
-                                        <div class="flex-grow-1 ms-3">
-                                            
-                                            <h5 class="text-primary">@line.Product.Name</h5>
-                                            <h6 style="color: #9e9e9e;">Color: white</h6>
-                                            <div class="d-flex align-items-center">
-                                                <p class="fw-bold mb-0 me-5 pe-3">@line.Product.SellPrice</p>
+                                    @foreach (var line in Model?.Lines)
+                                    {
+                                        <div class="d-flex align-items-center mb-5">
+                                            <div class="flex-shrink-0">
+                                                <img src="@line.Product.ThumbnailUrl"
+                                                     class="img-fluid" style="width: 150px;" alt="Generic placeholder image">
+                                            </div>
+                                            <div class="flex-grow-1 ms-3">
 
-                                                <div class="def-number-input number-input safari_only">
-                                                    <a onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-                                                       class="minus" href="/Cart/UpdateCart/?productId=@line.Product.ProductId">-</a>
-                                                    <input style="width:40px;text-align:center; align-items:center; padding-right:5px" class="quantity fw-bold text-black" min="0" name="quantity" value="@line.Quantity"
-                                                          >
-                                                    <a onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                                                       class="minus" href="/Cart/AddToCart/?productId=@line.Product.ProductId">+</a>
-                                                    <a href="/Cart/RemoveFromCart/?productId=@line.Product.ProductId" class="minus minus1">X</a>
+                                                <h5 class="text-primary">@line.Product.Name</h5>
+                                                <h6 style="color: #9e9e9e;">Color: white</h6>
+                                                <div class="d-flex align-items-center">
+                                                    <p class="fw-bold mb-0 me-5 pe-3">@line.Product.SellPrice</p>
+
+                                                    <div class="def-number-input number-input safari_only">
+                                                        <a onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                                                           class="minus" href="/Cart/UpdateCart/?productId=@line.Product.ProductId">-</a>
+                                                        <input style="width:40px;text-align:center; align-items:center; padding-right:5px" class="quantity fw-bold text-black" min="0" name="quantity" value="@line.Quantity">
+                                                        <a onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                                                           class="minus" href="/Cart/AddToCart/?productId=@line.Product.ProductId">+</a>
+                                                        <a href="/Cart/RemoveFromCart/?productId=@line.Product.ProductId" class="minus minus1">X</a>
+                                                    </div>
+                                                    <p class=" css_cart fw-bold mb-0 me-5 pe-3">@(line.Product.SellPrice * line.Quantity)</p>
                                                 </div>
-                                                <p class=" css_cart fw-bold mb-0 me-5 pe-3">@(line.Product.SellPrice*line.Quantity)</p>
                                             </div>
                                         </div>
-                                    </div>
+                                    }
                                 }
-
 
 
                 <hr class="mb-4" style="height: 2px; background-color: #1266f1; opacity: 1;">
 
                 <div class="d-flex justify-content-between px-x">
-                  <p class="fw-bold">Discount:</p>
+                  <p class="fw-bold">Giảm giá:</p>
                   <p class="fw-bold">95$</p>
                 </div>
                 <div class="d-flex justify-content-between p-2 mb-2" style="background-color: #e1f5fe;">
-                  <h5 class="fw-bold mb-0">Total: </h5>
-                  <h5 class="fw-bold mb-0">@Model.ComputeTotalValue()</h5>
+                  <h5 class="fw-bold mb-0">Tổng: </h5>
+                  @if (Model!=null){
+                                        <h5 class="fw-bold mb-0">@Model.ComputeTotalValue()</h5>
+                  }
                 </div>
 
               </div>
               <div class="col-lg-6 px-5 py-4">
-                                <div><a href="/Products">Back To List</a></div>
+                                <div><a href="/Products">Tiếp tục mua sắm</a></div>
                                 <div>
                                    
-                                    <p class="fw-bold">Payment Details</p>
-                                    <p class="dis mb-3">Complete your purchase by providing your payment details</p>
+                                    <p class="fw-bold">Chi tiết thanh toán</p>
+                                    <p class="dis mb-3">Hoàn thành thanh toán bằng cách cung cấp đầy đủ thông tin thanh toán</p>
                                 </div>
                                 <form action="">
                                     <div class="mb-3">
-                                        <p class="dis fw-bold mb-2">Email address</p>
+                                        <p class="dis fw-bold mb-2">Địa chỉ email</p>
                                         <input class="form-control" type="email"  placeholder="Email">
                                     </div>
                                     <div>
-                                        <p class="dis fw-bold mb-2">Card details</p>
+                                        <p class="dis fw-bold mb-2">Chi tiết thẻ</p>
                                         <div class="d-flex align-items-center justify-content-between card-atm border rounded">
                                             <div class="fab fa-cc-visa ps-3"></div>
                                             <input type="text" class="form-control" placeholder="Card Details">
@@ -92,13 +95,13 @@
                                             </div>
                                         </div>
                                         <div class="my-3 cardname">
-                                            <p class="dis fw-bold mb-2">Cardholder name</p>
+                                            <p class="dis fw-bold mb-2">Tên chủ thẻ</p>
                                             <input class="form-control" type="text">
                                         </div>
                                         <div class="address">
-                                            <p class="dis fw-bold mb-3">Billing address</p>
+                                            <p class="dis fw-bold mb-3">Địa chỉ nhận hàng</p>
                                             <select class="form-select" aria-label="Default select example">
-                                                <option selected hidden>United States</option>
+                                                <option selected hidden>Binh Duong</option>
                                                 <option value="1">HO CHI MINH</option>
                                                 <option value="2">HA NOI</option>
                                                 <option value="3">DA NANG</option>
@@ -110,19 +113,19 @@
                                            
                                             <div class="d-flex flex-column dis">
                                                 <div class="d-flex align-items-center justify-content-between mb-2">
-                                                    <p>Subtotal</p>
+                                                    <p>Tổng tạm tính</p>
                                                     <p><span class="fas fa-dollar-sign"></span>33.00</p>
                                                 </div>
                                                 <div class="d-flex align-items-center justify-content-between mb-2">
-                                                    <p>VAT<span>(20%)</span></p>
+                                                    <p>VAT<span>(10%)</span></p>
                                                     <p><span class="fas fa-dollar-sign"></span>2.80</p>
                                                 </div>
                                                 <div class="d-flex align-items-center justify-content-between mb-2">
-                                                    <p class="fw-bold">Total</p>
+                                                    <p class="fw-bold">Tổng cần thanh toán</p>
                                                     <p class="fw-bold"><span class="fas fa-dollar-sign"></span>35.80</p>
                                                 </div>
                                                 <div class="btn btn-primary mt-2">
-                                                    Pay<span class="fas fa-dollar-sign px-1"></span>35.80
+                                                    Thanh toán<span class="fas fa-dollar-sign px-1"></span>35.80
                                                 </div>
                                             </div>
                                         </div>

@@ -5,6 +5,8 @@ using AspNetCoreHero.ToastNotification;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ConveniencestoreContext>(options =>
@@ -42,6 +44,7 @@ app.UseSession();
 app.UseRouting();
 
 app.UseAuthorization();
+app.MapRazorPages();
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(

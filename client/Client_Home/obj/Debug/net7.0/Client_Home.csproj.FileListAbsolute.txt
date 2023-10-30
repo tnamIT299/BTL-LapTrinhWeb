@@ -1496,3 +1496,4 @@ C:\asp1\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\X.PagedList.Mvc.Core
 D:\Laptrinhtrucquan_Web\btl\client\Client_Home\bin\Debug\net7.0\JetBrains.Annotations.dll
 D:\Laptrinhtrucquan_Web\btl\client\Client_Home\bin\Debug\net7.0\X.PagedList.dll
 D:\Laptrinhtrucquan_Web\btl\client\Client_Home\bin\Debug\net7.0\X.PagedList.Mvc.Core.dll
+D:\Laptrinhtrucquan_Web\btl\client\Client_Home\bin\Debug\net7.0\PagedList.Mvc.dll

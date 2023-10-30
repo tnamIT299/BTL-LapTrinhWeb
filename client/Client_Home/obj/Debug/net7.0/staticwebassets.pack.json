@@ -5,6 +5,34 @@
       "PackagePath": "staticwebassets\\Client_Home.bundle.scp.css"
     },
     {
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\AdminImages\\Barcodes\\1112082023.webp",
+      "PackagePath": "staticwebassets\\AdminImages\\Barcodes\\1112082023.webp"
+    },
+    {
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\AdminImages\\Barcodes\\1112102023.webp",
+      "PackagePath": "staticwebassets\\AdminImages\\Barcodes\\1112102023.webp"
+    },
+    {
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\AdminImages\\Barcodes\\1122092023.webp",
+      "PackagePath": "staticwebassets\\AdminImages\\Barcodes\\1122092023.webp"
+    },
+    {
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\AdminImages\\Barcodes\\1201082023.webp",
+      "PackagePath": "staticwebassets\\AdminImages\\Barcodes\\1201082023.webp"
+    },
+    {
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\AdminImages\\Barcodes\\1205102023.webp",
+      "PackagePath": "staticwebassets\\AdminImages\\Barcodes\\1205102023.webp"
+    },
+    {
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\AdminImages\\Barcodes\\1217082023.webp",
+      "PackagePath": "staticwebassets\\AdminImages\\Barcodes\\1217082023.webp"
+    },
+    {
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\AdminImages\\Barcodes\\1227072023.webp",
+      "PackagePath": "staticwebassets\\AdminImages\\Barcodes\\1227072023.webp"
+    },
+    {
       "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\AdminImages\\Barcodes\\309102023.webp",
       "PackagePath": "staticwebassets\\AdminImages\\Barcodes\\309102023.webp"
     },
@@ -23,6 +51,22 @@
     {
       "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\AdminImages\\Barcodes\\325082023.webp",
       "PackagePath": "staticwebassets\\AdminImages\\Barcodes\\325082023.webp"
+    },
+    {
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\AdminImages\\Barcodes\\506092023.webp",
+      "PackagePath": "staticwebassets\\AdminImages\\Barcodes\\506092023.webp"
+    },
+    {
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\AdminImages\\Barcodes\\508102023.webp",
+      "PackagePath": "staticwebassets\\AdminImages\\Barcodes\\508102023.webp"
+    },
+    {
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\AdminImages\\Barcodes\\519092023.webp",
+      "PackagePath": "staticwebassets\\AdminImages\\Barcodes\\519092023.webp"
+    },
+    {
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\AdminImages\\Barcodes\\523072023.webp",
+      "PackagePath": "staticwebassets\\AdminImages\\Barcodes\\523072023.webp"
     },
     {
       "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\Adminassets\\css\\app.min.css",
@@ -375,6 +419,30 @@
     {
       "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\Adminassets\\images\\others\\nvidia-thumb.png",
       "PackagePath": "staticwebassets\\Adminassets\\images\\others\\nvidia-thumb.png"
+    },
+    {
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\Adminassets\\images\\others\\pexels-alex-andrews-821651.jpg",
+      "PackagePath": "staticwebassets\\Adminassets\\images\\others\\pexels-alex-andrews-821651.jpg"
+    },
+    {
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\Adminassets\\images\\others\\pexels-alex-andrews-821651.webp",
+      "PackagePath": "staticwebassets\\Adminassets\\images\\others\\pexels-alex-andrews-821651.webp"
+    },
+    {
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\Adminassets\\images\\others\\pexels-jonathan-pagaoa-14997943.jpg",
+      "PackagePath": "staticwebassets\\Adminassets\\images\\others\\pexels-jonathan-pagaoa-14997943.jpg"
+    },
+    {
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\Adminassets\\images\\others\\pexels-jonathan-pagaoa-14997943.webp",
+      "PackagePath": "staticwebassets\\Adminassets\\images\\others\\pexels-jonathan-pagaoa-14997943.webp"
+    },
+    {
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\Adminassets\\images\\others\\pexels-math-90946.jpg",
+      "PackagePath": "staticwebassets\\Adminassets\\images\\others\\pexels-math-90946.jpg"
+    },
+    {
+      "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\Adminassets\\images\\others\\pexels-pixabay-279906.jpg",
+      "PackagePath": "staticwebassets\\Adminassets\\images\\others\\pexels-pixabay-279906.jpg"
     },
     {
       "Id": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\Adminassets\\images\\others\\phillips-academy-thumb.png",

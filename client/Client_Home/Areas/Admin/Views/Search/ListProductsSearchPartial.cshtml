@@ -1,0 +1,75 @@
+﻿@model List<Product>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@if (Model != null)
+{
+    int i = 1;
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <div class="checkbox">
+                    <input id="@("check-item-" + i)" type="checkbox">
+                    <label for="@("check-item-" + i)" class="m-b-0"></label>
+                </div>
+            </td>
+
+            <td>
+                @if (item.ThumbnailUrl.Contains("~"))
+                {
+                    <div class="d-flex align-items-center">
+                        <img class="img-fluid rounded" src="@Url.Content(item.ThumbnailUrl)" style="max-width: 60px" alt="">
+                    </div>
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SellPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalQuantity)
+            </td>
+            <td>
+
+                <div class="d-flex align-items-center">
+                    @if (item.Active == true)
+                    {
+                        <div class="badge badge-success badge-dot m-r-10"></div>
+                        <div>Đang bán</div>
+                    }
+                    else
+                    {
+                        <div class="badge badge-danger badge-dot m-r-10"></div>
+                        <div>Ngưng bán</div>
+                    }
+                </div>
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.CategoryName)
+            </td>
+
+            <td class="text-right">
+                <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Details" asp-route-id="@item.ProductId">
+                    <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xem chi tiết sản phẩm">
+                        <i class="anticon anticon-eye"></i>
+                    </button>
+                </a>
+                <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Edit" asp-route-id="@item.ProductId">
+                    <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right" title="Sửa thông tin sản phẩm">
+                        <i class="anticon anticon-edit"></i>
+                    </button>
+                </a>
+                <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Delete" asp-route-id="@item.ProductId">
+                    <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xóa sản phẩm này">
+                        <i class="anticon anticon-delete"></i>
+                    </button>
+                </a>
+            </td>
+        </tr>
+        i++;
+    }
+}

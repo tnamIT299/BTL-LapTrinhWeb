@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using Client_Home.Data;
 using Client_Home.Models;
 using ClosedXML.Excel;
+using AspNetCoreHero.ToastNotification.Abstractions;
+using PagedList;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
@@ -22,10 +24,24 @@ namespace Client_Home.Areas.Admin.Controllers
         }
 
         // GET: Admin/AdminProducts
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? page)
+
         {
-            var conveniencestoreContext = _context.Products.Include(p => p.Category).Include(p => p.Supplier);
-            return View(await conveniencestoreContext.ToListAsync());
+            var pageNumber = page == null || page <= 0 ? 1 : page.Value;
+            var pageSize = 10;
+            var isProduct = _context.Products
+                .Include(p => p.Category)
+                .Include(p=>p.Supplier).
+                AsNoTracking().
+                OrderByDescending(x => x.ProductId);
+            PagedList.Core.IPagedList<Product> model = new PagedList.Core.PagedList<Product>(isProduct, pageNumber, pageSize);
+            ViewBag.CurrentPage = pageNumber;
+            ViewData["DanhMuc"] = new SelectList(_context.Categories, "CategoryID", "CategoryName");
+
+            return View(model);
+           // return _context.Products != null ?
+                         //View(await _context.Products.Include(p =>p.Category).Include(p => p.Supplier).ToListAsync()) :
+                         //Problem("Entity set 'ConveniencestoreContext.Products'  is null.");
         }
 
         // GET: Admin/AdminProducts/Details/5

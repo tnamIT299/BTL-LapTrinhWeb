@@ -35,6 +35,8 @@ public partial class Product
 
     public DateTime? DateAdded { get; set; }
 
+    public string? Qrcode { get; set; }
+
     public virtual ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
 
     public virtual Category? Category { get; set; }

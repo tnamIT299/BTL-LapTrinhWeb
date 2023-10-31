@@ -12,7 +12,8 @@
         <div class="header-sub-title">
             <nav class="breadcrumb breadcrumb-dash">
                 <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
-                <span class="breadcrumb-item active">Quản lý khách hàng : page @CurrentPage</span>
+                <a class="breadcrumb-item" href="#">Quản lý khách hàng</a>
+                <span class="breadcrumb-item active">Danh sách khách hàng</span>
             </nav>
         </div>
     </div>
@@ -23,7 +24,7 @@
                     <div class="d-md-flex">
                         <div class="m-b-10 m-r-15">
                             <select class="custom-select" style="min-width: 200px;">
-                                <option selected>Catergory</option>
+                                <option selected>Danh mục</option>
                                 <option value="all">All</option>
                                 <option value="homeDeco">Home Decoration</option>
                                 <option value="eletronic">Eletronic</option>
@@ -32,7 +33,7 @@
                         </div>
                         <div class="m-b-10">
                             <select class="custom-select" style="min-width: 200px;">
-                                <option selected>Status</option>
+                                <option selected>Trạng thái</option>
                                 <option value="all">All</option>
                                 <option value="inStock">In Stock </option>
                                 <option value="outOfStock">Out of Stock</option>
@@ -44,17 +45,19 @@
                     <a asp-area="Admin" asp-controller="AdminCustomers" asp-action="ExportToExcel">
                         <button class="btn btn-primary">
                             <i class="anticon anticon-file-excel m-r-5"></i>
-                            <span>Xuất file excel</span>
+                            <span>Export</span>
                         </button>
                     </a>
                 </div>
-                <div class="col-lg-3 text-right">
-                    <a asp-area="Admin" asp-controller="AdminCustomers" asp-action="Create">
-                    <button class="btn btn-primary">
+                <div class="dropdown col-lg-3 text-right">
+                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                         <i class="anticon anticon-plus-circle m-r-5"></i>
-                        <span>Thêm khách hàng</span>
+                        <span>Add</span>
                     </button>
-                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" asp-controller="AdminCustomers" asp-action="Create">Add new customer</a>
+                        <a class="dropdown-item" asp-controller="AdminCustomers" asp-action="AddFromExcel">Add from Excel</a>
+                    </div>
                 </div>
             </div>
             <div class="table-responsive">

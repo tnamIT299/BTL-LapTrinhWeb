@@ -7,6 +7,10 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Client_Home.Data;
 using Client_Home.Models;
+using AspNetCoreHero.ToastNotification.Notyf;
+using AspNetCoreHero.ToastNotification.Abstractions;
+using ClosedXML.Excel;
+using Client_Home.Areas.Admin.DTO.Employees;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
@@ -14,17 +18,22 @@ namespace Client_Home.Areas.Admin.Controllers
     public class AdminEmployeesController : Controller
     {
         private readonly ConveniencestoreContext _context;
-
-        public AdminEmployeesController(ConveniencestoreContext context)
+        public INotyfService _notifyService { get; }
+        public AdminEmployeesController(ConveniencestoreContext context, INotyfService notifyService)
         {
             _context = context;
+            _notifyService = notifyService;
         }
 
         // GET: Admin/AdminEmployees
-        public async Task<IActionResult> Index()
+        public IActionResult Index(int? page)
         {
-            var conveniencestoreContext = _context.Employees.Include(e => e.User);
-            return View(await conveniencestoreContext.ToListAsync());
+            var pageNumber = page == null || page <= 0 ? 1 : page.Value;
+            var pageSize = 15;
+            var isEmployee = _context.Employees.AsNoTracking().OrderByDescending(x => x.Email);
+            PagedList.Core.IPagedList<Employee> models = new PagedList.Core.PagedList<Employee>(isEmployee, pageNumber, pageSize);
+            ViewBag.CurrentPage = pageNumber;
+            return View(models);
         }
 
         // GET: Admin/AdminEmployees/Details/5
@@ -49,7 +58,7 @@ namespace Client_Home.Areas.Admin.Controllers
         // GET: Admin/AdminEmployees/Create
         public IActionResult Create()
         {
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId");
+           // ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId");
             return View();
         }
 
@@ -58,16 +67,33 @@ namespace Client_Home.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EmployeeId,UserId,FirstName,LastName,Position,DateHired,BirthDate,CitizenId,Gender,Email,PhoneNumber")] Employee employee)
+        public async Task<IActionResult> Create([Bind("EmployeeId,UserId,FirstName,LastName,Position,DateHired,BirthDate,CitizenId,Gender,Email,PhoneNumber")] AddEmployees employee)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(employee);
-                await _context.SaveChangesAsync();
+                //_context.Add(employee);
+                //await _context.SaveChangesAsync();
+                //return RedirectToAction(nameof(Index));
+            }
+            return View(employee);
+        }
+        public async Task<IActionResult> AddFromExcel()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddFromExcel([Bind("fileExcel")] AddFromExcel employees)
+        {
+            if (ModelState.IsValid)
+            {
+                //_context.Add(customer);
+                //await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", employee.UserId);
-            return View(employee);
+            return View(employees);
         }
 
         // GET: Admin/AdminEmployees/Edit/5
@@ -159,6 +185,58 @@ namespace Client_Home.Areas.Admin.Controllers
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+
+        // GET: Admin/AdminCustomers/ExportToExcel
+        public async Task<IActionResult> ExportToExcel()
+        {
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("Employees");
+                var currentRow = 1;
+                worksheet.Cell(currentRow, 1).Value = "ID";
+                worksheet.Cell(currentRow, 2).Value = "Họ";
+                worksheet.Cell(currentRow, 3).Value = "Tên";
+                worksheet.Cell(currentRow, 4).Value = "Ngày sinh";
+                worksheet.Cell(currentRow, 5).Value = "Giới tính";
+                worksheet.Cell(currentRow, 6).Value = "CCCD";
+                worksheet.Cell(currentRow, 7).Value = "Ngày tuyển ";
+                worksheet.Cell(currentRow, 8).Value = "Email";
+                worksheet.Cell(currentRow, 9).Value = "Số điện thoại";
+                worksheet.Cell(currentRow, 10).Value = "ID tài khoản";
+                if (_context.Employees != null)
+                {
+                    foreach (var employees in await _context.Employees.ToListAsync())
+                    {
+                        currentRow++;
+                        worksheet.Cell(currentRow, 1).Value = employees.EmployeeId;
+                        worksheet.Cell(currentRow, 2).Value = employees.FirstName;
+                        worksheet.Cell(currentRow, 3).Value = employees.LastName;
+                        worksheet.Cell(currentRow, 4).Value = employees.BirthDate;
+                        worksheet.Cell(currentRow, 5).Value = (XLCellValue)employees.Gender;
+                        worksheet.Cell(currentRow, 6).Value = employees.CitizenId;
+                        worksheet.Cell(currentRow, 7).Value = employees.DateHired;
+                        worksheet.Cell(currentRow, 8).Value = employees.Email;
+                        worksheet.Cell(currentRow, 9).Value = employees.PhoneNumber;
+                        worksheet.Cell(currentRow, 10).Value = employees.UserId;
+                    }
+                }
+                else
+                {
+                    _notifyService.Warning("Không có nhân viên :(((");
+                }
+
+                using (var stream = new MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+                    var content = stream.ToArray();
+                    //_notifyService.Success("Đã xuất file thành công");
+                    return File(
+                        content,
+                        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                        "Employees.xlsx");
+                }
+            }
         }
 
         private bool EmployeeExists(int id)

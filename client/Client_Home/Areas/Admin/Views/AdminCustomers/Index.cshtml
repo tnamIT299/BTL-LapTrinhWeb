@@ -22,7 +22,7 @@
             <div class="row m-b-30">
                 <div class="col-lg-7">
                     <div class="d-md-flex">
-                        <div class="m-b-10 m-r-15">
+                        @* <div class="m-b-10 m-r-15">
                             <select class="custom-select" style="min-width: 200px;">
                                 <option selected>Danh mục</option>
                                 <option value="all">All</option>
@@ -30,15 +30,15 @@
                                 <option value="eletronic">Eletronic</option>
                                 <option value="jewellery">Jewellery</option>
                             </select>
-                        </div>
-                        <div class="m-b-10">
+                        </div> *@
+                       @*  <div class="m-b-10">
                             <select class="custom-select" style="min-width: 200px;">
                                 <option selected>Trạng thái</option>
                                 <option value="all">All</option>
                                 <option value="inStock">In Stock </option>
                                 <option value="outOfStock">Out of Stock</option>
                             </select>
-                        </div>
+                        </div> *@
                     </div>
                 </div>
                 <div class="col-lg-2 text-right">
@@ -55,8 +55,8 @@
                         <span>Add</span>
                     </button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" asp-controller="AdminCustomers" asp-action="Create">Add new customer</a>
-                        <a class="dropdown-item" asp-controller="AdminCustomers" asp-action="AddFromExcel">Add from Excel</a>
+                        <a class="dropdown-item" asp-controller="AdminCustomers" asp-action="Create">Thêm mới khách hàng</a>
+                        <a class="dropdown-item" asp-controller="AdminCustomers" asp-action="AddFromExcel">Thêm từ Excel</a>
                     </div>
                 </div>
             </div>
@@ -116,7 +116,11 @@
                                             @Html.DisplayFor(modelItem => item.Rank)
                                     </td>
                                     <td>
-                                            @Html.DisplayFor(modelItem => item.Gender)
+                                        @{
+                                                string genderText = (item.Gender != null && item.Gender == true) ? "Nữ" : "Nam";
+                                        }
+                                            @Html.DisplayFor(modelItem => genderText)
+
                                     </td>
 
                                     <td class="text-right">

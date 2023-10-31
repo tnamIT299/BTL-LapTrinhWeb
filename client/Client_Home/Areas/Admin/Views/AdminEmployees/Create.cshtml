@@ -1,75 +1,134 @@
-﻿@model Client_Home.Models.Employee
+﻿@* @model Client_Home.Models.Customer *@
+@model Client_Home.Areas.Admin.DTO.Employees.AddEmployees
 
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
+
 <h1>Create</h1>
 
-<h4>Employee</h4>
+<h4>Enmployees</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="UserId" class="control-label"></label>
-                <select asp-for="UserId" class ="form-control" asp-items="ViewBag.UserId"></select>
+<link href="assets/css/app.min.css" rel="stylesheet">
+<!-- page css -->
+<link href="~/adminassets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" />
+<!-- page js -->
+<script src="~/adminassets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<div class="main-content">
+    <form asp-action="Create">
+        <div class="page-header no-gutters has-tab">
+            <div class="d-md-flex m-b-15 align-items-center justify-content-between">
+                <div class="media align-items-center m-b-15">
+                    <div class="avatar avatar-image rounded" style="height: 70px; width: 70px">
+                    </div>
+                    <div class="m-l-15">
+                        <h4 class="m-b-0">Thông Tin Cơ Bản</h4>
+                    </div>
+                </div>
+                <div class="m-b-15">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="anticon anticon-save"></i>
+                        <span>Save</span>
+                    </button>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="FirstName" class="control-label"></label>
-                <input asp-for="FirstName" class="form-control" />
-                <span asp-validation-for="FirstName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LastName" class="control-label"></label>
-                <input asp-for="LastName" class="form-control" />
-                <span asp-validation-for="LastName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Position" class="control-label"></label>
-                <input asp-for="Position" class="form-control" />
-                <span asp-validation-for="Position" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DateHired" class="control-label"></label>
-                <input asp-for="DateHired" class="form-control" />
-                <span asp-validation-for="DateHired" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BirthDate" class="control-label"></label>
-                <input asp-for="BirthDate" class="form-control" />
-                <span asp-validation-for="BirthDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CitizenId" class="control-label"></label>
-                <input asp-for="CitizenId" class="form-control" />
-                <span asp-validation-for="CitizenId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Gender" class="control-label"></label>
-                <input asp-for="Gender" class="form-control" />
-                <span asp-validation-for="Gender" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhoneNumber" class="control-label"></label>
-                <input asp-for="PhoneNumber" class="form-control" />
-                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+        </div>
+        <div class="tab-content m-t-15">
+            <div class="tab-pane fade show active" id="">
+                <div class="card">
+                    <div class="card-body">
 
-<div>
-    <a asp-action="Index">Back to List</a>
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col">
+                                    <label asp-for="FirstName" class="control-label"></label>
+                                    <input asp-for="FirstName" type="text" pattern="[a-zA-ZÀ-Ỹà-ỹ\s]+" class="form-control" />
+                                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                                </div>
+                                <div class="col">
+                                    <label asp-for="LastName" class="control-label"></label>
+                                    <input asp-for="LastName" type="text" pattern="[a-zA-ZÀ-Ỹà-ỹ\s]+" class="form-control" />
+                                    <span asp-validation-for="LastName" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col">
+                                    <label asp-for="Gender" class="control-label" for="employeesGender"></label>
+                                    <select class="custom-select" id="employeesGender">
+                                        <option value="male" selected>Nam</option>
+                                        <option value="fmale">Nữ</option>
+                                        <option value="other">Khác</option>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <label asp-for="BirthDate" class="control-label"></label>
+                                    <input asp-for="BirthDate" class="form-control" />
+                                    <span asp-validation-for="BirthDate" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="CitizenId" class="control-label"></label>
+                            <input asp-for="CitizenId" pattern="[0-9]+" class="form-control" />
+                            <span asp-validation-for="CitizenId" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Position" class="control-label" for="employeesPosition"></label>
+                            <select class="custom-select" id="employeesPosition">
+                                <option value="manager" selected>Quản lý</option>
+                                <option value="employee">Nhân viên</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Email" class="control-label"></label>
+                            <input asp-for="Email" type="email" class="form-control" placeholder="abc123@gmail.com" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="PhoneNumber" class="control-label"></label>
+                            <input asp-for="PhoneNumber" pattern="[0-9]+" class="form-control" />
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="DateHired" class="control-label"></label>
+                            <input asp-for="DateHired" class="form-control" />
+                            <span asp-validation-for="DateHired" class="text-danger"></span>
+                        </div>
+
+
+                        @*  <div  class="form-group">
+                        <label asp-for="RewardPoints" class="control-label"></label>
+                        <input asp-action="RewardPoints" asp-for="RewardPoints" class="form-control" />
+                        <span asp-validation-for="RewardPoints" class="text-danger"></span>
+                        </div>
+
+
+                        <div class="form-group">
+                        <label asp-for="Rank" class="control-label"></label>
+                        <input asp-for="Rank" class="form-control" />
+                        <span asp-validation-for="Rank" class="text-danger"></span>
+                        </div> *@
+
+                        @*  <div class="form-group">
+                        <label asp-for="UserId" class="control-label"></label>
+                        <input asp-for="UserId" class="form-control" />
+                        <span asp-validation-for="UserId" class="text-danger"></span>
+                        </div> *@
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
 

@@ -12,7 +12,13 @@
 <h4>Customer</h4>
 <hr />
 <link href="assets/css/app.min.css" rel="stylesheet">
+<!-- page css -->
+<link href="~/adminassets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" />
+<!-- page js -->
+<script src="~/adminassets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
 <div class="main-content">
+
+
     <form asp-action="Create">
         <div class="page-header no-gutters has-tab">
             <div class="d-md-flex m-b-15 align-items-center justify-content-between">
@@ -62,9 +68,9 @@
                                     </select>
                                 </div>
                                 <div class="col">
-                                    <label asp-for="Birthday" class="control-label"></label>
-                                    <input asp-for="Birthday"  class="form-control" />
-                                    <span asp-validation-for="Birthday" class="text-danger"></span>
+                                     <label asp-for="Birthday" class="control-label"></label>
+                                    <input asp-for="Birthday" class="form-control" />
+                                    <span asp-validation-for="Birthday" class="text-danger"></span> 
                                 </div>
                             </div>
                         </div>

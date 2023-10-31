@@ -36,6 +36,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5BY2NvdW50c1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminCustomers/AddFromExcel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lcnNcQWRkRnJvbUV4Y2VsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminCustomers/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lcnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -54,6 +58,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminCustomers/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lcnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminEmployees/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5FbXBsb3llZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminEmployees/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5FbXBsb3llZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminEmployees/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5FbXBsb3llZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminEmployees/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5FbXBsb3llZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminEmployees/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5FbXBsb3llZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminInvoices/Create.cshtml]

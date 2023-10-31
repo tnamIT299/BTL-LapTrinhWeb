@@ -66,7 +66,27 @@ namespace Client_Home.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CustomerId,FirstName,LastName,Email,Phone,Birthday,RewardPoints,Rank,Gender,UserId")] AddCustomer customer)
+        public async Task<IActionResult> Create([Bind("FirstName,LastName,Email,Phone,Birthday,Gender")] AddCustomer customer)
+        {
+            if (ModelState.IsValid)
+            {
+                //_context.Add(customer);
+                //await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(customer);
+        }
+
+
+        public async Task<IActionResult> AddFromExcel()
+        {
+            
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddFromExcel([Bind("fileExcel")] AddFromExcel customer)
         {
             if (ModelState.IsValid)
             {

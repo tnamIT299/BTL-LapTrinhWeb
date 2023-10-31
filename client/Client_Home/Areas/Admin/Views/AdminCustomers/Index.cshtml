@@ -45,17 +45,19 @@
                     <a asp-area="Admin" asp-controller="AdminCustomers" asp-action="ExportToExcel">
                         <button class="btn btn-primary">
                             <i class="anticon anticon-file-excel m-r-5"></i>
-                            <span>Xuất excel</span>
+                            <span>Export</span>
                         </button>
                     </a>
                 </div>
-                <div class="col-lg-3 text-right">
-                    <a asp-area="Admin" asp-controller="AdminCustomers" asp-action="Create">
-                    <button class="btn btn-primary">
+                <div class="dropdown col-lg-3 text-right">
+                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                         <i class="anticon anticon-plus-circle m-r-5"></i>
-                        <span>Thêm khách hàng</span>
+                        <span>Add</span>
                     </button>
-                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" asp-controller="AdminCustomers" asp-action="Create">Add new customer</a>
+                        <a class="dropdown-item" asp-controller="AdminCustomers" asp-action="AddFromExcel">Add from Excel</a>
+                    </div>
                 </div>
             </div>
             <div class="table-responsive">

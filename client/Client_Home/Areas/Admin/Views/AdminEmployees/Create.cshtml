@@ -1,5 +1,5 @@
-﻿@* @model Client_Home.Models.Customer *@
-@model Client_Home.Areas.Admin.DTO.Employees.AddEmployees
+﻿@model Client_Home.Models.Employee
+
 
 @{
     ViewData["Title"] = "Create";
@@ -17,7 +17,7 @@
 <!-- page js -->
 <script src="~/adminassets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
 <div class="main-content">
-    <form asp-action="Create">
+    <form asp-action="Create" method="post">
         <div class="page-header no-gutters has-tab">
             <div class="d-md-flex m-b-15 align-items-center justify-content-between">
                 <div class="media align-items-center m-b-15">
@@ -81,9 +81,10 @@
 
                         <div class="form-group">
                             <label asp-for="Position" class="control-label" for="employeesPosition"></label>
-                            <select class="custom-select" id="employeesPosition">
+                            <select asp-for="Position" class="custom-select" id="employeesPosition">
                                 <option value="manager" selected>Quản lý</option>
-                                <option value="employee">Nhân viên</option>
+                                <option value="employee_sell">Nhân viên bán hàng</option>
+                                <option value="employee_ship">Nhân viên giao hàng</option>
                             </select>
                         </div>
 
@@ -104,26 +105,6 @@
                             <input asp-for="DateHired" class="form-control" />
                             <span asp-validation-for="DateHired" class="text-danger"></span>
                         </div>
-
-
-                        @*  <div  class="form-group">
-                        <label asp-for="RewardPoints" class="control-label"></label>
-                        <input asp-action="RewardPoints" asp-for="RewardPoints" class="form-control" />
-                        <span asp-validation-for="RewardPoints" class="text-danger"></span>
-                        </div>
-
-
-                        <div class="form-group">
-                        <label asp-for="Rank" class="control-label"></label>
-                        <input asp-for="Rank" class="form-control" />
-                        <span asp-validation-for="Rank" class="text-danger"></span>
-                        </div> *@
-
-                        @*  <div class="form-group">
-                        <label asp-for="UserId" class="control-label"></label>
-                        <input asp-for="UserId" class="form-control" />
-                        <span asp-validation-for="UserId" class="text-danger"></span>
-                        </div> *@
 
                     </div>
                 </div>

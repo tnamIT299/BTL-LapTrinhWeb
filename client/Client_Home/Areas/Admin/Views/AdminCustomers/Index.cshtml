@@ -22,44 +22,31 @@
             <div class="row m-b-30">
                 <div class="col-lg-7">
                     <div class="d-md-flex">
-                        @* <div class="m-b-10 m-r-15">
-                            <select class="custom-select" style="min-width: 200px;">
-                                <option selected>Danh mục</option>
-                                <option value="all">All</option>
-                                <option value="homeDeco">Home Decoration</option>
-                                <option value="eletronic">Eletronic</option>
-                                <option value="jewellery">Jewellery</option>
-                            </select>
-                        </div> *@
-                       @*  <div class="m-b-10">
-                            <select class="custom-select" style="min-width: 200px;">
-                                <option selected>Trạng thái</option>
-                                <option value="all">All</option>
-                                <option value="inStock">In Stock </option>
-                                <option value="outOfStock">Out of Stock</option>
-                            </select>
-                        </div> *@
                     </div>
                 </div>
                 <div class="col-lg-2 text-right">
                     <a asp-area="Admin" asp-controller="AdminCustomers" asp-action="ExportToExcel">
                         <button class="btn btn-primary">
                             <i class="anticon anticon-file-excel m-r-5"></i>
-                            <span>Export</span>
+                            <span>Xuất file Excel</span>
                         </button>
                     </a>
                 </div>
                 <div class="dropdown col-lg-3 text-right">
                     <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                         <i class="anticon anticon-plus-circle m-r-5"></i>
-                        <span>Add</span>
+                        <span>Thêm</span>
                     </button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" asp-controller="AdminCustomers" asp-action="Create">Thêm mới khách hàng</a>
                         <a class="dropdown-item" asp-controller="AdminCustomers" asp-action="AddFromExcel">Thêm từ Excel</a>
                     </div>
                 </div>
+                <div class="m-b-10 m-r-15">
+                    <input id="keyword" type="text" name="keyword" class="form-control" placeholder="Tìm kiếm khách hàng" />
+                </div>
             </div>
+            
             <div class="table-responsive">
                 <table class="table table-hover e-commerce-table">
                     <thead>
@@ -117,21 +104,23 @@
                                     </td>
                                     <td>
                                         @{
-                                                string genderText = (item.Gender != null && item.Gender == true) ? "Nữ" : "Nam";
+                                                string genderText = (item.Gender != null && item.Gender == 1) ? "Nữ" : "Nam";
                                         }
                                             @Html.DisplayFor(modelItem => genderText)
 
                                     </td>
 
                                     <td class="text-right">
+                                        <a asp-area="Admin" asp-controller="AdminCustomers" asp-action="Details" asp-route-id="@item.CustomerId">
+                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xem chi tiết thông tin khách hàng">
+                                                <i class="anticon anticon-eye"></i>
+                                            </button>
+                                        </a>
                                         <a asp-area="Admin" asp-controller="AdminCustomers" asp-action="Edit" asp-route-id="@item.CustomerId">
-                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
+                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right" title="Sửa thông tin khách hàng">
                                                 <i class="anticon anticon-edit"></i>
                                             </button>
                                         </a>
-                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded">
-                                            <i class="anticon anticon-delete"></i>
-                                        </button>
                                     </td>
                                 </tr>
                                     i++;

@@ -8,15 +8,16 @@ using Microsoft.EntityFrameworkCore;
 using Client_Home.Data;
 using Client_Home.Models;
 using AspNetCoreHero.ToastNotification.Abstractions;
+using Client_Home.Areas.Admin.DTO.Suppliers;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class AdminSuppliersController : Controller
     {
-        private readonly ConveniencestoreContext _context;
+        private readonly Client_Home.Data.ConveniencestoreContext _context;
         public INotyfService _notifyService { get; }
-        public AdminSuppliersController(ConveniencestoreContext context , INotyfService notifyService)
+        public AdminSuppliersController(Client_Home.Data.ConveniencestoreContext context , INotyfService notifyService)
         {
             _context = context;
             _notifyService = notifyService;
@@ -62,7 +63,7 @@ namespace Client_Home.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("SupplierId,SupplierName,ContactName,Address,City,PostalCode,Country,Phone")] Supplier supplier)
+        public async Task<IActionResult> Create([Bind("SupplierId,SupplierName,ContactName,Address,City,PostalCode,Country,Phone")] AddSupplier supplier)
         {
             if (ModelState.IsValid)
             {

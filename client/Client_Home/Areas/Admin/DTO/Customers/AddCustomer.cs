@@ -6,6 +6,10 @@ namespace Client_Home.Areas.DTO.Customers
 {
     public class AddCustomer
     {
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int CustomerId { get; set; }
+
         [Required(ErrorMessage = "Vui lòng nhập họ ")]
         [MaxLength(20)]
         [DisplayName("Họ")]

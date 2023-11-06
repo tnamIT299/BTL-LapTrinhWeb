@@ -61,7 +61,11 @@
                         <a class="dropdown-item" asp-controller="AdminEmployees" asp-action="AddFromExcel">Thêm từ Excel</a>
                     </div>
                 </div>
+                <div class="m-b-10 m-r-15">
+                    <input id="keyword" type="text" name="keyword" class="form-control" placeholder="Tìm kiếm nhân viên" />
+                </div>
             </div>
+            
             <div class="table-responsive">
                 <table class="table table-hover e-commerce-table">
                     <thead>
@@ -144,14 +148,24 @@
                                     </td>
 
                                     <td class="text-right">
-                                        <a asp-area="Admin" asp-controller="AdminCustomers" asp-action="Edit" asp-route-id="@item.EmployeeId">
-                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
+                                        <a asp-area="Admin" asp-controller="AdminEmployees" asp-action="Details" asp-route-id="@item.EmployeeId">
+                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xem chi tiết thông tin nhân viên">
+                                                <i class="anticon anticon-eye"></i>
+                                            </button>
+                                        </a>
+
+                                        <a asp-area="Admin" asp-controller="AdminEmployees" asp-action="Edit" asp-route-id="@item.EmployeeId">
+                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right" title="Sửa thông tin nhân viên ">
                                                 <i class="anticon anticon-edit"></i>
                                             </button>
                                         </a>
-                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded">
-                                            <i class="anticon anticon-delete"></i>
-                                        </button>
+
+                                        <a asp-area="Admin" asp-controller="AdminEmployees" asp-action="Delete" asp-route-id="@item.EmployeeId">
+                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xóa nhân viên này">
+                                                <i class="anticon anticon-delete"></i>
+                                            </button>
+                                        </a>
+
                                     </td>
                                 </tr>
                                     i++;

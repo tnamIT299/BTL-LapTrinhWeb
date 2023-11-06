@@ -18,9 +18,9 @@ namespace Client_Home.Areas.Admin.Controllers
     [Area("Admin")]
     public class AdminCustomersController : Controller
     {
-        private readonly ConveniencestoreContext _context;
+        private readonly Client_Home.Data.ConveniencestoreContext _context;
         public INotyfService _notifyService { get; }
-        public AdminCustomersController(ConveniencestoreContext context, INotyfService notifyService)
+        public AdminCustomersController(Client_Home.Data.ConveniencestoreContext context, INotyfService notifyService)
         {
             _context = context;
             _notifyService = notifyService;
@@ -31,7 +31,11 @@ namespace Client_Home.Areas.Admin.Controllers
         {
                 var pageNumber = page == null || page <=0 ? 1 : page.Value;
                 var pageSize = 15;
-                var isCustomers = _context.Customers.AsNoTracking().OrderByDescending(x => x.Email); 
+                var isCustomers = _context.Customers
+                .AsNoTracking()
+                .Include(p => p.User).
+                AsNoTracking().
+                OrderByDescending(x => x.LastName);
                 PagedList.Core.IPagedList <Customer> models= new PagedList.Core.PagedList<Customer>(isCustomers,pageNumber,pageSize);
                 ViewBag.CurrentPage = pageNumber;
                 return View(models);
@@ -55,7 +59,8 @@ namespace Client_Home.Areas.Admin.Controllers
             return View(customer);
         }
 
-        // GET: Admin/AdminCustomers/Create
+        // GET: Admin/AdminCustomers/
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
@@ -66,12 +71,12 @@ namespace Client_Home.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FirstName,LastName,Email,Phone,Birthday,Gender")] AddCustomer customer)
+        public async Task<IActionResult> Create([Bind("FirstName,LastName,Email,Phone,Birthday,Gender")] Customer customer)
         {
             if (ModelState.IsValid)
             {
-                //_context.Add(customer);
-                //await _context.SaveChangesAsync();
+                _context.Add(customer);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(customer);
@@ -238,5 +243,8 @@ namespace Client_Home.Areas.Admin.Controllers
                 }
             }
         }
+
+       
+
     }
 }

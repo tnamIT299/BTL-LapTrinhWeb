@@ -59,10 +59,10 @@
                             <div class="form-row">
                                 <div class="col">
                                     <label asp-for="Gender" class="control-label" for="employeesGender"></label>
-                                    <select class="custom-select" id="employeesGender">
-                                        <option value="male" selected>Nam</option>
-                                        <option value="fmale">Nữ</option>
-                                        <option value="other">Khác</option>
+                                    <select asp-for ="Gender" class="custom-select" id="employeesGender">
+                                        <option value=0 selected>Nam</option>
+                                        <option value=1>Nữ</option>
+                                        <option value=2>Khác</option>
                                     </select>
                                 </div>
                                 <div class="col">
@@ -82,9 +82,9 @@
                         <div class="form-group">
                             <label asp-for="Position" class="control-label" for="employeesPosition"></label>
                             <select asp-for="Position" class="custom-select" id="employeesPosition">
-                                <option value="manager" selected>Quản lý</option>
-                                <option value="employee_sell">Nhân viên bán hàng</option>
-                                <option value="employee_ship">Nhân viên giao hàng</option>
+                                <option value="Quản lý" selected>Quản lý</option>
+                                <option value="NV bán hàng">Nhân viên bán hàng</option>
+                                <option value="NV giao hàng">Nhân viên giao hàng</option>
                             </select>
                         </div>
 

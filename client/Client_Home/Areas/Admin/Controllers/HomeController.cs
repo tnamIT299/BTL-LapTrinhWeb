@@ -12,7 +12,7 @@ namespace Client_Home.Areas.Admin.Controllers
     {
         public async Task<IActionResult> Index()
         {
-            using (var context = new ConveniencestoreContext())
+            using (var context = new Client_Home.Data.ConveniencestoreContext())
             {
                 var invoices = await context.Invoices.FromSqlRaw("EXEC GetLatestInvoices").ToListAsync();
                 var TopCustomers = await context.   AdminRichestCustomerView.FromSqlRaw("EXEC GetTopCustomers").ToListAsync();

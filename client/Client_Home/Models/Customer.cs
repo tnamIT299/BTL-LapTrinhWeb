@@ -9,8 +9,8 @@ namespace Client_Home.Models;
 public partial class Customer
 {
   
-     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-     public int CustomerId { get; set; }
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int CustomerId { get; set; }
 
 
     [Required(ErrorMessage = "Vui lòng nhập họ ")]

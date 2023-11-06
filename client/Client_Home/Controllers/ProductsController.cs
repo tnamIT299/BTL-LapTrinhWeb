@@ -14,9 +14,9 @@ namespace Client_Home.Controllers
 {
     public class ProductsController : Controller
     {
-        private readonly ConveniencestoreContext _context;
+        private readonly Client_Home.Data.ConveniencestoreContext _context;
 
-        public ProductsController(ConveniencestoreContext context)
+        public ProductsController(Client_Home.Data.ConveniencestoreContext context)
         {
             _context = context;
         }

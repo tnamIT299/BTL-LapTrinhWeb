@@ -116,7 +116,7 @@
                                     </td>
                                     <td>
                                             @{
-                                                string genderText = (item.Gender != null && item.Gender == true) ? "Nữ" : "Nam";
+                                                string genderText = (item.Gender != null && item.Gender == 1) ? "Nữ" : "Nam";
                                             }
                                             @Html.DisplayFor(modelItem =>genderText)
                                     </td>

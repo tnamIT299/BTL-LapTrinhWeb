@@ -30,7 +30,7 @@ namespace Client_Home.Areas.Admin.Controllers
         {
             var pageNumber = page == null || page <= 0 ? 1 : page.Value;
             var pageSize = 15;
-            var isEmployee = _context.Employees.AsNoTracking().OrderByDescending(x => x.Email);
+            var isEmployee = _context.Employees.AsNoTracking().OrderByDescending(x => x.FirstName);
             PagedList.Core.IPagedList<Employee> models = new PagedList.Core.PagedList<Employee>(isEmployee, pageNumber, pageSize);
             ViewBag.CurrentPage = pageNumber;
             return View(models);

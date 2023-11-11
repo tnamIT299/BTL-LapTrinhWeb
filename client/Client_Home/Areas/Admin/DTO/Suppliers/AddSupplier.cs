@@ -1,10 +1,15 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Client_Home.Areas.Admin.DTO.Suppliers
 {
     public class AddSupplier
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int SupplierId { get; set; }
+
+
         [Required(ErrorMessage = "Vui lòng nhập tên nhà cung cấp ")]
         [DisplayName("Tên Nhà Cung Cấp")]
         public string? SupplierName { get; set; }
@@ -18,7 +23,7 @@ namespace Client_Home.Areas.Admin.DTO.Suppliers
         public string? Address { get; set; }
 
         [Required(ErrorMessage = "Vui lòng nhập tên thành phố")]
-        [DisplayName("Thành Phố")]
+        [DisplayName("Tỉnh , Thành Phố")]
         public string? City { get; set; }
 
         [Required(ErrorMessage = "Vui lòng nhập mã PostCode")]

@@ -56,20 +56,27 @@
                         </div>
 
                         <div class="form-group">
+                            <label asp-for="Country" class="control-label"></label>
+                            <select asp-for="Country" class="custom-select">
+                                <option value="Viet Nam" selected>Việt Nam</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
                             <div class="form-row">
+                                <div class="col">
+                                    <label asp-for="City" class="control-label"></label>
+                                    <select asp-for="City" class="custom-select" id="provinces">
+                                        <option value=''>-----Chọn tỉnh , thành phố-----</option>
+                                    </select>
+                                </div>
                                 <div class="col">
                                     <label asp-for="Address" class="control-label"></label>
                                     <input asp-for="Address" class="form-control" />
                                     <span asp-validation-for="Address" class="text-danger"></span>
                                 </div>
-                                <div class="col">
-                                    <label asp-for="City" class="control-label"></label>
-                                    <input asp-for="City" class="form-control" />
-                                    <span asp-validation-for="City" class="text-danger"></span>
-                                </div>
                             </div>
                         </div>
-
                         <div class="form-group">
                             <label asp-for="Phone" class="control-label"></label>
                             <input asp-for="Phone" pattern="[0-9]+" class="form-control" />
@@ -91,3 +98,24 @@
     </form>
 </div>
 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script>
+    const host = "https://provinces.open-api.vn/api/";
+    var callAPI = (api) => {
+        return axios.get(api)
+            .then((response) => {
+                renderData(response.data, "provinces");
+            });
+    }
+    callAPI('https://provinces.open-api.vn/api/?depth=1');
+
+    var renderData = (array, select) => {
+        let row = ' <option disable value="">-----Chọn tỉnh , thành phố-----</option>';
+        array.forEach(element => {
+            row += `<option data-id="${element.code}" value="${element.name}">${element.name}</option>`
+        });
+        document.querySelector("#" + select).innerHTML = row
+    }
+</script>

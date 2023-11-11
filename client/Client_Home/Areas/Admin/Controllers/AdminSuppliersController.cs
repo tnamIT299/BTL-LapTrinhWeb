@@ -63,7 +63,7 @@ namespace Client_Home.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("SupplierId,SupplierName,ContactName,Address,City,PostalCode,Country,Phone")] AddSupplier supplier)
+        public async Task<IActionResult> Create([Bind("SupplierId,SupplierName,ContactName,Address,City,PostalCode,Country,Phone")] Supplier supplier)
         {
             if (ModelState.IsValid)
             {

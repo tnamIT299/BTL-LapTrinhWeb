@@ -72,7 +72,7 @@
     <form>
         <div class="page-header no-gutters has-tab">
             <div class="d-md-flex m-b-15 align-items-center justify-content-between">
-            </div>
+         
             <ul class="nav nav-tabs">
                 <li class="nav-item">
                     <a class="nav-link active" data-toggle="tab" href="#product-edit-basic">Thông tin cơ bản</a>
@@ -80,20 +80,25 @@
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="tab" href="#product-edit-description">Mô tả</a>
                 </li>
-                <button class="btn btn-primary">
+            </ul>
+            <div class="m-b-15">
+                <button type="submit" class="btn btn-primary">
                     <i class="anticon anticon-save"></i>
                     <span>Save</span>
                 </button>
-            </ul>
+            </div>
+            </div>
         </div>
         <div class="tab-content m-t-15">
             <div class="tab-pane fade show active" id="product-edit-basic">
                 <div class="card">
                     <div class="card-body">
+
                         <div class="form-group">
                             <label class="font-weight-semibold" for="productName">Tên sản phẩm</label>
                             <input type="text" class="form-control" id="productName" placeholder="Product Name" value="Trứng gà">
                         </div>
+
                         <div class="form-group">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
@@ -119,47 +124,54 @@
                                 </div>
                             </div>
                         </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="font-weight-semibold" for="productCategory">Danh mục sản phẩm</label>
-                            <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
-                        </div>
-                        <div class="form-group">
-                            <label class="font-weight-semibold" for="productBrand">Nhà cung cấp</label>
-                            <select asp-for="SupplierId" class="form-control" asp-items="ViewBag.SupplierId"></select>
-                        </div>
-
-
-                        <div class="form-group">
-                            <label class="font-weight-semibold" for="productStatus">Trạng thái</label>
-                            <select class="custom-select" id="productStatus">
-                                <option value="inStock" selected>Đang bán</option>
-                                <option value="outOfStock">Ngưng bán</option>
-                                <option value="pending">Hết hàng</option>
-                            </select>
-                        </div>
-
-                        <label class="font-weight-semibold" for="productStatus">Hình ảnh sản phẩm</label>
-                        <input type="file" id="fileInput" multiple accept="image/*" hidden>
-                        <div id="imagePreviews"></div>
-                        <button class=" btn btn-primary select-image" id="selectImageButton">Tải hình ảnh</button>
                     </div>
+
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col">
+                                <label class="font-weight-semibold" for="productCategory">Danh mục sản phẩm</label>
+                                <select asp-for="CategoryId" class="custom-select" asp-items="ViewBag.CategoryId"></select>
+                            </div>
+                            <div class="col">
+                                <label class="font-weight-semibold" for="productBrand">Nhà cung cấp</label>
+                                <select asp-for="SupplierId" class="custom-select" asp-items="ViewBag.SupplierId"></select>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col">
+                                <label class="font-weight-semibold" for="productStatus">Trạng thái</label>
+                                <select class="custom-select" id="productStatus">
+                                    <option value="inStock" selected>Đang bán</option>
+                                    <option value="outOfStock">Ngưng bán</option>
+                                    <option value="pending">Hết hàng</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <label class="font-weight-semibold" for="productStatus">Hình ảnh sản phẩm</label>
+                    <input type="file" id="fileInput" multiple accept="image/*" hidden>
+                    <div id="imagePreviews"></div>
+                    <button class=" btn btn-primary select-image" id="selectImageButton">Tải hình ảnh</button>
                 </div>
             </div>
-            <div class="tab-pane fade" id="product-edit-description">
-                <div class="card">
-                    <div class="card-body">
-                        <div id="descriptions">
-                            
-
-                        </div>
-                        <button type="button" class="btn btn-primary" id="add-button">Thêm thuộc tính</button>
+        </div>
+        <div class="tab-pane fade" id="product-edit-description">
+            <div class="card">
+                <div class="card-body">
+                    <div id="descriptions">
                     </div>
+                    <button type="button" class="btn btn-primary" id="add-button">Thêm thuộc tính</button>
                 </div>
-            </div>
-
+            </div>>
+        </div>
     </form>
+</div>
+
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', function () {

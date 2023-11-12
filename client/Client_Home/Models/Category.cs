@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace Client_Home.Models;
 
 public partial class Category
 {
+    [DisplayName("Mã danh mục")]
     public int CategoryId { get; set; }
 
     public int? ParentCategoryId { get; set; }

@@ -1,437 +1,469 @@
 is_global = true
 build_property.TargetFramework = net7.0
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Client_Home
 build_property.RootNamespace = Client_Home
-build_property.ProjectDir = C:\asp1\BTL-LapTrinhWeb\client\Client_Home\
+build_property.ProjectDir = D:\Laptrinhtrucquan_Web\btl\client\Client_Home\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = true
-build_property.MSBuildProjectDirectory = C:\asp1\BTL-LapTrinhWeb\client\Client_Home
+build_property.MSBuildProjectDirectory = D:\Laptrinhtrucquan_Web\btl\client\Client_Home
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminAccounts/Create.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminAccounts/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5BY2NvdW50c1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminAccounts/Delete.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminAccounts/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5BY2NvdW50c1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminAccounts/Details.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminAccounts/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5BY2NvdW50c1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminAccounts/Edit.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminAccounts/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5BY2NvdW50c1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminAccounts/Index.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminAccounts/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5BY2NvdW50c1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminCustomers/Create.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminCustomers/AddFromExcel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lcnNcQWRkRnJvbUV4Y2VsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminCustomers/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lcnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminCustomers/Delete.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminCustomers/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lcnNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminCustomers/Details.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminCustomers/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lcnNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminCustomers/Edit.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminCustomers/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lcnNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminCustomers/Index.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminCustomers/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminInvoices/Create.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminEmployees/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5FbXBsb3llZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminEmployees/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5FbXBsb3llZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminEmployees/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5FbXBsb3llZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminEmployees/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5FbXBsb3llZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminEmployees/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5FbXBsb3llZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminInvoices/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5JbnZvaWNlc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminInvoices/Delete.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminInvoices/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5JbnZvaWNlc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminInvoices/Details.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminInvoices/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5JbnZvaWNlc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminInvoices/Edit.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminInvoices/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5JbnZvaWNlc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminInvoices/Index.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminInvoices/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5JbnZvaWNlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminProducts/Create.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminProducts/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Qcm9kdWN0c1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminProducts/Delete.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminProducts/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Qcm9kdWN0c1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminProducts/Details.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminProducts/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Qcm9kdWN0c1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminProducts/Edit.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminProducts/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Qcm9kdWN0c1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminProducts/Index.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminProducts/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Qcm9kdWN0c1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminQR/GenerateQRCode.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminQR/GenerateQRCode.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5RUlxHZW5lcmF0ZVFSQ29kZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminRoles/Create.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminRoles/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Sb2xlc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminRoles/Delete.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminRoles/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Sb2xlc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminRoles/Details.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminRoles/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Sb2xlc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminRoles/Edit.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminRoles/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Sb2xlc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminRoles/Index.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminRoles/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Sb2xlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Home/Index.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Invoices/Create.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/Invoices/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52b2ljZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Invoices/Delete.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/Invoices/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52b2ljZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Invoices/Details.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/Invoices/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52b2ljZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Invoices/Edit.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/Invoices/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52b2ljZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Invoices/Index.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/Invoices/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52b2ljZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Search/ListProductsSearchPartial.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/Search/ListProductsSearchPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VhcmNoXExpc3RQcm9kdWN0c1NlYXJjaFBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Shared/Error.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Shared/_LoginPartial.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Shared/_SideNavPartialView.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/Shared/_SideNavPartialView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9TaWRlTmF2UGFydGlhbFZpZXcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/_ViewImports.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/_ViewStart.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/AccessDenied.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/ConfirmEmail.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/ConfirmEmail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxDb25maXJtRW1haWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/ConfirmEmailChange.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/ConfirmEmailChange.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxDb25maXJtRW1haWxDaGFuZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/ExternalLogin.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/ExternalLogin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxFeHRlcm5hbExvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZENvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/Lockout.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/Lockout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2Nrb3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/Login.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/LoginWith2fa.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/LoginWith2fa.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbldpdGgyZmEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/LoginWithRecoveryCode.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/LoginWithRecoveryCode.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbldpdGhSZWNvdmVyeUNvZGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/Logout.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/Logout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcQ2hhbmdlUGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRGVsZXRlUGVyc29uYWxEYXRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/Manage/Disable2fa.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/Manage/Disable2fa.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRGlzYWJsZTJmYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRG93bmxvYWRQZXJzb25hbERhdGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/Manage/Email.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/Manage/Email.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRW1haWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRW5hYmxlQXV0aGVudGljYXRvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/Manage/ExternalLogins.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/Manage/ExternalLogins.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRXh0ZXJuYWxMb2dpbnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/Manage/GenerateRecoveryCodes.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/Manage/GenerateRecoveryCodes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcR2VuZXJhdGVSZWNvdmVyeUNvZGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/Manage/Index.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/Manage/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcUGVyc29uYWxEYXRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/Manage/ResetAuthenticator.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/Manage/ResetAuthenticator.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcUmVzZXRBdXRoZW50aWNhdG9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/Manage/SetPassword.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/Manage/SetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcU2V0UGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/Manage/ShowRecoveryCodes.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/Manage/ShowRecoveryCodes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcU2hvd1JlY292ZXJ5Q29kZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcVHdvRmFjdG9yQXV0aGVudGljYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/Manage/_Layout.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/Manage/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX01hbmFnZU5hdi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/Manage/_StatusMessage.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/Manage/_StatusMessage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1N0YXR1c01lc3NhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/Register.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3RlckNvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/ResendEmailConfirmation.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/ResendEmailConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNlbmRFbWFpbENvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/ResetPassword.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/ResetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/ResetPasswordConfirmation.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/ResetPasswordConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkQ29uZmlybWF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/_StatusMessage.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/_StatusMessage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfU3RhdHVzTWVzc2FnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Account/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/Error.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/_ViewImports.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Identity/Pages/_ViewStart.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Views/AppRoles/Create.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Views/AppRoles/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwUm9sZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Views/AppRoles/Index.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Views/AppRoles/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwUm9sZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Views/Cart/Cart.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Views/Cart/Cart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxDYXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Views/Home/Blog.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Views/Home/Blog.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxCbG9nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Views/Home/Contact.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Views/Home/Contact.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Views/Home/Index.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Views/Home/Privacy.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Views/Home/Shop.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Views/Home/Shop.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTaG9wLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Views/Leads/Create.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Views/Leads/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVhZHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Views/Leads/Delete.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Views/Leads/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVhZHNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Views/Leads/Details.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Views/Leads/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVhZHNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Views/Leads/Edit.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Views/Leads/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVhZHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Views/Leads/Index.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Views/Leads/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVhZHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Views/Products/Create.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Views/Products/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Views/Products/Delete.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Views/Products/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Views/Products/Details.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Views/Products/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Views/Products/Edit.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Views/Products/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Views/Products/Index.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Views/Products/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Views/Shared/Components/CartWidget/Default.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Views/Shared/Components/CartWidget/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQ2FydFdpZGdldFxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Views/Shared/Error.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Views/Shared/_LoginPartial.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Views/_ViewImports.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Views/_ViewStart.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Shared/_AdminLayout.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/Shared/_AdminLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-8ibq3sr845
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Views/Shared/_Layout.cshtml]
+[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-wn2ss8duaw

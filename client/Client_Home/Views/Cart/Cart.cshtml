@@ -97,16 +97,20 @@
                                         </div>
                                         <div class="address">
                                             <p class="dis fw-bold mb-3">Địa chỉ nhận hàng</p>
-                                            <select class="form-select" aria-label="Default select example">
-                                                <option selected hidden>Binh Duong</option>
-                                                <option value="1">HO CHI MINH</option>
-                                                <option value="2">HA NOI</option>
-                                                <option value="3">DA NANG</option>
+                                            <p>Tỉnh , thành phố</p>
+                                            <select class="form-select" aria-label="Default select example" id ="provinces">
+                                                <option value=''>-----Chọn tỉnh , thành phố-----</option>
                                             </select>
-                                            <div class="d-flex">
-                                                <input class="form-control zip" type="text" placeholder="ZIP">
-                                                <input class="form-control state" type="text" placeholder="State">
-                                            </div>
+                                             <p>Quận , huyện </p>
+                                            <select class="form-select" aria-label="Default select example" id ="district">
+                                                <option value=''>-----Chọn quận , huyện-----</option>
+                                            </select>
+                                             <p>Phường , xã</p>
+                                            <select class="form-select" aria-label="Default select example" id ="ward">
+                                                <option value=''>-----Chọn phường , xã-----</option>
+                                            </select>
+                                             <p>Địa chỉ</p>
+                                            <input class="form-control" type="text">
                                            
                                             <div class="d-flex flex-column dis">
                                                 <div class="d-flex align-items-center justify-content-between mb-2">
@@ -139,3 +143,45 @@
     </div>
   </div>
 </section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script>
+    const host = "https://provinces.open-api.vn/api/";
+    var callAPI = (api) => {
+        return axios.get(api)
+            .then((response) => {
+                renderData(response.data, "provinces");
+            });
+    }
+    callAPI('https://provinces.open-api.vn/api/?depth=1');
+    var callApiDistrict = (api) => {
+        return axios.get(api)
+            .then((response) => {
+                renderData(response.data.districts, "district");
+            });
+    }
+    var callApiWard = (api) => {
+        return axios.get(api)
+            .then((response) => {
+                renderData(response.data.wards, "ward");
+            });
+    }
+
+    var renderData = (array, select) => {
+        let row = ' <option disable value="">-----Chọn-----</option>';
+        array.forEach(element => {
+            row += `<option data-id="${element.code}" value="${element.name}">${element.name}</option>`
+        });
+        document.querySelector("#" + select).innerHTML = row
+    }
+
+    $("#provinces").change(() => {
+        callApiDistrict(host + "p/" + $("#provinces").find(':selected').data('id') + "?depth=2");
+    
+    });
+    $("#district").change(() => {
+        callApiWard(host + "d/" + $("#district").find(':selected').data('id') + "?depth=2");
+    
+    });
+</script>

@@ -8,11 +8,13 @@ namespace Client_Home.Areas.Admin.Controllers
     [Area("Admin")]
     public class SearchController : Controller
     {
-        private readonly ConveniencestoreContext _context;
-        public SearchController(ConveniencestoreContext context)
+        private readonly Client_Home.Data.ConveniencestoreContext _context;
+        public SearchController(Client_Home.Data.ConveniencestoreContext context)
         {
             _context = context;
         }
+
+
         [HttpPost]
         public IActionResult FindProduct(string keyword)
         {
@@ -37,5 +39,6 @@ namespace Client_Home.Areas.Admin.Controllers
                 return PartialView("ListProductsSearchPartial", ls);
             }
         }
+
     }
 }

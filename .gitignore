@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/client/Client_Home/Data/ConveniencestoreContext.cs
+/client/Client_Home/bin/Debug/net7.0/appsettings.json
+/client/Client_Home/Models/ConveniencestoreContext.cs
+/client/Client_Home/.vs/Client_Home/FileContentIndex/8296c4e8-6d5a-423b-a925-50dd83ac0989.vsidx

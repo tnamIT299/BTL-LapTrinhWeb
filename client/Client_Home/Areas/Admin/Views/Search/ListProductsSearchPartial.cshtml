@@ -35,15 +35,20 @@
             <td>
 
                 <div class="d-flex align-items-center">
-                    @if (item.Active == true)
+                    @if (item.Active == 1)
                     {
                         <div class="badge badge-success badge-dot m-r-10"></div>
                         <div>Đang bán</div>
                     }
-                    else
+                    else if (item.Active == -1)
                     {
                         <div class="badge badge-danger badge-dot m-r-10"></div>
-                        <div>Ngưng bán</div>
+                        <div>Ngưng kinh doanh</div>
+                    }
+                    else if (item.Active == 0)
+                    {
+                        <div class="badge badge-danger badge-dot m-r-10"></div>
+                        <div>Hết hàng</div>
                     }
                 </div>
             </td>

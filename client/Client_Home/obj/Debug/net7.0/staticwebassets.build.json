@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Nntrn1bz0fPFlku66LK+h2EQ7SUPUyJQJLLHsvhyRbI=",
+  "Hash": "KvhUJk6h18OhlMq5QSsi0zPLPtQCh1A3uJS4uBByzIU=",
   "Source": "Client_Home",
   "BasePath": "_content/Client_Home",
   "Mode": "Default",
@@ -1003,7 +1003,7 @@
       "OriginalItemSpec": "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.12\\staticwebassets\\V5\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Identity": "C:\\Users\\huypro\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.13\\staticwebassets\\V5\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Identity": "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.12\\staticwebassets\\V5\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.12\\staticwebassets\\V5\\",
@@ -1020,7 +1020,7 @@
       "OriginalItemSpec": "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.12\\staticwebassets\\V5\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Identity": "C:\\Users\\huypro\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.13\\staticwebassets\\V5\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Identity": "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.12\\staticwebassets\\V5\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.12\\staticwebassets\\V5\\",
@@ -1037,7 +1037,7 @@
       "OriginalItemSpec": "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.12\\staticwebassets\\V5\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Identity": "C:\\Users\\huypro\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.13\\staticwebassets\\V5\\lib\\jquery-validation\\LICENSE.md",
+      "Identity": "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.12\\staticwebassets\\V5\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.12\\staticwebassets\\V5\\",
@@ -1054,7 +1054,7 @@
       "OriginalItemSpec": "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.12\\staticwebassets\\V5\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Identity": "C:\\Users\\huypro\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.13\\staticwebassets\\V5\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Identity": "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.12\\staticwebassets\\V5\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.12\\staticwebassets\\V5\\",
@@ -1071,7 +1071,7 @@
       "OriginalItemSpec": "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.12\\staticwebassets\\V5\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "C:\\Users\\huypro\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.13\\staticwebassets\\V5\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.12\\staticwebassets\\V5\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.12\\staticwebassets\\V5\\",
@@ -1088,7 +1088,7 @@
       "OriginalItemSpec": "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.12\\staticwebassets\\V5\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "C:\\Users\\huypro\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.13\\staticwebassets\\V5\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Identity": "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.12\\staticwebassets\\V5\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.12\\staticwebassets\\V5\\",
@@ -2244,6 +2244,23 @@
       "OriginalItemSpec": "wwwroot\\Adminassets\\images\\others\\dairy-products.png"
     },
     {
+      "Identity": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\Adminassets\\images\\others\\dairy-products.webp",
+      "SourceId": "Client_Home",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
+      "BasePath": "_content/Client_Home",
+      "RelativePath": "Adminassets/images/others/dairy-products.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Adminassets\\images\\others\\dairy-products.webp"
+    },
+    {
       "Identity": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\Adminassets\\images\\others\\error-1.png",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
@@ -2837,6 +2854,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Adminassets\\images\\others\\sign-up-2.png"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\Adminassets\\images\\others\\tải xuống.webp",
+      "SourceId": "Client_Home",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
+      "BasePath": "_content/Client_Home",
+      "RelativePath": "Adminassets/images/others/tải xuống.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Adminassets\\images\\others\\tải xuống.webp"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\Adminassets\\images\\others\\tesstWebp.webp",
+      "SourceId": "Client_Home",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
+      "BasePath": "_content/Client_Home",
+      "RelativePath": "Adminassets/images/others/tesstWebp.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Adminassets\\images\\others\\tesstWebp.webp"
     },
     {
       "Identity": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\Adminassets\\images\\others\\thumb-1.jpg",

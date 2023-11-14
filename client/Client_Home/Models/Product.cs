@@ -29,13 +29,15 @@ public partial class Product
 
     public bool? HomeFlag { get; set; }
 
-    public bool? Active { get; set; }
+    public int? Active { get; set; }
 
     public int? SupplierId { get; set; }
 
     public DateTime? DateAdded { get; set; }
 
     public string? Qrcode { get; set; }
+
+    public string? Unit { get; set; }
 
     public virtual ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
 

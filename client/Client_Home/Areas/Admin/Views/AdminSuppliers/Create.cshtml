@@ -1,5 +1,5 @@
-﻿@* @model Client_Home.Models.Customer *@
-@model Client_Home.Areas.Admin.DTO.Suppliers.AddSupplier
+﻿@model Client_Home.Models.Supplier
+
 
 @{
     ViewData["Title"] = "Create";
@@ -77,6 +77,8 @@
                                 </div>
                             </div>
                         </div>
+
+
                         <div class="form-group">
                             <label asp-for="Phone" class="control-label"></label>
                             <input asp-for="Phone" pattern="[0-9]+" class="form-control" />

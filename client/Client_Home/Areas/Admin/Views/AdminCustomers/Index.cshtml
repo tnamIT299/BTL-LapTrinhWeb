@@ -1,4 +1,8 @@
-﻿@using PagedList.Core.Mvc
+﻿﻿@using Azure;
+@using DocumentFormat.OpenXml.Spreadsheet;
+@using Microsoft.AspNetCore.Mvc.RazorPages;
+@using PagedList.Core.Mvc
+@using X.PagedList.Mvc.Core;
 @model PagedList.Core.IPagedList<Client_Home.Models.Customer>
 @{
     int CurrentPage = ViewBag.CurrentPage;

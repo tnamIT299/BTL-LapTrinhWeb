@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
-
 namespace Client_Home.Models;
 
 public partial class Customer
 {
-  
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int CustomerId { get; set; }
 
@@ -49,7 +47,6 @@ public partial class Customer
 
     public int? UserId { get; set; }
 
-    [DisplayName("Giới Tính")]
     public int? Gender { get; set; }
 
     public virtual ICollection<Invoice> Invoices { get; set; } = new List<Invoice>();

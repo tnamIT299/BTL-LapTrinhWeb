@@ -95,21 +95,21 @@
                     <div class="card-body">
 
                         <div class="form-group">
-                            <label asp-for="Name" class="control-label"></label>
-                            <input asp-for="Name" class="form-control" />
+                            <label asp-for="Name" class="control-label">Tên Sản Phẩm</label>
+                            <input asp-for="Name" pattern="[a-zA-ZÀ-Ỹà-ỹ\s]+" required class="form-control" />
                             <span asp-validation-for="Name" class="text-danger"></span>
                         </div>
 
                         <div class="form-group">
                             <div class="form-row">
                                 <div class="col">
-                                    <label asp-for="SellPrice" class="control-label"></label>
-                                    <input asp-for="SellPrice" type="text" class="form-control" />
+                                    <label asp-for="SellPrice" class="control-label">Giá Bán</label>
+                                    <input asp-for="SellPrice" required pattern="[0-9]+" class="form-control" />
                                     <span asp-validation-for="SellPrice" class="text-danger"></span>
                                 </div>
                                 <div class="col">
-                                    <label asp-for="Qrcode" class="control-label"></label>
-                                    <input asp-for="Qrcode" type="text"  class="form-control" />
+                                    <label asp-for="Qrcode" class="control-label">Mã Code</label>
+                                    <input asp-for="Qrcode" required pattern="[0-9]+" class="form-control" />
                                     <span asp-validation-for="Qrcode" class="text-danger"></span>
                                 </div>
                             </div>
@@ -118,13 +118,13 @@
                         <div class="form-group">
                             <div class="form-row">
                                 <div class="col">
-                                    <label asp-for="TotalQuantity" class="control-label"></label>
-                                    <input asp-for="TotalQuantity" type="text"  class="form-control" />
+                                    <label asp-for="TotalQuantity" class="control-label">Số Lượng</label>
+                                    <input asp-for="TotalQuantity" required pattern="[0-9]+" class="form-control" />
                                     <span asp-validation-for="TotalQuantity" class="text-danger"></span>
                                 </div>
                                 <div class="col">
-                                    <label asp-for="Unit" class="control-label"></label>
-                                    <input asp-for="Unit" type="text" pattern="[a-zA-ZÀ-Ỹà-ỹ\s]+" class="form-control" />
+                                    <label asp-for="Unit" class="control-label">Đơn vị tính</label>
+                                    <input asp-for="Unit" type="text" required pattern="[a-zA-ZÀ-Ỹà-ỹ\s]+" class="form-control" />
                                     <span asp-validation-for="Unit" class="text-danger"></span>
                                 </div>
                             </div>
@@ -146,12 +146,18 @@
 
 
                         <div class="form-group">
-                            <label asp-for="Active" class="control-label" for="productStatus"></label>
+                            <label asp-for="Active" class="control-label" for="productStatus">Trạng thái</label>
                             <select asp-for="Active" class="custom-select" id="productStatus">
                                 <option value=1 selected>Đang bán</option>
                                 <option value=0>Hết hàng</option>
                                 <option value=-1>Ngừng kinh doanh</option>
                             </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Description" class="control-label">Mô tả sản phẩm</label>
+                            <input asp-for="Description" class="form-control" />
+                            <span asp-validation-for="Description" class="text-danger"></span>
                         </div>
 
                     <label asp-for="ThumbnailUrl" class="font-weight-semibold" for="productThumbnail">Hình ảnh sản phẩm</label>

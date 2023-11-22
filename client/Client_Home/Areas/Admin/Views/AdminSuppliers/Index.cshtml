@@ -6,6 +6,7 @@
     int CurrentPage = ViewBag.CurrentPage;
     ViewData["Title"] = "Danh sách nhà cung cấp" + CurrentPage;
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    <meta charset="UTF-8" />
 }
 
 <div class="main-content">
@@ -57,9 +58,12 @@
                         <span>Thêm</span>
                     </button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" asp-controller="AdminEmployees" asp-action="Create">Thêm mới nhân viên</a>
-                        <a class="dropdown-item" asp-controller="AdminEmployees" asp-action="AddFromExcel">Thêm từ Excel</a>
+                        <a class="dropdown-item" asp-controller="AdminSuppliers" asp-action="Create">Thêm mới nhà cung cấp</a>
+                        <a class="dropdown-item" asp-controller="AdminSuppliers" asp-action="AddFromExcel">Thêm từ Excel</a>
                     </div>
+                </div>
+                <div class="m-b-10 m-r-15">
+                    <input id="keyword" type="text" name="keyword" class="form-control" placeholder="Tìm kiếm nhà cung cấp" />
                 </div>
             </div>
             <div class="table-responsive">
@@ -109,8 +113,9 @@
                                             @Html.DisplayFor(modelItem => item.Address)
                                     </td>
                                     <td>
-                                          
-                                            @Html.DisplayFor(modelItem => item.City)
+
+                                            @Html.DisplayFor(modelItem =>item.City)
+                                            
                                     </td>
 
                                     <td>
@@ -127,14 +132,24 @@
                                     
 
                                     <td class="text-right">
+                                    
+                                        <a asp-area="Admin" asp-controller="AdminSuppliers" asp-action="Details" asp-route-id="@item.SupplierId">
+                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xem chi tiết thông tin nhà cung cấp ">
+                                                <i class="anticon anticon-eye"></i>
+                                            </button>
+                                        </a>
+
                                         <a asp-area="Admin" asp-controller="AdminSuppliers" asp-action="Edit" asp-route-id="@item.SupplierId">
-                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
+                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right" title="Sửa thông tin nhà cung cấp">
                                                 <i class="anticon anticon-edit"></i>
                                             </button>
                                         </a>
-                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded">
-                                            <i class="anticon anticon-delete"></i>
-                                        </button>
+
+                                        <a asp-area="Admin" asp-controller="AdminSuppliers" asp-action="Delete" asp-route-id="@item.SupplierId">
+                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xóa nhà cung cấp này">
+                                                <i class="anticon anticon-delete"></i>
+                                            </button>
+                                        </a>
                                     </td>
                                 </tr>
                                     i++;

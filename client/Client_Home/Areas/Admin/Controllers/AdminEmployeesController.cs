@@ -17,9 +17,9 @@ namespace Client_Home.Areas.Admin.Controllers
     [Area("Admin")]
     public class AdminEmployeesController : Controller
     {
-        private readonly ConveniencestoreContext _context;
+        private readonly Client_Home.Data.ConveniencestoreContext _context;
         public INotyfService _notifyService { get; }
-        public AdminEmployeesController(ConveniencestoreContext context, INotyfService notifyService)
+        public AdminEmployeesController(Client_Home.Data.ConveniencestoreContext context, INotyfService notifyService)
         {
             _context = context;
             _notifyService = notifyService;
@@ -30,7 +30,7 @@ namespace Client_Home.Areas.Admin.Controllers
         {
             var pageNumber = page == null || page <= 0 ? 1 : page.Value;
             var pageSize = 15;
-            var isEmployee = _context.Employees.AsNoTracking().OrderByDescending(x => x.Email);
+            var isEmployee = _context.Employees.AsNoTracking().OrderByDescending(x => x.FirstName);
             PagedList.Core.IPagedList<Employee> models = new PagedList.Core.PagedList<Employee>(isEmployee, pageNumber, pageSize);
             ViewBag.CurrentPage = pageNumber;
             return View(models);
@@ -56,9 +56,10 @@ namespace Client_Home.Areas.Admin.Controllers
         }
 
         // GET: Admin/AdminEmployees/Create
+        [HttpGet]
         public IActionResult Create()
         {
-           // ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId");
+         
             return View();
         }
 
@@ -67,13 +68,13 @@ namespace Client_Home.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EmployeeId,UserId,FirstName,LastName,Position,DateHired,BirthDate,CitizenId,Gender,Email,PhoneNumber")] AddEmployees employee)
+        public async Task<IActionResult> Create([Bind("EmployeeId,UserId,FirstName,LastName,Position,DateHired,BirthDate,CitizenId,Gender,Email,PhoneNumber")] Employee employee)
         {
             if (ModelState.IsValid)
             {
-                //_context.Add(employee);
-                //await _context.SaveChangesAsync();
-                //return RedirectToAction(nameof(Index));
+                _context.Add(employee);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
             }
             return View(employee);
         }

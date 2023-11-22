@@ -73,7 +73,7 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        @foreach ( var item in Model.InvoiceDetails)
+                                        @foreach (var item in Model.InvoiceDetails)
                                         {
                                             <td>@item.ProductBatch.Product.Name</td>
                                             <td>@item.Quantity</td>
@@ -81,9 +81,9 @@
                                             decimal? total = item?.Quantity * item?.Price;
                                             <td>@total</td>
                                         }
-                                        
+
                                     </tr>
-                                    
+
                                 </tbody>
                             </table>
                         </div>

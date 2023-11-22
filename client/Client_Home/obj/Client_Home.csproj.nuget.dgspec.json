@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\Client_Home.csproj": {}
+    "C:\\Users\\Tan Thinh\\Source\\Repos\\BTL-LapTrinhWebdemo\\client\\Client_Home\\Client_Home.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\Client_Home.csproj": {
+    "C:\\Users\\Tan Thinh\\Source\\Repos\\BTL-LapTrinhWebdemo\\client\\Client_Home\\Client_Home.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\Client_Home.csproj",
+        "projectUniqueName": "C:\\Users\\Tan Thinh\\Source\\Repos\\BTL-LapTrinhWebdemo\\client\\Client_Home\\Client_Home.csproj",
         "projectName": "Client_Home",
-        "projectPath": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\Client_Home.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\obj\\",
+        "projectPath": "C:\\Users\\Tan Thinh\\Source\\Repos\\BTL-LapTrinhWebdemo\\client\\Client_Home\\Client_Home.csproj",
+        "packagesPath": "C:\\Users\\Tan Thinh\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Tan Thinh\\Source\\Repos\\BTL-LapTrinhWebdemo\\client\\Client_Home\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Tan Thinh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -55,6 +56,10 @@
             "ClosedXML": {
               "target": "Package",
               "version": "[0.102.1, )"
+            },
+            "EPPlus": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
@@ -113,6 +118,10 @@
             "QRCoder": {
               "target": "Package",
               "version": "[1.4.3, )"
+            },
+            "System.Data.OleDb": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             },
             "X.PagedList": {
               "target": "Package",

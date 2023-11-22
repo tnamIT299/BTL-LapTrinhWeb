@@ -98,9 +98,7 @@
                         <th>
                             Trạng thái
                         </th>
-                        <th>
-                            Danh mục
-                        </th>
+                       
                         <th></th>
                     </tr>
                 </thead>
@@ -157,9 +155,7 @@
                                     </div>
                                 </td>
 
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Category.CategoryName)
-                                </td>
+                               
 
                                 <td class="text-right">
                                     <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Details" asp-route-id="@item.ProductId">
@@ -185,9 +181,9 @@
 
                 </tbody>
             </table>
-            @* <div aria-label="Page navigation example" style="display:flex; justify-content:center">
+           @*  <div aria-label="Page navigation example" style="display:flex; justify-content:center">
                 <ul class="pagination">
-                    <pager class="page-container" list=product asp-action="Index"></pager>
+                    <pager class="page-container" list=product asp-action="Create"></pager>
                 </ul>
 
             </div> *@

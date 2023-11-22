@@ -61,10 +61,22 @@ namespace Client_Home.Areas.Admin.Controllers
         }
 
         // GET: Admin/AdminInvoices/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            var product = _context.Products.FromSqlRaw("EXEC GetProduct").ToListAsync();
-            ViewBag.product = product;
+            using (var context = new Client_Home.Data.ConveniencestoreContext())
+            {
+                var product = await context.Products.FromSqlRaw("EXEC GetProduct").ToListAsync();
+                ViewBag.product = product;
+            }
+            //var pageNumber = page == null || page <= 0 ? 1 : page.Value;
+            //var pageSize = 10;
+            //var isProduct = _context.Products
+            //    .Include(p => p.Category)
+            //    .Include(p => p.Supplier).
+            //    AsNoTracking().
+            //    OrderByDescending(x => x.ProductId);
+            //PagedList.Core.IPagedList<Product> model = new PagedList.Core.PagedList<Product>(isProduct, pageNumber, pageSize);
+            //ViewBag.CurrentPage = pageNumber;
             ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "Email");
             ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "CitizenId");
             ViewData["PaymentId"] = new SelectList(_context.Payments, "PaymentId", "PaymentId");

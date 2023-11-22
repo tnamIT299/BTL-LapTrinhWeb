@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -12,6 +11,11 @@ using PagedList;
 using AspNetCoreHero.ToastNotification.Abstractions;
 using Client_Home.Areas.Admin.Models;
 using Client_Home.Areas.DTO.Customers;
+using System.Data;
+using Microsoft.Data.SqlClient;
+using OfficeOpenXml;
+using Org.BouncyCastle.Asn1.X509;
+using Client_Home.Areas.Admin.DTO.Customers;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
@@ -19,11 +23,18 @@ namespace Client_Home.Areas.Admin.Controllers
     public class AdminCustomersController : Controller
     {
         private readonly ConveniencestoreContext _context;
+        private  IWebHostEnvironment _webHostEnvironment;
+        private readonly IAddFromExcel _addFromExcel;
+        private readonly ILogger<AdminCustomersController> _logger;
+
         public INotyfService _notifyService { get; }
-        public AdminCustomersController(ConveniencestoreContext context, INotyfService notifyService)
+        public AdminCustomersController(ILogger<AdminCustomersController> logger, ConveniencestoreContext context, INotyfService notifyService,IWebHostEnvironment webHostEnvironment , IAddFromExcel addFromExcel)
         {
+            _logger = logger;
             _context = context;
             _notifyService = notifyService;
+            _webHostEnvironment = webHostEnvironment;
+            _addFromExcel = addFromExcel;
         }
 
         // GET: Admin/AdminCustomers
@@ -78,23 +89,18 @@ namespace Client_Home.Areas.Admin.Controllers
         }
 
 
-        public async Task<IActionResult> AddFromExcel()
+        public IActionResult AddFromExcel()
         {
-            
             return View();
         }
-
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddFromExcel([Bind("fileExcel")] AddFromExcel customer)
+        public IActionResult AddFromExcel(IFormFile formFile)
         {
-            if (ModelState.IsValid)
-            {
-                //_context.Add(customer);
-                //await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(customer);
+            string path = _addFromExcel.DoucumentUpload(formFile);
+            DataTable dt = _addFromExcel.CustomerDataTable(path);
+            _addFromExcel.ImportCustomer(dt);
+            return View();
+            
         }
 
         // GET: Admin/AdminCustomers/Edit/5

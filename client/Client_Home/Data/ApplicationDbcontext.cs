@@ -12,7 +12,7 @@ namespace Client_Home.Data
         public DbSet<SalesLeadEntity> SalesLeadEntities { get; set;}
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=.\PHUHUYIT;Initial Catalog=CONVENIENCESTORE;Integrated Security=True; TrustServerCertificate=True");
+            optionsBuilder.UseSqlServer(@"Server=DESKTOP-3OP81GG\\TANTHINH;Initial Catalog=CONVENIENCESTORE;Integrated Security=True; TrustServerCertificate=True");
         }
     }
 }

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Client_Home.Data;
 using Client_Home.Models;
+using DocumentFormat.OpenXml.Drawing.Charts;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
@@ -25,21 +26,26 @@ namespace Client_Home.Areas.Admin.Controllers
         {
             var pageNumber = page == null || page <= 0 ? 1 : page.Value;
             var pageSize = 10;
-            var isOrder = _context.Orders.AsNoTracking().OrderByDescending(x => x.OrderId);
-            PagedList.Core.IPagedList<Order> models = new PagedList.Core.PagedList<Order>(isOrder, pageNumber, pageSize);
+            var isOrder = _context.Orders
+                 .Include(p => p.Supplier)
+                .AsNoTracking()
+                .OrderByDescending(x => x.OrderId);
+            PagedList.Core.IPagedList<Orders> models = new PagedList.Core.PagedList<Orders>(isOrder, pageNumber, pageSize);
             ViewBag.CurrentPage = pageNumber;
+            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierName");
             return View(models);
+           
         }
 
         // GET: Admin/AdminOrders/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Orders == null)
+            if (id == null || _context.Order == null)
             {
                 return NotFound();
             }
 
-            var order = await _context.Orders
+            var order = await _context.Order
                 .Include(o => o.Supplier)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
             if (order == null)
@@ -62,7 +68,7 @@ namespace Client_Home.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OrderId,SupplierId,OrderDate,TotalAmount")] Order order)
+        public async Task<IActionResult> Create([Bind("OrderId,SupplierId,OrderDate,TotalAmount")] Orders order)
         {
             if (ModelState.IsValid)
             {
@@ -77,12 +83,12 @@ namespace Client_Home.Areas.Admin.Controllers
         // GET: Admin/AdminOrders/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Orders == null)
+            if (id == null || _context.Order == null)
             {
                 return NotFound();
             }
 
-            var order = await _context.Orders.FindAsync(id);
+            var order = await _context.Order.FindAsync(id);
             if (order == null)
             {
                 return NotFound();
@@ -96,7 +102,7 @@ namespace Client_Home.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("OrderId,SupplierId,OrderDate,TotalAmount")] Order order)
+        public async Task<IActionResult> Edit(int id, [Bind("OrderId,SupplierId,OrderDate,TotalAmount")] Orders order)
         {
             if (id != order.OrderId)
             {
@@ -130,12 +136,12 @@ namespace Client_Home.Areas.Admin.Controllers
         // GET: Admin/AdminOrders/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Orders == null)
+            if (id == null || _context.Order == null)
             {
                 return NotFound();
             }
 
-            var order = await _context.Orders
+            var order = await _context.Order
                 .Include(o => o.Supplier)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
             if (order == null)
@@ -151,14 +157,14 @@ namespace Client_Home.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Orders == null)
+            if (_context.Order == null)
             {
-                return Problem("Entity set 'ConveniencestoreContext.Orders'  is null.");
+                return Problem("Entity set 'ConveniencestoreContext.Order'  is null.");
             }
-            var order = await _context.Orders.FindAsync(id);
+            var order = await _context.Order.FindAsync(id);
             if (order != null)
             {
-                _context.Orders.Remove(order);
+                _context.Order.Remove(order);
             }
             
             await _context.SaveChangesAsync();
@@ -167,7 +173,7 @@ namespace Client_Home.Areas.Admin.Controllers
 
         private bool OrderExists(int id)
         {
-          return (_context.Orders?.Any(e => e.OrderId == id)).GetValueOrDefault();
+          return (_context.Order?.Any(e => e.OrderId == id)).GetValueOrDefault();
         }
     }
 }

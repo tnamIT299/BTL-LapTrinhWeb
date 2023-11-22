@@ -63,6 +63,15 @@ BEGIN
     ORDER BY [createdDate] DESC;
 END;
 EXEC GetLatestInvoices;
+-- Lấy sản phẩm 
+CREATE PROCEDURE GetProduct
+AS
+BEGIN
+    SELECT TOP 10 *
+    FROM [CONVENIENCESTORE].[dbo].[Products]
+    ORDER BY [name] DESC;
+END;
+EXEC GetProduct;
 -- lấy 10 phú ông phù bà
 CREATE PROCEDURE GetTopCustomers
 AS

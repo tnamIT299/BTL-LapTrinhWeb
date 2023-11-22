@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Client_Home.Data;
 using Client_Home.Models;
+using DocumentFormat.OpenXml.InkML;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
@@ -20,6 +21,8 @@ namespace Client_Home.Areas.Admin.Controllers
             _context = context;
         }
 
+       
+
         // GET: Admin/AdminInvoices
         public IActionResult Index(int? page)
         {
@@ -30,6 +33,7 @@ namespace Client_Home.Areas.Admin.Controllers
             ViewBag.CurrentPage = pageNumber;
             return View(models);
         }
+
 
         // GET: Admin/AdminInvoices/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -59,8 +63,10 @@ namespace Client_Home.Areas.Admin.Controllers
         // GET: Admin/AdminInvoices/Create
         public IActionResult Create()
         {
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId");
-            ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId");
+            var product = _context.Products.FromSqlRaw("EXEC GetProduct").ToListAsync();
+            ViewBag.product = product;
+            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "Email");
+            ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "CitizenId");
             ViewData["PaymentId"] = new SelectList(_context.Payments, "PaymentId", "PaymentId");
             ViewData["ShippingId"] = new SelectList(_context.Shippings, "ShippingId", "ShippingId");
             return View();
@@ -71,18 +77,24 @@ namespace Client_Home.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("InvoiceId,CustomerId,EmployeeId,PaymentId,ShippingId,CreatedDate,TotalAmount,Status")] Invoice invoice)
+        public async Task<IActionResult> Create([Bind("InvoiceId,CustomerId,EmployeeId,PaymentId,ShippingId,TotalAmount,Status,CreatedDate,DeliveryCost")] Invoice invoice)
         {
+
             if (ModelState.IsValid)
             {
+               
                 _context.Add(invoice);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId", invoice.CustomerId);
-            ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId", invoice.EmployeeId);
-            ViewData["PaymentId"] = new SelectList(_context.Payments, "PaymentId", "PaymentId", invoice.PaymentId);
+            var product = await _context.Products.FromSqlRaw("EXEC GetProduct").ToListAsync();
+            ViewBag.product = product;
+
+            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "Email", invoice.CustomerId);
+            ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "CitizenId", invoice.EmployeeId);
+            ViewData["PaymentId"] =  new SelectList(_context.Payments, "PaymentId", "PaymentId", invoice.PaymentId);
             ViewData["ShippingId"] = new SelectList(_context.Shippings, "ShippingId", "ShippingId", invoice.ShippingId);
+
             return View(invoice);
         }
 
@@ -99,8 +111,8 @@ namespace Client_Home.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId", invoice.CustomerId);
-            ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId", invoice.EmployeeId);
+            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "Email", invoice.CustomerId);
+            ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "CitizenId", invoice.EmployeeId);
             ViewData["PaymentId"] = new SelectList(_context.Payments, "PaymentId", "PaymentId", invoice.PaymentId);
             ViewData["ShippingId"] = new SelectList(_context.Shippings, "ShippingId", "ShippingId", invoice.ShippingId);
             return View(invoice);
@@ -111,7 +123,7 @@ namespace Client_Home.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("InvoiceId,CustomerId,EmployeeId,PaymentId,ShippingId,CreatedDate,TotalAmount,Status")] Invoice invoice)
+        public async Task<IActionResult> Edit(int id, [Bind("InvoiceId,CustomerId,EmployeeId,PaymentId,ShippingId,TotalAmount,Status,CreatedDate,DeliveryCost")] Invoice invoice)
         {
             if (id != invoice.InvoiceId)
             {
@@ -138,8 +150,8 @@ namespace Client_Home.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId", invoice.CustomerId);
-            ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId", invoice.EmployeeId);
+            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "Email", invoice.CustomerId);
+            ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "CitizenId", invoice.EmployeeId);
             ViewData["PaymentId"] = new SelectList(_context.Payments, "PaymentId", "PaymentId", invoice.PaymentId);
             ViewData["ShippingId"] = new SelectList(_context.Shippings, "ShippingId", "ShippingId", invoice.ShippingId);
             return View(invoice);

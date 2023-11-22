@@ -11,7 +11,7 @@ public partial class ProductBatch
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int BatchId { get; set; }
 
-    public int ProductId { get; set; }  
+    public int ProductId { get; set; }
 
     [Required(ErrorMessage = "Vui lòng nhập ngày sản xuất lô hàng")]
     public DateTime? ManufactureDate { get; set; }
@@ -21,7 +21,7 @@ public partial class ProductBatch
 
     [Required(ErrorMessage = "Vui lòng nhập số lượng sản phẩm thuộc lô hàng")]
     public int? Quantity { get; set; }
-        
+
     public string? Barcode { get; set; }
 
     [Required(ErrorMessage = "Vui lòng điền giá nhập")]
@@ -29,5 +29,5 @@ public partial class ProductBatch
 
     public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; } = new List<InvoiceDetail>();
 
-    public virtual Product? Product { get; set; }
+    public virtual Product Product { get; set; } = null!;
 }

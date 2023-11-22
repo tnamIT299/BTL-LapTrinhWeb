@@ -1,10 +1,11 @@
-﻿@using PagedList.Core.Mvc
+﻿﻿@using PagedList.Core.Mvc
 @model PagedList.Core.IPagedList<Client_Home.Models.Invoice>
 @{
     int CurrentPage = ViewBag.CurrentPage;
     ViewData["Title"] = "Danh sách hóa đơn";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
+
 <div class="main-content">
     <div class="page-header">
         <h2 class="header-title">Quản lý hóa đơn</h2>
@@ -118,16 +119,16 @@
                                                 <i class="anticon anticon-eye"></i>
                                             </button>
                                         </a>
-@*                                         <a asp-area="Admin" asp-controller="AdminInvoices" asp-action="Edit" asp-route-id="@item.InvoiceId">
-                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right" title="Sửa thông tin hóa đơn">
-                                                <i class="anticon anticon-edit"></i>
-                                            </button>
-                                        </a> *@
-                                       @*  <a asp-area="Admin" asp-controller="AdminInvoices" asp-action="Delete" asp-route-id="@item.InvoiceId">
-                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xóa hóa đơn này">
-                                                <i class="anticon anticon-delete"></i>
-                                            </button>
-                                        </a> *@
+                                            @*                                         <a asp-area="Admin" asp-controller="AdminInvoices" asp-action="Edit" asp-route-id="@item.InvoiceId">
+                                <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right" title="Sửa thông tin hóa đơn">
+                                <i class="anticon anticon-edit"></i>
+                                </button>
+                                </a> *@
+                                            @*  <a asp-area="Admin" asp-controller="AdminInvoices" asp-action="Delete" asp-route-id="@item.InvoiceId">
+                                <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xóa hóa đơn này">
+                                <i class="anticon anticon-delete"></i>
+                                </button>
+                                </a> *@
                                     </td>
                                 </tr>
                                     i++;

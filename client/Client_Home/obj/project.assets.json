@@ -1932,7 +1932,7 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "Microsoft.Extensions.Identity.Core/7.0.12": {
+      "Microsoft.Extensions.Identity.Core/7.0.13": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Cryptography.KeyDerivation": "7.0.12",
@@ -7444,8 +7444,8 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.Identity.Core/7.0.12": {
-      "sha512": "R6my15aCB3VM/eLYgpleY2t/27LtpuuU5Dpa7tx/bwTUhl+P2ZcxK712IieTdWu223XvgHAC8wBj7JYZUuoMwA==",
+    "Microsoft.Extensions.Identity.Core/7.0.13": {
+      "sha512": "030d6U9PS9OLnY8Jai1PU3K4DMMc6jBLqbm/VaizBEWxDZEwytOYpFJNiqgTRmJLj2NOa83lBY8wUcDv+XYPQQ==",
       "type": "package",
       "path": "microsoft.extensions.identity.core/7.0.12",
       "files": [
@@ -13286,9 +13286,9 @@
       "Chart.js >= 3.7.1",
       "ClosedXML >= 0.102.1",
       "EPPlus >= 7.0.0",
-      "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 7.0.12",
-      "Microsoft.AspNetCore.Identity.UI >= 7.0.12",
-      "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 7.0.12",
+      "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 7.0.13",
+      "Microsoft.AspNetCore.Identity.UI >= 7.0.13",
+      "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 7.0.13",
       "Microsoft.CodeAnalysis.Analyzers >= 3.3.4",
       "Microsoft.EntityFrameworkCore >= 7.0.13",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.13",

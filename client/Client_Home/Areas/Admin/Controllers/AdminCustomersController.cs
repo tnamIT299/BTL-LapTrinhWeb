@@ -24,11 +24,11 @@ namespace Client_Home.Areas.Admin.Controllers
     {
         private readonly ConveniencestoreContext _context;
         private  IWebHostEnvironment _webHostEnvironment;
-        private readonly IAddCusFromExcel _addFromExcel;
+        private readonly IAddFromExcel _addFromExcel;
         private readonly ILogger<AdminCustomersController> _logger;
 
         public INotyfService _notifyService { get; }
-        public AdminCustomersController(ILogger<AdminCustomersController> logger, ConveniencestoreContext context, INotyfService notifyService,IWebHostEnvironment webHostEnvironment , IAddCusFromExcel addFromExcel)
+        public AdminCustomersController(ILogger<AdminCustomersController> logger, ConveniencestoreContext context, INotyfService notifyService,IWebHostEnvironment webHostEnvironment , IAddFromExcel addFromExcel)
         {
             _logger = logger;
             _context = context;
@@ -104,7 +104,8 @@ namespace Client_Home.Areas.Admin.Controllers
             string path = _addFromExcel.DoucumentUpload(formFile);
             DataTable dt = _addFromExcel.CustomerDataTable(path);
             _addFromExcel.ImportCustomer(dt);
-            return View(Index);          
+            return View();
+            
         }
 
         // GET: Admin/AdminCustomers/Edit/5

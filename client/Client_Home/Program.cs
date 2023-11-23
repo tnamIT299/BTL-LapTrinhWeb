@@ -5,7 +5,6 @@ using AspNetCoreHero.ToastNotification;
 
 using Client_Home.Models;
 using Client_Home.Areas.Admin.DTO.Customers;
-using Client_Home.Areas.Admin.DTO.Employees;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
@@ -15,8 +14,7 @@ builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ConveniencestoreContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("dbCONVENIENCESTORE")));
-builder.Services.AddScoped<IAddCusFromExcel, AddCusFromExcel>();
-builder.Services.AddScoped<IAddEmployFromExcel, AddEmployFromExcel>();
+builder.Services.AddScoped<IAddFromExcel, AddFromExcel>();
 //builder.Services.AddDefaultIdentity<IdentityUser>().AddDefaultTokenProviders()
 //   .AddRoles<IdentityRole>()
 //   .AddEntityFrameworkStores<ApplicationDbContext>();

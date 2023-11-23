@@ -40,12 +40,12 @@ namespace Client_Home.Areas.Admin.Controllers
         // GET: Admin/AdminOrders/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Orders == null)
+            if (id == null || _context.Order == null)
             {
                 return NotFound();
             }
 
-            var order = await _context.Orders
+            var order = await _context.Order
                 .Include(o => o.Supplier)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
             if (order == null)
@@ -83,12 +83,12 @@ namespace Client_Home.Areas.Admin.Controllers
         // GET: Admin/AdminOrders/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Orders == null)
+            if (id == null || _context.Order == null)
             {
                 return NotFound();
             }
 
-            var order = await _context.Orders.FindAsync(id);
+            var order = await _context.Order.FindAsync(id);
             if (order == null)
             {
                 return NotFound();
@@ -136,12 +136,12 @@ namespace Client_Home.Areas.Admin.Controllers
         // GET: Admin/AdminOrders/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Orders == null)
+            if (id == null || _context.Order == null)
             {
                 return NotFound();
             }
 
-            var order = await _context.Orders
+            var order = await _context.Order
                 .Include(o => o.Supplier)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
             if (order == null)
@@ -157,14 +157,14 @@ namespace Client_Home.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Orders == null)
+            if (_context.Order == null)
             {
                 return Problem("Entity set 'ConveniencestoreContext.Order'  is null.");
             }
-            var order = await _context.Orders.FindAsync(id);
+            var order = await _context.Order.FindAsync(id);
             if (order != null)
             {
-                _context.Orders.Remove(order);
+                _context.Order.Remove(order);
             }
             
             await _context.SaveChangesAsync();
@@ -173,7 +173,7 @@ namespace Client_Home.Areas.Admin.Controllers
 
         private bool OrderExists(int id)
         {
-          return (_context.Orders?.Any(e => e.OrderId == id)).GetValueOrDefault();
+          return (_context.Order?.Any(e => e.OrderId == id)).GetValueOrDefault();
         }
     }
 }

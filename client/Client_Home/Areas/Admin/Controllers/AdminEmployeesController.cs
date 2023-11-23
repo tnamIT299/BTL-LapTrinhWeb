@@ -11,8 +11,6 @@ using AspNetCoreHero.ToastNotification.Notyf;
 using AspNetCoreHero.ToastNotification.Abstractions;
 using ClosedXML.Excel;
 using Client_Home.Areas.Admin.DTO.Employees;
-using Client_Home.Areas.Admin.DTO.Customers;
-using System.Data;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
@@ -20,17 +18,11 @@ namespace Client_Home.Areas.Admin.Controllers
     public class AdminEmployeesController : Controller
     {
         private readonly Client_Home.Data.ConveniencestoreContext _context;
-        private IWebHostEnvironment _webHostEnvironment;
-        private readonly IAddEmployFromExcel _addFromExcel;
-        private readonly ILogger<AdminEmployeesController> _logger;
         public INotyfService _notifyService { get; }
-        public AdminEmployeesController(ILogger<AdminEmployeesController> logger, ConveniencestoreContext context, INotyfService notifyService, IWebHostEnvironment webHostEnvironment, IAddEmployFromExcel addFromExcel)
+        public AdminEmployeesController(Client_Home.Data.ConveniencestoreContext context, INotyfService notifyService)
         {
-            _logger = logger;
             _context = context;
             _notifyService = notifyService;
-            _webHostEnvironment = webHostEnvironment;
-            _addFromExcel = addFromExcel;
         }
 
         // GET: Admin/AdminEmployees
@@ -86,18 +78,23 @@ namespace Client_Home.Areas.Admin.Controllers
             }
             return View(employee);
         }
-
-        public IActionResult AddFromExcel()
+        public async Task<IActionResult> AddFromExcel()
         {
+
             return View();
         }
+
         [HttpPost]
-        public IActionResult AddFromExcel(IFormFile formFile)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddFromExcel([Bind("fileExcel")] AddFromExcel employees)
         {
-            string path = _addFromExcel.DoucumentUpload(formFile);
-            DataTable dt = _addFromExcel.EmployeeDataTable(path);
-            _addFromExcel.ImportEmployee(dt);
-            return RedirectToAction(nameof(Index));
+            if (ModelState.IsValid)
+            {
+                //_context.Add(customer);
+                //await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(employees);
         }
 
         // GET: Admin/AdminEmployees/Edit/5

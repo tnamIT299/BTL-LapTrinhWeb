@@ -1,51 +1,28 @@
-﻿@* @model Client_Home.Models.Customer *@
-@model Client_Home.Areas.Admin.DTO.Employees.AddFromExcel
-
-@{
-    ViewData["Title"] = "Create";
-    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+﻿@{
+    ViewData["Title"] = "ADD Page";
 }
 
+<div class="row">
+    <div class="col-5">
+        <form class="post" enctype="multipart/form-data" asp-controller="AdminEmployees" asp-action="AddFromExcel">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <a class="btn btn-secondary" href="/template/Template_Employee.xlsx" download="template_employee.xlsx">
+                        Download Template Employee
+                    </a>
 
-<h1>Add from Excel</h1>
-
-<h4>Employees</h4>
-<hr />
-<link href="assets/css/app.min.css" rel="stylesheet">
-<div class="main-content">
-    <form asp-action="AddFromExcel">
-        <div class="page-header no-gutters has-tab">
-            <div class="d-md-flex m-b-15 align-items-center justify-content-between">
-                <div class="media align-items-center m-b-15">
-                    <div class="avatar avatar-image rounded" style="height: 70px; width: 70px">
-                    </div>
-                    <div class="m-l-15">
-                        <h4 class="m-b-0">Input file Excel</h4>
-                    </div>
                 </div>
-                <div class="m-b-15">
-                    <button type="submit" class="btn btn-primary">
-                        <i class="anticon anticon-save"></i>
-                        <span>Save</span>
-                    </button>
+                <div class="col-md-10">
+                    <h3>Upload File</h3>
+                    <input class="form-control" name="formFile" multiple="multiple" type="file" />
                 </div>
             </div>
-        </div>
-        <div class="tab-content m-t-15">
-            <div class="tab-pane fade show active" id="">
-                <div class="card">
-                    <div class="card-body">
-
-                        <div class="custom-file">
-                            <input name="fileExcel" required type="file" accept=".xls, .xlsx" class="custom-file-input" asp-for="fileExcel" id="fileExcel">
-                            <label class="custom-file-label" asp-for="fileExcel">Choose file</label>
-                        </div>
-
-
-                    </div>
+            <br />
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input class="btn btn-primary" type="submit" value="Upload File" />
                 </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
-

@@ -44,6 +44,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5BY2NvdW50c1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Tan Thinh/Source/Repos/BTL-LapTrinhWebdemo/client/Client_Home/Areas/Admin/Views/AdminCategories/AddFromExcel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DYXRlZ29yaWVzXEFkZEZyb21FeGNlbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Tan Thinh/Source/Repos/BTL-LapTrinhWebdemo/client/Client_Home/Areas/Admin/Views/AdminCategories/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DYXRlZ29yaWVzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -152,6 +156,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5PcmRlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Tan Thinh/Source/Repos/BTL-LapTrinhWebdemo/client/Client_Home/Areas/Admin/Views/AdminProductBatches/AddFromExcel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Qcm9kdWN0QmF0Y2hlc1xBZGRGcm9tRXhjZWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Tan Thinh/Source/Repos/BTL-LapTrinhWebdemo/client/Client_Home/Areas/Admin/Views/AdminProductBatches/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Qcm9kdWN0QmF0Y2hlc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -170,6 +178,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Tan Thinh/Source/Repos/BTL-LapTrinhWebdemo/client/Client_Home/Areas/Admin/Views/AdminProductBatches/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Qcm9kdWN0QmF0Y2hlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Tan Thinh/Source/Repos/BTL-LapTrinhWebdemo/client/Client_Home/Areas/Admin/Views/AdminProducts/AddFromExcel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Qcm9kdWN0c1xBZGRGcm9tRXhjZWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Tan Thinh/Source/Repos/BTL-LapTrinhWebdemo/client/Client_Home/Areas/Admin/Views/AdminProducts/Create.cshtml]
@@ -214,6 +226,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Tan Thinh/Source/Repos/BTL-LapTrinhWebdemo/client/Client_Home/Areas/Admin/Views/AdminRoles/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Sb2xlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Tan Thinh/Source/Repos/BTL-LapTrinhWebdemo/client/Client_Home/Areas/Admin/Views/AdminSuppliers/AddFromExcel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5TdXBwbGllcnNcQWRkRnJvbUV4Y2VsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Tan Thinh/Source/Repos/BTL-LapTrinhWebdemo/client/Client_Home/Areas/Admin/Views/AdminSuppliers/Create.cshtml]

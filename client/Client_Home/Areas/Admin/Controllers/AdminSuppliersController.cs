@@ -9,6 +9,7 @@ using Client_Home.Data;
 using Client_Home.Models;
 using AspNetCoreHero.ToastNotification.Abstractions;
 using Client_Home.Areas.Admin.DTO.Suppliers;
+using System.Data;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
@@ -16,11 +17,17 @@ namespace Client_Home.Areas.Admin.Controllers
     public class AdminSuppliersController : Controller
     {
         private readonly Client_Home.Data.ConveniencestoreContext _context;
+        private IWebHostEnvironment _webHostEnvironment;
+        private readonly IAddSupplierFromExcel _addFromExcel;
+        private readonly ILogger<AdminSuppliersController> _logger;
         public INotyfService _notifyService { get; }
-        public AdminSuppliersController(Client_Home.Data.ConveniencestoreContext context , INotyfService notifyService)
+        public AdminSuppliersController(ILogger<AdminSuppliersController> logger, ConveniencestoreContext context, INotyfService notifyService, IWebHostEnvironment webHostEnvironment, IAddSupplierFromExcel addFromExcel)
         {
+            _logger = logger;
             _context = context;
             _notifyService = notifyService;
+            _webHostEnvironment = webHostEnvironment;
+            _addFromExcel = addFromExcel;
         }
 
         // GET: Admin/AdminSuppliers
@@ -72,6 +79,20 @@ namespace Client_Home.Areas.Admin.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(supplier);
+        }
+
+        public IActionResult AddFromExcel()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddFromExcel(IFormFile formFile)
+        {
+            string path = _addFromExcel.DoucumentUpload(formFile);
+            DataTable dt = _addFromExcel.SupplierDataTable(path);
+            _addFromExcel.ImportSupplier(dt);
+            return RedirectToAction(nameof(Index));
+
         }
 
         // GET: Admin/AdminSuppliers/Edit/5

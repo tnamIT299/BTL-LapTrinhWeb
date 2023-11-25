@@ -5537,12 +5537,32 @@
       "PackagePath": "staticwebassets\\assets\\sass\\vendor\\_vsmenu.scss"
     },
     {
+      "Id": "C:\\Users\\Tan Thinh\\Source\\Repos\\BTL-LapTrinhWebdemo\\client\\Client_Home\\wwwroot\\template\\Template_Category.xlsx",
+      "PackagePath": "staticwebassets\\template\\Template_Category.xlsx"
+    },
+    {
       "Id": "C:\\Users\\Tan Thinh\\Source\\Repos\\BTL-LapTrinhWebdemo\\client\\Client_Home\\wwwroot\\template\\Template_Customer.xlsx",
       "PackagePath": "staticwebassets\\template\\Template_Customer.xlsx"
     },
     {
       "Id": "C:\\Users\\Tan Thinh\\Source\\Repos\\BTL-LapTrinhWebdemo\\client\\Client_Home\\wwwroot\\template\\Template_Employee.xlsx",
       "PackagePath": "staticwebassets\\template\\Template_Employee.xlsx"
+    },
+    {
+      "Id": "C:\\Users\\Tan Thinh\\Source\\Repos\\BTL-LapTrinhWebdemo\\client\\Client_Home\\wwwroot\\template\\Template_Product.xlsx",
+      "PackagePath": "staticwebassets\\template\\Template_Product.xlsx"
+    },
+    {
+      "Id": "C:\\Users\\Tan Thinh\\Source\\Repos\\BTL-LapTrinhWebdemo\\client\\Client_Home\\wwwroot\\template\\Template_ProductBatch.xlsx",
+      "PackagePath": "staticwebassets\\template\\Template_ProductBatch.xlsx"
+    },
+    {
+      "Id": "C:\\Users\\Tan Thinh\\Source\\Repos\\BTL-LapTrinhWebdemo\\client\\Client_Home\\wwwroot\\template\\Template_Supplier.xlsx",
+      "PackagePath": "staticwebassets\\template\\Template_Supplier.xlsx"
+    },
+    {
+      "Id": "C:\\Users\\Tan Thinh\\Source\\Repos\\BTL-LapTrinhWebdemo\\client\\Client_Home\\wwwroot\\template\\~$Template_Product.xlsx",
+      "PackagePath": "staticwebassets\\template\\~$Template_Product.xlsx"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Client_Home.Microsoft.AspNetCore.StaticWebAssets.props",

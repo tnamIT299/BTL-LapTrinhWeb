@@ -10,6 +10,8 @@ using Client_Home.Models;
 using ClosedXML.Excel;
 using AspNetCoreHero.ToastNotification.Abstractions;
 using PagedList;
+using Client_Home.Areas.Admin.DTO.Product;
+using System.Data;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
@@ -17,10 +19,17 @@ namespace Client_Home.Areas.Admin.Controllers
     public class AdminProductsController : Controller
     {
         private readonly Client_Home.Data.ConveniencestoreContext _context;
-
-        public AdminProductsController(Client_Home.Data.ConveniencestoreContext context)
+        private IWebHostEnvironment _webHostEnvironment;
+        private readonly IAddProductFromExcel _addFromExcel;
+        private readonly ILogger<AdminProductsController> _logger;
+        public INotyfService _notifyService { get; }
+        public AdminProductsController(ILogger<AdminProductsController> logger, ConveniencestoreContext context, INotyfService notifyService, IWebHostEnvironment webHostEnvironment, IAddProductFromExcel addFromExcel)
         {
+            _logger = logger;
             _context = context;
+            _notifyService = notifyService;
+            _webHostEnvironment = webHostEnvironment;
+            _addFromExcel = addFromExcel;
         }
 
         // GET: Admin/AdminProducts
@@ -90,6 +99,19 @@ namespace Client_Home.Areas.Admin.Controllers
             return View(product);
         }
 
+        public IActionResult AddFromExcel()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddFromExcel(IFormFile formFile)
+        {
+            string path = _addFromExcel.DoucumentUpload(formFile);
+            DataTable dt = _addFromExcel.ProductDataTable(path);
+            _addFromExcel.ImportProduct(dt);
+            return RedirectToAction(nameof(Index));
+
+        }
         // GET: Admin/AdminProducts/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {

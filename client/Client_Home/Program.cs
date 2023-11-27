@@ -3,6 +3,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using AspNetCoreHero.ToastNotification;
 
+using Client_Home.Models;
+using Client_Home.Areas.Admin.DTO.Customers;
+using Client_Home.Areas.Admin.DTO.Employees;
+using Client_Home.Areas.Admin.DTO.Category;
+using Client_Home.Areas.Admin.DTO.Product;
+using Client_Home.Areas.Admin.DTO.ProductBatch;
+using Client_Home.Areas.Admin.DTO.Suppliers;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
@@ -11,9 +19,15 @@ builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ConveniencestoreContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("dbCONVENIENCESTORE")));
+builder.Services.AddScoped<IAddCusFromExcel, AddCusFromExcel>();
+builder.Services.AddScoped<IAddEmployFromExcel, AddEmployFromExcel>();
+builder.Services.AddScoped<IAddCategoryFromExcel, AddCategoryFromExcel>();
+builder.Services.AddScoped<IAddProductFromExcel, AddProductFromExcel>();
+builder.Services.AddScoped<IAddProductBatchFromExcel, AddProductBatchFromExcel>();
+builder.Services.AddScoped<IAddSupplierFromExcel, AddSupplierFromExcel>();
 //builder.Services.AddDefaultIdentity<IdentityUser>().AddDefaultTokenProviders()
- //   .AddRoles<IdentityRole>()
- //   .AddEntityFrameworkStores<ApplicationDbContext>();
+//   .AddRoles<IdentityRole>()
+//   .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddDefaultIdentity<IdentityUser>().AddDefaultTokenProviders()
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ConveniencestoreContext>();
@@ -23,6 +37,7 @@ builder.Services.AddNotyf(config =>
     config.DurationInSeconds = 5;
     config.IsDismissable = true;
     config.Position = NotyfPosition.TopRight;
+
 });
 
 builder.Services.AddDistributedMemoryCache();

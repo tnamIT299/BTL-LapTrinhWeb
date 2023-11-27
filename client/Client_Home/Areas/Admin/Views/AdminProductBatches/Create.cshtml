@@ -1,0 +1,84 @@
+﻿@model Client_Home.Models.ProductBatch
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>ProductBatch</h4>
+<hr />
+<link href="assets/css/app.min.css" rel="stylesheet">
+<!-- page css -->
+<link href="~/adminassets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" />
+<!-- page js -->
+<script src="~/adminassets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<div class="main-content">
+    <form asp-action="Create">
+        <div class="page-header no-gutters has-tab">
+            <div class="d-md-flex m-b-15 align-items-center justify-content-between">
+                <div class="media align-items-center m-b-15">
+                    <div class="avatar avatar-image rounded" style="height: 70px; width: 70px">
+                    </div>
+                    <div class="m-l-15">
+                        <h4 class="m-b-0">Thông Tin Lô Sản Phẩm</h4>
+                    </div>
+                </div>
+                <div class="m-b-15">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="anticon anticon-save"></i>
+                        <span>Lưu</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="tab-content m-t-15">
+            <div class="tab-pane fade show active" id="">
+                <div class="card">
+                    <div class="card-body">
+
+                        <div class="form-group">
+                            <label asp-for="ProductId" class="control-label">Tên sản phẩm </label>
+                            <select asp-for="ProductId" class="form-control" asp-items="ViewBag.ProductId"></select>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col">
+                                    <label asp-for="ManufactureDate" class="control-label">Ngày sản xuất</label>
+                                    <input asp-for="ManufactureDate" required class="form-control" />
+                                    <span asp-validation-for="ManufactureDate" class="text-danger"></span>
+                                </div>
+                                <div class="col">
+                                    <label asp-for="ExpiryDate" class="control-label">Ngày hết hạn</label>
+                                    <input asp-for="ExpiryDate" required class="form-control" />
+                                    <span asp-validation-for="ExpiryDate" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Quantity" class="control-label">Số Lượng</label>
+                            <input asp-for="Quantity" required pattern="[0-9]+" class="form-control" />
+                            <span asp-validation-for="Quantity" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Barcode" class="control-label">Mã Code</label>
+                            <input asp-for="Barcode" required pattern="[0-9]+" class="form-control" />
+                            <span asp-validation-for="Barcode" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="ImportPrice" class="control-label">Giá nhập</label>
+                            <input asp-for="ImportPrice" required pattern="[0-9]+" class="form-control" />
+                            <span asp-validation-for="ImportPrice" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

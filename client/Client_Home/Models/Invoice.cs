@@ -32,4 +32,5 @@ public partial class Invoice
     public virtual Payment? Payment { get; set; }
 
     public virtual Shipping? Shipping { get; set; }
+
 }

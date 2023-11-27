@@ -13,61 +13,43 @@
                 </a>
             </li>
             <li class="nav-item dropdown">
-                <a class="dropdown-toggle" asp-area="Admin" asp-controller="AdminInvoices" asp-action="Index">
+                <a class="dropdown-toggle">
                     <span class="icon-holder">
-                        <i class="anticon anticon-appstore"></i>
+                        <i class="anticon anticon-build"></i>
                     </span>
-                    <span class="title">Quản lý đơn hàng</span>
+                    <span class="title">Quản lý hoá đơn</span>
                     <span class="arrow">
                         <i class="arrow-icon"></i>
                     </span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li>
-                        <a href="app-chat.html">Chat</a>
-                    </li>
-                    <li>
-                        <a href="app-file-manager.html">File Manager</a>
-                    </li>
-                    <li>
-                        <a href="app-mail.html">Mail</a>
-                    </li>
+                  
                     <li class="nav-item dropdown">
                         <a href="javascript:void(0);">
-                            <span>Projects</span>
+                            <span>Khách Hàng</span>
                             <span class="arrow">
                                 <i class="arrow-icon"></i>
                             </span>
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="app-project-list.html">Project List</a>
+                                <a  asp-area="Admin" asp-controller="AdminInvoices" asp-action="Index">Danh sách hoá đơn khách hàng</a>
                             </li>
-                            <li>
-                                <a href="app-project-details.html">Project Details</a>
-                            </li>
+                            
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a href="javascript:void(0);">
-                            <span>E-commerce</span>
+                            <span>Nhà cung cấp </span>
                             <span class="arrow">
                                 <i class="arrow-icon"></i>
                             </span>
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="app-e-commerce-order-list.html">Orders List</a>
+                                <a asp-area="Admin" asp-controller="AdminOrders" asp-action="Index">Danh sách phiếu nhập</a>
                             </li>
-                            <li>
-                                <a href="app-e-commerce-products.html">Products</a>
-                            </li>
-                            <li>
-                                <a href="app-e-commerce-products-list.html">Products List</a>
-                            </li>
-                            <li>
-                                <a href="app-e-commerce-products-edit.html">Products Edit</a>
-                            </li>
+          
                         </ul>
                     </li>
                 </ul>
@@ -87,10 +69,13 @@
                         <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Index">Danh sách sản phẩm</a>
                     </li>
                     <li>
-                        <a asp-area="Admin" asp-controller="" asp-action="Index">Danh sách danh mục sản phẩm</a>
+                        <a asp-area="Admin" asp-controller="AdminCategories" asp-action="Index">Danh sách danh mục sản phẩm</a>
                     </li>
                     <li>
-                        <a asp-area="Admin" asp-controller="" asp-action="Index">Danh sách nhà cung cấp</a>
+                        <a asp-area="Admin" asp-controller="AdminProductBatches" asp-action="Index">Danh sách lô sản phẩm</a>
+                    </li>
+                    <li>
+                        <a asp-area="Admin" asp-controller="AdminSuppliers" asp-action="Index">Danh sách nhà cung cấp</a>
                     </li>
                 </ul>
             </li>
@@ -131,6 +116,19 @@
                 </ul>
             </li>
 
+            <li class="nav-item">
+                <a class="dropdown-toggle" asp-area="Admin" asp-controller="AdminInvoices" asp-action="Create">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-build"></i>
+                    </span>
+                    <span class="title">Quản lý bán hàng</span>
+                    <span class="arrow">
+                        <i class="arrow-icon"></i>
+                    </span>
+                </a>
+            </li>
+
+
 
             <li class="nav-item dropdown">
                 <a class="dropdown-toggle" href="javascript:void(0);">
@@ -144,10 +142,10 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a href="chartist.html">Chartist</a>
+                        <a > Danh sách đơn giao hàng</a>
                     </li>
                     <li>
-                        <a href="chartjs.html">ChartJs</a>
+                        <a ></a>
                     </li>
                 </ul>
             </li>
@@ -162,9 +160,6 @@
                     </span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li>
-                        <a href="profile.html">Quản lý danh mục sản phẩm</a>
-                    </li>
                     <li>
                         <a asp-area="Admin" asp-controller="AdminRoles" asp-action="Index">Quản lý quyền truy cập</a>
                     </li>
@@ -185,7 +180,7 @@
                             </span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li>
+                            @* <li>
                                 <a href="blog-grid.html">Blog Grid</a>
                             </li>
                             <li>
@@ -193,7 +188,7 @@
                             </li>
                             <li>
                                 <a href="blog-post.html">Blog Post</a>
-                            </li>
+                            </li> *@
                         </ul>
                     </li>
                 </ul>
@@ -209,7 +204,7 @@
                     </span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li>
+                    @* <li>
                         <a href="login-1.html">Login 1</a>
                     </li>
                     <li>
@@ -232,7 +227,7 @@
                     </li>
                     <li>
                         <a href="error-2.html">Error 2</a>
-                    </li>
+                    </li> *@
                 </ul>
             </li>
         </ul>

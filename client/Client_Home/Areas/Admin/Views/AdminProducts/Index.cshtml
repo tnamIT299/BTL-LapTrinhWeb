@@ -1,4 +1,4 @@
-﻿@using Azure;
+﻿﻿@using Azure;
 @using DocumentFormat.OpenXml.Spreadsheet;
 @using Microsoft.AspNetCore.Mvc.RazorPages;
 @using PagedList.Core.Mvc
@@ -19,6 +19,7 @@
             </nav>
         </div>
     </div>
+
     <div class="card">
         <div class="card-body">
             <div class="row m-b-30">
@@ -46,16 +47,16 @@
                         </button>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" asp-area="Admin" asp-controller="AdminProducts" asp-action="Create">Thêm thủ công</a>
-                            <a class="dropdown-item" asp-area="Admin" asp-controller="AdminProducts" asp-action="Create">Thêm bằng file excel</a>
+                            <a class="dropdown-item" asp-area="Admin" asp-controller="AdminProducts" asp-action="AddFromExcel">Thêm bằng file excel</a>
                         </div>
                     </div>
-                       
-                    @* 
-                        <button class="btn btn-primary">
-                            <i class="anticon anticon-plus-circle m-r-5"></i>
-                            <span>Thêm sản phẩm</span>
-                        </button> *@
-                    
+
+                    @*
+                    <button class="btn btn-primary">
+                    <i class="anticon anticon-plus-circle m-r-5"></i>
+                    <span>Thêm sản phẩm</span>
+                    </button> *@
+
                 </div>
                
                 <div class="m-b-10 m-r-15">
@@ -113,7 +114,7 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody id="records_table">                     
+                    <tbody id="records_table">
                         @if (Model != null)
                         {
                             int i = 1;
@@ -128,13 +129,14 @@
                                     </td>
 
                                     <td>
-                                        @if (item.ThumbnailUrl!=null)
+                                        @if (item.ThumbnailUrl != null)
                                         {
                                             <div class="d-flex align-items-center">
-                                                <img class="img-fluid rounded" src="@Url.Content(item.ThumbnailUrl)" style="max-width: 60px" alt="">
+                                                <img class="img-fluid rounded" src="@Url.Content("~/adminassets/images/others/" + item.ThumbnailUrl)" style="max-width: 60px" alt="">
                                             </div>
                                         }
                                     </td>
+		
                                     <td>
                                         @Html.DisplayFor(modelItem => item.Name)
                                     </td>
@@ -147,15 +149,20 @@
                                     <td>
 
                                         <div class="d-flex align-items-center">
-                                            @if (item.Active == true)
+                                            @if (item.Active == 1)
                                             {
                                                 <div class="badge badge-success badge-dot m-r-10"></div>
                                                 <div>Đang bán</div>
                                             }
-                                            else
+                                            else if (item.Active == 0)
                                             {
                                                 <div class="badge badge-danger badge-dot m-r-10"></div>
-                                                <div>Ngưng bán</div>
+                                                <div>Hết hàng</div>
+                                            }
+                                            else if (item.Active == -1)
+                                            {
+                                                <div class="badge badge-danger badge-dot m-r-10"></div>
+                                                <div>Ngưng kinh doanh</div>
                                             }
                                         </div>
                                     </td>
@@ -267,7 +274,7 @@
                     type: "POST",
                     data: { keyword: strkeyword },
                     async: true,
-                    success: function (result) {                       
+                    success: function (result) {
                         if ($('#keyword').val() == '') {
                             console.log("hello");
                             return originalData;
@@ -275,7 +282,7 @@
                         $("#records_table").html("");
                         $("#records_table").html(result);
                     },
-                    error: function ( xhr ) {
+                    error: function (xhr) {
                         alert('error');
                     }
                 });

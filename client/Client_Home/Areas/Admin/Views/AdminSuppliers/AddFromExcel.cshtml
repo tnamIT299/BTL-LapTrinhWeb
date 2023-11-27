@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "ADD Page";
+}
+
+<div class="row">
+    <div class="col-5">
+        <form class="post" enctype="multipart/form-data" asp-controller="AdminSuppliers" asp-action="AddFromExcel">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <a class="btn btn-secondary" href="/template/Template_Supplier.xlsx" download="template_supplier.xlsx">
+                        Download Template Supplier
+                    </a>
+
+                </div>
+                <div class="col-md-10">
+                    <h3>Upload File</h3>
+                    <input class="form-control" name="formFile" multiple="multiple" type="file" />
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input class="btn btn-primary" type="submit" value="Upload File" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

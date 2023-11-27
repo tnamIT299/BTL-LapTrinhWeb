@@ -21,10 +21,17 @@ namespace Client_Home.Areas.Admin.Controllers
         }
 
         // GET: Admin/AdminEmployees
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int?page)
         {
-            var conveniencestoreContext = _context.Employees.Include(e => e.User);
-            return View(await conveniencestoreContext.ToListAsync());
+            var pageNumber = page == null || page <= 0 ? 1 : page.Value;
+            var pageSize = 10;
+            var conveniencestoreContext = _context.Employees.Include(e => e.User)
+                .AsNoTracking()
+                .OrderByDescending(x=>x.EmployeeId);
+            ViewBag.CurrentPage = pageNumber;
+            PagedList.Core.IPagedList<Employee> model = new PagedList.Core.PagedList<Employee>(conveniencestoreContext, pageNumber, pageSize);
+
+            return View(model);
         }
 
         // GET: Admin/AdminEmployees/Details/5

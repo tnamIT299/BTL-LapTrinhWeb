@@ -10,6 +10,7 @@ using Client_Home.Models;
 using ClosedXML.Excel;
 using AspNetCoreHero.ToastNotification.Abstractions;
 using PagedList;
+using Humanizer;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
@@ -24,27 +25,80 @@ namespace Client_Home.Areas.Admin.Controllers
         }
 
         // GET: Admin/AdminProducts
-        public async Task<IActionResult> Index(int? page)
+        public IActionResult Index(int page = 1, int CatID = 0, int SupID = 0,decimal? to=null,decimal? from=null)
 
         {
-            var pageNumber = page == null || page <= 0 ? 1 : page.Value;
+            var pageNumber = page;
             var pageSize = 10;
-            var isProduct = _context.Products
+            List<Product> isProducts = new List<Product>();
+            if (SupID != 0)
+            {
+                isProducts = _context.Products
+                    .AsNoTracking().Where(x => x.SupplierId == SupID)
                 .Include(p => p.Category)
-                .Include(p=>p.Supplier).
+                .Include(p => p.Supplier)
+                .OrderByDescending(x => x.ProductId).ToList();
+            }
+            else if (CatID != 0)
+            {
+                isProducts = _context.Products
+                    .AsNoTracking().Where(x => x.CategoryId == CatID)
+                .Include(p => p.Category)
+                .Include(p => p.Supplier)
+                .OrderByDescending(x => x.ProductId).ToList();
+            }
+            else
+            {
+                isProducts = _context.Products
+                .Include(p => p.Category)
+                .Include(p => p.Supplier).
                 AsNoTracking().
-                OrderByDescending(x => x.ProductId);
-            PagedList.Core.IPagedList<Product> model = new PagedList.Core.PagedList<Product>(isProduct, pageNumber, pageSize);
+                OrderByDescending(x => x.ProductId).ToList();
+                if (to != null && from != null)
+                {
+                    isProducts = _context.Products
+                    .AsNoTracking()
+                       .Where(x => x.SellPrice >= to && x.SellPrice <= from)
+                        .Include(p => p.Category)
+                    .Include(p => p.Supplier)
+                    .OrderByDescending(x => x.ProductId).ToList();
+                    ;
+                }
+            }
+
+
+            PagedList.Core.IPagedList<Product> model = new PagedList.Core.PagedList<Product>(isProducts.AsQueryable(), pageNumber, pageSize);
+            ViewBag.CurrentCateID = CatID;
             ViewBag.CurrentPage = pageNumber;
-            ViewData["DanhMuc"] = new SelectList(_context.Categories, "CategoryID", "CategoryName");
+            ViewData["Danhmuc"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", CatID);
+            ViewData["Nhacungcap"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierName",SupID);
+
 
             return View(model);
-           // return _context.Products != null ?
-                         //View(await _context.Products.Include(p =>p.Category).Include(p => p.Supplier).ToListAsync()) :
-                         //Problem("Entity set 'ConveniencestoreContext.Products'  is null.");
+            // return _context.Products != null ?
+            //View(await _context.Products.Include(p =>p.Category).Include(p => p.Supplier).ToListAsync()) :
+            //Problem("Entity set 'ConveniencestoreContext.Products'  is null.");
+        }
+        public IActionResult Filtter(int CatID = 0)
+        {
+            var url = $"/Admin/AdminProducts?CatID={CatID}";
+            if (CatID == 0)
+            {
+                url = $"/Admin/AdminProducts";
+            }
+            return Json(new { status = "success", redirectUrl = url });
+        }
+        public IActionResult FiltterSupplier(int SupID = 0)
+        {
+            var url = $"/Admin/AdminProducts?SupID={SupID}";
+            if (SupID == 0)
+            {
+                url = $"/Admin/AdminProducts";
+            }
+            return Json(new { status = "success", redirectUrl = url });
         }
 
-        // GET: Admin/AdminProducts/Details/5
+        // GET: Admin/AdminProducts/Details/5   
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Products == null)
@@ -71,6 +125,7 @@ namespace Client_Home.Areas.Admin.Controllers
         {
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName");
             ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierName");
+            ViewData["Danhmuc"] = new SelectList(_context.Categories, "CategoryId", "CategoryName");
             return View();
         }
 
@@ -89,6 +144,7 @@ namespace Client_Home.Areas.Admin.Controllers
             }
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", product.CategoryId);
             ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierName", product.SupplierId);
+            ViewData["Danh muc"] = new SelectList(_context.Categories, "CatId", "CatName");
             return View(product);
         }
 
@@ -107,6 +163,7 @@ namespace Client_Home.Areas.Admin.Controllers
             }
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", product.CategoryId);
             ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierName", product.SupplierId);
+            ViewData["Danh muc"] = new SelectList(_context.Categories, "CatId", "CatName");
             return View(product);
         }
 
@@ -144,6 +201,7 @@ namespace Client_Home.Areas.Admin.Controllers
             }
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", product.CategoryId);
             ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierName", product.SupplierId);
+            ViewData["Danh muc"] = new SelectList(_context.Categories, "CatId", "CatName");
             return View(product);
         }
 

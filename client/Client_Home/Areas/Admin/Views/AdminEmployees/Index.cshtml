@@ -1,4 +1,9 @@
-﻿@model IEnumerable<Client_Home.Models.Employee>
+﻿@using Azure;
+@using DocumentFormat.OpenXml.Spreadsheet;
+@using Microsoft.AspNetCore.Mvc.RazorPages;
+@using PagedList.Core.Mvc
+@using X.PagedList.Mvc.Core;
+@model PagedList.Core.IPagedList<Client_Home.Models.Employee>
 
 @{
     ViewData["Title"] = "Index";
@@ -10,81 +15,126 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<div class="m-b-10 m-r-15">
+    <input id="keyword" type="text" name="keyword" class="form-control" placeholder="Tìm kiếm nhân viên" />
+</div>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.FirstName)
+                FirstName
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.LastName)
+                LastName
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Position)
+                Position
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DateHired)
+                DateHired
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BirthDate)
+                BirthDate
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CitizenId)
+                CitizenId
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Gender)
+                Gender
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Email)
+                Email
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PhoneNumber)
+                PhoneNumber
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.User)
+                User
             </th>
             <th></th>
         </tr>
     </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Position)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateHired)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BirthDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CitizenId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gender)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.User.UserId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.EmployeeId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.EmployeeId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.EmployeeId">Delete</a>
-            </td>
-        </tr>
+    <tbody id="records_table">
+        @if (Model != null)
+        {
+            int i = 1;
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Position)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateHired)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BirthDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CitizenId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gender)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User.UserId)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.EmployeeId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.EmployeeId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.EmployeeId">Delete</a>
+                    </td>
+                </tr>
+                i++;
+        }
+        
 }
     </tbody>
 </table>
+<div aria-label="Page navigation example" style="display:flex; justify-content:center">
+    <ul class="pagination">
+        <pager class="page-container" list="@Model" asp-action="Index"></pager>
+    </ul>
+
+</div>
+@section Scripts{
+
+    <script>
+        $(document).ready(function () {
+            var originalData = $("#records_table").html();
+            $("#keyword").keyup(function () {
+                var strkeyword = $('#keyword').val();
+                $.ajax({
+                    url: '/Admin/Search/FindEmployee',
+                    datatype: "json",
+                    type: "POST",
+                    data: { keyword: strkeyword },
+                    async: true,
+                    success: function (result) {
+                        if ($('#keyword').val() == '') {
+                            console.log("hello");
+                            return originalData;
+                        }
+                        $("#records_table").html("");
+                        $("#records_table").html(result);
+                    },
+                    error: function (xhr) {
+                        alert('error');
+                    }
+                });
+            });
+        });
+    </script>
+}

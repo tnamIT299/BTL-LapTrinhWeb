@@ -1,11 +1,19 @@
 is_global = true
 build_property.TargetFramework = net7.0
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Client_Home
 build_property.RootNamespace = Client_Home
@@ -36,6 +44,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5BY2NvdW50c1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminCustomers/AddFromExcel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lcnNcQWRkRnJvbUV4Y2VsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminCustomers/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lcnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -54,6 +66,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminCustomers/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lcnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminEmployees/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5FbXBsb3llZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminEmployees/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5FbXBsb3llZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminEmployees/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5FbXBsb3llZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminEmployees/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5FbXBsb3llZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminEmployees/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5FbXBsb3llZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminInvoices/Create.cshtml]
@@ -142,6 +174,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Invoices/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52b2ljZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Search/ListCustomerSearchPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VhcmNoXExpc3RDdXN0b21lclNlYXJjaFBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Search/ListEmployeeSearchPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VhcmNoXExpc3RFbXBsb3llZVNlYXJjaFBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Search/ListInvoicesSearchPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VhcmNoXExpc3RJbnZvaWNlc1NlYXJjaFBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Search/ListProductsSearchPartial.cshtml]

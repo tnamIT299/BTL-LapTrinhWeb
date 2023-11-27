@@ -31,7 +31,9 @@ namespace Client_Home.Areas.Admin.Controllers
         {
                 var pageNumber = page == null || page <=0 ? 1 : page.Value;
                 var pageSize = 15;
-                var isCustomers = _context.Customers.AsNoTracking().OrderByDescending(x => x.Email); 
+                var isCustomers = _context.Customers
+                .AsNoTracking()
+                .OrderByDescending(x => x.Email); 
                 PagedList.Core.IPagedList <Customer> models= new PagedList.Core.PagedList<Customer>(isCustomers,pageNumber,pageSize);
                 ViewBag.CurrentPage = pageNumber;
                 return View(models);

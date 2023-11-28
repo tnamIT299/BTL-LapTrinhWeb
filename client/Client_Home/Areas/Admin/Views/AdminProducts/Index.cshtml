@@ -47,7 +47,7 @@
                         </button>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" asp-area="Admin" asp-controller="AdminProducts" asp-action="Create">Thêm thủ công</a>
-                            <a class="dropdown-item" asp-area="Admin" asp-controller="AdminProducts" asp-action="Create">Thêm bằng file excel</a>
+                            <a class="dropdown-item" asp-area="Admin" asp-controller="AdminProducts" asp-action="AddFromExcel">Thêm bằng file excel</a>
                         </div>
                     </div>
 
@@ -58,10 +58,29 @@
                     </button> *@
 
                 </div>
-                <div class="m-b-10 m-r-15">
-                </div>
+               
                 <div class="m-b-10 m-r-15">
                     <input id="keyword" type="text" name="keyword" class="form-control" placeholder="Tìm kiếm sản phẩm" />
+                </div>
+               
+                <div class="m-b-10 ">
+                    <select class="custom-select" id="txtCatID" name="txtCatID" style="min-width:200px"   asp-items="ViewBag.DanhMuc">
+                        <option selected>Chọn danh mục</option>
+                        <option value="0">Chọn tất cả</option>
+                    </select>
+
+                </div>
+                <div class="m-b-10 ">
+                    <select class="custom-select" id="txtSupID" name="txtSupID" style="min-width:200px" asp-items="ViewBag.Nhacungcap">
+                        <option selected>Chọn nhà cung cấp</option>
+                        <option value="0">Chọn tất cả</option>
+                    </select>
+
+                </div>
+                <div class="m-b-10 m-r-15">
+                    <form asp-action="" method="get" class="form-inline">
+                        Tìm kiếm theo giá  từ <input type="number" name="to" />đến <input type="number" name="from" /><button>Tìm</button>
+                    </form>
                 </div>
             </div>
             <div class="table-responsive">
@@ -178,7 +197,7 @@
                 </table>
                 <div aria-label="Page navigation example" style="display:flex; justify-content:center">
                     <ul class="pagination">
-                        <pager class="page-container" list="@Model" asp-action="Index"></pager>
+                        <pager class="page-container" asp-route-CatID="@ViewBag.CurrentCateID" list="@Model" asp-action="Index"></pager>
                     </ul>
 
                 </div>
@@ -190,7 +209,63 @@
 
     <script>
         $(document).ready(function () {
-            var originalData = $("#records_table").html();
+           
+            jQuery("#txtCatID").change(function () {
+             
+                var catID = jQuery(this).children(":selected").attr("value");
+                catID = parseFloat(catID);
+                $('#txtCatID option')
+                    .removeAttr('selected');
+                $("#txtCatID > [value="+ catID + "]").attr("selected", "true");
+                $.ajax({
+                    url: '/Admin/AdminProducts/Filtter',
+                    datatype: "json",
+                    type: "GET",
+                    data: {
+                        CatID: catID
+                    },
+                    async: true,
+                    success: function (results) {
+                        if (results.status == "success") {
+                            window.location.href = results.redirectUrl;
+                        }
+                    },
+                    error: function (xhr) {
+                        alert('error');
+                    }
+                });
+            });
+
+            jQuery("#txtSupID").change(function () {
+
+                var supID = jQuery(this).children(":selected").attr("value");
+                supID = parseFloat(supID);
+                $('#txtSupID option')
+                    .removeAttr('selected');
+                $("#txtSupID > [value=" + supID + "]").attr("selected", "true");
+                $.ajax({
+                    url: '/Admin/AdminProducts/FiltterSupplier',
+                    datatype: "json",
+                    type: "GET",
+                    data: {
+                        SupID: supID
+                    },
+                    async: true,
+                    success: function (results) {
+                        if (results.status == "success") {
+                            window.location.href = results.redirectUrl;
+                        }
+                    },
+                    error: function (xhr) {
+                        alert('error');
+                    }
+                });
+            });
+
+
+
+
+            var originalData = $("#records_table").html();            
             $("#keyword").keyup(function () {
                 var strkeyword = $('#keyword').val();
                 $.ajax({

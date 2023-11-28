@@ -28,8 +28,12 @@ namespace Client_Home.Areas.Admin.Controllers
         public IActionResult Index(int? page)
         {
             var pageNumber = page == null || page <= 0 ? 1 : page.Value;
-            var pageSize = 50;
-            var isInvoice = _context.Invoices.Include(i => i.Customer).Include(i => i.Employee).AsNoTracking().OrderByDescending(x => x.InvoiceId);
+            var pageSize = 10;
+            var isInvoice = _context.Invoices
+                .Include(i => i.Customer)
+                .Include(i => i.Employee)
+                .AsNoTracking()
+                .OrderByDescending(x => x.InvoiceId);
             PagedList.Core.IPagedList<Invoice> models = new PagedList.Core.PagedList<Invoice>(isInvoice, pageNumber, pageSize);
             ViewBag.CurrentPage = pageNumber;
             return View(models);

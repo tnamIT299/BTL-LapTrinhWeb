@@ -22,13 +22,13 @@ namespace Client_Home.Areas.Admin.Controllers
     [Area("Admin")]
     public class AdminCustomersController : Controller
     {
-        private readonly Client_Home.Data.ConveniencestoreContext _context;
+        private readonly ConveniencestoreContext _context;
         private  IWebHostEnvironment _webHostEnvironment;
-        private readonly IAddFromExcel _addFromExcel;
+        private readonly IAddCusFromExcel _addFromExcel;
         private readonly ILogger<AdminCustomersController> _logger;
 
         public INotyfService _notifyService { get; }
-        public AdminCustomersController(ILogger<AdminCustomersController> logger, Client_Home.Data.ConveniencestoreContext context, INotyfService notifyService,IWebHostEnvironment webHostEnvironment , IAddFromExcel addFromExcel)
+        public AdminCustomersController(ILogger<AdminCustomersController> logger, ConveniencestoreContext context, INotyfService notifyService,IWebHostEnvironment webHostEnvironment , IAddCusFromExcel addFromExcel)
         {
             _logger = logger;
             _context = context;
@@ -44,9 +44,7 @@ namespace Client_Home.Areas.Admin.Controllers
                 var pageSize = 15;
                 var isCustomers = _context.Customers
                 .AsNoTracking()
-                .Include(p => p.User).
-                AsNoTracking().
-                OrderByDescending(x => x.LastName);
+                .OrderByDescending(x => x.Email); 
                 PagedList.Core.IPagedList <Customer> models= new PagedList.Core.PagedList<Customer>(isCustomers,pageNumber,pageSize);
                 ViewBag.CurrentPage = pageNumber;
                 return View(models);

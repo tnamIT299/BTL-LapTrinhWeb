@@ -4,11 +4,6 @@
 
 /client/Client_Home/Data/ConveniencestoreContext.cs
 /client/Client_Home/bin/Debug/net7.0/appsettings.json
-/client/Client_Home/Models/ConveniencestoreContext.cs
-/client/Client_Home/.vs/Client_Home/FileContentIndex/8296c4e8-6d5a-423b-a925-50dd83ac0989.vsidx
-/client/Client_Home/Data/ConveniencestoreContext.cs
-/client/Client_Home/Data/ApplicationDbcontext.cs
-/client/Client_Home/.vs/Client_Home/FileContentIndex/7d10688d-8f4d-4425-819c-8aa288e1de03.vsidx
-/client/Client_Home/.vs/Client_Home/FileContentIndex/7db933f2-f85b-48d4-b402-b7a284512238.vsidx
-/client/Client_Home/.vs/Client_Home/FileContentIndex/d3e03fa0-2961-4e80-9fd2-db9738bc1177.vsidx
-/client/Client_Home/.vs/Client_Home/FileContentIndex/d5bc6626-52b8-420d-9c84-b373bd3248a6.vsidx
+/client/Client_Home/appsettings.json
+/client/Client_Home/wwwroot/uploaded_doc/Employ.xlsx
+/client/Client_Home/wwwroot/uploaded_doc/Cus.xlsx

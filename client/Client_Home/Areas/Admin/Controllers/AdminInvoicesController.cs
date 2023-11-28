@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Client_Home.Data;
 using Client_Home.Models;
 using DocumentFormat.OpenXml.InkML;
+using PagedList;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
@@ -68,18 +69,10 @@ namespace Client_Home.Areas.Admin.Controllers
                 var product = await context.Products.FromSqlRaw("EXEC GetProduct").ToListAsync();
                 ViewBag.product = product;
             }
-            //var pageNumber = page == null || page <= 0 ? 1 : page.Value;
-            //var pageSize = 10;
-            //var isProduct = _context.Products
-            //    .Include(p => p.Category)
-            //    .Include(p => p.Supplier).
-            //    AsNoTracking().
-            //    OrderByDescending(x => x.ProductId);
-            //PagedList.Core.IPagedList<Product> model = new PagedList.Core.PagedList<Product>(isProduct, pageNumber, pageSize);
-            //ViewBag.CurrentPage = pageNumber;
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "Email");
-            ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "CitizenId");
-            ViewData["PaymentId"] = new SelectList(_context.Payments, "PaymentId", "PaymentId");
+            
+            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "Phone");
+            ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "LastName");
+            ViewData["PaymentId"]  = new SelectList(_context.Payments, "PaymentId", "MethodName");
             ViewData["ShippingId"] = new SelectList(_context.Shippings, "ShippingId", "ShippingId");
             return View();
         }

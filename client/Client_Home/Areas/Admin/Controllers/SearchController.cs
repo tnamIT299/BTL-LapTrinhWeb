@@ -16,29 +16,35 @@ namespace Client_Home.Areas.Admin.Controllers
 
 
         [HttpPost]
-        public IActionResult FindProduct(string keyword)
+        public IActionResult FindProduct(int? page, string keyword)
         {
-            List<Product> ls = new List<Product>();
+            var pageNumber = page == null || page <= 0 ? 1 : page.Value;
+            var pageSize = 20;
+
+            IQueryable<Product> query;
+
             if (string.IsNullOrEmpty(keyword) || keyword.Length < 1)
             {
-                return PartialView("ListProductsSearchPartial", null);
-            }
-            ls = _context.Products  
-                .AsNoTracking()
-                .Include(a=>a.Category)
-                .Where(x=>x.Name.Contains(keyword))
-                .OrderByDescending(x=>x.Name)
-                .Take(10)
-                .ToList();
-            if(ls == null)
-            {
-                return PartialView("ListProductsSearchPartial", null);
+                query = _context.Products
+                    .Include(p => p.Category)
+                    .Include(p => p.Supplier)
+                    .AsNoTracking()
+                    .OrderByDescending(x => x.ProductId);
             }
             else
             {
-                return PartialView("ListProductsSearchPartial", ls);
+                query = _context.Products
+                    .AsNoTracking()
+                    .Include(a => a.Category)
+                    .Where(x => x.Name.Contains(keyword))
+                    .OrderByDescending(x => x.Name);
             }
+
+            List<Product> ls = query.ToList();
+            PagedList.Core.IPagedList<Product> model = new PagedList.Core.PagedList<Product>(ls.AsQueryable(), pageNumber, pageSize);
+            return PartialView("ListProductsSearchPartial", model);
         }
+
 
     }
 }

@@ -10,6 +10,8 @@ using Client_Home.Models;
 using ClosedXML.Excel;
 using AspNetCoreHero.ToastNotification.Abstractions;
 using PagedList;
+using DocumentFormat.OpenXml.Office2010.Excel;
+using Client_Home.Areas.Admin.Models;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
@@ -27,21 +29,11 @@ namespace Client_Home.Areas.Admin.Controllers
         public async Task<IActionResult> Index(int? page)
 
         {
-            var pageNumber = page == null || page <= 0 ? 1 : page.Value;
-            var pageSize = 10;
-            var isProduct = _context.Products
-                .Include(p => p.Category)
-                .Include(p=>p.Supplier).
-                AsNoTracking().
-                OrderByDescending(x => x.ProductId);
-            PagedList.Core.IPagedList<Product> model = new PagedList.Core.PagedList<Product>(isProduct, pageNumber, pageSize);
-            ViewBag.CurrentPage = pageNumber;
-            ViewData["DanhMuc"] = new SelectList(_context.Categories, "CategoryID", "CategoryName");
 
-            return View(model);
-           // return _context.Products != null ?
-                         //View(await _context.Products.Include(p =>p.Category).Include(p => p.Supplier).ToListAsync()) :
-                         //Problem("Entity set 'ConveniencestoreContext.Products'  is null.");
+            return View();
+            // return _context.Products != null ?
+            //View(await _context.Products.Include(p =>p.Category).Include(p => p.Supplier).ToListAsync()) :
+            //Problem("Entity set 'ConveniencestoreContext.Products'  is null.");
         }
 
         // GET: Admin/AdminProducts/Details/5
@@ -186,6 +178,45 @@ namespace Client_Home.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpPost("/Admin/AdminProducts/DeleteMultiple")]
+        public async Task<IActionResult> DeleteMultiple([FromBody]DeleteMulti productIds)
+        {
+            
+            try
+            {
+                if (_context.Products == null)
+                {
+                    return Problem("Entity set 'ConveniencestoreContext.Products' is null.");
+                }
+                // Implement your logic to delete products based on the received productIds
+                // Example: Delete products from the database
+                foreach (var productId in productIds.ProductIds)
+                {
+
+                    var product = await _context.Products.FindAsync(productId);
+                    if (product != null)
+                    {
+                        _context.Products.Remove(product);
+                    }
+                }
+                try
+                {
+                    await _context.SaveChangesAsync();
+                }
+                catch(Exception ex)
+                {
+                    return Json(new { success = false, message = "Error deleting products." });
+                }
+                // You can return a success message or any other necessary response
+                return Json(new { success = true, message = "Products deleted successfully." });
+            }
+            catch (Exception ex)
+            {
+                // Log the exception or handle it appropriately
+                return Json(new { success = false, message = "Error deleting products." });
+            }
+        }
+
         private bool ProductExists(int id)
         {
           return (_context.Products?.Any(e => e.ProductId == id)).GetValueOrDefault();
@@ -263,6 +294,6 @@ namespace Client_Home.Areas.Admin.Controllers
                 }
             }
         }
-
+  
     }
 }

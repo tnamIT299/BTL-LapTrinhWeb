@@ -12,6 +12,7 @@ using AspNetCoreHero.ToastNotification.Abstractions;
 using PagedList;
 using DocumentFormat.OpenXml.Office2010.Excel;
 using Client_Home.Areas.Admin.Models;
+using Humanizer;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
@@ -19,14 +20,21 @@ namespace Client_Home.Areas.Admin.Controllers
     public class AdminProductsController : Controller
     {
         private readonly Client_Home.Data.ConveniencestoreContext _context;
-
-        public AdminProductsController(Client_Home.Data.ConveniencestoreContext context)
+        private IWebHostEnvironment _webHostEnvironment;
+        private readonly IAddProductFromExcel _addFromExcel;
+        private readonly ILogger<AdminProductsController> _logger;
+        public INotyfService _notifyService { get; }
+        public AdminProductsController(ILogger<AdminProductsController> logger, ConveniencestoreContext context, INotyfService notifyService, IWebHostEnvironment webHostEnvironment, IAddProductFromExcel addFromExcel)
         {
+            _logger = logger;
             _context = context;
+            _notifyService = notifyService;
+            _webHostEnvironment = webHostEnvironment;
+            _addFromExcel = addFromExcel;
         }
 
         // GET: Admin/AdminProducts
-        public async Task<IActionResult> Index(int? page)
+        public IActionResult Index(int page = 1, int CatID = 0, int SupID = 0,decimal? to=null,decimal? from=null)
 
         {
 
@@ -35,8 +43,26 @@ namespace Client_Home.Areas.Admin.Controllers
             //View(await _context.Products.Include(p =>p.Category).Include(p => p.Supplier).ToListAsync()) :
             //Problem("Entity set 'ConveniencestoreContext.Products'  is null.");
         }
+        public IActionResult Filtter(int CatID = 0)
+        {
+            var url = $"/Admin/AdminProducts?CatID={CatID}";
+            if (CatID == 0)
+            {
+                url = $"/Admin/AdminProducts";
+            }
+            return Json(new { status = "success", redirectUrl = url });
+        }
+        public IActionResult FiltterSupplier(int SupID = 0)
+        {
+            var url = $"/Admin/AdminProducts?SupID={SupID}";
+            if (SupID == 0)
+            {
+                url = $"/Admin/AdminProducts";
+            }
+            return Json(new { status = "success", redirectUrl = url });
+        }
 
-        // GET: Admin/AdminProducts/Details/5
+        // GET: Admin/AdminProducts/Details/5   
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Products == null)
@@ -63,6 +89,7 @@ namespace Client_Home.Areas.Admin.Controllers
         {
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName");
             ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierName");
+            ViewData["Danhmuc"] = new SelectList(_context.Categories, "CategoryId", "CategoryName");
             return View();
         }
 
@@ -71,7 +98,7 @@ namespace Client_Home.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductId,Name,Description,SellPrice,TotalQuantity,CategoryId,ThumbnailUrl,VideoUrl,Discount,DiscountPrice,BestsellerFlag,HomeFlag,Active,SupplierId,DateAdded,Qrcode")] Product product)
+        public async Task<IActionResult> Create([Bind("ProductId,Name,Description,SellPrice,TotalQuantity,CategoryId,ThumbnailUrl,VideoUrl,Discount,DiscountPrice,BestsellerFlag,HomeFlag,Active,SupplierId,DateAdded,Qrcode,Unit")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -81,9 +108,23 @@ namespace Client_Home.Areas.Admin.Controllers
             }
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", product.CategoryId);
             ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierName", product.SupplierId);
+            ViewData["Danh muc"] = new SelectList(_context.Categories, "CatId", "CatName");
             return View(product);
         }
 
+        public IActionResult AddFromExcel()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddFromExcel(IFormFile formFile)
+        {
+            string path = _addFromExcel.DoucumentUpload(formFile);
+            DataTable dt = _addFromExcel.ProductDataTable(path);
+            _addFromExcel.ImportProduct(dt);
+            return RedirectToAction(nameof(Index));
+
+        }
         // GET: Admin/AdminProducts/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -99,6 +140,7 @@ namespace Client_Home.Areas.Admin.Controllers
             }
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", product.CategoryId);
             ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierName", product.SupplierId);
+            ViewData["Danh muc"] = new SelectList(_context.Categories, "CatId", "CatName");
             return View(product);
         }
 
@@ -107,7 +149,7 @@ namespace Client_Home.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductId,Name,Description,SellPrice,TotalQuantity,CategoryId,ThumbnailUrl,VideoUrl,Discount,DiscountPrice,BestsellerFlag,HomeFlag,Active,SupplierId,DateAdded,Qrcode")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("ProductId,Name,Description,SellPrice,TotalQuantity,CategoryId,ThumbnailUrl,VideoUrl,Discount,DiscountPrice,BestsellerFlag,HomeFlag,Active,SupplierId,DateAdded,Qrcode,Unit")] Product product)
         {
             if (id != product.ProductId)
             {
@@ -136,6 +178,7 @@ namespace Client_Home.Areas.Admin.Controllers
             }
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", product.CategoryId);
             ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierName", product.SupplierId);
+            ViewData["Danh muc"] = new SelectList(_context.Categories, "CatId", "CatName");
             return View(product);
         }
 

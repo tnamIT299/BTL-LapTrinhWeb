@@ -10,6 +10,7 @@
     <PackageReference Include="AspNetCoreHero.ToastNotification" Version="1.1.0" />
     <PackageReference Include="Chart.js" Version="3.7.1" />
     <PackageReference Include="ClosedXML" Version="0.102.1" />
+    <PackageReference Include="EPPlus" Version="7.0.0" />
     <PackageReference Include="iTextSharp" Version="5.5.13.3" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.13" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.13" />
@@ -33,6 +34,7 @@
     <PackageReference Include="PagedList.Core.Mvc" Version="3.0.0" />
     <PackageReference Include="PagedList.Mvc" Version="4.5.0" />
     <PackageReference Include="QRCoder" Version="1.4.3" />
+    <PackageReference Include="System.Data.OleDb" Version="8.0.0" />
     <PackageReference Include="X.PagedList" Version="8.4.7" />
     <PackageReference Include="X.PagedList.Mvc.Core" Version="8.4.7" />
     <PackageReference Include="ZXing.Net" Version="0.16.9" />
@@ -41,6 +43,7 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="wwwroot\AdminImages\Barcodes\" />
+    <Folder Include="wwwroot\uploaded_doc\" />
   </ItemGroup>
 
 </Project>

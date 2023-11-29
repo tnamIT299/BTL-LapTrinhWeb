@@ -1,10 +1,11 @@
-﻿@using PagedList.Core.Mvc
+﻿﻿@using PagedList.Core.Mvc
 @model PagedList.Core.IPagedList<Client_Home.Models.Invoice>
 @{
     int CurrentPage = ViewBag.CurrentPage;
     ViewData["Title"] = "Danh sách hóa đơn";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
+
 <div class="main-content">
     <div class="page-header">
         <h2 class="header-title">Quản lý hóa đơn</h2>
@@ -17,7 +18,7 @@
             </nav>
         </div>
     </div>
-    <div class="card">
+    <div class="card">  
         <div class="card-body">
             <div class="row m-b-30">
                 <div class="col-lg-7">
@@ -38,6 +39,10 @@
                                 <option value="inStock">In Stock </option>
                                 <option value="outOfStock">Out of Stock</option>
                             </select>
+                        </div>
+
+                        <div class="m-b-10 m-r-15">
+                            <input id="keyword" type="text" name="keyword" class="form-control" placeholder="Tìm kiếm hóa đơn" />
                         </div>
                     </div>
                 </div>
@@ -83,7 +88,7 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="records_table">
                         <tr>
                             @if (Model != null)
                             {
@@ -118,16 +123,16 @@
                                                 <i class="anticon anticon-eye"></i>
                                             </button>
                                         </a>
-@*                                         <a asp-area="Admin" asp-controller="AdminInvoices" asp-action="Edit" asp-route-id="@item.InvoiceId">
-                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right" title="Sửa thông tin hóa đơn">
-                                                <i class="anticon anticon-edit"></i>
-                                            </button>
-                                        </a> *@
-                                       @*  <a asp-area="Admin" asp-controller="AdminInvoices" asp-action="Delete" asp-route-id="@item.InvoiceId">
-                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xóa hóa đơn này">
+                                        <a asp-area="Admin" asp-controller="AdminInvoices" asp-action="Edit" asp-route-id="@item.InvoiceId">
+                                         <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right" title="Sửa thông tin hóa đơn">
+                                          <i class="anticon anticon-edit"></i>
+                                         </button>
+                                        </a> 
+                                             <a asp-area="Admin" asp-controller="AdminInvoices" asp-action="Delete" asp-route-id="@item.InvoiceId">
+                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xóa hóa đơn này">
                                                 <i class="anticon anticon-delete"></i>
-                                            </button>
-                                        </a> *@
+                                                </button>
+                                            </a>
                                     </td>
                                 </tr>
                                     i++;
@@ -146,3 +151,32 @@
         </div>
     </div>
 </div>
+@section Scripts{
+
+    <script>
+        $(document).ready(function () {
+            var originalData = $("#records_table").html();
+            $("#keyword").keyup(function () {
+                var strkeyword = $('#keyword').val();
+                $.ajax({
+                    url: '/Admin/Search/FindInvoices',
+                    datatype: "json",
+                    type: "POST",
+                    data: { keyword: strkeyword },
+                    async: true,
+                    success: function (result) {
+                        if ($('#keyword').val() == '') {
+                            console.log("hello");
+                            return originalData;
+                        }
+                        $("#records_table").html("");
+                        $("#records_table").html(result);
+                    },
+                    error: function (xhr) {
+                        alert('error');
+                    }
+                });
+            });
+        });
+    </script>
+}

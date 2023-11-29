@@ -43,12 +43,12 @@
                         <div class="form-group">
                             <div class="form-row">
                                 <div class="col">
-                                    <label asp-for="FirstName" class="control-label"></label>
+                                    <label asp-for="FirstName" class="control-label">Họ</label>
                                     <input asp-for="FirstName" type="text" pattern="[a-zA-ZÀ-Ỹà-ỹ\s]+" class="form-control" />
                                     <span asp-validation-for="FirstName" class="text-danger"></span>
                                 </div>
                                 <div class="col">
-                                    <label asp-for="LastName" class="control-label"></label>
+                                    <label asp-for="LastName" class="control-label">Tên</label>
                                     <input asp-for="LastName" type="text" pattern="[a-zA-ZÀ-Ỹà-ỹ\s]+" class="form-control" />
                                     <span asp-validation-for="LastName" class="text-danger"></span>
                                 </div>
@@ -58,7 +58,7 @@
                         <div class="form-group">
                             <div class="form-row">
                                 <div class="col">
-                                    <label asp-for="Gender" class="control-label" for="employeesGender"></label>
+                                    <label asp-for="Gender" class="control-label" for="employeesGender">Giới Tính</label>
                                     <select asp-for ="Gender" class="custom-select" id="employeesGender">
                                         <option value=0 selected>Nam</option>
                                         <option value=1>Nữ</option>
@@ -66,7 +66,7 @@
                                     </select>
                                 </div>
                                 <div class="col">
-                                    <label asp-for="BirthDate" class="control-label"></label>
+                                    <label asp-for="BirthDate" class="control-label">Ngày Sinh</label>
                                     <input asp-for="BirthDate" class="form-control" />
                                     <span asp-validation-for="BirthDate" class="text-danger"></span>
                                 </div>
@@ -74,13 +74,13 @@
                         </div>
 
                         <div class="form-group">
-                            <label asp-for="CitizenId" class="control-label"></label>
+                            <label asp-for="CitizenId" class="control-label">Số Căn Cước Công Dân</label>
                             <input asp-for="CitizenId" pattern="[0-9]+" class="form-control" />
                             <span asp-validation-for="CitizenId" class="text-danger"></span>
                         </div>
 
                         <div class="form-group">
-                            <label asp-for="Position" class="control-label" for="employeesPosition"></label>
+                            <label asp-for="Position" class="control-label" for="employeesPosition">Vị Trí Làm Việc</label>
                             <select asp-for="Position" class="custom-select" id="employeesPosition">
                                 <option value="Quản lý" selected>Quản lý</option>
                                 <option value="NV bán hàng">Nhân viên bán hàng</option>
@@ -89,19 +89,19 @@
                         </div>
 
                         <div class="form-group">
-                            <label asp-for="Email" class="control-label"></label>
+                            <label asp-for="Email" class="control-label">Email</label>
                             <input asp-for="Email" type="email" class="form-control" placeholder="abc123@gmail.com" />
                             <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
 
                         <div class="form-group">
-                            <label asp-for="PhoneNumber" class="control-label"></label>
+                            <label asp-for="PhoneNumber" class="control-label">Số Điện Thoại</label>
                             <input asp-for="PhoneNumber" pattern="[0-9]+" class="form-control" />
                             <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                         </div>
 
                         <div class="form-group">
-                            <label asp-for="DateHired" class="control-label"></label>
+                            <label asp-for="DateHired" class="control-label">Ngày Vào Làm</label>
                             <input asp-for="DateHired" class="form-control" />
                             <span asp-validation-for="DateHired" class="text-danger"></span>
                         </div>

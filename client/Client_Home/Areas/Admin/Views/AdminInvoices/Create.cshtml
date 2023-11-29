@@ -1,16 +1,82 @@
 ﻿@model Client_Home.Models.Invoice
+@using PagedList.Core.Mvc
+@using X.PagedList.Mvc.Core;
+
 
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    var product = ViewBag.product as List<Product>;
 }
+<style>
+    #pagination {
+        margin-top: 20px;
+    }
+
+        #pagination button, #pagination span {
+            margin-right: 5px;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            background-color: #f8f9fa;
+            color: #495057;
+            cursor: pointer;
+        }
+
+            #pagination button:hover {
+                background-color: #00FFFF;
+            }
+
+        #pagination span {
+            margin-right: 0;
+            cursor: default;
+        }
+
+    /* Add this CSS to styles.css */
+
+    .selected-products {
+        border: 1px solid #ccc;
+        padding: 20px;
+        max-width: 300px;
+        margin: 10px;
+    }
+
+        .selected-products h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+    #selectedProductsList {
+        list-style-type: none;
+        padding: 0;
+    }
+
+        #selectedProductsList li {
+            margin-bottom: 5px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+
+    .totals {
+        margin-top: 20px;
+    }
+
+    label {
+        margin-right: 10px;
+    }
+
+</style>
 
 <h1>Create</h1>
 
 <h4>Invoice</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h4> Invoice Information</h4>
+                <hr />
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -30,19 +96,235 @@
                 <select asp-for="ShippingId" class ="form-control" asp-items="ViewBag.ShippingId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="TotalAmount" class="control-label"></label>
-                <input asp-for="TotalAmount" class="form-control" />
-                <span asp-validation-for="TotalAmount" class="text-danger"></span>
+                <label asp-for="Status" class="control-label"></label>
+                        <select asp-for="Status" class="custom-select">
+                            <option value="Đã giao">Đã giao</option>
+                            <option value="Chưa giao">Chưa giao</option>
+                        </select>
             </div>
             <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <input asp-for="Status" class="form-control" />
-                <span asp-validation-for="Status" class="text-danger"></span>
+                <label asp-for="CreatedDate" class="control-label"></label>
+                <input asp-for="CreatedDate" class="form-control" />
+                <span asp-validation-for="CreatedDate" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="DeliveryCost" class="control-label"></label>
+                <input  asp-for="DeliveryCost" class="form-control" />
+                <span asp-validation-for="DeliveryCost" class="text-danger"></span>
+            </div>
+                    <div class="form-group">
+                        <label asp-for="TotalAmount" class="control-label"></label>
+                        <input asp-for="TotalAmount" class="form-control" id="totalAmount" readonly />
+                        <span asp-validation-for="TotalAmount" class="text-danger"></span>
+                    </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
+         </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h4>Billing Information</h4>
+                <hr />
+
+                <!-- Selected Products -->
+                <div id="selectedProducts">
+                    <h5>Selected Products</h5>
+                    <ul id="selectedProductsList"></ul>
+                </div>
+
+                <!-- Billing Information Fields -->
+                <div class="form-group">
+                    <label>Total Product Price</label>
+                    <input id="totalProductPrice" type="text" class="form-control" readonly />
+                </div>
+                <div class="form-group">
+                    <label>Discount</label>
+                    <input id="discount" type="text" class="form-control" />
+                </div>
+               
+            </div>
+        </div>
+    </div>
+    
+
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <div class="row m-b-30">
+            <div class="col-lg-6">
+                <div class="d-md-flex">
+                    <div class="m-b-10">
+                        <h3>Danh sách sản phẩm</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="m-b-10 m-r-15">
+            </div>
+            <div class="m-b-10 m-r-15">
+                <input id="keyword" type="text" name="keyword" class="form-control" placeholder="Tìm kiếm sản phẩm" />
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover e-commerce-table">
+                <thead>
+                    <tr>
+                        <th>
+                            <div class="checkbox">
+                                <input id="checkAll" type="checkbox">
+                                <label for="checkAll" class="m-b-0"></label>
+                            </div>
+                        </th>
+                        <th>
+                            Hình ảnh
+                        </th>
+                        <th>
+                            Tên
+                        </th>
+                        <th>
+                            Giá bán
+                        </th>
+                        <th>
+                            Tổng số lượng
+                        </th>
+                        <th>
+                            Trạng thái
+                        </th>
+                    
+                       
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="records_table">
+                    @if (product != null)
+                    {
+                        int i = 1;
+                        @foreach (var item in product)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="checkbox">
+                                        <input id="@("check-item-" + i)" type="checkbox">
+                                        <label for="@("check-item-" + i)" class="m-b-0"></label>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    @if (item.ThumbnailUrl != null)
+                                    {
+                                        <div class="d-flex align-items-center">
+                                            <img class="img-fluid rounded" src="@Url.Content("~/adminassets/images/others/" + item.ThumbnailUrl)" style="max-width: 60px" alt="">
+                                        </div>
+                                    }
+                                </td>
+
+                                @* <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td >
+                                    @Html.DisplayFor(modelItem => item.SellPrice)
+                                </td> *@
+
+                                <td id="product-name" data-name="@Html.DisplayFor(modelItem => item.Name)">
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td id="product-price" data-price="@Html.DisplayFor(modelItem => item.SellPrice)">
+                                    @Html.DisplayFor(modelItem => item.SellPrice)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TotalQuantity)
+                                </td>
+                                <td>
+
+                                    <div class="d-flex align-items-center">
+                                        @if (item.Active == 1)
+                                        {
+                                            <div class="badge badge-success badge-dot m-r-10"></div>
+                                            <div>Đang bán</div>
+                                        }
+                                        else if (item.Active == 0)
+                                        {
+                                            <div class="badge badge-danger badge-dot m-r-10"></div>
+                                            <div>Hết hàng</div>
+                                        }
+                                        else if (item.Active == -1)
+                                        {
+                                            <div class="badge badge-danger badge-dot m-r-10"></div>
+                                            <div>Ngưng kinh doanh</div>
+                                        }
+                                    </div>
+                                </td>
+
+                                <td class="text-right">
+                                    <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Details" asp-route-id="@item.ProductId">
+                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xem chi tiết sản phẩm">
+                                            <i class="anticon anticon-eye"></i>
+                                        </button>
+                                    </a>
+                                    <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Edit" asp-route-id="@item.ProductId">
+                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right" title="Sửa thông tin sản phẩm">
+                                            <i class="anticon anticon-edit"></i>
+                                        </button>
+                                    </a>
+                                    <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Delete" asp-route-id="@item.ProductId">
+                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xóa sản phẩm này">
+                                            <i class="anticon anticon-delete"></i>
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
+                            i++;
+                        }
+                    }
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function () {
+                            var tableBody = document.getElementById("records_table");
+                            var rows = tableBody.getElementsByTagName("tr");
+                            var rowsPerPage = 15; // Số dòng trên mỗi trang
+                            var currentPage = 1;
+
+                            // Tính toán tổng số trang
+                            var totalPages = Math.ceil(rows.length / rowsPerPage);
+
+                            // Hiển thị trang đầu tiên khi tải xong
+                            showPage(1);
+
+                            // Tạo nút phân trang
+                            var pagination = document.getElementById("pagination");
+                            for (var i = 1; i <= totalPages; i++) {
+                                var button = document.createElement("button");
+                                button.innerHTML = i;
+                                button.addEventListener("click", function () {
+                                    currentPage = parseInt(this.innerHTML);
+                                    showPage(currentPage);
+                                });
+                                pagination.appendChild(button);
+                            }
+
+                            // Hiển thị dòng theo trang
+                            function showPage(page) {
+                                for (var i = 0; i < rows.length; i++) {
+                                    if (i < page * rowsPerPage && i >= (page - 1) * rowsPerPage) {
+                                        rows[i].style.display = "";
+                                    } else {
+                                        rows[i].style.display = "none";
+                                    }
+                                }
+                            }
+                        });
+                    </script>
+
+                </tbody>
+            </table>
+            <div id="pagination" class="text-center">
+              
+            </div>
+        </div>
     </div>
 </div>
 
@@ -50,3 +332,60 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var selectedProductsList = document.getElementById("selectedProductsList");
+        var totalProductPriceInput = document.getElementById("totalProductPrice");
+        var discountInput = document.getElementById("discount");
+        var totalAmountInput = document.getElementById("totalAmount");
+
+        function updateBillingInfo() {
+            var selectedProducts = document.querySelectorAll('input[type="checkbox"]:checked');
+            var totalProductPrice = 0;
+
+            // Clear the selected products list
+            selectedProductsList.innerHTML = '';
+
+            selectedProducts.forEach(function (product) {
+                // Add logic to get the product details and update totalProductPrice
+
+                var productId = product.dataset.productId;
+
+                // Use the product ID to dynamically fetch the product details
+                var productName = document.getElementById("product-name").dataset.name;
+                var productPrice = parseFloat(document.getElementById("product-price").dataset.price);
+
+
+                // Update the selected products list
+                var listItem = document.createElement("li");
+                listItem.textContent = productName + " - $" + productPrice.toFixed(1);
+                selectedProductsList.appendChild(listItem);
+
+                totalProductPrice += parseFloat(productPrice);  
+            });
+
+            // Update the total product price field
+            totalProductPriceInput.value = totalProductPrice.toFixed(1);
+
+            // Add logic to calculate and update the total amount based on discounts
+            var discount = parseFloat(discountInput.value) || 0;
+            var totalAmount = totalProductPrice - parseFloat(discount);
+
+            // Update the total amount field
+            totalAmountInput.value = totalAmount.toFixed(1);
+        }
+
+        // Attach event listener to checkbox changes to update billing information
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(function (checkbox) {
+            checkbox.addEventListener("change", updateBillingInfo);
+            consolog.w
+        });
+
+        // Attach event listener to the "Generate Invoice" button
+        document.getElementById("generateInvoice").addEventListener("click", function () {
+            // Add logic to generate the invoice based on the selected products and billing information
+            // For example: alert("Invoice generated!");
+        });
+    });
+</script>

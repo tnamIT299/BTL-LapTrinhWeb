@@ -69,7 +69,7 @@
     }
 </style>
 <div class="main-content">
-    <form>
+    <form asp-action="Create">
         <div class="page-header no-gutters has-tab">
             <div class="d-md-flex m-b-15 align-items-center justify-content-between">
          
@@ -82,9 +82,9 @@
                 </li>
             </ul>
             <div class="m-b-15">
-                <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary">
                     <i class="anticon anticon-save"></i>
-                    <span>Save</span>
+                    <span>Lưu</span>
                 </button>
             </div>
             </div>
@@ -95,36 +95,41 @@
                     <div class="card-body">
 
                         <div class="form-group">
-                            <label class="font-weight-semibold" for="productName">Tên sản phẩm</label>
-                            <input type="text" class="form-control" id="productName" placeholder="Product Name" value="Trứng gà">
+                            <label asp-for="Name" class="control-label">Tên Sản Phẩm</label>
+                            <input asp-for="Name" pattern="[a-zA-ZÀ-Ỹà-ỹ\s]+" required class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
                         </div>
 
                         <div class="form-group">
                             <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label class="font-weight-semibold" for="userName">Giá bán</label>
-                                    <input type="text" class="form-control" id="userName" placeholder="User Name" value="1000 vnđ">
+                                <div class="col">
+                                    <label asp-for="SellPrice" class="control-label">Giá Bán</label>
+                                    <input asp-for="SellPrice" required pattern="[0-9]+" class="form-control" />
+                                    <span asp-validation-for="SellPrice" class="text-danger"></span>
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <label class="font-weight-semibold" for="email">Mã QR</label>
-                                    <input type="text" class="form-control" id="email" placeholder="email" value="1111111111">
+                                <div class="col">
+                                    <label asp-for="Qrcode" class="control-label">Mã Code</label>
+                                    <input asp-for="Qrcode" required pattern="[0-9]+" class="form-control" />
+                                    <span asp-validation-for="Qrcode" class="text-danger"></span>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label class="font-weight-semibold" for="userName">Số lượng/ khối lượng</label>
-                                    <input type="text" class="form-control" id="userName" placeholder="User Name" value="2, 0.5">
+                                <div class="col">
+                                    <label asp-for="TotalQuantity" class="control-label">Số Lượng</label>
+                                    <input asp-for="TotalQuantity" required pattern="[0-9]+" class="form-control" />
+                                    <span asp-validation-for="TotalQuantity" class="text-danger"></span>
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <label class="font-weight-semibold" for="email">Đơn vị tính</label>
-                                    <input type="text" class="form-control" id="email" placeholder="email" value="kg, gram, ml, lít, chai, bình, lốc, thùng, ...">
+                                <div class="col">
+                                    <label asp-for="Unit" class="control-label">Đơn vị tính</label>
+                                    <input asp-for="Unit" type="text" required pattern="[a-zA-ZÀ-Ỹà-ỹ\s]+" class="form-control" />
+                                    <span asp-validation-for="Unit" class="text-danger"></span>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    
 
                     <div class="form-group">
                         <div class="form-row">
@@ -140,39 +145,41 @@
                     </div>
 
 
-                    <div class="form-group">
-                        <div class="form-row">
-                            <div class="col">
-                                <label class="font-weight-semibold" for="productStatus">Trạng thái</label>
-                                <select class="custom-select" id="productStatus">
-                                    <option value="inStock" selected>Đang bán</option>
-                                    <option value="outOfStock">Ngưng bán</option>
-                                    <option value="pending">Hết hàng</option>
-                                </select>
-                            </div>
+                        <div class="form-group">
+                            <label asp-for="Active" class="control-label" for="productStatus">Trạng thái</label>
+                            <select asp-for="Active" class="custom-select" id="productStatus">
+                                <option value=1 selected>Đang bán</option>
+                                <option value=0>Hết hàng</option>
+                                <option value=-1>Ngừng kinh doanh</option>
+                            </select>
                         </div>
-                    </div>
 
-                    <label class="font-weight-semibold" for="productStatus">Hình ảnh sản phẩm</label>
-                    <input type="file" id="fileInput" multiple accept="image/*" hidden>
-                    <div id="imagePreviews"></div>
-                    <button class=" btn btn-primary select-image" id="selectImageButton">Tải hình ảnh</button>
-                </div>
+                        <div class="form-group">
+                            <label asp-for="Description" class="control-label">Mô tả sản phẩm</label>
+                            <input asp-for="Description" class="form-control" />
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                    <label asp-for="ThumbnailUrl" class="font-weight-semibold" for="productThumbnail">Hình ảnh sản phẩm</label>
+                     <input asp-for="ThumbnailUrl" type="file" id="fileInput" multiple accept="image/*" hidden>
+
+                        <div id="imagePreviews"></div>
+                        <button class=" btn btn-primary m-r-5" id="selectImageButton">Tải hình ảnh</button>
+                    </div>
+               </div>
             </div>
         </div>
         <div class="tab-pane fade" id="product-edit-description">
             <div class="card">
                 <div class="card-body">
-                    <div id="descriptions">
-                    </div>
+                    <div id="descriptions"></div>
                     <button type="button" class="btn btn-primary" id="add-button">Thêm thuộc tính</button>
                 </div>
             </div>>
-        </div>
+		</div>
     </form>
 </div>
 
-</div>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const selectImageButton = document.getElementById('selectImageButton');
@@ -194,8 +201,9 @@
                 const reader = new FileReader();
 
                 reader.onload = function () {
-                    const preview = createImagePreview(file, reader.result);
+                    const preview = createImage_webpPreview(file, reader.result);
                     imagePreviews.appendChild(preview);
+                    fileInput = preview.querySelector('fileInput').src;
                 }
 
                 reader.readAsDataURL(file);
@@ -236,18 +244,85 @@
 
             return preview;
         }
+
+        function createImage_webpPreview(file, src) {
+            const preview = document.createElement('div');
+            preview.classList.add('image-preview');
+
+            const image = document.createElement('img');
+
+            if (file.type === 'image/png') {
+                // Convert PNG to WebP
+                convertImageToWebP(file, function (webpImage) {
+                    image.src = webpImage;
+                });
+            } else {
+                // For other image types, use the original source
+                image.src = src;
+            }
+
+            image.style.width = '100%';
+            image.style.height = '100%';
+            preview.appendChild(image);
+
+            const deleteIcon = document.createElement('span');
+            deleteIcon.classList.add('delete-icon');
+            deleteIcon.innerHTML = 'X';
+            deleteIcon.addEventListener('click', function () {
+                preview.remove();
+            });
+            preview.appendChild(deleteIcon);
+
+            const pinIcon = document.createElement('span');
+            pinIcon.classList.add('pin-icon');
+            pinIcon.innerHTML = '📌';
+            pinIcon.addEventListener('click', function () {
+                if (pinnedImage) {
+                    pinnedImage.classList.remove('pinned');
+                }
+                pinnedImage = preview;
+                pinnedImage.classList.add('pinned');
+                imagePreviews.prepend(preview);
+            });
+            preview.appendChild(pinIcon);
+
+            return preview;
+        }
+
+        function convertImageToWebP(file, callback) {
+            const reader = new FileReader();
+
+            reader.onload = function () {
+                const img = new Image();
+                img.src = reader.result;
+
+                img.onload = function () {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0);
+
+                    const webpImage = canvas.toDataURL('image/webp');
+                    callback(webpImage);
+                };
+            };
+
+            reader.readAsDataURL(file);
+        }
+
     });
 
     document.getElementById('add-button').addEventListener('click', function () {
         var descriptions = document.getElementById('descriptions');
         var newDescription = document.createElement('div');
         newDescription.innerHTML = `
-                <div class="form-row">
-                    <input type="text" class="form-control small-input" name="Name" />
-                    <input type="text" class=" form-control large-input" name="Value" />
-                        <button class="btn btn-primary remove-button">X</button>
-                </div>
-            `;
+                    <div class="form-row">
+                        <input type="text" class="form-control small-input" name="Name" />
+                        <input type="text" class=" form-control large-input" name="Value" />
+                            <button class="btn btn-primary remove-button">X</button>
+                    </div>
+                `;
         descriptions.appendChild(newDescription);
 
         // Add event listener for remove button
@@ -258,4 +333,3 @@
     });
 
 </script>
-

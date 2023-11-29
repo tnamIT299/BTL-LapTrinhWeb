@@ -7,6 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Client_Home.Data;
 using Client_Home.Models;
+using ClosedXML.Excel;
+using AspNetCoreHero.ToastNotification.Abstractions;
+using PagedList;
+using Client_Home.Areas.Admin.DTO.ProductBatch;
+using Client_Home.Areas.Admin.DTO.Employees;
+using System.Data;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
@@ -14,10 +20,17 @@ namespace Client_Home.Areas.Admin.Controllers
     public class AdminProductBatchesController : Controller
     {
         private readonly Client_Home.Data.ConveniencestoreContext _context;
-
-        public AdminProductBatchesController(Client_Home.Data.ConveniencestoreContext context)
+        private IWebHostEnvironment _webHostEnvironment;
+        private readonly IAddProductBatchFromExcel _addFromExcel;
+        private readonly ILogger<AdminProductBatchesController> _logger;
+        public INotyfService _notifyService { get; }
+        public AdminProductBatchesController(ILogger<AdminProductBatchesController> logger, ConveniencestoreContext context, INotyfService notifyService, IWebHostEnvironment webHostEnvironment, IAddProductBatchFromExcel addFromExcel)
         {
+            _logger = logger;
             _context = context;
+            _notifyService = notifyService;
+            _webHostEnvironment = webHostEnvironment;
+            _addFromExcel = addFromExcel;
         }
 
         // GET: Admin/AdminProductBatches
@@ -57,7 +70,7 @@ namespace Client_Home.Areas.Admin.Controllers
         // GET: Admin/AdminProductBatches/Create
         public IActionResult Create()
         {
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId");
+            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "Name");
             return View();
         }
 
@@ -74,8 +87,22 @@ namespace Client_Home.Areas.Admin.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId", productBatch.ProductId);
+            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "Name", productBatch.ProductId);
             return View(productBatch);
+        }
+
+        public IActionResult AddFromExcel()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddFromExcel(IFormFile formFile)
+        {
+            string path = _addFromExcel.DoucumentUpload(formFile);
+            DataTable dt = _addFromExcel.ProductBatchDataTable(path);
+            _addFromExcel.ImportProductBatch(dt);
+            return RedirectToAction(nameof(Index));
+
         }
 
         // GET: Admin/AdminProductBatches/Edit/5
@@ -91,7 +118,7 @@ namespace Client_Home.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId", productBatch.ProductId);
+            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "Name", productBatch.ProductId);
             return View(productBatch);
         }
 
@@ -127,7 +154,7 @@ namespace Client_Home.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId", productBatch.ProductId);
+            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "Name", productBatch.ProductId);
             return View(productBatch);
         }
 

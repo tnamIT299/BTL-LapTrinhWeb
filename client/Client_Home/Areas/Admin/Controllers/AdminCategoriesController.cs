@@ -7,6 +7,10 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Client_Home.Data;
 using Client_Home.Models;
+using Client_Home.Areas.Admin.DTO.Category;
+using AspNetCoreHero.ToastNotification.Abstractions;
+using Client_Home.Areas.Admin.DTO.Employees;
+using System.Data;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
@@ -14,10 +18,17 @@ namespace Client_Home.Areas.Admin.Controllers
     public class AdminCategoriesController : Controller
     {
         private readonly Client_Home.Data.ConveniencestoreContext _context;
-
-        public AdminCategoriesController(Client_Home.Data.ConveniencestoreContext context)
+        private IWebHostEnvironment _webHostEnvironment;
+        private readonly IAddCategoryFromExcel _addFromExcel;
+        private readonly ILogger<AdminCategoriesController> _logger;
+        public INotyfService _notifyService { get; }
+        public AdminCategoriesController(ILogger<AdminCategoriesController> logger, ConveniencestoreContext context, INotyfService notifyService, IWebHostEnvironment webHostEnvironment, IAddCategoryFromExcel addFromExcel)
         {
+            _logger = logger;
             _context = context;
+            _notifyService = notifyService;
+            _webHostEnvironment = webHostEnvironment;
+            _addFromExcel = addFromExcel;
         }
 
         // GET: Admin/AdminCategories
@@ -77,6 +88,22 @@ namespace Client_Home.Areas.Admin.Controllers
             ViewData["ParentCategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId", category.ParentCategoryId);
             return View(category);
         }
+
+
+        public IActionResult AddFromExcel()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddFromExcel(IFormFile formFile)
+        {
+            string path = _addFromExcel.DoucumentUpload(formFile);
+            DataTable dt = _addFromExcel.CategoryDataTable(path);
+            _addFromExcel.ImportCategory(dt);
+            return RedirectToAction(nameof(Index));
+
+        }
+
 
         // GET: Admin/AdminCategories/Edit/5
         public async Task<IActionResult> Edit(int? id)

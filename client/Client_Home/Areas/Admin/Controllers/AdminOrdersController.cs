@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Client_Home.Data;
 using Client_Home.Models;
+using DocumentFormat.OpenXml.Drawing.Charts;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
@@ -25,10 +26,15 @@ namespace Client_Home.Areas.Admin.Controllers
         {
             var pageNumber = page == null || page <= 0 ? 1 : page.Value;
             var pageSize = 10;
-            var isOrder = _context.Orders.AsNoTracking().OrderByDescending(x => x.OrderId);
-            PagedList.Core.IPagedList<Order> models = new PagedList.Core.PagedList<Order>(isOrder, pageNumber, pageSize);
+            var isOrder = _context.Orders
+                 .Include(p => p.Supplier)
+                .AsNoTracking()
+                .OrderByDescending(x => x.OrderId);
+            PagedList.Core.IPagedList<Orders> models = new PagedList.Core.PagedList<Orders>(isOrder, pageNumber, pageSize);
             ViewBag.CurrentPage = pageNumber;
+            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierName");
             return View(models);
+           
         }
 
         // GET: Admin/AdminOrders/Details/5
@@ -53,7 +59,7 @@ namespace Client_Home.Areas.Admin.Controllers
         // GET: Admin/AdminOrders/Create
         public IActionResult Create()
         {
-            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierId");
+            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierName");
             return View();
         }
 
@@ -62,7 +68,7 @@ namespace Client_Home.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OrderId,SupplierId,OrderDate,TotalAmount")] Order order)
+        public async Task<IActionResult> Create([Bind("OrderId,SupplierId,OrderDate,TotalAmount")] Orders order)
         {
             if (ModelState.IsValid)
             {
@@ -70,7 +76,7 @@ namespace Client_Home.Areas.Admin.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierId", order.SupplierId);
+            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierName", order.SupplierId);
             return View(order);
         }
 
@@ -96,7 +102,7 @@ namespace Client_Home.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("OrderId,SupplierId,OrderDate,TotalAmount")] Order order)
+        public async Task<IActionResult> Edit(int id, [Bind("OrderId,SupplierId,OrderDate,TotalAmount")] Orders order)
         {
             if (id != order.OrderId)
             {
@@ -153,7 +159,7 @@ namespace Client_Home.Areas.Admin.Controllers
         {
             if (_context.Orders == null)
             {
-                return Problem("Entity set 'ConveniencestoreContext.Orders'  is null.");
+                return Problem("Entity set 'ConveniencestoreContext.Order'  is null.");
             }
             var order = await _context.Orders.FindAsync(id);
             if (order != null)

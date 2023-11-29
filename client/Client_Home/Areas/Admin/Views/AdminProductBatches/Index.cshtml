@@ -1,5 +1,9 @@
 ﻿@model PagedList.Core.IPagedList<Client_Home.Models.ProductBatch>
+﻿@using Azure;
+@using DocumentFormat.OpenXml.Spreadsheet;
+@using Microsoft.AspNetCore.Mvc.RazorPages;
 @using PagedList.Core.Mvc
+@using X.PagedList.Mvc.Core;
 
 
 @{
@@ -24,23 +28,7 @@
             <div class="row m-b-30">
                 <div class="col-lg-7">
                     <div class="d-md-flex">
-                        @* <div class="m-b-10 m-r-15">
-                        <select class="custom-select" style="min-width: 200px;">
-                        <option selected>Danh mục</option>
-                        <option value="all">All</option>
-                        <option value="homeDeco">Home Decoration</option>
-                        <option value="eletronic">Eletronic</option>
-                        <option value="jewellery">Jewellery</option>
-                        </select>
-                        </div> *@
-                        @*  <div class="m-b-10">
-                        <select class="custom-select" style="min-width: 200px;">
-                        <option selected>Trạng thái</option>
-                        <option value="all">All</option>
-                        <option value="inStock">In Stock </option>
-                        <option value="outOfStock">Out of Stock</option>
-                        </select>
-                        </div> *@
+                       
                     </div>
                 </div>
                 <div class="col-lg-2 text-right">
@@ -57,12 +45,12 @@
                         <span>Thêm</span>
                     </button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" asp-controller="" asp-action="Create">Thêm mới lô sản phẩm</a>
-                        <a class="dropdown-item" asp-controller="" asp-action="AddFromExcel">Thêm từ Excel</a>
+                        <a class="dropdown-item" asp-controller="AdminProductBatches" asp-action="Create">Thêm mới lô sản phẩm</a>
+                        <a class="dropdown-item" asp-controller="AdminProductBatches" asp-action="AddFromExcel">Thêm từ Excel</a>
                     </div>
                 </div>
                 <div class="m-b-10 m-r-15">
-                    <input id="" type="text" name="keyword" class="form-control" placeholder="Tìm kiếm nhân viên" />
+                    <input id="" type="text" name="keyword" class="form-control" placeholder="Tìm kiếm lô sản phẩm" />
                 </div>
             </div>
 
@@ -126,29 +114,29 @@
                                             @Html.DisplayFor(modelItem => item.Quantity)
                                     </td>
                                     <td>
-                                           
+
                                             @Html.DisplayFor(modelItem => item.Barcode)
                                     </td>
                                     <td>
 
                                             @Html.DisplayFor(modelItem => item.ImportPrice)
                                     </td>
-                                   
+
 
                                     <td class="text-right">
-                                        <a asp-area="Admin" asp-controller="AdminProductBatchesController" asp-action="Details" asp-route-id="@item.BatchId">
+                                        <a asp-area="Admin" asp-controller="AdminProductBatches" asp-action="Details" asp-route-id="@item.BatchId">
                                             <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xem chi tiết thông tin lô sản phẩm">
                                                 <i class="anticon anticon-eye"></i>
                                             </button>
                                         </a>
 
-                                        <a asp-area="Admin" asp-controller="AdminProductBatchesController" asp-action="Edit" asp-route-id="@item.BatchId">
+                                        <a asp-area="Admin" asp-controller="AdminProductBatches" asp-action="Edit" asp-route-id="@item.BatchId">
                                             <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right" title="Sửa thông tin lô sản phẩm">
                                                 <i class="anticon anticon-edit"></i>
                                             </button>
                                         </a>
 
-                                        <a asp-area="Admin" asp-controller="AdminProductBatchesController" asp-action="Delete" asp-route-id="@item.BatchId">
+                                        <a asp-area="Admin" asp-controller="AdminProductBatches" asp-action="Delete" asp-route-id="@item.BatchId">
                                             <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xóa lô sản phẩm này">
                                                 <i class="anticon anticon-delete"></i>
                                             </button>

@@ -1,4 +1,4 @@
-﻿@using Azure;
+﻿﻿@using Azure;
 @using DocumentFormat.OpenXml.Spreadsheet;
 @using Microsoft.AspNetCore.Mvc.RazorPages;
 @using PagedList.Core.Mvc
@@ -19,6 +19,7 @@
             </nav>
         </div>
     </div>
+
     <div class="card">
         <div class="card-body">
             <div class="row m-b-30">
@@ -49,20 +50,170 @@
                         </button>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" asp-area="Admin" asp-controller="AdminProducts" asp-action="Create">Thêm thủ công</a>
+                            <a class="dropdown-item" asp-area="Admin" asp-controller="AdminProducts" asp-action="AddFromExcel">Thêm bằng file excel</a>
                             <a class="dropdown-item" asp-area="Admin" asp-controller="AdminProducts" asp-action="Create">Thêm bằng file excel</a>
                             <button id="deleteSeletedItemsButton" class="dropdown-item" title="Xóa các sản phẩm đã chọn">
                                     Xóa các sản phẩm đã chọn
                             </button>
                         </div>
                     </div>
-                       
-                    @* 
-                        <button class="btn btn-primary">
-                            <i class="anticon anticon-plus-circle m-r-5"></i>
-                            <span>Thêm sản phẩm</span>
-                        </button> *@
-                    
+
+                    @*
+                    <button class="btn btn-primary">
+                    <i class="anticon anticon-plus-circle m-r-5"></i>
+                    <span>Thêm sản phẩm</span>
+                    </button> *@
+
                 </div>
+               
+                <div class="m-b-10 m-r-15">
+                    <input id="keyword" type="text" name="keyword" class="form-control" placeholder="Tìm kiếm sản phẩm" />
+                </div>
+               
+                <div class="m-b-10 ">
+                    <select class="custom-select" id="txtCatID" name="txtCatID" style="min-width:200px"   asp-items="ViewBag.DanhMuc">
+                        <option selected>Chọn danh mục</option>
+                        <option value="0">Chọn tất cả</option>
+                    </select>
+
+                </div>
+                <div class="m-b-10 ">
+                    <select class="custom-select" id="txtSupID" name="txtSupID" style="min-width:200px" asp-items="ViewBag.Nhacungcap">
+                        <option selected>Chọn nhà cung cấp</option>
+                        <option value="0">Chọn tất cả</option>
+                    </select>
+
+                </div>
+                <div class="m-b-10 m-r-15">
+                    <form asp-action="" method="get" class="form-inline">
+                        Tìm kiếm theo giá  từ <input type="number" name="to" />đến <input type="number" name="from" /><button>Tìm</button>
+                    </form>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover e-commerce-table">
+                    <thead>
+                        <tr>
+                            <th>
+                                <div class="checkbox">
+                                    <input id="checkAll" type="checkbox">
+                                    <label for="checkAll" class="m-b-0"></label>
+                                </div>
+                            </th>
+                            <th>
+                                Hình ảnh
+                            </th>
+                            <th>
+                                Tên
+                            </th>
+                            <th>
+                                Giá bán
+                            </th>
+                            <th>
+                                Tổng số lượng
+                            </th>
+                            <th>
+                                Trạng thái
+                            </th>
+                            <th>
+                                Danh mục
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="records_table">
+                        @if (Model != null)
+                        {
+                            int i = 1;
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <div class="checkbox">
+                                            <input id="@("check-item-" + i)" type="checkbox">
+                                            <label for="@("check-item-" + i)" class="m-b-0"></label>
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        @if (item.ThumbnailUrl != null)
+                                        {
+                                            <div class="d-flex align-items-center">
+                                                <img class="img-fluid rounded" src="@Url.Content("~/adminassets/images/others/" + item.ThumbnailUrl)" style="max-width: 60px" alt="">
+                                            </div>
+                                        }
+                                    </td>
+		
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.SellPrice)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TotalQuantity)
+                                    </td>
+                                    <td>
+
+                                        <div class="d-flex align-items-center">
+                                            @if (item.Active == 1)
+                                            {
+                                                <div class="badge badge-success badge-dot m-r-10"></div>
+                                                <div>Đang bán</div>
+                                            }
+                                            else if (item.Active == 0)
+                                            {
+                                                <div class="badge badge-danger badge-dot m-r-10"></div>
+                                                <div>Hết hàng</div>
+                                            }
+                                            else if (item.Active == -1)
+                                            {
+                                                <div class="badge badge-danger badge-dot m-r-10"></div>
+                                                <div>Ngưng kinh doanh</div>
+                                            }
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                                    </td>
+
+                                    <td class="text-right">
+                                        <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Details" asp-route-id="@item.ProductId">
+                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xem chi tiết sản phẩm">
+                                                <i class="anticon anticon-eye"></i>
+                                            </button>
+                                        </a>
+                                        <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Edit" asp-route-id="@item.ProductId">
+                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right" title="Sửa thông tin sản phẩm">
+                                                <i class="anticon anticon-edit"></i>
+                                            </button>
+                                        </a>
+                                        <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Delete" asp-route-id="@item.ProductId">
+                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xóa sản phẩm này">
+                                                <i class="anticon anticon-delete"></i>
+                                            </button>
+                                        </a>
+                                    </td>
+                                </tr>
+                                i++;
+                            }
+                        }
+
+                    </tbody>
+                </table>
+                <div aria-label="Page navigation example" style="display:flex; justify-content:center">
+                    <ul class="pagination">
+                        <pager class="page-container" asp-route-CatID="@ViewBag.CurrentCateID" list="@Model" asp-action="Index"></pager>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+
 
 
             </div>
@@ -75,6 +226,65 @@
 @section Scripts {
     <script>
         $(document).ready(function () {
+           
+            jQuery("#txtCatID").change(function () {
+             
+                var catID = jQuery(this).children(":selected").attr("value");
+                catID = parseFloat(catID);
+                $('#txtCatID option')
+                    .removeAttr('selected');
+                $("#txtCatID > [value="+ catID + "]").attr("selected", "true");
+                $.ajax({
+                    url: '/Admin/AdminProducts/Filtter',
+                    datatype: "json",
+                    type: "GET",
+                    data: {
+                        CatID: catID
+                    },
+                    async: true,
+                    success: function (results) {
+                        if (results.status == "success") {
+                            window.location.href = results.redirectUrl;
+                        }
+                    },
+                    error: function (xhr) {
+                        alert('error');
+                    }
+                });
+            });
+
+            jQuery("#txtSupID").change(function () {
+
+                var supID = jQuery(this).children(":selected").attr("value");
+                supID = parseFloat(supID);
+                $('#txtSupID option')
+                    .removeAttr('selected');
+                $("#txtSupID > [value=" + supID + "]").attr("selected", "true");
+                $.ajax({
+                    url: '/Admin/AdminProducts/FiltterSupplier',
+                    datatype: "json",
+                    type: "GET",
+                    data: {
+                        SupID: supID
+                    },
+                    async: true,
+                    success: function (results) {
+                        if (results.status == "success") {
+                            window.location.href = results.redirectUrl;
+                        }
+                    },
+                    error: function (xhr) {
+                        alert('error');
+                    }
+                });
+            });
+
+
+
+
+            var originalData = $("#records_table").html();            
+            $("#keyword").keyup(function () {
+                var strkeyword = $('#keyword').val();
             var originalData = $("#records_table").html();
             var baseAjaxUrl = '/Admin/AdminProducts/Index';
 
@@ -88,6 +298,10 @@
                     type: "POST",
                     data: { keyword: keyword },
                     async: true,
+                    success: function (result) {
+                        if ($('#keyword').val() == '') {
+                            console.log("hello");
+                            return originalData;
                     success: function (result) {
                         if (keyword === '') {
                             $("#records_table").html(originalData);

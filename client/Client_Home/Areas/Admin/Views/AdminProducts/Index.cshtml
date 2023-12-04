@@ -66,10 +66,6 @@
 
                 </div>
                
-                <div class="m-b-10 m-r-15">
-                    <input id="keyword" type="text" name="keyword" class="form-control" placeholder="Tìm kiếm sản phẩm" />
-                </div>
-               
                 <div class="m-b-10 ">
                     <select class="custom-select" id="txtCatID" name="txtCatID" style="min-width:200px"   asp-items="ViewBag.DanhMuc">
                         <option selected>Chọn danh mục</option>
@@ -212,17 +208,7 @@
         </div>
     </div>
 </div>
-@section Scripts{
 
-
-
-            </div>
-            <div class="table-responsive" id="records_table">
-                
-            </div>
-        </div>
-    </div>
-</div>
 @section Scripts {
     <script>
         $(document).ready(function () {
@@ -278,8 +264,6 @@
                     }
                 });
             });
-
-
 
 
             var originalData = $("#records_table").html();            

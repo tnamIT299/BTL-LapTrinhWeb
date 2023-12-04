@@ -33,8 +33,6 @@ public partial class Customer
     [DataType(DataType.PhoneNumber)]
     public string? Phone { get; set; }
 
-
-    [Required(ErrorMessage = "Vui lòng nhập ngày tháng năm sinh")]
     public DateTime? Birthday { get; set; }
 
     public int? RewardPoints { get; set; }

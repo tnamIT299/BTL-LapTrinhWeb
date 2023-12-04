@@ -1,6 +1,5 @@
 ﻿document.addEventListener('DOMContentLoaded', function () {
     var checkAllCheckbox = document.getElementById('checkAll');
-    console.log(typeof checkAllCheckbox);
     checkAllCheckbox.addEventListener('click', function () {
         var checkboxes = document.querySelectorAll('[id^="check-item-"]');
         checkboxes.forEach(function (checkbox) {

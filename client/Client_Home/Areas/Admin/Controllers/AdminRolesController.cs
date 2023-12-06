@@ -17,9 +17,9 @@ namespace Client_Home.Areas.Admin.Controllers
     [Area("Admin")]
     public class AdminRolesController : Controller
     {
-        private readonly Client_Home.Data.ConveniencestoreContext _context;
+        private readonly ConveniencestoreContext _context;
         public INotyfService _notifyService { get; }
-        public AdminRolesController(Client_Home.Data.ConveniencestoreContext context, INotyfService notifyService)
+        public AdminRolesController(ConveniencestoreContext context, INotyfService notifyService)
         {
             _context = context;
             _notifyService = notifyService;

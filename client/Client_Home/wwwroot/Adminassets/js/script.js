@@ -6,7 +6,7 @@
             checkbox.checked = checkAllCheckbox.checked;
         });
     });
-
+    
     var deleteButton = document.getElementById('deleteSeletedItemsButton');
     deleteButton.addEventListener('click', function () {
         var checkboxes = document.querySelectorAll('[id^="check-item-"]:checked');

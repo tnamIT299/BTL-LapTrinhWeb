@@ -13,13 +13,15 @@ using PagedList;
 using DocumentFormat.OpenXml.Office2010.Excel;
 using Client_Home.Areas.Admin.Models;
 using Humanizer;
+using Client_Home.Areas.Admin.DTO.Product;
+using System.Data;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class AdminProductsController : Controller
     {
-        private readonly Client_Home.Data.ConveniencestoreContext _context;
+        private readonly ConveniencestoreContext _context;
         private IWebHostEnvironment _webHostEnvironment;
         private readonly IAddProductFromExcel _addFromExcel;
         private readonly ILogger<AdminProductsController> _logger;
@@ -39,9 +41,7 @@ namespace Client_Home.Areas.Admin.Controllers
         {
 
             return View();
-            // return _context.Products != null ?
-            //View(await _context.Products.Include(p =>p.Category).Include(p => p.Supplier).ToListAsync()) :
-            //Problem("Entity set 'ConveniencestoreContext.Products'  is null.");
+
         }
         public IActionResult Filtter(int CatID = 0)
         {

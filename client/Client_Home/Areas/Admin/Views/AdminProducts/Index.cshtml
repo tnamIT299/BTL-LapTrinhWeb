@@ -86,8 +86,8 @@
                     </form>
                 </div>
             </div>
-            <div class="table-responsive">
-                <table class="table table-hover e-commerce-table">
+            <div class="table-responsive" id="records_table">
+                @* <table class="table table-hover e-commerce-table">
                     <thead>
                         <tr>
                             <th>
@@ -117,7 +117,7 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody id="records_table">
+                    <tbody >
                         @if (Model != null)
                         {
                             int i = 1;
@@ -203,18 +203,18 @@
                         <pager class="page-container" asp-route-CatID="@ViewBag.CurrentCateID" list="@Model" asp-action="Index"></pager>
                     </ul>
 
-                </div>
+                </div> *@
             </div>
         </div>
     </div>
 </div>
 
-@section Scripts {
+@section Scripts{
     <script>
         $(document).ready(function () {
-           
+
             jQuery("#txtCatID").change(function () {
-             
+
                 var catID = jQuery(this).children(":selected").attr("value");
                 catID = parseFloat(catID);
                 $('#txtCatID option')
@@ -266,49 +266,43 @@
             });
 
 
-            var originalData = $("#records_table").html();            
-            $("#keyword").keyup(function () {
-                var strkeyword = $('#keyword').val();
-            var originalData = $("#records_table").html();
-            var baseAjaxUrl = '/Admin/AdminProducts/Index';
+           
 
-            // Function to handle AJAX request
-            function performAjaxRequest(keyword) {
-                var ajaxUrl = keyword !== '' ? '/Admin/Search/FindProduct' : baseAjaxUrl;
-
+            function performAjaxRequest(strKeyword) {
+               
+                // Extract the page number from the clicked link
+                var pageNumber = $(this).text();
+                // Perform your custom action with the page number
+                alert('User clicked on page ' + pageNumber + 'with key word is: '+strKeyword);
                 $.ajax({
-                    url: ajaxUrl,
+                    url: '/Admin/Search/FindProduct',
                     datatype: "json",
                     type: "POST",
-                    data: { keyword: keyword },
+                    data: { page: pageNumber, keyword: strKeyword },
                     async: true,
                     success: function (result) {
-                        if ($('#keyword').val() == '') {
-                            console.log("hello");
-                            return originalData;
-                    success: function (result) {
-                        if (keyword === '') {
-                            $("#records_table").html(originalData);
-                        } else {
-                            $("#records_table").html(result);
-                        }
+                        $("#records_table").html("");
+                        $("#records_table").html(result);
                     },
                     error: function (xhr) {
                         alert('error');
                     }
                 });
             }
-
-            // Keyup event handler for the search bar
-            $("#keyword").keyup(function () {
-                var strKeyword = $('#keyword').val();
-                if (strKeyword === '')
-                    strKeyword = null;
-                performAjaxRequest(strKeyword);
+            $('.pagination-container a').on('click', function (e) {
+                var pageLinkElement = document.querySelector('.pagination');
+                if (pageLinkElement) {
+                    alert('Con cac');
+                    linkElement.setAttribute('disabled', true);
+                }
+                performAjaxRequest(strkeyword);
             });
-
-            // Handle page reload
-            performAjaxRequest(null);
+            $("#keyword").keyup(function () {
+                var strkeyword = $('#keyword').val();
+                console.log("Hello");
+                performAjaxRequest(strkeyword);
+            });
+            performAjaxRequest('');
         });
     </script>
 }

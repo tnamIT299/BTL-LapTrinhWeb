@@ -13,13 +13,14 @@ using ClosedXML.Excel;
 using Client_Home.Areas.Admin.DTO.Employees;
 using Client_Home.Areas.Admin.DTO.Customers;
 using System.Data;
+using X.PagedList;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class AdminEmployeesController : Controller
     {
-        private readonly Client_Home.Data.ConveniencestoreContext _context;
+        private readonly ConveniencestoreContext _context;
         private IWebHostEnvironment _webHostEnvironment;
         private readonly IAddEmployFromExcel _addFromExcel;
         private readonly ILogger<AdminEmployeesController> _logger;
@@ -40,9 +41,9 @@ namespace Client_Home.Areas.Admin.Controllers
             var pageSize = 10;
             var conveniencestoreContext = _context.Employees.Include(e => e.User)
                 .AsNoTracking()
-                .OrderByDescending(x=>x.EmployeeId);
+                .OrderByDescending(x=>x.EmployeeId).ToList();
             ViewBag.CurrentPage = pageNumber;
-            PagedList.Core.IPagedList<Employee> model = new PagedList.Core.PagedList<Employee>(conveniencestoreContext, pageNumber, pageSize);
+            IPagedList<Employee> model = conveniencestoreContext.ToPagedList(pageNumber, pageSize);
 
             return View(model);
         }

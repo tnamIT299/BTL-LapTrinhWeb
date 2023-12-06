@@ -8,9 +8,9 @@ namespace Client_Home.Controllers
     public class CartController : Controller
     {
         public Cart? Cart { get; set; }
-        private readonly Client_Home.Data.ConveniencestoreContext _context;
+        private readonly ConveniencestoreContext _context;
 
-        public CartController(Client_Home.Data.ConveniencestoreContext context)
+        public CartController(ConveniencestoreContext context)
         {
             _context = context;
         }

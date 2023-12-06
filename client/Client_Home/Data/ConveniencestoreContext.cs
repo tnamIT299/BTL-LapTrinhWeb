@@ -11,6 +11,7 @@ public partial class ConveniencestoreContext : DbContext
     public ConveniencestoreContext()
     {
     }
+
     public ConveniencestoreContext(DbContextOptions<ConveniencestoreContext> options)
         : base(options)
     {
@@ -20,7 +21,6 @@ public partial class ConveniencestoreContext : DbContext
     public virtual DbSet<AdminRevenueByMonth> AdminRevenueByMonth { get; set; }
     public virtual DbSet<AdminRichestCustomerView> AdminRichestCustomerView { get; set; }
     public virtual DbSet<AdminSingleIntForProcedure> AdminSingleIntForProcedure { get; set; }
-
     public virtual DbSet<CartItem> CartItems { get; set; }
 
     public virtual DbSet<Category> Categories { get; set; }
@@ -67,7 +67,7 @@ public partial class ConveniencestoreContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("server=LAPTOP-U09IUJKK\\SQLEXPRESS01;database=CONVENIENCESTORE;Encrypt=False;Integrated Security=true;");
+        => optionsBuilder.UseSqlServer("server=DESKTOP-BVECHRQ\\PHUHUYIT;database=CONVENIENCESTORE; TrustServerCertificate=True;Integrated Security=true;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -100,9 +100,7 @@ public partial class ConveniencestoreContext : DbContext
         {
             entity.HasKey(e => e.CategoryId).HasName("PK__Categori__19093A2B10713FBC");
 
-            entity.Property(e => e.CategoryId)
-                .ValueGeneratedNever()
-                .HasColumnName("CategoryID");
+            entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
             entity.Property(e => e.CategoryName)
                 .HasMaxLength(255)
                 .IsUnicode(false);
@@ -281,13 +279,11 @@ public partial class ConveniencestoreContext : DbContext
         {
             entity.HasKey(e => e.OrderId).HasName("PK__Orders__C3905BAFD0BC4AE7");
 
-            entity.Property(e => e.OrderId)
-                .ValueGeneratedNever()
-                .HasColumnName("OrderID");
+            entity.Property(e => e.OrderId).HasColumnName("OrderID");
             entity.Property(e => e.OrderDate).HasColumnType("date");
             entity.Property(e => e.SupplierId).HasColumnName("SupplierID");
             entity.Property(e => e.TotalAmount)
-                .HasColumnType("money")
+                .HasColumnType("decimal(10, 2)")
                 .HasColumnName("totalAmount");
 
             entity.HasOne(d => d.Supplier).WithMany(p => p.Orders)
@@ -347,7 +343,8 @@ public partial class ConveniencestoreContext : DbContext
                 .HasColumnType("date")
                 .HasColumnName("dateAdded");
             entity.Property(e => e.Description)
-                .HasColumnType("text")
+                .HasMaxLength(200)
+                .IsUnicode(false)
                 .HasColumnName("description");
             entity.Property(e => e.Discount)
                 .HasColumnType("decimal(10, 2)")
@@ -375,6 +372,7 @@ public partial class ConveniencestoreContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("thumbnailUrl");
             entity.Property(e => e.TotalQuantity).HasColumnName("totalQuantity");
+            entity.Property(e => e.Unit).HasMaxLength(20);
             entity.Property(e => e.VideoUrl)
                 .HasMaxLength(255)
                 .IsUnicode(false)
@@ -616,14 +614,12 @@ public partial class ConveniencestoreContext : DbContext
             entity.Property(e => e.Address)
                 .HasMaxLength(255)
                 .IsUnicode(false);
-            entity.Property(e => e.City)
-                .HasMaxLength(255)
-                .IsUnicode(false);
+            entity.Property(e => e.City).HasMaxLength(255);
             entity.Property(e => e.ContactName)
                 .HasMaxLength(255)
                 .IsUnicode(false);
             entity.Property(e => e.Country)
-                .HasMaxLength(100)
+                .HasMaxLength(50)
                 .IsUnicode(false);
             entity.Property(e => e.Phone)
                 .HasMaxLength(20)

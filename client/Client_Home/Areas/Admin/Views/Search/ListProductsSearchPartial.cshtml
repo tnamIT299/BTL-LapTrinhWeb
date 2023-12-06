@@ -34,9 +34,10 @@
             <th></th>
         </tr>
     </thead>
-    <tbody >
+    <tbody>
         @if (Model != null)
         {
+            int i = 1;
             @foreach (var item in Model)
             {
                 <tr>
@@ -51,10 +52,11 @@
                         @if (item.ThumbnailUrl != null)
                         {
                             <div class="d-flex align-items-center">
-                                <img class="img-fluid rounded" src="@Url.Content(item.ThumbnailUrl)" style="max-width: 60px" alt="">
+                                <img class="img-fluid rounded" src="@Url.Content("~/adminassets/images/others/" + item.ThumbnailUrl)" style="max-width: 60px" alt="">
                             </div>
                         }
                     </td>
+
                     <td>
                         @Html.DisplayFor(modelItem => item.Name)
                     </td>
@@ -67,15 +69,20 @@
                     <td>
 
                         <div class="d-flex align-items-center">
-                            @if (item.Active == true)
+                            @if (item.Active == 1)
                             {
                                 <div class="badge badge-success badge-dot m-r-10"></div>
                                 <div>Đang bán</div>
                             }
-                            else
+                            else if (item.Active == 0)
                             {
                                 <div class="badge badge-danger badge-dot m-r-10"></div>
-                                <div>Ngưng bán</div>
+                                <div>Hết hàng</div>
+                            }
+                            else if (item.Active == -1)
+                            {
+                                <div class="badge badge-danger badge-dot m-r-10"></div>
+                                <div>Ngưng kinh doanh</div>
                             }
                         </div>
                     </td>
@@ -102,6 +109,7 @@
                         </a>
                     </td>
                 </tr>
+                i++;
             }
         }
 
@@ -109,8 +117,8 @@
 </table>
 <div aria-label="Page navigation example" style="display:flex; justify-content:center">
     <ul class="pagination">
-        <pager class="page-container" list="@Model" asp-action="Index"></pager>
+        <pager class="page-container" list="@Model" asp-action="FindProduct" id="myPager"></pager>
     </ul>
-
 </div>
+
 <script src="~/adminassets/js/script.js"></script>

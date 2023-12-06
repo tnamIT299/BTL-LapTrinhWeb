@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Jp8lkn5qWuSHbn42ErECsZ0vhFRxzNS9GYRxA4pfQhrtq+1owL6A0edtm/jsZfdeRwWmQhh+L3zhSrvoYcgzpQ==",
+  "dgSpecHash": "wjMtr0FY5aXODO177gcfp1LA5i8LEFL7L9KvM1x0fnuepV6v6x1K90TCl3QLrj0emBhE6Z7lBSrAY1EPNVQgQw==",
   "success": true,
   "projectFilePath": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\Client_Home.csproj",
   "expectedPackageFiles": [
@@ -157,7 +157,6 @@
     "C:\\Users\\huypro\\.nuget\\packages\\pagedlist\\1.17.0\\pagedlist.1.17.0.nupkg.sha512",
     "C:\\Users\\huypro\\.nuget\\packages\\pagedlist.core\\1.17.4\\pagedlist.core.1.17.4.nupkg.sha512",
     "C:\\Users\\huypro\\.nuget\\packages\\pagedlist.core.mvc\\3.0.0\\pagedlist.core.mvc.3.0.0.nupkg.sha512",
-    "C:\\Users\\huypro\\.nuget\\packages\\pagedlist.mvc\\4.5.0\\pagedlist.mvc.4.5.0.nupkg.sha512",
     "C:\\Users\\huypro\\.nuget\\packages\\qrcoder\\1.4.3\\qrcoder.1.4.3.nupkg.sha512",
     "C:\\Users\\huypro\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
     "C:\\Users\\huypro\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
@@ -297,16 +296,6 @@
       "warningLevel": 1,
       "message": "Package 'PagedList 1.17.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
       "libraryId": "PagedList",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'PagedList.Mvc 4.5.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "PagedList.Mvc",
       "targetGraphs": [
         "net7.0"
       ]

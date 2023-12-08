@@ -112,5 +112,52 @@ namespace Client_Home.Areas.Admin.Controllers
                 return PartialView("ListInvoicesSearchPartial", ls);
             }
         }
+        [HttpPost]
+        public IActionResult FindSupplier(string keyword)
+        {
+            List<Supplier> ls = new List<Supplier>();
+            if (string.IsNullOrEmpty(keyword) || keyword.Length < 1)
+            {
+                return PartialView("ListSupplierSearchPartial", null);
+            }
+            ls = _context.Suppliers
+                .AsNoTracking()         
+                .Where(x => x.SupplierName.Contains(keyword))
+                .OrderByDescending(x => x.SupplierId)
+                .Take(15)
+                .ToList();
+            if (ls == null)
+            {
+                return PartialView("ListSupplierSearchPartial", null);
+            }
+            else
+            {
+                return PartialView("ListSupplierSearchPartial", ls);
+            }
+        }
+        [HttpPost]
+        public IActionResult FindOrders(string keyword)
+        {
+            List<Orders> ls = new List<Orders>();
+            if (string.IsNullOrEmpty(keyword) || keyword.Length < 1)
+            {
+                return PartialView("ListOrdersSearchPartial", null);
+            }
+            var isOrder = _context.Orders
+                .Include(p => p.Supplier)
+               .AsNoTracking()              
+               .Where(x => x.OrderId.ToString().Contains(keyword))
+               .OrderByDescending(x => x.OrderId)
+                .Take(10)
+                .ToList();
+            if (ls == null)
+            {
+                return PartialView("ListOrdersSearchPartial", null);
+            }
+            else
+            {
+                return PartialView("ListOrdersSearchPartial", ls);
+            }
+        }
     }
 }

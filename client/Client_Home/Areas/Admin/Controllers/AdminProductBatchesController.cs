@@ -24,7 +24,7 @@ namespace Client_Home.Areas.Admin.Controllers
         private readonly IAddProductBatchFromExcel _addFromExcel;
         private readonly ILogger<AdminProductBatchesController> _logger;
         public INotyfService _notifyService { get; }
-        public AdminProductBatchesController(ILogger<AdminProductBatchesController> logger, ConveniencestoreContext context, INotyfService notifyService, IWebHostEnvironment webHostEnvironment, IAddProductBatchFromExcel addFromExcel)
+        public AdminProductBatchesController(ILogger<AdminProductBatchesController> logger, Data.ConveniencestoreContext context, INotyfService notifyService, IWebHostEnvironment webHostEnvironment, IAddProductBatchFromExcel addFromExcel)
         {
             _logger = logger;
             _context = context;

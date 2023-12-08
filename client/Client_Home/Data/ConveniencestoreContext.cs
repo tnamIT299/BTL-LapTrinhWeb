@@ -37,7 +37,7 @@ public partial class ConveniencestoreContext : DbContext
 
     public virtual DbSet<InvoiceDetail> InvoiceDetails { get; set; }
 
-    public virtual DbSet<Order> Orders { get; set; }
+    public virtual DbSet<Orders> Orders { get; set; }
 
     public virtual DbSet<OrderDetail> OrderDetails { get; set; }
 
@@ -67,7 +67,7 @@ public partial class ConveniencestoreContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("server=LAPTOP-U09IUJKK\\SQLEXPRESS01;database=CONVENIENCESTORE;Encrypt=False;Integrated Security=true;");
+        => optionsBuilder.UseSqlServer("server=THANHNAM\\MSSQLSERVER02;database=CONVENIENCESTORE;Encrypt=False;Integrated Security=true;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -277,7 +277,7 @@ public partial class ConveniencestoreContext : DbContext
                 .HasConstraintName("FK__InvoiceDe__produ__662B2B3B");
         });
 
-        modelBuilder.Entity<Order>(entity =>
+        modelBuilder.Entity<Orders>(entity =>
         {
             entity.HasKey(e => e.OrderId).HasName("PK__Orders__C3905BAFD0BC4AE7");
 

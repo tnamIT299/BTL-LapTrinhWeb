@@ -10,6 +10,8 @@ using Client_Home.Areas.Admin.DTO.Category;
 using Client_Home.Areas.Admin.DTO.Product;
 using Client_Home.Areas.Admin.DTO.ProductBatch;
 using Client_Home.Areas.Admin.DTO.Suppliers;
+using NuGet.Protocol.Core.Types;
+using Client_Home.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
@@ -42,6 +44,7 @@ builder.Services.AddNotyf(config =>
 
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();
+builder.Services.AddScoped<ILoaiSpRepository, LoaiSpRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

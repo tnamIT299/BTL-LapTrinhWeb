@@ -24,7 +24,7 @@ namespace Client_Home.Areas.Admin.Controllers
         private readonly IAddEmployFromExcel _addFromExcel;
         private readonly ILogger<AdminEmployeesController> _logger;
         public INotyfService _notifyService { get; }
-        public AdminEmployeesController(ILogger<AdminEmployeesController> logger, ConveniencestoreContext context, INotyfService notifyService, IWebHostEnvironment webHostEnvironment, IAddEmployFromExcel addFromExcel)
+        public AdminEmployeesController(ILogger<AdminEmployeesController> logger, Data.ConveniencestoreContext context, INotyfService notifyService, IWebHostEnvironment webHostEnvironment, IAddEmployFromExcel addFromExcel)
         {
             _logger = logger;
             _context = context;

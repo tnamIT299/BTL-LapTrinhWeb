@@ -11,6 +11,7 @@ using ClosedXML.Excel;
 using AspNetCoreHero.ToastNotification.Abstractions;
 using PagedList;
 using Humanizer;
+using System.Data;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
@@ -19,10 +20,10 @@ namespace Client_Home.Areas.Admin.Controllers
     {
         private readonly Client_Home.Data.ConveniencestoreContext _context;
         private IWebHostEnvironment _webHostEnvironment;
-        private readonly IAddProductFromExcel _addFromExcel;
+        private readonly DTO.Product.IAddProductFromExcel _addFromExcel;
         private readonly ILogger<AdminProductsController> _logger;
         public INotyfService _notifyService { get; }
-        public AdminProductsController(ILogger<AdminProductsController> logger, ConveniencestoreContext context, INotyfService notifyService, IWebHostEnvironment webHostEnvironment, IAddProductFromExcel addFromExcel)
+        public AdminProductsController(ILogger<AdminProductsController> logger, Data.ConveniencestoreContext context, INotyfService notifyService, IWebHostEnvironment webHostEnvironment, DTO.Product.IAddProductFromExcel addFromExcel)
         {
             _logger = logger;
             _context = context;

@@ -2,8 +2,9 @@
 @using DocumentFormat.OpenXml.Spreadsheet;
 @using Microsoft.AspNetCore.Mvc.RazorPages;
 @using PagedList.Core.Mvc
+@using X.PagedList;
 @using X.PagedList.Mvc.Core;
-@model PagedList.Core.IPagedList<Client_Home.Models.Employee>
+@model X.PagedList.IPagedList<Client_Home.Models.Employee>;
 
 
 @{
@@ -11,6 +12,33 @@
     ViewData["Title"] = "Danh sách nhân viên" + CurrentPage;
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
+<style>
+    .pagination-container {
+        margin-top: 20px;
+    }
+
+    .pagination {
+        display: flex;
+        list-style: none;
+        padding: 0;
+    }
+
+        .pagination li {
+            margin-right: 10px;
+        }
+
+        .pagination a {
+            text-decoration: none;
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 4px;
+        }
+
+            .pagination a:hover {
+                background-color: #0056b3;
+            }
+</style>
 
 <h1>Index</h1>
 
@@ -105,16 +133,41 @@
 }
     </tbody>
 </table>
-<div aria-label="Page navigation example" style="display:flex; justify-content:center">
+@* <div aria-label="Page navigation example" style="display:flex; justify-content:center">
     <ul class="pagination">
         <pager class="page-container" list="@Model" asp-action="Index"></pager>
     </ul>
 
-</div>
+</div> *@
+@Html.PagedListPager( Model, page => Url.Action("Index", new { page = page }))
 @section Scripts{
 
     <script>
         $(document).ready(function () {
+            $('.pagination-container a').on('click', function (e) {
+                e.preventDefault(); // Prevent the default navigation behavior
+
+                // Extract the page number from the clicked link
+                var pageNumber = $(this).text();
+
+                // Perform your custom action with the page number
+                alert('User clicked on page ' + pageNumber);
+
+                $.ajax({
+                    url: '/Admin/AdminEmployees/Index',
+                    datatype: "json",
+                    type: "POST",
+                    data: { page: pageNumber, keyword:'aa' },
+                    async: true,
+                    success: function (result) {
+                        $("#records_table").html("");
+                        $("#records_table").html(result);
+                    },
+                    error: function (xhr) {
+                        alert('error');
+                    }
+                });
+            });
             var originalData = $("#records_table").html();
             $("#keyword").keyup(function () {
                 var strkeyword = $('#keyword').val();

@@ -16,7 +16,7 @@ namespace Client_Home.Areas.Admin.Controllers
     [Area("Admin")]
     public class AdminSuppliersController : Controller
     {
-        private readonly Client_Home.Data.ConveniencestoreContext _context;
+        private readonly ConveniencestoreContext _context;
         private IWebHostEnvironment _webHostEnvironment;
         private readonly IAddSupplierFromExcel _addFromExcel;
         private readonly ILogger<AdminSuppliersController> _logger;

@@ -15,9 +15,9 @@ namespace Client_Home.Areas.Admin.Controllers
     [Area("Admin")]
     public class AdminInvoicesController : Controller
     {
-        private readonly Client_Home.Data.ConveniencestoreContext _context;
+        private readonly ConveniencestoreContext _context;
 
-        public AdminInvoicesController(Client_Home.Data.ConveniencestoreContext context)
+        public AdminInvoicesController(ConveniencestoreContext context)
         {
             _context = context;
         }
@@ -68,7 +68,7 @@ namespace Client_Home.Areas.Admin.Controllers
         // GET: Admin/AdminInvoices/Create
         public async Task<IActionResult> Create()
         {
-            using (var context = new Client_Home.Data.ConveniencestoreContext())
+            using (var context = new ConveniencestoreContext())
             {
                 var product = await context.Products.FromSqlRaw("EXEC GetProduct").ToListAsync();
                 ViewBag.product = product;

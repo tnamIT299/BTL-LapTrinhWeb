@@ -23,12 +23,15 @@
     <div class="card">
         <div class="card-body">
             <div class="row m-b-30">
-                <div class="col-lg-6">
+                <div class="col-lg-4">
                     <div class="d-md-flex">
                         <div class="m-b-10">
                             <h3>Danh sách sản phẩm</h3>
                         </div>
                     </div>
+                </div>
+                <div class="m-b-10 m-r-8">
+                    <input id="keyword" type="text" name="keyword" class="form-control" placeholder="Tìm kiếm sản phẩm" />
                 </div>
                 <div class="col-lg-4 text-right">
 
@@ -43,11 +46,15 @@
 
                     <div class="dropdown">
                         <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                            <span>Thêm</span>
+                            <span>Tác vụ</span>
                         </button>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" asp-area="Admin" asp-controller="AdminProducts" asp-action="Create">Thêm thủ công</a>
                             <a class="dropdown-item" asp-area="Admin" asp-controller="AdminProducts" asp-action="AddFromExcel">Thêm bằng file excel</a>
+                            <a class="dropdown-item" asp-area="Admin" asp-controller="AdminProducts" asp-action="Create">Thêm bằng file excel</a>
+                            <button id="deleteSeletedItemsButton" class="dropdown-item" title="Xóa các sản phẩm đã chọn">
+                                    Xóa các sản phẩm đã chọn
+                            </button>
                         </div>
                     </div>
 
@@ -57,10 +64,6 @@
                     <span>Thêm sản phẩm</span>
                     </button> *@
 
-                </div>
-               
-                <div class="m-b-10 m-r-15">
-                    <input id="keyword" type="text" name="keyword" class="form-control" placeholder="Tìm kiếm sản phẩm" />
                 </div>
                
                 <div class="m-b-10 ">
@@ -83,8 +86,8 @@
                     </form>
                 </div>
             </div>
-            <div class="table-responsive">
-                <table class="table table-hover e-commerce-table">
+            <div class="table-responsive" id="records_table">
+                @* <table class="table table-hover e-commerce-table">
                     <thead>
                         <tr>
                             <th>
@@ -114,7 +117,7 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody id="records_table">
+                    <tbody >
                         @if (Model != null)
                         {
                             int i = 1;
@@ -200,18 +203,18 @@
                         <pager class="page-container" asp-route-CatID="@ViewBag.CurrentCateID" list="@Model" asp-action="Index"></pager>
                     </ul>
 
-                </div>
+                </div> *@
             </div>
         </div>
     </div>
 </div>
-@section Scripts{
 
+@section Scripts{
     <script>
         $(document).ready(function () {
-           
+
             jQuery("#txtCatID").change(function () {
-             
+
                 var catID = jQuery(this).children(":selected").attr("value");
                 catID = parseFloat(catID);
                 $('#txtCatID option')
@@ -263,22 +266,21 @@
             });
 
 
+           
 
-
-            var originalData = $("#records_table").html();            
-            $("#keyword").keyup(function () {
-                var strkeyword = $('#keyword').val();
+            function performAjaxRequest(strKeyword) {
+               
+                // Extract the page number from the clicked link
+                var pageNumber = $(this).text();
+                // Perform your custom action with the page number
+                alert('User clicked on page ' + pageNumber + 'with key word is: '+strKeyword);
                 $.ajax({
                     url: '/Admin/Search/FindProduct',
                     datatype: "json",
                     type: "POST",
-                    data: { keyword: strkeyword },
+                    data: { page: pageNumber, keyword: strKeyword },
                     async: true,
                     success: function (result) {
-                        if ($('#keyword').val() == '') {
-                            console.log("hello");
-                            return originalData;
-                        }
                         $("#records_table").html("");
                         $("#records_table").html(result);
                     },
@@ -286,7 +288,23 @@
                         alert('error');
                     }
                 });
+            }
+            $('.pagination-container a').on('click', function (e) {
+                var pageLinkElement = document.querySelector('.pagination');
+                if (pageLinkElement) {
+                    alert('Con cac');
+                    linkElement.setAttribute('disabled', true);
+                }
+                performAjaxRequest(strkeyword);
             });
+            $("#keyword").keyup(function () {
+                var strkeyword = $('#keyword').val();
+                console.log("Hello");
+                performAjaxRequest(strkeyword);
+            });
+            performAjaxRequest('');
         });
     </script>
 }
+
+

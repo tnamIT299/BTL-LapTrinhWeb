@@ -20,7 +20,7 @@ namespace Client_Home.Areas.Admin.Controllers
     [Area("Admin")]
     public class AdminEmployeesController : Controller
     {
-        private readonly ConveniencestoreContext _context;
+        private readonly Data.ConveniencestoreContext _context;
         private IWebHostEnvironment _webHostEnvironment;
         private readonly IAddEmployFromExcel _addFromExcel;
         private readonly ILogger<AdminEmployeesController> _logger;

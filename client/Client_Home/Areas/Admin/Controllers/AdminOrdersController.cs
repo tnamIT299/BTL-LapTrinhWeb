@@ -14,9 +14,9 @@ namespace Client_Home.Areas.Admin.Controllers
     [Area("Admin")]
     public class AdminOrdersController : Controller
     {
-        private readonly ConveniencestoreContext _context;
+        private readonly Data.ConveniencestoreContext _context;
 
-        public AdminOrdersController(ConveniencestoreContext context)
+        public AdminOrdersController(Data.ConveniencestoreContext context)
         {
             _context = context;
         }

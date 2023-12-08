@@ -19,7 +19,7 @@ builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<ConveniencestoreContext>(options =>
+builder.Services.AddDbContext<Data.ConveniencestoreContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("dbCONVENIENCESTORE")));
 builder.Services.AddScoped<IAddCusFromExcel, AddCusFromExcel>();
 builder.Services.AddScoped<IAddEmployFromExcel, AddEmployFromExcel>();
@@ -32,7 +32,7 @@ builder.Services.AddScoped<IAddSupplierFromExcel, AddSupplierFromExcel>();
 //   .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddDefaultIdentity<IdentityUser>().AddDefaultTokenProviders()
     .AddRoles<IdentityRole>()
-    .AddEntityFrameworkStores<ConveniencestoreContext>();
+    .AddEntityFrameworkStores<Client_Home.Data.ConveniencestoreContext>();
 
 builder.Services.AddNotyf(config =>
 {

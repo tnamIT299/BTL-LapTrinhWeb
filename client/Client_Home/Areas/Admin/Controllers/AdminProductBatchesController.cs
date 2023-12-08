@@ -19,7 +19,7 @@ namespace Client_Home.Areas.Admin.Controllers
     [Area("Admin")]
     public class AdminProductBatchesController : Controller
     {
-        private readonly ConveniencestoreContext _context;
+        private readonly Data.ConveniencestoreContext _context;
         private IWebHostEnvironment _webHostEnvironment;
         private readonly IAddProductBatchFromExcel _addFromExcel;
         private readonly ILogger<AdminProductBatchesController> _logger;

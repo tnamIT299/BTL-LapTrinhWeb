@@ -17,7 +17,7 @@ namespace Client_Home.Areas.Admin.Controllers
     [Area("Admin")]
     public class AdminCategoriesController : Controller
     {
-        private readonly ConveniencestoreContext _context;
+        private readonly Data.ConveniencestoreContext _context;
         private IWebHostEnvironment _webHostEnvironment;
         private readonly IAddCategoryFromExcel _addFromExcel;
         private readonly ILogger<AdminCategoriesController> _logger;

@@ -21,12 +21,12 @@ namespace Client_Home.Areas.Admin.Controllers
     [Area("Admin")]
     public class AdminProductsController : Controller
     {
-        private readonly ConveniencestoreContext _context;
+        private readonly Data.ConveniencestoreContext _context;
         private IWebHostEnvironment _webHostEnvironment;
         private readonly IAddProductFromExcel _addFromExcel;
         private readonly ILogger<AdminProductsController> _logger;
         public INotyfService _notifyService { get; }
-        public AdminProductsController(ILogger<AdminProductsController> logger, ConveniencestoreContext context, INotyfService notifyService, IWebHostEnvironment webHostEnvironment, IAddProductFromExcel addFromExcel)
+        public AdminProductsController(ILogger<AdminProductsController> logger, Data.ConveniencestoreContext context, INotyfService notifyService, IWebHostEnvironment webHostEnvironment, IAddProductFromExcel addFromExcel)
         {
             _logger = logger;
             _context = context;

@@ -106,17 +106,13 @@
               "target": "Package",
               "version": "[3.0.0, )"
             },
-            "PagedList.Mvc": {
-              "target": "Package",
-              "version": "[4.5.0, )"
-            },
             "QRCoder": {
               "target": "Package",
               "version": "[1.4.3, )"
             },
             "System.Data.OleDb": {
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[8.0.0, )"
             },
             "X.PagedList": {
               "target": "Package",

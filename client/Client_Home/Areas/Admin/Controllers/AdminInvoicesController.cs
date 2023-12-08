@@ -8,15 +8,16 @@ using Microsoft.EntityFrameworkCore;
 using Client_Home.Data;
 using Client_Home.Models;
 using DocumentFormat.OpenXml.InkML;
+using PagedList;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class AdminInvoicesController : Controller
     {
-        private readonly Client_Home.Data.ConveniencestoreContext _context;
+        private readonly Data.ConveniencestoreContext _context;
 
-        public AdminInvoicesController(Client_Home.Data.ConveniencestoreContext context)
+        public AdminInvoicesController(Data.ConveniencestoreContext context)
         {
             _context = context;
         }
@@ -65,13 +66,17 @@ namespace Client_Home.Areas.Admin.Controllers
         }
 
         // GET: Admin/AdminInvoices/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            var product = _context.Products.FromSqlRaw("EXEC GetProduct").ToListAsync();
-            ViewBag.product = product;
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "Email");
-            ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "CitizenId");
-            ViewData["PaymentId"] = new SelectList(_context.Payments, "PaymentId", "PaymentId");
+            using (var context = new Data.ConveniencestoreContext())
+            {
+                var product = await context.Products.FromSqlRaw("EXEC GetProduct").ToListAsync();
+                ViewBag.product = product;
+            }
+            
+            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "Phone");
+            ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "LastName");
+            ViewData["PaymentId"]  = new SelectList(_context.Payments, "PaymentId", "MethodName");
             ViewData["ShippingId"] = new SelectList(_context.Shippings, "ShippingId", "ShippingId");
             return View();
         }

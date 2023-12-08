@@ -319,7 +319,6 @@ C:\Javascript\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\runtimes\win-x
 C:\Javascript\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\runtimes\win-x86\native\e_sqlite3.dll
 C:\Javascript\BTL-LapTrinhWeb\client\Client_Home\obj\Debug\net7.0\Client_Home.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\appsettings.Development.json
-C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\appsettings.json
 C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\Client_Home.staticwebassets.runtime.json
 C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\Client_Home.exe
 C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\Client_Home.deps.json
@@ -479,7 +478,6 @@ C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\
 C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\refs\System.Diagnostics.Contracts.dll
 C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\refs\System.Diagnostics.Debug.dll
 C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\refs\System.Diagnostics.DiagnosticSource.dll
-C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\refs\System.Diagnostics.EventLog.dll
 C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\refs\System.Diagnostics.FileVersionInfo.dll
 C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\refs\System.Diagnostics.Process.dll
 C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\refs\System.Diagnostics.StackTrace.dll
@@ -862,12 +860,7 @@ C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\
 C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
-C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
-C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\obj\Debug\net7.0\Client_Home.csproj.AssemblyReference.cache
 C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\obj\Debug\net7.0\Client_Home.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\obj\Debug\net7.0\Client_Home.AssemblyInfoInputs.cache

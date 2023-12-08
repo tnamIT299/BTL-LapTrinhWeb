@@ -13,18 +13,19 @@ using ClosedXML.Excel;
 using Client_Home.Areas.Admin.DTO.Employees;
 using Client_Home.Areas.Admin.DTO.Customers;
 using System.Data;
+using X.PagedList;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class AdminEmployeesController : Controller
     {
-        private readonly Client_Home.Data.ConveniencestoreContext _context;
+        private readonly Data.ConveniencestoreContext _context;
         private IWebHostEnvironment _webHostEnvironment;
         private readonly IAddEmployFromExcel _addFromExcel;
         private readonly ILogger<AdminEmployeesController> _logger;
         public INotyfService _notifyService { get; }
-        public AdminEmployeesController(ILogger<AdminEmployeesController> logger, ConveniencestoreContext context, INotyfService notifyService, IWebHostEnvironment webHostEnvironment, IAddEmployFromExcel addFromExcel)
+        public AdminEmployeesController(ILogger<AdminEmployeesController> logger, Data.ConveniencestoreContext context, INotyfService notifyService, IWebHostEnvironment webHostEnvironment, IAddEmployFromExcel addFromExcel)
         {
             _logger = logger;
             _context = context;
@@ -40,9 +41,9 @@ namespace Client_Home.Areas.Admin.Controllers
             var pageSize = 10;
             var conveniencestoreContext = _context.Employees.Include(e => e.User)
                 .AsNoTracking()
-                .OrderByDescending(x=>x.EmployeeId);
+                .OrderByDescending(x=>x.EmployeeId).ToList();
             ViewBag.CurrentPage = pageNumber;
-            PagedList.Core.IPagedList<Employee> model = new PagedList.Core.PagedList<Employee>(conveniencestoreContext, pageNumber, pageSize);
+            IPagedList<Employee> model = conveniencestoreContext.ToPagedList(pageNumber, pageSize);
 
             return View(model);
         }

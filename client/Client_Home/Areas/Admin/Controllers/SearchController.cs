@@ -1,43 +1,45 @@
-﻿using Client_Home.Data;
-using Client_Home.Models;
+﻿using Client_Home.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
-
+using Client_Home.Data;
 namespace Client_Home.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class SearchController : Controller
     {
-        private readonly Client_Home.Data.ConveniencestoreContext _context;
-        public SearchController(Client_Home.Data.ConveniencestoreContext context)
+        private readonly Data.ConveniencestoreContext _context;
+        public SearchController(Data.ConveniencestoreContext context)
         {
             _context = context;
         }
 
 
         [HttpPost]
-        public IActionResult FindProduct(string keyword)
+        public IActionResult FindProduct(int? page, string keyword)
         {
-            List<Product> ls = new List<Product>();
-            if (string.IsNullOrEmpty(keyword) || keyword.Length < 1)
+            var pageNumber = page == null || page <= 0 ? 1 : page.Value;
+            var pageSize = 15;
+            IQueryable<Product> ls = _context.Products
+                            .AsNoTracking()
+                            .OrderByDescending(x => x.ProductId);
+            PagedList.Core.IPagedList<Product> models = new PagedList.Core.PagedList<Product>(ls, pageNumber, pageSize);
+            if (string.IsNullOrEmpty(keyword) || keyword == null)
             {
-                return PartialView("ListProductsSearchPartial", null);
+                return PartialView("ListProductsSearchPartial", models);
             }
-            ls = _context.Products  
-                .AsNoTracking()
-                .Include(a=>a.Category)
-                .Where(x=>x.Name.Contains(keyword))
-                .OrderByDescending(x=>x.Name)
-                .Take(10)
-                .ToList();
-            if(ls == null)
+            ls = _context.Products
+                    .AsNoTracking()
+                    .Include(a => a.Category)
+                    .Where(x => x.Name.Contains(keyword))
+                    .OrderByDescending(x => x.Name);
+            models = new PagedList.Core.PagedList<Product>(ls, pageNumber, pageSize);
+            if (ls == null)
             {
                 return PartialView("ListProductsSearchPartial", null);
             }
             else
             {
-                return PartialView("ListProductsSearchPartial", ls);
+                return PartialView("ListProductsSearchPartial", models);
             }
         }
         [HttpPost]
@@ -97,7 +99,7 @@ namespace Client_Home.Areas.Admin.Controllers
             }
             ls = _context.Invoices
                 .AsNoTracking()
-                .Include(x=>x.Customer)
+                .Include(x => x.Customer)
                 .Include(i => i.Employee)
                 .Where(i => i.InvoiceId.ToString().Contains(keyword))
                 .OrderByDescending(x => x.InvoiceId)

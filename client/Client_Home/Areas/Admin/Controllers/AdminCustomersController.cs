@@ -16,6 +16,7 @@ using Microsoft.Data.SqlClient;
 using OfficeOpenXml;
 using Org.BouncyCastle.Asn1.X509;
 using Client_Home.Areas.Admin.DTO.Customers;
+using ConveniencestoreContext = Client_Home.Data.ConveniencestoreContext;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
@@ -28,7 +29,7 @@ namespace Client_Home.Areas.Admin.Controllers
         private readonly ILogger<AdminCustomersController> _logger;
 
         public INotyfService _notifyService { get; }
-        public AdminCustomersController(ILogger<AdminCustomersController> logger, ConveniencestoreContext context, INotyfService notifyService,IWebHostEnvironment webHostEnvironment , IAddCusFromExcel addFromExcel)
+        public AdminCustomersController(ILogger<AdminCustomersController> logger, Data.ConveniencestoreContext context, INotyfService notifyService,IWebHostEnvironment webHostEnvironment , IAddCusFromExcel addFromExcel)
         {
             _logger = logger;
             _context = context;

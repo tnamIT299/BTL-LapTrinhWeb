@@ -9,8 +9,8 @@ namespace Client_Home.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly Client_Home.Data.ConveniencestoreContext _context;
-        public HomeController(ILogger<HomeController> logger, Client_Home.Data.ConveniencestoreContext context)
+        private readonly Data.ConveniencestoreContext _context;
+        public HomeController(ILogger<HomeController> logger, Data.ConveniencestoreContext context)
         {
             _logger = logger;
             _context = context;
@@ -21,9 +21,24 @@ namespace Client_Home.Controllers
             var conveniencestoreContext = _context.Products.Include(p => p.Category).Include(p => p.Supplier);
             return View(await conveniencestoreContext.ToListAsync());
         }
-        public IActionResult Shop()
+        public IActionResult Shop(int? maloai)
         {
-            return View();
+            IQueryable<Product> productsQuery = _context.Products;
+
+            if (maloai.HasValue)
+            {
+                // Filter products based on the specified category
+                productsQuery = productsQuery.Where(p => p.CategoryId == maloai.Value);
+            }
+            else
+            {
+                // Display a default category (adjust the CategoryId accordingly)
+                // For example, you might want to display products from the first category
+                productsQuery = productsQuery.Where(p => p.CategoryId == 1);
+            }
+            List<Product> lstProduct = productsQuery.OrderBy(p => p.Name).ToList();
+            // List<Product> lstProduct = _context.Products.Where(p => p.CategoryId == maloai).OrderBy(p => p.Name).ToList();
+            return View(lstProduct);
         }
         public IActionResult Blog()
         {
@@ -37,6 +52,12 @@ namespace Client_Home.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        public IActionResult LoaiSP()
+        {
+            List<Category> lstProduct = _context.Categories.ToList();
+            return View(lstProduct);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

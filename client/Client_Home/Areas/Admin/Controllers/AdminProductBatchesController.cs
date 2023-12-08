@@ -19,12 +19,12 @@ namespace Client_Home.Areas.Admin.Controllers
     [Area("Admin")]
     public class AdminProductBatchesController : Controller
     {
-        private readonly Client_Home.Data.ConveniencestoreContext _context;
+        private readonly Data.ConveniencestoreContext _context;
         private IWebHostEnvironment _webHostEnvironment;
         private readonly IAddProductBatchFromExcel _addFromExcel;
         private readonly ILogger<AdminProductBatchesController> _logger;
         public INotyfService _notifyService { get; }
-        public AdminProductBatchesController(ILogger<AdminProductBatchesController> logger, ConveniencestoreContext context, INotyfService notifyService, IWebHostEnvironment webHostEnvironment, IAddProductBatchFromExcel addFromExcel)
+        public AdminProductBatchesController(ILogger<AdminProductBatchesController> logger, Data.ConveniencestoreContext context, INotyfService notifyService, IWebHostEnvironment webHostEnvironment, IAddProductBatchFromExcel addFromExcel)
         {
             _logger = logger;
             _context = context;

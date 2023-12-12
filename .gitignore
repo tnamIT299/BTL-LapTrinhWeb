@@ -7,3 +7,6 @@
 /client/Client_Home/appsettings.json
 /client/Client_Home/wwwroot/uploaded_doc/Employ.xlsx
 /client/Client_Home/wwwroot/uploaded_doc/Cus.xlsx
+/client/Client_Home/Models/ConveniencestoreContext.cs
+/client/Client_Home/appsettings.json
+/client/Client_Home/appsettings.Development.json

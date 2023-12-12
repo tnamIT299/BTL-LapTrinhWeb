@@ -10,8 +10,8 @@ namespace Client_Home.Areas.Admin.Controllers
     [Area("Admin")]
     public class SearchController : Controller
     {
-        private readonly ConveniencestoreContext _context;
-        public SearchController(ConveniencestoreContext context)
+        private readonly Data.ConveniencestoreContext _context;
+        public SearchController(Data.ConveniencestoreContext context)
         {
             _context = context;
         }

@@ -20,12 +20,12 @@ namespace Client_Home.Areas.Admin.Controllers
     [Area("Admin")]
     public class AdminEmployeesController : Controller
     {
-        private readonly ConveniencestoreContext _context;
+        private readonly Data.ConveniencestoreContext _context;
         private IWebHostEnvironment _webHostEnvironment;
         private readonly IAddEmployFromExcel _addFromExcel;
         private readonly ILogger<AdminEmployeesController> _logger;
         public INotyfService _notifyService { get; }
-        public AdminEmployeesController(ILogger<AdminEmployeesController> logger, ConveniencestoreContext context, INotyfService notifyService, IWebHostEnvironment webHostEnvironment, IAddEmployFromExcel addFromExcel)
+        public AdminEmployeesController(ILogger<AdminEmployeesController> logger, Data.ConveniencestoreContext context, INotyfService notifyService, IWebHostEnvironment webHostEnvironment, IAddEmployFromExcel addFromExcel)
         {
             _logger = logger;
             _context = context;

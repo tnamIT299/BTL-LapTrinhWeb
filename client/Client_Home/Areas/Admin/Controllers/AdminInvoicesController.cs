@@ -27,16 +27,7 @@ namespace Client_Home.Areas.Admin.Controllers
         // GET: Admin/AdminInvoices
         public IActionResult Index(int? page)
         {
-            var pageNumber = page == null || page <= 0 ? 1 : page.Value;
-            var pageSize = 10;
-            var isInvoice = _context.Invoices
-                .Include(i => i.Customer)
-                .Include(i => i.Employee)
-                .AsNoTracking()
-                .OrderByDescending(x => x.InvoiceId);
-            PagedList.Core.IPagedList<Invoice> models = new PagedList.Core.PagedList<Invoice>(isInvoice, pageNumber, pageSize);
-            ViewBag.CurrentPage = pageNumber;
-            return View(models);
+            return View();
         }
 
 

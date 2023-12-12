@@ -1,47 +1,99 @@
-﻿@model List<Customer>
+﻿@using Client_Home.Areas.Admin.Models;
+@model Pager<Customer>
 @*
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@if (Model != null)
-{
-    int i = 1;
-    @foreach (var item in Model)
-    {
+<table class="table table-hover e-commerce-table">
+    <thead>
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Phone)
-            </td>
-            <td>
-                @item.Birthday?.ToString("dd/MM/yyyy")
-            </td>
-
-            <td>
-                @Html.DisplayFor(modelItem => item.RewardPoints)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rank)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gender)
-            </td>
-
-            <td class="text-right">
-                <a asp-area="Admin" asp-controller="AdminCustomers" asp-action="Edit" asp-route-id="@item.CustomerId">
-                    <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right">
-                        <i class="anticon anticon-edit"></i>
-                    </button>
-                </a>
-                <button class="btn btn-icon btn-hover btn-sm btn-rounded">
-                    <i class="anticon anticon-delete"></i>
-                </button>
-            </td>
+            <th>
+                Tên
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Số điện thoại
+            </th>
+            <th>
+                Ngày sinh
+            </th>
+            <th>
+                Điểm thưởng
+            </th>
+            <th>
+                Loại thành viên
+            </th>
+            <th>
+                Giới tính
+            </th>
+            <th></th>
         </tr>
-        i++;
-    }
-}
+    </thead>
+    <tbody>
+        <tr>
+            @if (Model != null)
+            {
+                int i = 1;
+                @foreach (var item in Model.Items)
+                {
+                <tr>
+                    <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                    </td>
+                    <td>
+                            @item.Birthday?.ToString("dd/MM/yyyy")
+                    </td>
+
+                    <td>
+                            @Html.DisplayFor(modelItem => item.RewardPoints)
+                    </td>
+                    <td>
+                            @Html.DisplayFor(modelItem => item.Rank)
+                    </td>
+                    <td>
+                            @{
+                                string genderText = (item.Gender != null && item.Gender == 1) ? "Nữ" : "Nam";
+                            }
+                            @Html.DisplayFor(modelItem => genderText)
+
+                    </td>
+
+                    <td class="text-right">
+                        <a asp-area="Admin" asp-controller="AdminCustomers" asp-action="Details" asp-route-id="@item.CustomerId">
+                            <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xem chi tiết thông tin khách hàng">
+                                <i class="anticon anticon-eye"></i>
+                            </button>
+                        </a>
+                        <a asp-area="Admin" asp-controller="AdminCustomers" asp-action="Edit" asp-route-id="@item.CustomerId">
+                            <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right" title="Sửa thông tin khách hàng">
+                                <i class="anticon anticon-edit"></i>
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+                    i++;
+                }
+            }
+        </tr>
+    </tbody>
+</table>
+<div aria-label="Page navigation example" style="display:flex; justify-content:center">
+    <ul class="pagination">
+        @if (Model.TotalPages > 1)
+        {
+            @for (int i = 1; i <= Model.TotalPages; i++)
+            {
+                <li class="page-item">
+                    <a class="page-link" onclick="performAjaxRequest(@i)">@i</a>
+                </li>
+            }
+        }
+    </ul>
+</div>

@@ -246,14 +246,14 @@ namespace Client_Home.Areas.Admin.Controllers
                 {
                     await _context.SaveChangesAsync();
                 }
-                catch(Exception ex)
+                catch (Exception)
                 {
                     return Json(new { success = false, message = "Error deleting products." });
                 }
                 // You can return a success message or any other necessary response
                 return Json(new { success = true, message = "Products deleted successfully." });
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // Log the exception or handle it appropriately
                 return Json(new { success = false, message = "Error deleting products." });

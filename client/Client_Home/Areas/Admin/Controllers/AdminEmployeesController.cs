@@ -35,17 +35,10 @@ namespace Client_Home.Areas.Admin.Controllers
         }
 
         // GET: Admin/AdminEmployees
-        public async Task<IActionResult> Index(int?page)
+        public Task<IActionResult> Index(int?page)
         {
-            var pageNumber = page == null || page <= 0 ? 1 : page.Value;
-            var pageSize = 10;
-            var conveniencestoreContext = _context.Employees.Include(e => e.User)
-                .AsNoTracking()
-                .OrderByDescending(x=>x.EmployeeId).ToList();
-            ViewBag.CurrentPage = pageNumber;
-            IPagedList<Employee> model = conveniencestoreContext.ToPagedList(pageNumber, pageSize);
 
-            return View(model);
+            return Task.FromResult<IActionResult>(View());
         }
 
         // GET: Admin/AdminEmployees/Details/5

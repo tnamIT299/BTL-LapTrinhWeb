@@ -15,7 +15,11 @@ public partial class ConveniencestoreContext : DbContext
         : base(options)
     {
     }
-
+    public virtual DbSet<AdminBestSellingProduct> AdminBestSellingProduct { get; set; }
+    public virtual DbSet<AdminOnlineOfflinePurchaseCount> AdminOnlineOfflinePurchaseCount { get; set; }
+    public virtual DbSet<AdminRevenueByMonth> AdminRevenueByMonth { get; set; }
+    public virtual DbSet<AdminRichestCustomerView> AdminRichestCustomerView { get; set; }
+    public virtual DbSet<AdminSingleIntForProcedure> AdminSingleIntForProcedure { get; set; }
     public virtual DbSet<CartItem> CartItems { get; set; }
 
     public virtual DbSet<Category> Categories { get; set; }

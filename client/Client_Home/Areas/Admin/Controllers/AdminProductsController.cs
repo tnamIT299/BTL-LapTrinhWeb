@@ -13,20 +13,18 @@ using PagedList;
 using DocumentFormat.OpenXml.Office2010.Excel;
 using Client_Home.Areas.Admin.Models;
 using Humanizer;
-using Client_Home.Areas.Admin.DTO.Product;
-using System.Data;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class AdminProductsController : Controller
     {
-        private readonly Data.ConveniencestoreContext _context;
+        private readonly ConveniencestoreContext _context;
         private IWebHostEnvironment _webHostEnvironment;
-        private readonly IAddProductFromExcel _addFromExcel;
+        private readonly DTO.Product.IAddProductFromExcel _addFromExcel;
         private readonly ILogger<AdminProductsController> _logger;
         public INotyfService _notifyService { get; }
-        public AdminProductsController(ILogger<AdminProductsController> logger, Data.ConveniencestoreContext context, INotyfService notifyService, IWebHostEnvironment webHostEnvironment, IAddProductFromExcel addFromExcel)
+        public AdminProductsController(ILogger<AdminProductsController> logger, Data.ConveniencestoreContext context, INotyfService notifyService, IWebHostEnvironment webHostEnvironment, DTO.Product.IAddProductFromExcel addFromExcel)
         {
             _logger = logger;
             _context = context;

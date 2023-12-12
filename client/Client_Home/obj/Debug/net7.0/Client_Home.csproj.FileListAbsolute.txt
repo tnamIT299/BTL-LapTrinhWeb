@@ -1268,7 +1268,6 @@ C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\
 C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\PagedList.dll
 C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\PagedList.Core.dll
 C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\PagedList.Core.Mvc.dll
-C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\PagedList.Mvc.dll
 C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\QRCoder.dll
 C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\SixLabors.Fonts.dll
 C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\System.CodeDom.dll

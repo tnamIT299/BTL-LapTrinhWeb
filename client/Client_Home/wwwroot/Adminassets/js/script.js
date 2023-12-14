@@ -1,12 +1,15 @@
-﻿document.addEventListener('DOMContentLoaded', function () {
+﻿function addEvents() {
     var checkAllCheckbox = document.getElementById('checkAll');
+    if (checkAllCheckbox == null) {
+        alert("con cac");
+    }
     checkAllCheckbox.addEventListener('click', function () {
         var checkboxes = document.querySelectorAll('[id^="check-item-"]');
         checkboxes.forEach(function (checkbox) {
             checkbox.checked = checkAllCheckbox.checked;
         });
     });
-    
+
     var deleteButton = document.getElementById('deleteSeletedItemsButton');
     deleteButton.addEventListener('click', function () {
         var checkboxes = document.querySelectorAll('[id^="check-item-"]:checked');
@@ -49,6 +52,43 @@
                     });
             }
         }
-        
-    }); 
+    });
+}
+
+
+$(document).ready(function () {
+    $('.pagination-container a').on('click', function (e) {
+        var pageLinkElement = document.querySelector('.pagination');
+        if (pageLinkElement) {
+            linkElement.setAttribute('disabled', true);
+        }
+        performAjaxRequest(strkeyword);
+    });
+    $("#keyword").keyup(function () {
+        var strkeyword = $('#keyword').val();
+        console.log("Hello");
+        performAjaxRequest(strkeyword);
+    });
+    performAjaxRequest('');
 });
+function performAjaxRequest(pageNumber) {
+
+    // Extract the page number from the clicked link
+    var strKeyword = $('#keyword').val();
+    // Perform your custom action with the page number
+    $.ajax({
+        url: '/Admin/Search/FindProduct',
+        datatype: "json",
+        type: "POST",
+        data: { page: pageNumber, keyword: strKeyword },
+        async: true,
+        success: function (result) {
+            $("#records_table").html("");
+            $("#records_table").html(result);
+            addEvents();
+        },
+        error: function (xhr) {
+            alert('error');
+        }
+    });
+}

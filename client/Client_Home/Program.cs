@@ -19,7 +19,7 @@ builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<Client_Home.Data.ConveniencestoreContext>(options =>
+builder.Services.AddDbContext<ConveniencestoreContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("dbCONVENIENCESTORE")));
 builder.Services.AddScoped<IAddCusFromExcel, AddCusFromExcel>();
 builder.Services.AddScoped<IAddEmployFromExcel, AddEmployFromExcel>();

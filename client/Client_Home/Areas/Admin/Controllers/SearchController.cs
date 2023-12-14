@@ -44,6 +44,7 @@ namespace Client_Home.Areas.Admin.Controllers
             var models = new Pager<Product>
             {
                 Items = paginatedItems,
+                CurrentPage = page,
                 PageIndex = page,
                 PageSize = pageSize,
                 TotalItems = ls.Count()
@@ -80,6 +81,7 @@ namespace Client_Home.Areas.Admin.Controllers
             var models = new Pager<Employee>
             {
                 Items = paginatedItems,
+                CurrentPage = page,
                 PageIndex = page,
                 PageSize = pageSize,
                 TotalItems = ls.Count()
@@ -114,6 +116,7 @@ namespace Client_Home.Areas.Admin.Controllers
             {
                 Items = paginatedItems,
                 PageIndex = page,
+                CurrentPage = page,
                 PageSize = pageSize,
                 TotalItems = ls.Count()
             };
@@ -149,6 +152,7 @@ namespace Client_Home.Areas.Admin.Controllers
             {
                 Items = paginatedItems,
                 PageIndex = page,
+                CurrentPage = page,
                 PageSize = pageSize,
                 TotalItems = ls.Count()
             };

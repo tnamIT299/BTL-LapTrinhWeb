@@ -13,6 +13,7 @@ using PagedList;
 using DocumentFormat.OpenXml.Office2010.Excel;
 using Client_Home.Areas.Admin.Models;
 using Humanizer;
+using System.Data;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
@@ -231,7 +232,7 @@ namespace Client_Home.Areas.Admin.Controllers
                 }
                 // Implement your logic to delete products based on the received productIds
                 // Example: Delete products from the database
-                foreach (var productId in productIds.ProductIds)
+                foreach (var productId in productIds.itemIds)
                 {
 
                     var product = await _context.Products.FindAsync(productId);

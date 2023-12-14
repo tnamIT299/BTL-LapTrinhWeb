@@ -14,6 +14,7 @@ using Client_Home.Areas.Admin.DTO.Employees;
 using Client_Home.Areas.Admin.DTO.Customers;
 using System.Data;
 using X.PagedList;
+using Client_Home.Areas.Admin.Models;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
@@ -237,6 +238,45 @@ namespace Client_Home.Areas.Admin.Controllers
                         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
                         "Employees.xlsx");
                 }
+            }
+        }
+
+        [HttpPost("/Admin/AdminEmployees/DeleteMultiple")]
+        public async Task<IActionResult> DeleteMultiple([FromBody] DeleteMulti listIds)
+        {
+
+            try
+            {
+                if (_context.Employees == null)
+                {
+                    return Problem("Entity set 'ConveniencestoreContext.Employees' is null.");
+                }
+                // Implement your logic to delete products based on the received productIds
+                // Example: Delete products from the database
+                foreach (var employeeId in listIds.itemIds)
+                {
+
+                    var employee = await _context.Employees.FindAsync(employeeId);
+                    if (employee != null)
+                    {
+                        _context.Employees.Remove(employee);
+                    }
+                }
+                try
+                {
+                    await _context.SaveChangesAsync();
+                }
+                catch (Exception)
+                {
+                    return Json(new { success = false, message = "Error deleting Employees." });
+                }
+                // You can return a success message or any other necessary response
+                return Json(new { success = true, message = "Employees deleted successfully." });
+            }
+            catch (Exception)
+            {
+                // Log the exception or handle it appropriately
+                return Json(new { success = false, message = "Error deleting Employees." });
             }
         }
 

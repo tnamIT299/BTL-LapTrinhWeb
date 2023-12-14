@@ -9,6 +9,7 @@ using Client_Home.Data;
 using Client_Home.Models;
 using DocumentFormat.OpenXml.InkML;
 using PagedList;
+using Client_Home.Areas.Admin.Models;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
@@ -196,6 +197,44 @@ namespace Client_Home.Areas.Admin.Controllers
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+        [HttpPost("/Admin/AdminInvoices/DeleteMultiple")]
+        public async Task<IActionResult> DeleteMultiple([FromBody] DeleteMulti listIds)
+        {
+
+            try
+            {
+                if (_context.Invoices == null)
+                {
+                    return Problem("Entity set 'ConveniencestoreContext.Products' is null.");
+                }
+                // Implement your logic to delete products based on the received productIds
+                // Example: Delete products from the database
+                foreach (var invoiceId in listIds.itemIds)
+                {
+
+                    var invoice = await _context.Invoices.FindAsync(invoiceId);
+                    if (invoice != null)
+                    {
+                        _context.Invoices.Remove(invoice);
+                    }
+                }
+                try
+                {
+                    await _context.SaveChangesAsync();
+                }
+                catch (Exception)
+                {
+                    return Json(new { success = false, message = "Error deleting invoices." });
+                }
+                // You can return a success message or any other necessary response
+                return Json(new { success = true, message = "Invoices deleted successfully." });
+            }
+            catch (Exception)
+            {
+                // Log the exception or handle it appropriately
+                return Json(new { success = false, message = "Error deleting invoces." });
+            }
         }
 
         private bool InvoiceExists(int id)

@@ -241,8 +241,45 @@ namespace Client_Home.Areas.Admin.Controllers
                 }
             }
         }
+        [HttpPost("/Admin/AdminCustomers/DeleteMultiple")]
+        public async Task<IActionResult> DeleteMultiple([FromBody] DeleteMulti listIds)
+        {
 
-       
+            try
+            {
+                if (_context.Customers == null)
+                {
+                    return Problem("Entity set 'ConveniencestoreContext.Customers' is null.");
+                }
+                // Implement your logic to delete products based on the received productIds
+                // Example: Delete products from the database
+                foreach (var customerID in listIds.itemIds)
+                {
+
+                    var customer = await _context.Customers.FindAsync(customerID);
+                    if (customer != null)
+                    {
+                        _context.Customers.Remove(customer);
+                    }
+                }
+                try
+                {
+                    await _context.SaveChangesAsync();
+                }
+                catch (Exception)
+                {
+                    return Json(new { success = false, message = "Error deleting Customers." });
+                }
+                // You can return a success message or any other necessary response
+                return Json(new { success = true, message = "Customers deleted successfully." });
+            }
+            catch (Exception)
+            {
+                // Log the exception or handle it appropriately
+                return Json(new { success = false, message = "Error deleting Customers." });
+            }
+        }
+
 
     }
 }

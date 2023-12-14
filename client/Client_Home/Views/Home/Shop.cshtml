@@ -436,9 +436,9 @@
                                     {
                                         <div class="col-sm-6 col-xl-4">
                                             <div class="vs-product-box1 thumb_swap">
-                                                <div class="product-tag1">sale</div>
+                                                <div class="product-tag1">Sale - @item.Discount%</div>
                                                 <div class="product-img">
-                                                    <a href="shop-details.html"><img src="assets/img/shop/product-1-1.png" alt="Product Image" class="w-100"></a>
+                                                    <a href="shop-details.html"><img src="@Url.Content("~/adminassets/images/others/" + item.ThumbnailUrl)" alt="Product Image" class="w-100"></a>
                                                     <a href="shop-details.html"><img src="assets/img/shop/product-1-8.png" alt="Product Image" class="w-100 img_swap"></a>
                                                 </div>
                                                 <div class="product-content">
@@ -448,7 +448,8 @@
                                                         <a href="wishlist.html"><i class="fal fa-heart"></i></a>
                                                     </div>
                                                     <h4 class="product-title h5 mb-0"><a href="shop-details.html"> @item.Name</a></h4>
-                                                    <span class="price font-theme"><strong>$40.00</strong></span>
+                                                    <span class="price font-theme" style="font-size: 17px;"><strong style="text-decoration: line-through;">đ @item.SellPrice</strong></span>
+                                                    <span class="price font-theme" style="font-size: 25px;color: black;"><strong>đ @item.DiscountPrice</strong></span>
                                                     <p class="m-0 rating fs-xs text-theme lh-base">
                                                         <i class="fas fa-star"></i>
                                                         <i class="fas fa-star"></i>
@@ -666,8 +667,6 @@
 
                         @await Component.InvokeAsync("LoaiSPMenu")
                        
-
-
                         <div class="widget widget_categories   ">
                             <h3 class="widget_title">Categories</h3>
                             <ul>

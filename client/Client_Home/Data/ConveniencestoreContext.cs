@@ -331,6 +331,8 @@ public partial class ConveniencestoreContext : DbContext
         {
             entity.HasKey(e => e.ProductId).HasName("PK__Products__B40CC6ED2EBDBC5C");
 
+            entity.ToTable(tb => tb.HasTrigger("Update_DiscountPrice"));
+
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
             entity.Property(e => e.Active)
                 .HasDefaultValueSql("((1))")

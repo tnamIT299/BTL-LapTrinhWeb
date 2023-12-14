@@ -1,4 +1,6 @@
-﻿-- trigger
+﻿use CONVENIENCESTORE
+GO 
+-- trigger
  -- tinh luong khi nhap cac cot can thiet
 CREATE TRIGGER trg_UpdateTotal ON [CONVENIENCESTORE].[dbo].[Salaries]
 AFTER INSERT, UPDATE
@@ -46,3 +48,15 @@ BEGIN
     FROM Customers c
     JOIN inserted i ON c.customerID = i.CustomerID;
 END;
+
+-- Cập nhật giá sau khi đã giảm(DiscountPrice) sau khi thêm hoặc chỉnh sửa giá bán và mã giảm giá 
+create trigger Update_DiscountPrice 
+on Products
+after Insert , update 
+as
+begin 
+	 UPDATE p
+    SET discountPrice = IIF(i.discount IS NOT NULL, i.sellPrice * (1 - i.discount / 100), i.sellPrice)
+    FROM Products p
+    INNER JOIN inserted i ON p.ProductID = i.ProductID;
+end

@@ -3,247 +3,577 @@
 *@
 @{
     ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout_Shop.cshtml";
 }
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Foodano - Organic Food Store HTML Template - Contact Us</title>
+    <meta name="author" content="Vecuro">
+    <meta name="description" content="Foodano - Organic Food Store HTML Template">
+    <meta name="keywords" content="Foodano - Organic Food Store HTML Template" />
+    <meta name="robots" content="INDEX,FOLLOW">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--==============================
+       Google Web Fonts
+    ============================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@200;300;400;500;600;700&family=Amatic+SC:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Favicons - Place favicon.ico in the root directory -->
+    <link rel="apple-touch-icon" sizes="57x57" href="~/assets/img/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="~/assets/img/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="~/assets/img/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/assets/img/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="~/assets/img/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="~/assets/img/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="~/assets/img/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="~/assets/img/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/assets/img/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="~/assets/img/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="~/assets/img/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/assets/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="~/assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="~/assets/img/favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!--==============================
+        All CSS File
+    ============================== -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="~/assets/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap.rtl.min.css"> -->
+    <!-- <link rel="stylesheet" href="assets/css/app.min.css"> -->
+    <!-- Fontawesome Icon -->
+    <link rel="stylesheet" href="~/assets/css/fontawesome.min.css">
+    <!-- Flaticon -->
+    <link rel="stylesheet" href="~/assets/css/flaticon.min.css">
+    <!-- Layerslider -->
+    <link rel="stylesheet" href="~/assets/css/layerslider.min.css">
+    <!-- Date Picker -->
+    <link rel="stylesheet" href="~/assets/css/jquery.datetimepicker.min.css">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="~/assets/css/magnific-popup.min.css">
+    <!-- Slick Slider -->
+    <link rel="stylesheet" href="~/assets/css/slick.min.css">
+    <!-- Animation CSS -->
+    <link rel="stylesheet" href="~/assets/css/animate.min.css">
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="~/assets/css/style.css">
+
+</head>
+
+<body class=" ">
 
 
-@section styles{
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
-    <link rel="stylesheet" href="/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
-
-}
-
-@* <div id="preloder">
-    <div class="loader"></div>
-</div> *@
-
-<!-- Humberger Begin -->
-<div class="humberger__menu__overlay"></div>
-<div class="humberger__menu__wrapper">
-    <div class="humberger__menu__logo">
-        <a href="#"><img src="~/img/logo.png" alt=""></a>
-    </div>
-    <div class="humberger__menu__cart">
-        <ul>
-            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-        </ul>
-        <div class="header__cart__price">item: <span>$150.00</span></div>
-    </div>
-    <div class="humberger__menu__widget">
-        <div class="header__top__right__language">
-            <img src="/img/language.png" alt="">
-            <div>English</div>
-            <span class="arrow_carrot-down"></span>
-            <ul>
-                <li><a href="#">Spanis</a></li>
-                <li><a href="#">English</a></li>
-            </ul>
+    <!--[if lte IE 9]>
+          <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+    <!--********************************
+        Code Start From Here
+    ******************************** -->
+    <!--==============================
+       Preloader
+    ==============================-->
+    <div class="preloader  ">
+        <button class="vs-btn preloaderCls">Cancel Preloader </button>
+        <div class="preloader-inner">
+            <div class="loader-logo">
+                <img src="~/assets/img/logo.svg" alt="Foodano">
+            </div>
+            <div class="loader-wrap pt-4">
+                <span class="loader"></span>
+            </div>
         </div>
-        <div class="header__top__right__auth">
-            <a href="#"><i class="fa fa-user"></i> Login</a>
-        </div>
     </div>
-    <nav class="humberger__menu__nav mobile-menu">
-        <ul>
-            <li class="active"><a href="/home/index">Home</a></li>
-            <li><a href="/home/shop">Shop</a></li>
-            <li>
-                <a href="#">Pages</a>
-                <ul class="header__menu__dropdown">
-                    <li><a href="">Shop Details</a></li>
-                    <li><a href="">Shoping Cart</a></li>
-                    <li><a href="">Check Out</a></li>
-                    <li><a href="">Blog Details</a></li>
-                </ul>
-            </li>
-            <li><a href="/home/blog">Blog</a></li>
-            <li><a href="/home/contact">Contact</a></li>
-        </ul>
-    </nav>
-    <div id="mobile-menu-wrap"></div>
-    <div class="header__top__right__social">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-pinterest-p"></i></a>
-    </div>
-    <div class="humberger__menu__contact">
-        <ul>
-            <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-            <li>Free Shipping for all Order of $99</li>
-        </ul>
-    </div>
-</div>
-<!-- Humberger End -->
-<!-- Header Section Begin -->
-<!-- Header Section End -->
-<!-- Hero Section Begin -->
-<section class="hero hero-normal">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="hero__categories">
-                    <div class="hero__categories__all">
-                        <i class="fa fa-bars"></i>
-                        <span>All departments</span>
+    <!--==============================
+        Header Top
+    ==============================-->
+    <div class="header-top-wrapper bg-black pb-2 pt-10 z-index-step1 d-none d-lg-block">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-sm-6 col-md-4 col-lg-4 d-none d-sm-block">
+                    <div class="head-top-links text-body2">
+                        <span class="icon-btn"><i class="fal fa-pennant"></i></span>
+                        <ul>
+                            <li>
+                                <!-- Dropdown -->
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Language
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
+                                    <li><a href="#">German</a></li>
+                                    <li><a href="#">French</a></li>
+                                    <li><a href="#">Italian</a></li>
+                                    <li><a href="#">Latvian</a></li>
+                                    <li><a href="#">Spanish</a></li>
+                                    <li><a href="#">Greek</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <!-- Dropdown -->
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Currency
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
+                                    <li><a href="#">Canadian Dollar</a></li>
+                                    <li><a href="#">Swiss Franc</a></li>
+                                    <li><a href="#">Chinese Yuan</a></li>
+                                    <li><a href="#">Australian Dollar</a></li>
+                                    <li><a href="#">Swedish Krona</a></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
-                    <ul>
-                        <li><a href="#">Fresh Meat</a></li>
-                        <li><a href="#">Vegetables</a></li>
-                        <li><a href="#">Fruit & Nut Gifts</a></li>
-                        <li><a href="#">Fresh Berries</a></li>
-                        <li><a href="#">Ocean Foods</a></li>
-                        <li><a href="#">Butter & Eggs</a></li>
-                        <li><a href="#">Fastfood</a></li>
-                        <li><a href="#">Fresh Onion</a></li>
-                        <li><a href="#">Papayaya & Crisps</a></li>
-                        <li><a href="#">Oatmeal</a></li>
-                        <li><a href="#">Fresh Bananas</a></li>
-                    </ul>
+                </div>
+                <div class="col col-md-5 col-lg-4 text-center">
+                    <p class="text-body2 mb-0 fs-xs fw-semibold font-theme d-none d-md-inline-block"><span class="text-theme">Free exress</span> international delevery + Easy returens</p>
+                </div>
+                <div class="col-sm-5 col-md-3 col-lg-4 text-center text-sm-end">
+                    <div class="social-header fs-xs">
+                        <span class="text-body2 fs-xs fw-semibold font-theme me-2">Social Network</span>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fal fa-basketball-ball"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-9">
-                <div class="hero__search">
-                    <div class="hero__search__form">
-                        <form action="#">
-                            <div class="hero__search__categories">
-                                All Categories
-                                <span class="arrow_carrot-down"></span>
-                            </div>
-                            <input type="text" placeholder="What do yo u need?">
-                            <button type="submit" class="site-btn">SEARCH</button>
+        </div>
+    </div>
+    <!--========================
+        Sticky Header
+    ========================-->
+    <div class="sticky-header-wrap sticky-header py-2 py-lg-1">
+        <div class="container position-relative">
+            <div class="row align-items-center">
+                <div class="col-5 col-md-3">
+                    <div class="logo">
+                        <a href="index.html"><img src="~/assets/img/logo.svg" alt="Foodano"></a>
+                    </div>
+                </div>
+                <div class="col-7 col-md-9 text-end position-static">
+                    <nav class="main-menu menu-sticky1 d-none d-lg-block link-inherit">
+                        <ul>
+                            <li class="menu-item-has-children">
+                                <a asp-controller="Home" asp-action="Index">Home</a>
+                                <ul class="sub-menu">
+                                    <li><a asp-controller="Home" asp-action="Index">Home Style 1</a></li>
+                                    <li><a href="index-2.html">Home Style 2</a></li>
+                                    <li><a href="index-3.html">Home Style 3</a></li>
+                                    <li><a href="index-4.html">Home Style 4</a></li>
+                                    <li><a href="index-5.html">Home Style 5</a></li>
+                                    <li><a href="index-6.html">Home Style 6</a></li>
+                                    <li><a href="index-7.html">Home Style 7</a></li>
+                                    <li><a href="index-8.html">Home Style 8</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="/home/shop">Shop</a>
+                                <ul class="sub-menu">
+                                    <li><a href="/home/shop">Shop</a></li>
+                                    <li><a href="shop-list.html">Shop List</a></li>
+                                    <li><a href="shop-details.html">Shop Details</a></li>
+                                    <li><a href="cart.html">Shopping Cart</a></li>
+                                    <li><a href="checkout.html">Check Out</a></li>
+                                    <li><a href="wishlist.html">Wishlist</a></li>
+                                    <li><a href="login-register.html">Login & Register</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="/home/blog">Blog</a>
+                                <ul class="sub-menu">
+                                    <li><a href="/home/blog">Blog</a></li>
+                                    <li><a href="blog-list.html">Blog List</a></li>
+                                    <li><a href="blog-grid.html">Blog Grid</a></li>
+                                    <li><a href="blog-grid-sidebar.html">Blog Grid Sidebar</a></li>
+                                    <li><a href="blog-masonry.html">Blog Masonry</a></li>
+                                    <li><a href="blog-details.html">Blog Details</a></li>
+                                </ul>
+                            </li>
+                            <li class="mega-menu-wrap menu-item-has-children">
+                                <a href="#">Pages</a>
+                                <ul class="mega-menu">
+                                    <li>
+                                        <a href="shop.html">Pagelist 1</a>
+                                        <ul>
+                                            <li><a href="index.html">Home Style 1</a></li>
+                                            <li><a href="index-2.html">Home Style 2</a></li>
+                                            <li><a href="index-3.html">Home Style 3</a></li>
+                                            <li><a href="index-4.html">Home Style 4</a></li>
+                                            <li><a href="index-5.html">Home Style 5</a></li>
+                                            <li><a href="index-6.html">Home Style 6</a></li>
+                                            <li><a href="index-7.html">Home Style 7</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Pagelist 2</a>
+                                        <ul>
+                                            <li><a href="index-8.html">Home Style 8</a></li>
+                                            <li><a href="about.html">About</a></li>
+                                            <li><a href="service.html">Services</a></li>
+                                            <li><a href="team.html">Team</a></li>
+                                            <li><a href="faq.html">FAQ Page</a></li>
+                                            <li><a href="contact.html">Contact Us</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Pagelist 3</a>
+                                        <ul>
+                                            <li><a href="blog.html">Blog</a></li>
+                                            <li><a href="blog-list.html">Blog List</a></li>
+                                            <li><a href="blog-grid.html">Blog Grid</a></li>
+                                            <li><a href="blog-grid-sidebar.html">Blog Grid Sidebar</a></li>
+                                            <li><a href="blog-masonry.html">Blog Masonry</a></li>
+                                            <li><a href="blog-details.html">Blog Details</a></li>
+                                            <li><a href="error.html">Error Page</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Pagelist 4</a>
+                                        <ul>
+                                            <li><a href="shop.html">Shop</a></li>
+                                            <li><a href="shop-list.html">Shop List</a></li>
+                                            <li><a href="shop-details.html">Shop Details</a></li>
+                                            <li><a href="cart.html">Shopping Cart</a></li>
+                                            <li><a href="checkout.html">Check Out</a></li>
+                                            <li><a href="wishlist.html">Wishlist</a></li>
+                                            <li><a href="login-register.html">Login / Register</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="/home/contact">Contact Us</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <button class="vs-menu-toggle d-inline-block d-lg-none"><i class="far fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--==============================
+      Mobile Menu
+    ============================== -->
+    <div class="vs-menu-wrapper">
+        <div class="vs-menu-area">
+            <button class="vs-menu-toggle"><i class="fal fa-times"></i></button>
+            <div class="mobile-logo">
+                <a href="index.html"><img src="~/assets/img/logo.svg" alt="Foodano"></a>
+            </div>
+            <div class="vs-mobile-menu link-inherit"></div><!-- Menu Will Append With Javascript -->
+        </div>
+    </div>
+    <!--==============================
+        Sidemenu
+    ============================== -->
+    <div class="sidemenu-wrapper d-none d-lg-block  ">
+        <div class="sidemenu-content">
+            <button class="closeButton border-theme text-theme bg-theme-hover sideMenuCls"><i class="far fa-times"></i></button>
+            <div class="widget widget_shopping_cart">
+                <h3 class="widget_title">Shopping cart</h3>
+                <div class="widget_shopping_cart_content">
+                    <ul class="cart_list ">
+                        <li class="mini_cart_item">
+                            <a href="shop.html" class="remove"><i class="fal fa-trash-alt"></i></a>
+                            <a href="shop.html"><img src="~/assets/img/cart/cart-img-1-1.jpg" alt="Cart Image">Hot Burger</a>
+                            <span class="quantity">
+                                1 ×
+                                <span class="amount">
+                                    <span>$</span>40.00
+                                </span>
+                            </span>
+                        </li>
+                        <li class="mini_cart_item">
+                            <a href="shop.html" class="remove"><i class="fal fa-trash-alt"></i></a>
+                            <a href="shop.html"><img src="~/assets/img/cart/cart-img-1-2.jpg" alt="Cart Image">Vegetable</a>
+                            <span class="quantity">
+                                1 ×
+                                <span class="amount">
+                                    <span>$</span>99.00
+                                </span>
+                            </span>
+                        </li>
+
+                        <li class="mini_cart_item">
+                            <a href="shop.html" class="remove"><i class="fal fa-trash-alt"></i></a>
+                            <a href="shop.html"><img src="~/assets/img/cart/cart-img-1-3.jpg" alt="Cart Image">Pop Pizza</a>
+                            <span class="quantity">
+                                1 ×
+                                <span class="amount">
+                                    <span>$</span>56.00
+                                </span>
+                            </span>
+                        </li>
+                        <li class="mini_cart_item">
+                            <a href="shop.html" class="remove"><i class="fal fa-trash-alt"></i></a>
+                            <a href="shop.html"><img src="~/assets/img/cart/cart-img-1-4.jpg" alt="Cart Image">Onion & Tomato</a>
+                            <span class="quantity">
+                                1 ×
+                                <span class="amount">
+                                    <span>$</span>23.00
+                                </span>
+                            </span>
+                        </li>
+                        <li class="mini_cart_item">
+                            <a href="shop.html" class="remove"><i class="fal fa-trash-alt"></i></a>
+                            <a href="shop.html"><img src="~/assets/img/cart/cart-img-1-5.jpg" alt="Cart Image">Cool Drinks</a>
+                            <span class="quantity">
+                                1 ×
+                                <span class="amount">
+                                    <span>$</span>100.00
+                                </span>
+                            </span>
+                        </li>
+                    </ul>
+                    <p class="total">
+                        <strong>Subtotal:</strong>
+                        <span class="amount">
+                            <span>$</span>318.00
+                        </span>
+                    </p>
+                    <p class="buttons">
+                        <a href="cart.html" class="vs-btn">View cart</a>
+                        <a href="checkout.html" class="vs-btn">Checkout</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--==============================
+        Header Area
+    ==============================-->
+    <header class="header-wrapper header-layout3 header3-margin ">
+        <div class="container py-30">
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <div class="header-logo">
+                        <a href="index.html"><img src="~/assets/img/logo.svg" alt="Foodano"></a>
+                    </div>
+                </div>
+                <div class="col-6 text-end">
+                    <button type="button" class="vs-menu-toggle d-inline-block d-lg-none"><i class="far fa-bars"></i></button>
+                    <div class="head-top-links text-body2 d-none d-lg-block">
+                        <a href="wishlist.html" class="icon-btn has-badge bg3 me-3"><i class="fal fa-heart"></i><span class="badge">0</span></a>
+                        <a href="#" class="icon-btn has-badge bg2 me-4 sideMenuToggler"><i class="fal fa-shopping-cart"></i><span class="badge">0</span></a>
+                        <span class="icon-btn bg4"><i class="fal fa-user"></i></span>
+                        <ul>
+                            <li><a href="login-register.html">Login</a></li>
+                            <li><a href="login-register.html">Register</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container d-none d-lg-block">
+            <div class="header3-inner position-relative">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-xl-7">
+                        <nav class="main-menu menu-style1 mobile-menu-active menu-style2">
+                            <ul>
+                                <li class="menu-item-has-children">
+                                    <a asp-controller="Home" asp-action="Index">Home</a>
+                                    <ul class="sub-menu">
+                                        <li><a asp-controller="Home" asp-action="Index">Home Style 1</a></li>
+                                        <li><a href="index-2.html">Home Style 2</a></li>
+                                        <li><a href="index-3.html">Home Style 3</a></li>
+                                        <li><a href="index-4.html">Home Style 4</a></li>
+                                        <li><a href="index-5.html">Home Style 5</a></li>
+                                        <li><a href="index-6.html">Home Style 6</a></li>
+                                        <li><a href="index-7.html">Home Style 7</a></li>
+                                        <li><a href="index-8.html">Home Style 8</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="/home/shop">Shop</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="/home/shop">Shop</a></li>
+                                        <li><a href="shop-list.html">Shop List</a></li>
+                                        <li><a href="shop-details.html">Shop Details</a></li>
+                                        <li><a href="cart.html">Shopping Cart</a></li>
+                                        <li><a href="checkout.html">Check Out</a></li>
+                                        <li><a href="wishlist.html">Wishlist</a></li>
+                                        <li><a href="login-register.html">Login & Register</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="/home/blog">Blog</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="/home/blog">Blog</a></li>
+                                        <li><a href="blog-list.html">Blog List</a></li>
+                                        <li><a href="blog-grid.html">Blog Grid</a></li>
+                                        <li><a href="blog-grid-sidebar.html">Blog Grid Sidebar</a></li>
+                                        <li><a href="blog-masonry.html">Blog Masonry</a></li>
+                                        <li><a href="blog-details.html">Blog Details</a></li>
+                                    </ul>
+                                </li>
+                                <li class="mega-menu-wrap menu-item-has-children">
+                                    <a href="#">Pages</a>
+                                    <ul class="mega-menu">
+                                        <li>
+                                            <a href="shop.html">Pagelist 1</a>
+                                            <ul>
+                                                <li><a href="index.html">Home Style 1</a></li>
+                                                <li><a href="index-2.html">Home Style 2</a></li>
+                                                <li><a href="index-3.html">Home Style 3</a></li>
+                                                <li><a href="index-4.html">Home Style 4</a></li>
+                                                <li><a href="index-5.html">Home Style 5</a></li>
+                                                <li><a href="index-6.html">Home Style 6</a></li>
+                                                <li><a href="index-7.html">Home Style 7</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">Pagelist 2</a>
+                                            <ul>
+                                                <li><a href="index-8.html">Home Style 8</a></li>
+                                                <li><a href="about.html">About</a></li>
+                                                <li><a href="service.html">Services</a></li>
+                                                <li><a href="team.html">Team</a></li>
+                                                <li><a href="faq.html">FAQ Page</a></li>
+                                                <li><a href="contact.html">Contact Us</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">Pagelist 3</a>
+                                            <ul>
+                                                <li><a href="blog.html">Blog</a></li>
+                                                <li><a href="blog-list.html">Blog List</a></li>
+                                                <li><a href="blog-grid.html">Blog Grid</a></li>
+                                                <li><a href="blog-grid-sidebar.html">Blog Grid Sidebar</a></li>
+                                                <li><a href="blog-masonry.html">Blog Masonry</a></li>
+                                                <li><a href="blog-details.html">Blog Details</a></li>
+                                                <li><a href="error.html">Error Page</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">Pagelist 4</a>
+                                            <ul>
+                                                <li><a href="shop.html">Shop</a></li>
+                                                <li><a href="shop-list.html">Shop List</a></li>
+                                                <li><a href="shop-details.html">Shop Details</a></li>
+                                                <li><a href="cart.html">Shopping Cart</a></li>
+                                                <li><a href="checkout.html">Check Out</a></li>
+                                                <li><a href="wishlist.html">Wishlist</a></li>
+                                                <li><a href="login-register.html">Login / Register</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/home/contact">Contact Us</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-lg-6 col-xl-5">
+                        <form action="#" class="header-search">
+                            <input type="text" placeholder="Search your product" class="form-control">
+                            <button type="submit" class="vs-btn">Search</button>
                         </form>
                     </div>
-                    <div class="hero__search__phone">
-                        <div class="hero__search__phone__icon">
-                            <i class="fa fa-phone"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--==============================
+        Breadcumb
+    ============================== -->
+    <div class="breadcumb-wrapper breadcumb-layout1 bg-fluid pt-200 pb-200" data-bg-src="~/assets/img/breadcumb/breadcumb-img-1.jpg">
+        <div class="container">
+            <div class="breadcumb-content text-center">
+                <h1 class="breadcumb-title">Contact Us</h1>
+                <ul class="breadcumb-menu-style1 mx-auto">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active">Contact</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--==============================
+      Contact Form Area
+    ==============================-->
+    <section class="vs-contact-wrapper vs-contact-layout1 space-top space-md-bottom">
+        <div class="container">
+            <div class="row text-center text-lg-start">
+                <div class="col-lg-6 ">
+                    <div class="section-title mb-25">
+                        <h2 class="sec-title1">Address</h2>
+                        <h3 class="sec-title2">Information</h3>
+                        <img src="~/assets/img/icons/sec-icon-1.png" alt="Section Image">
+                        <p class=" fs-md mt-4 pt-1">Donec sed laoreet odio. Quisque sollicitudin vestibulum ultrices. Nulla pellentesque odio eget urna venenatis, ac maximus diam auctor. Phasellus aliquam neque non sodales lacinia.</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h4>Colourbar U.S.A</h4>
+                            <p class="mb-0 fw-semibold">Dhaka In Twin Tower Concord Shopping Complex</p>
+                            <p class="mb-0 fw-semibold">Open Closes 8:30PM</p>
+                            <p class="mb-0 fw-semibold">yourinfo@example.com</p>
+                            <p class="mb-0 fw-semibold">(1200)-0989-568-331</p>
                         </div>
-                        <div class="hero__search__phone__text">
-                            <h5>+65 11.188.888</h5>
-                            <span>support 24/7 time</span>
+                        <div class="col-sm-6 mb-20">
+                            <h4>Frankfurt D.E</h4>
+                            <p class="mb-0 fw-semibold">Bayreuther Strasse 42 Protective Service Occupations</p>
+                            <p class="mb-0 fw-semibold">Open Closes 8:30PM</p>
+                            <p class="mb-0 fw-semibold">yourinfo@example.com</p>
+                            <p class="mb-0 fw-semibold">(1200)-0989-568-331</p>
                         </div>
+                        <div class="col-sm-6">
+                            <h4>Uusimaa ESPOO</h4>
+                            <p class="mb-0 fw-semibold">Snellmaninkatu 33 02720 Shopping Complex</p>
+                            <p class="mb-0 fw-semibold">Open Closes 8:30PM</p>
+                            <p class="mb-0 fw-semibold">yourinfo@example.com</p>
+                            <p class="mb-0 fw-semibold">(1200)-0989-568-331</p>
+                        </div>
+                        <div class="col-sm-6 mb-20">
+                            <h4>Queensland U.S.A</h4>
+                            <p class="mb-0 fw-semibold">35 Ocean Pde sollicitudin Protective Service Occupations</p>
+                            <p class="mb-0 fw-semibold">Open Closes 8:30PM</p>
+                            <p class="mb-0 fw-semibold">yourinfo@example.com</p>
+                            <p class="mb-0 fw-semibold">(1200)-0989-568-331</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-30 mt-lg-0">
+                    <div class="section-title mb-25">
+                        <h2 class="sec-title1">Get In Touch</h2>
+                        <h3 class="sec-title2">Inform Us</h3>
+                        <img src="~/assets/img/icons/sec-icon-1.png" alt="Section Image">
+                        <p class="fs-md mt-4 pt-1">Donec sed laoreet odio. Quisque sollicitudin vestibulum ultrices. Nulla pellentesque odio eget urna venenatis, ac maximus diam auctor. Phasellus aliquam neque non sodales lacinia.</p>
+                    </div>
+                    <form action="mail.php" method="POST" class="contact-form contact-form1 mb-30">
+                        <div class="row g-4">
+                            <div class="col-12 form-group mb-0">
+                                <input type="text" name="name" class="form-control" placeholder="Your Name">
+                            </div>
+                            <div class="col-lg-6 form-group mb-0">
+                                <input type="text" name="email" class="form-control" placeholder="Your Email">
+                            </div>
+                            <div class="col-lg-6 form-group mb-0">
+                                <input type="text" name="subject" class="form-control" placeholder="Your Subject">
+                            </div>
+                            <div class="col-12 form-group mb-0">
+                                <textarea class="form-control" name="message" placeholder="Your Message"></textarea>
+                            </div>
+                            <div class="col-12 form-group mb-0">
+                                <button type="submit" class="vs-btn ">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                    <p class="form-messages mt-20 mb-0"></p>
+                </div>
+                <div class="col-12 my-30">
+                    <div class="ratio ratio-21x9">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.5500892316695!2d106.79198281519145!3d10.845701660875969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317527158a0a5b81%3A0xf45c5d34ac580517!2zUGjDom4gaGnhu4d1IFRyxrDhu51uZyDEkOG6oWkgaOG7jWMgR1RWVCB04bqhaSBUcC4gSOG7kyBDaMOtIE1pbmg!5e0!3m2!1svi!2s!4v1669199469683!5m2!1svi!2s" style="border:0;" allowfullscreen="" aria-hidden="false"></iframe>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- Hero Section End -->
-<!-- Breadcrumb Section Begin -->
-<section class="breadcrumb-section set-bg" data-setbg="/img/imgTitle.png">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <div class="breadcrumb__text">
-                    <h2>Thông tin liên hệ</h2>
-                    <div class="breadcrumb__option">
-                        <a href="/home/index">Trang chủ</a>
-                        <span>Thông tin liên hệ</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Breadcrumb Section End -->
-<!-- Contact Section Begin -->
-<section class="contact spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                <div class="contact__widget">
-                    <span class="icon_phone"></span>
-                    <h4>Phone</h4>
-                    <p>+84 6666 8888</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                <div class="contact__widget">
-                    <span class="icon_pin_alt"></span>
-                    <h4>Address</h4>
-                    <p>450-451 Le Van Viet,Tang Nhon Phu A,Thu Duc Distric</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                <div class="contact__widget">
-                    <span class="icon_clock_alt"></span>
-                    <h4>Open time</h4>
-                    <p>07:00 am to 23:00 pm</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                <div class="contact__widget">
-                    <span class="icon_mail_alt"></span>
-                    <h4>Email</h4>
-                    <p>utc2.edu.vn</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Contact Section End -->
-<!-- Map Begin -->
-<div class="map">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.5500892316695!2d106.79198281519145!3d10.845701660875969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317527158a0a5b81%3A0xf45c5d34ac580517!2zUGjDom4gaGnhu4d1IFRyxrDhu51uZyDEkOG6oWkgaOG7jWMgR1RWVCB04bqhaSBUcC4gSOG7kyBDaMOtIE1pbmg!5e0!3m2!1svi!2s!4v1669199469683!5m2!1svi!2s"
-            height="500" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-    <div class="map-inside">
-        <i class="icon_pin"></i>
-        <div class="inside-widget">
-            <h4>UTC2</h4>
-            <ul>
-                <li>Phone: +12-345-6789</li>
-                <li>Add: 450-451 Le Van Viet,Tang Nhon Phu A,Thu Duc Distric</li>
-            </ul>
-        </div>
-    </div>
-</div>
-<!-- Map End -->
-<!-- Contact Form Begin -->
-<div class="contact-form spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="contact__form__title">
-                    <h2>Leave Message</h2>
-                </div>
-            </div>
-        </div>
-        <form action="#">
-            <div class="row">
-                <div class="col-lg-6 col-md-6">
-                    <input type="text" placeholder="Your name">
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <input type="text" placeholder="Your Email">
-                </div>
-                <div class="col-lg-12 text-center">
-                    <textarea placeholder="Your message"></textarea>
-                    <button type="submit" class="site-btn">SEND MESSAGE</button>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
-<!-- Contact Form End -->
-<!-- Footer Section Begin -->
-<!-- Footer Section End -->
-<!-- Js Plugins -->
-<script src="/js/jquery-3.3.1.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="js/jquery.nice-select.min.js"></script>
-<script src="/js/jquery-ui.min.js"></script>
-<script src="/js/jquery.slicknav.js"></script>
-<script src="/js/mixitup.min.js"></script>
-<script src="/js/owl.carousel.min.js"></script>
-<script src="/js/main.js"></script>
-
+    </section>
+</body>

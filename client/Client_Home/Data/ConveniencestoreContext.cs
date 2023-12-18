@@ -37,7 +37,7 @@ public partial class ConveniencestoreContext : DbContext
 
     public virtual DbSet<InvoiceDetail> InvoiceDetails { get; set; }
 
-    public virtual DbSet<Order> Orders { get; set; }
+    public virtual DbSet<Orders> Orders { get; set; }
 
     public virtual DbSet<OrderDetail> OrderDetails { get; set; }
 
@@ -67,7 +67,7 @@ public partial class ConveniencestoreContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=DESKTOP-BVECHRQ\\PHUHUYIT;Initial Catalog=CONVENIENCESTORE;Integrated Security=True; TrustServerCertificate=True");
+        => optionsBuilder.UseSqlServer("server=THANHNAM\\MSSQLSERVER02;database=CONVENIENCESTORE;Encrypt=False;Integrated Security=true;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -275,7 +275,7 @@ public partial class ConveniencestoreContext : DbContext
                 .HasConstraintName("FK__InvoiceDe__produ__662B2B3B");
         });
 
-        modelBuilder.Entity<Order>(entity =>
+        modelBuilder.Entity<Orders>(entity =>
         {
             entity.HasKey(e => e.OrderId).HasName("PK__Orders__C3905BAFD0BC4AE7");
 
@@ -330,6 +330,8 @@ public partial class ConveniencestoreContext : DbContext
         modelBuilder.Entity<Product>(entity =>
         {
             entity.HasKey(e => e.ProductId).HasName("PK__Products__B40CC6ED2EBDBC5C");
+
+            entity.ToTable(tb => tb.HasTrigger("Update_DiscountPrice"));
 
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
             entity.Property(e => e.Active)
@@ -673,8 +675,20 @@ public partial class ConveniencestoreContext : DbContext
                 .HasConstraintName("FK__ACCOUNTS__ROLEID__74AE54BC");
         });
 
+        modelBuilder.Entity<ProblemCustomer>(entity =>
+        {
+            entity.HasKey(e => e.ProblemId);
+
+            entity.ToTable("ProblemCustomer", tb => tb.HasTrigger("SetDefaultStatus"));
+
+            entity.Property(e => e.ProblemId).HasColumnName("ProblemID");
+            entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
+        });
+
         OnModelCreatingPartial(modelBuilder);
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+    public DbSet<Client_Home.Models.ProblemCustomer> ProblemCustomer { get; set; } = default!;
 }

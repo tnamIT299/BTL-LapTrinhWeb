@@ -7,8 +7,6 @@
     Layout = "~/Views/Shared/_Layout_Shop.cshtml";
 }
 
-
-
 <body class=" ">
 
 
@@ -25,7 +23,7 @@
         <button class="vs-btn preloaderCls">Cancel Preloader </button>
         <div class="preloader-inner">
             <div class="loader-logo">
-                <img src="assets/img/logo.svg" alt="Foodano">
+                <img src="~/assets/img/logo.svg" alt="Foodano">
             </div>
             <div class="loader-wrap pt-4">
                 <span class="loader"></span>
@@ -44,16 +42,16 @@
             <div class="row align-items-center">
                 <div class="col-5 col-md-3">
                     <div class="logo">
-                        <a href="index.html"><img src="assets/img/logo.svg" alt="Foodano"></a>
+                        <a href="index.html"><img src="~/assets/img/logo.svg" alt="Foodano"></a>
                     </div>
                 </div>
                 <div class="col-7 col-md-9 text-end position-static">
                     <nav class="main-menu menu-sticky1 d-none d-lg-block link-inherit">
                         <ul>
                             <li class="menu-item-has-children">
-                                <a href="index.html">Home</a>
+                                <a asp-controller="Home" asp-action="Index">Home</a>
                                 <ul class="sub-menu">
-                                    <li><a href="index.html">Home Style 1</a></li>
+                                    <li><a asp-controller="Home" asp-action="Index">Home Style 1</a></li>
                                     <li><a href="index-2.html">Home Style 2</a></li>
                                     <li><a href="index-3.html">Home Style 3</a></li>
                                     <li><a href="index-4.html">Home Style 4</a></li>
@@ -64,9 +62,9 @@
                                 </ul>
                             </li>
                             <li class="menu-item-has-children">
-                                <a href="shop.html">Shop</a>
+                                <a href="/home/shop">Shop</a>
                                 <ul class="sub-menu">
-                                    <li><a href="shop.html">Shop</a></li>
+                                    <li><a href="/home/shop">Shop</a></li>
                                     <li><a href="shop-list.html">Shop List</a></li>
                                     <li><a href="shop-details.html">Shop Details</a></li>
                                     <li><a href="cart.html">Shopping Cart</a></li>
@@ -76,9 +74,9 @@
                                 </ul>
                             </li>
                             <li class="menu-item-has-children">
-                                <a href="blog.html">Blog</a>
+                                <a href="/home/blog">Blog</a>
                                 <ul class="sub-menu">
-                                    <li><a href="blog.html">Blog</a></li>
+                                    <li><a href="/home/blog">Blog</a></li>
                                     <li><a href="blog-list.html">Blog List</a></li>
                                     <li><a href="blog-grid.html">Blog Grid</a></li>
                                     <li><a href="blog-grid-sidebar.html">Blog Grid Sidebar</a></li>
@@ -139,7 +137,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="contact.html">Contact Us</a>
+                                <a href="/home/contact">Contact Us</a>
                             </li>
                         </ul>
                     </nav>
@@ -244,7 +242,7 @@
             <div class="row align-items-center">
                 <div class="col-6">
                     <div class="header-logo">
-                        <a href="index.html"><img src="assets/img/logo.svg" alt="Foodano"></a>
+                        <a href="/home/index"><img src="~/assets/img/logo.svg" alt="Foodano"></a>
                     </div>
                 </div>
                 <div class="col-6 text-end">
@@ -268,9 +266,9 @@
                         <nav class="main-menu menu-style1 mobile-menu-active menu-style2">
                             <ul>
                                 <li class="menu-item-has-children">
-                                    <a href="index.html">Home</a>
+                                    <a asp-controller="Home" asp-action="Index">Home</a>
                                     <ul class="sub-menu">
-                                        <li><a href="index.html">Home Style 1</a></li>
+                                        <li><a asp-controller="Home" asp-action="Index">Home Style 1</a></li>
                                         <li><a href="index-2.html">Home Style 2</a></li>
                                         <li><a href="index-3.html">Home Style 3</a></li>
                                         <li><a href="index-4.html">Home Style 4</a></li>
@@ -281,9 +279,9 @@
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="shop.html">Shop</a>
+                                    <a href="/home/shop">Shop</a>
                                     <ul class="sub-menu">
-                                        <li><a href="shop.html">Shop</a></li>
+                                        <li><a href="/home/shop">Shop</a></li>
                                         <li><a href="shop-list.html">Shop List</a></li>
                                         <li><a href="shop-details.html">Shop Details</a></li>
                                         <li><a href="cart.html">Shopping Cart</a></li>
@@ -293,9 +291,9 @@
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="blog.html">Blog</a>
+                                    <a href="/home/blog">Blog</a>
                                     <ul class="sub-menu">
-                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="/home/blog">Blog</a></li>
                                         <li><a href="blog-list.html">Blog List</a></li>
                                         <li><a href="blog-grid.html">Blog Grid</a></li>
                                         <li><a href="blog-grid-sidebar.html">Blog Grid Sidebar</a></li>
@@ -356,7 +354,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="contact.html">Contact Us</a>
+                                    <a href="/home/contact">Contact Us</a>
                                 </li>
                             </ul>
                         </nav>
@@ -436,9 +434,9 @@
                                     {
                                         <div class="col-sm-6 col-xl-4">
                                             <div class="vs-product-box1 thumb_swap">
-                                                <div class="product-tag1">sale</div>
+                                                <div class="product-tag1">Sale - @item.Discount%</div>
                                                 <div class="product-img">
-                                                    <a href="shop-details.html"><img src="assets/img/shop/product-1-1.png" alt="Product Image" class="w-100"></a>
+                                                    <a href="shop-details.html"><img src="@Url.Content("~/adminassets/images/others/" + item.ThumbnailUrl)" alt="Product Image" class="w-100"></a>
                                                     <a href="shop-details.html"><img src="assets/img/shop/product-1-8.png" alt="Product Image" class="w-100 img_swap"></a>
                                                 </div>
                                                 <div class="product-content">
@@ -448,7 +446,8 @@
                                                         <a href="wishlist.html"><i class="fal fa-heart"></i></a>
                                                     </div>
                                                     <h4 class="product-title h5 mb-0"><a href="shop-details.html"> @item.Name</a></h4>
-                                                    <span class="price font-theme"><strong>$40.00</strong></span>
+                                                    <span class="price font-theme" style="font-size: 17px;"><strong style="text-decoration: line-through;">đ @item.SellPrice</strong></span>
+                                                    <span class="price font-theme" style="font-size: 25px;color: black;"><strong>đ @item.DiscountPrice</strong></span>
                                                     <p class="m-0 rating fs-xs text-theme lh-base">
                                                         <i class="fas fa-star"></i>
                                                         <i class="fas fa-star"></i>
@@ -666,8 +665,6 @@
 
                         @await Component.InvokeAsync("LoaiSPMenu")
                        
-
-
                         <div class="widget widget_categories   ">
                             <h3 class="widget_title">Categories</h3>
                             <ul>

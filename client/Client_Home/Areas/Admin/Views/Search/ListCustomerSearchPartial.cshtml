@@ -7,6 +7,12 @@
     <thead>
         <tr>
             <th>
+                <div class="checkbox">
+                    <input id="checkAll" type="checkbox">
+                    <label for="checkAll" class="m-b-0"></label>
+                </div>
+            </th>
+            <th>
                 Tên
             </th>
             <th>
@@ -38,6 +44,12 @@
                 @foreach (var item in Model.Items)
                 {
                 <tr>
+                    <td>
+                        <div class="checkbox">
+                            <input id="@("check-item-" + item.CustomerId)" type="checkbox">
+                            <label for="@("check-item-" + item.CustomerId)" class="m-b-0"></label>
+                        </div>
+                    </td>
                     <td>
                             @Html.DisplayFor(modelItem => item.LastName)
                     </td>
@@ -84,16 +96,4 @@
         </tr>
     </tbody>
 </table>
-<div aria-label="Page navigation example" style="display:flex; justify-content:center">
-    <ul class="pagination">
-        @if (Model.TotalPages > 1)
-        {
-            @for (int i = 1; i <= Model.TotalPages; i++)
-            {
-                <li class="page-item">
-                    <a class="page-link" onclick="performAjaxRequest(@i)">@i</a>
-                </li>
-            }
-        }
-    </ul>
-</div>
+@Html.Partial("//Areas//Admin//Views//Search//PaginationPartialView.cshtml");

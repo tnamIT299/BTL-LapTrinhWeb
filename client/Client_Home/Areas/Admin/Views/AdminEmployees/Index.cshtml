@@ -34,68 +34,43 @@
             }
 </style>
 
-<h1>Index</h1>
+<div class="main-content" id="main-content-Employees">
+    <h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<div class="m-b-10 m-r-15">
-    <input id="keyword" type="text" name="keyword" class="form-control" placeholder="Tìm kiếm nhân viên" />
-</div>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <div class="m-b-10 m-r-15">
+        <input id="keyword" type="text" name="keyword" class="form-control" placeholder="Tìm kiếm nhân viên" />
+    </div>
 
-<div class="table-responsive" id="records_table">
+    <div class="table-responsive" id="records_table">
+    </div>
 </div>
 
 @section Scripts{
 
     <script>
-        $(document).ready(function () {
-            $('.pagination-container a').on('click', function (e) {
-                e.preventDefault(); // Prevent the default navigation behavior
+        function performAjaxRequest(pageNumber) {
 
-                // Extract the page number from the clicked link
-                var pageNumber = $(this).text();
-
-                // Perform your custom action with the page number
-                alert('User clicked on page ' + pageNumber);
-
-                $.ajax({
-                    url: '/Admin/AdminEmployees/Index',
-                    datatype: "json",
-                    type: "POST",
-                    data: { page: pageNumber, keyword:'aa' },
-                    async: true,
-                    success: function (result) {
-                        $("#records_table").html("");
-                        $("#records_table").html(result);
-                    },
-                    error: function (xhr) {
-                        alert('error');
-                    }
-                });
+            // Extract the page number from the clicked link
+            var strKeyword = $('#keyword').val();
+            // Perform your custom action with the page number
+            $.ajax({
+                url: '/Admin/Search/FindEmployee',
+                datatype: "json",
+                type: "POST",
+                data: { page: pageNumber, keyword: strKeyword },
+                async: true,
+                success: function (result) {
+                    $("#records_table").html("");
+                    $("#records_table").html(result);
+                    addEvents();
+                },
+                error: function (xhr) {
+                    alert('error');
+                }
             });
-            var originalData = $("#records_table").html();
-            $("#keyword").keyup(function () {
-                var strkeyword = $('#keyword').val();
-                $.ajax({
-                    url: '/Admin/Search/FindEmployee',
-                    datatype: "json",
-                    type: "POST",
-                    data: { keyword: strkeyword },
-                    async: true,
-                    success: function (result) {
-                        if ($('#keyword').val() == '') {
-                            console.log("hello");
-                            return originalData;
-                        }
-                        $("#records_table").html("");
-                        $("#records_table").html(result);
-                    },
-                    error: function (xhr) {
-                        alert('error');
-                    }
-                });
-            });
-        });
+        }
     </script>
 }

@@ -2,6 +2,6 @@
 {
     public class DeleteMulti
     {
-        public List<int> ProductIds { get; set; }
+        public List<int> itemIds { get; set; }
     }
 }

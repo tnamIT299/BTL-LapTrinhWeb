@@ -2646,3 +2646,4 @@ D:\Laptrinhtrucquan_Web\btl\client\Client_Home\bin\Debug\net7.0\runtimes\win\lib
 D:\Laptrinhtrucquan_Web\btl\client\Client_Home\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Diagnostics.PerformanceCounter.dll
 D:\Laptrinhtrucquan_Web\btl\client\Client_Home\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 D:\Laptrinhtrucquan_Web\btl\client\Client_Home\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Security.Cryptography.Pkcs.dll
+D:\Laptrinhtrucquan_Web\btl\client\Client_Home\bin\Debug\net7.0\appsettings.json

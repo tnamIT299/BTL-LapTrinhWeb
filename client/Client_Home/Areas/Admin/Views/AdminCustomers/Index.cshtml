@@ -6,7 +6,7 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="main-content">
+<div class="main-content" id="main-content-Customers">
     <div class="page-header">
         <h2 class="header-title">Quản lý khách hàng</h2>
         <div class="header-sub-title">
@@ -58,29 +58,26 @@
 @section Scripts{
 
 <script>
-    $(document).ready(function () {
-        var originalData = $("#records_table").html();
-        $("#keyword").keyup(function () {
-            var strkeyword = $('#keyword').val();
+        function performAjaxRequest(pageNumber) {
+
+            // Extract the page number from the clicked link
+            var strKeyword = $('#keyword').val();
+            // Perform your custom action with the page number
             $.ajax({
                 url: '/Admin/Search/FindCustomer',
                 datatype: "json",
                 type: "POST",
-                data: { keyword: strkeyword },
+                data: { page: pageNumber, keyword: strKeyword },
                 async: true,
                 success: function (result) {
-                    if ($('#keyword').val() == '') {
-                        console.log("hello");
-                        return originalData;
-                    }
                     $("#records_table").html("");
                     $("#records_table").html(result);
+                    addEvents();
                 },
                 error: function (xhr) {
                     alert('error');
                 }
             });
-        });
-    });
+        }
 </script>
 }

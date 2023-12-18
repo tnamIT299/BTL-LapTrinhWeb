@@ -41,7 +41,14 @@
                 @Html.DisplayFor(modelItem => item.Message)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Status)
+                    @if (item.Status == 0)
+                    {
+                        <span style="color: red;">Chưa giải quyết</span>
+                    }
+                    else if (item.Status == 1)
+                    {
+                        <span style="color: green;">Đã giải quyết</span>
+                    }
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ProblemId">Edit</a> |

@@ -3601,6 +3601,18 @@
       "PackagePath": "staticwebassets\\assets\\img\\bg\\shop-bg-1.png"
     },
     {
+      "Id": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\blog\\blog-1.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\blog-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\blog\\blog-2.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\blog-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\blog\\blog-3.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\blog-3.jpg"
+    },
+    {
       "Id": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\blog\\blog-4-1.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\blog\\blog-4-1.jpg"
     },
@@ -3615,6 +3627,10 @@
     {
       "Id": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\blog\\blog-4-4.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\blog\\blog-4-4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\blog\\blog-4.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\blog-4.jpg"
     },
     {
       "Id": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\blog\\blog-5-1.jpg",
@@ -3633,6 +3649,10 @@
       "PackagePath": "staticwebassets\\assets\\img\\blog\\blog-5-4.jpg"
     },
     {
+      "Id": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\blog\\blog-5.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\blog-5.jpg"
+    },
+    {
       "Id": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\blog\\blog-6-1.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\blog\\blog-6-1.jpg"
     },
@@ -3643,6 +3663,10 @@
     {
       "Id": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\blog\\blog-6-3.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\blog\\blog-6-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\blog\\blog-6.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\blog-6.jpg"
     },
     {
       "Id": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\blog\\blog-auth-1-1.jpg",

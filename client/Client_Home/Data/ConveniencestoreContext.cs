@@ -37,7 +37,7 @@ public partial class ConveniencestoreContext : DbContext
 
     public virtual DbSet<InvoiceDetail> InvoiceDetails { get; set; }
 
-    public virtual DbSet<Order> Orders { get; set; }
+    public virtual DbSet<Orders> Orders { get; set; }
 
     public virtual DbSet<OrderDetail> OrderDetails { get; set; }
 
@@ -275,7 +275,7 @@ public partial class ConveniencestoreContext : DbContext
                 .HasConstraintName("FK__InvoiceDe__produ__662B2B3B");
         });
 
-        modelBuilder.Entity<Order>(entity =>
+        modelBuilder.Entity<Orders>(entity =>
         {
             entity.HasKey(e => e.OrderId).HasName("PK__Orders__C3905BAFD0BC4AE7");
 
@@ -679,4 +679,6 @@ public partial class ConveniencestoreContext : DbContext
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+    public DbSet<Client_Home.Models.ProblemCustomer> ProblemCustomer { get; set; } = default!;
 }

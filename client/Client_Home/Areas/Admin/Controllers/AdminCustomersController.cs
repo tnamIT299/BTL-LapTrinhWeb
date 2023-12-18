@@ -242,44 +242,80 @@ namespace Client_Home.Areas.Admin.Controllers
             }
         }
         [HttpPost("/Admin/AdminCustomers/DeleteMultiple")]
-        public async Task<IActionResult> DeleteMultiple([FromBody] DeleteMulti listIds)
+        public async Task<IActionResult> DeleteMultipleCustomers([FromBody] DeleteMulti listIds)
         {
-
             try
             {
                 if (_context.Customers == null)
                 {
                     return Problem("Entity set 'ConveniencestoreContext.Customers' is null.");
                 }
-                // Implement your logic to delete products based on the received productIds
-                // Example: Delete products from the database
-                foreach (var customerID in listIds.itemIds)
-                {
 
-                    var customer = await _context.Customers.FindAsync(customerID);
+                var errors = new List<object>(); // List to store information about records that couldn't be deleted
+
+                foreach (var customerId in listIds.itemIds)
+                {
+                    var customer = await _context.Customers.FindAsync(customerId);
+
                     if (customer != null)
                     {
-                        _context.Customers.Remove(customer);
+                        // Check foreign key references before deleting
+                        var hasForeignKeyReferences = CheckForeignKeyReferencesForCustomer(customer);
+
+                        if (hasForeignKeyReferences)
+                        {
+                            errors.Add(new { customerId, message = $"Khách hàng có ID {customerId} không thể bị xóa vì có liên kết khóa ngoại." });
+                        }
+                        else
+                        {
+                            _context.Customers.Remove(customer);
+                        }
+                    }
+                    else
+                    {
+                        errors.Add(new { customerId, message = $"Khách hàng có ID {customerId} không tồn tại." });
                     }
                 }
+
                 try
                 {
                     await _context.SaveChangesAsync();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    return Json(new { success = false, message = "Error deleting Customers." });
+                    // Log the exception or handle it appropriately
+                    return Json(new { success = false, message = "Error deleting customers.", errors });
                 }
-                // You can return a success message or any other necessary response
-                return Json(new { success = true, message = "Customers deleted successfully." });
+
+                if (errors.Any())
+                {
+                    // If there are errors, return a list of records that couldn't be deleted along with a message
+                    return Json(new { success = false, message = "Some customers were not deleted.", errors });
+                }
+
+                // If no errors, return a success message
+                errors.Add(new { V = "Xóa thành công" });
+                return Json(new { success = true, message = "Customers deleted successfully.", errors });
             }
             catch (Exception)
             {
-                // Log the exception or handle it appropriately
-                return Json(new { success = false, message = "Error deleting Customers." });
+                return Json(new { success = false, message = "Error deleting customers." });
             }
         }
 
+        // Helper method to check foreign key references for customers
+        private bool CheckForeignKeyReferencesForCustomer(Customer customer)
+        {
+            if (_context.ShippingLocations.Any(e => e.CustomerId == customer.CustomerId))
+            {
+                return true;
+            }
+            if (_context.Invoices.Any(e => e.CustomerId == customer.CustomerId))
+            {
+                return true;
+            }
+            return false; 
+        }
 
     }
 }

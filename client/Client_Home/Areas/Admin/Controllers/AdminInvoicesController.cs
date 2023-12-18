@@ -201,41 +201,80 @@ namespace Client_Home.Areas.Admin.Controllers
         [HttpPost("/Admin/AdminInvoices/DeleteMultiple")]
         public async Task<IActionResult> DeleteMultiple([FromBody] DeleteMulti listIds)
         {
-
             try
             {
                 if (_context.Invoices == null)
                 {
                     return Problem("Entity set 'ConveniencestoreContext.Products' is null.");
                 }
-                // Implement your logic to delete products based on the received productIds
-                // Example: Delete products from the database
+
+                var errors = new List<object>(); // Danh sách lưu trữ thông tin về các record không xóa được
+
                 foreach (var invoiceId in listIds.itemIds)
                 {
-
                     var invoice = await _context.Invoices.FindAsync(invoiceId);
+
                     if (invoice != null)
                     {
-                        _context.Invoices.Remove(invoice);
+                        // Kiểm tra các ràng buộc khóa ngoại trước khi xóa
+                        var hasForeignKeyReferences = CheckForeignKeyReferences(invoice);
+
+                        if (hasForeignKeyReferences)
+                        {
+                            errors.Add(new { invoiceId, message = $"Hóa đơn có ID {invoiceId} không thể bị xóa vì có liên kết khóa ngoại." });
+                        }
+                        else
+                        {
+                            _context.Invoices.Remove(invoice);
+                        }
+                    }
+                    else
+                    {
+                        errors.Add(new { invoiceId, message = $"Hóa đơn có ID {invoiceId} không tồn tại." });
                     }
                 }
+
                 try
                 {
                     await _context.SaveChangesAsync();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    return Json(new { success = false, message = "Error deleting invoices." });
+                    // Log the exception or handle it appropriately
+                    return Json(new { success = false, message = "Error deleting invoices.", errors });
                 }
-                // You can return a success message or any other necessary response
-                return Json(new { success = true, message = "Invoices deleted successfully." });
+
+                if (errors.Any())
+                {
+                    // Nếu có lỗi xảy ra, trả về danh sách các record không xóa được cùng với thông báo
+                    return Json(new { success = false, message = "Some invoices were not deleted.", errors });
+                }
+
+                // Nếu không có lỗi, trả về thông báo thành công
+                errors.Add(new { V = "Xóa thành công" });
+                return Json(new { success = true, message = "Invoices deleted successfully.", errors });
             }
             catch (Exception)
             {
-                // Log the exception or handle it appropriately
-                return Json(new { success = false, message = "Error deleting invoces." });
+                return Json(new { success = false, message = "Error deleting invoices." });
             }
         }
+
+        // Hàm kiểm tra các ràng buộc khóa ngoại
+        private bool CheckForeignKeyReferences(Invoice invoice)
+        {
+           
+            if (_context.InvoiceDetails.Any(e => e.InvoiceId == invoice.InvoiceId))
+            {
+                // Có ràng buộc khóa ngoại với bảng khác (đổi tên bảng và khóa ngoại theo thực tế)
+                return true;
+            }
+
+            // Nếu không có ràng buộc khóa ngoại
+            return false;
+        }
+
+
 
         private bool InvoiceExists(int id)
         {

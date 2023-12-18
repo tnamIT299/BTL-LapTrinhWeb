@@ -242,43 +242,80 @@ namespace Client_Home.Areas.Admin.Controllers
         }
 
         [HttpPost("/Admin/AdminEmployees/DeleteMultiple")]
-        public async Task<IActionResult> DeleteMultiple([FromBody] DeleteMulti listIds)
+        public async Task<IActionResult> DeleteMultipleEmployees([FromBody] DeleteMulti listIds)
         {
-
             try
             {
                 if (_context.Employees == null)
                 {
                     return Problem("Entity set 'ConveniencestoreContext.Employees' is null.");
                 }
-                // Implement your logic to delete products based on the received productIds
-                // Example: Delete products from the database
+
+                var errors = new List<object>(); // List to store information about records that could not be deleted
+
                 foreach (var employeeId in listIds.itemIds)
                 {
-
                     var employee = await _context.Employees.FindAsync(employeeId);
+
                     if (employee != null)
                     {
-                        _context.Employees.Remove(employee);
+                        // Check foreign key references before deletion
+                        var hasForeignKeyReferences = CheckForeignKeyReferencesForEmployees(employee);
+
+                        if (hasForeignKeyReferences)
+                        {
+                            errors.Add(new { employeeId, message = $"Nhân viên với ID {employeeId} không thể bị xóa vì có liên kết khóa ngoại" });
+                        }
+                        else
+                        {
+                            _context.Employees.Remove(employee);
+                        }
+                    }
+                    else
+                    {
+                        errors.Add(new { employeeId, message = $"Nhân viên với ID {employeeId} không tồn tại." });
                     }
                 }
+
                 try
                 {
                     await _context.SaveChangesAsync();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    return Json(new { success = false, message = "Error deleting Employees." });
+                    // Log the exception or handle it appropriately
+                    return Json(new { success = false, message = "Error deleting employees.", errors });
                 }
-                // You can return a success message or any other necessary response
-                return Json(new { success = true, message = "Employees deleted successfully." });
+
+                if (errors.Any())
+                {
+                    // If there are errors, return a list of records that could not be deleted along with a message
+                    return Json(new { success = false, message = "Some employees were not deleted.", errors });
+                }
+
+                // If there are no errors, return a success message
+                errors.Add(new { V = "Xóa thành công" });
+                return Json(new { success = true, message = "Employees deleted successfully.", errors });
             }
             catch (Exception)
             {
-                // Log the exception or handle it appropriately
-                return Json(new { success = false, message = "Error deleting Employees." });
+                return Json(new { success = false, message = "Error deleting employees." });
             }
         }
+
+        private bool CheckForeignKeyReferencesForEmployees(Employee employee)
+        {
+            if (_context.Salaries.Any(e => e.EmployeeId == employee.EmployeeId))
+            {
+                return true;
+            }
+            if (_context.Invoices.Any(e => e.InvoiceId == employee.EmployeeId))
+            {
+                return true;
+            }
+            return false;
+        }
+
 
         private bool EmployeeExists(int id)
         {

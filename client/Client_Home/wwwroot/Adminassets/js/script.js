@@ -13,7 +13,6 @@
     if (controllerElement) {
         controllerName = controllerElement.id.replace('main-content-', '');
     }
-
     deleteButton.addEventListener('click', function () {
         var checkboxes = document.querySelectorAll('[id^="check-item-"]:checked');
         var itemIds = [];
@@ -24,39 +23,42 @@
             itemIds.push(itemId);
         });
 
-        
         // Send the list of item IDs to the server for deletion
         if (itemIds.length > 0) {
             // Display a confirmation dialog with item information
             var confirmationMessage = "Are you sure you want to delete the following item?\n\n";
             itemIds.forEach(function (item) {
-                confirmationMessage += "ID: " + item + "\n";
+                confirmationMessage += "Item ID: " + item + "\n";
             });
+
             if (confirm(confirmationMessage)) {
-                // Continue with the deletion
-                var deleteUrl = '/Admin/Admin' + controllerName + '/DeleteMultiple';
-                console.log(deleteUrl);
-                console.log(itemIds);
-                fetch(deleteUrl, {
+                fetch('/Admin/Admin' + controllerName + '/DeleteMultiple', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-
-                    body: JSON.stringify({ itemIds: itemIds }),
-
+                    body: JSON.stringify({
+                        itemIds: itemIds
+                    }),
                 })
                     .then(response => response.json())
                     .then(data => {
-                        // Handle the response from the server if needed
-                        console.log(data);
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
+                        if (data.success) {
+                            alert(data.message);
+                        } else {
+                            var errorMessage = data.message + "\n";
+                            data.errors.forEach(function (error) {
+                                errorMessage += "Invoice ID: " + error.invoiceId + " - " + error.message + "\n";
+                            });
+                            alert(errorMessage);
+                        }
+                        performAjaxRequest('');
                     });
+                    
             }
         }
     });
+
 }
 
 

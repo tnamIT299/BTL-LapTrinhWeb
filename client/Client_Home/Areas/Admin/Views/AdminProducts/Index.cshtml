@@ -8,7 +8,7 @@
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
-<div class="main-content">
+<div class="main-content" id="main-content-Products">
     <div class="page-header">
         <h2 class="header-title">Danh sách sản phẩm</h2>
         <div class="header-sub-title">
@@ -19,7 +19,7 @@
             </nav>
         </div>
     </div>
-
+    <video id="qr-video" width="100%" height="100%"></video>
     <div class="card">
         <div class="card-body">
             <div class="row m-b-30">
@@ -52,17 +52,11 @@
                             <a class="dropdown-item" asp-area="Admin" asp-controller="AdminProducts" asp-action="Create">Thêm thủ công</a>
                             <a class="dropdown-item" asp-area="Admin" asp-controller="AdminProducts" asp-action="AddFromExcel">Thêm bằng file excel</a>
                             <a class="dropdown-item" asp-area="Admin" asp-controller="AdminProducts" asp-action="Create">Thêm bằng file excel</a>
-                            <button id="deleteSeletedItemsButton" class="dropdown-item" title="Xóa các sản phẩm đã chọn">
-                                    Xóa các sản phẩm đã chọn
+                            <button id="deleteSeletedItemsButton" class="dropdown-item" title="Ngừng kinh doanh các sản phẩm này">
+                                    Ngừng kinh doanh các sản phẩm đã chọn
                             </button>
                         </div>
                     </div>
-
-                    @*
-                    <button class="btn btn-primary">
-                    <i class="anticon anticon-plus-circle m-r-5"></i>
-                    <span>Thêm sản phẩm</span>
-                    </button> *@
 
                 </div>
                
@@ -87,123 +81,7 @@
                 </div>
             </div>
             <div class="table-responsive" id="records_table">
-                @* <table class="table table-hover e-commerce-table">
-                    <thead>
-                        <tr>
-                            <th>
-                                <div class="checkbox">
-                                    <input id="checkAll" type="checkbox">
-                                    <label for="checkAll" class="m-b-0"></label>
-                                </div>
-                            </th>
-                            <th>
-                                Hình ảnh
-                            </th>
-                            <th>
-                                Tên
-                            </th>
-                            <th>
-                                Giá bán
-                            </th>
-                            <th>
-                                Tổng số lượng
-                            </th>
-                            <th>
-                                Trạng thái
-                            </th>
-                            <th>
-                                Danh mục
-                            </th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody >
-                        @if (Model != null)
-                        {
-                            int i = 1;
-                            @foreach (var item in Model)
-                            {
-                                <tr>
-                                    <td>
-                                        <div class="checkbox">
-                                            <input id="@("check-item-" + i)" type="checkbox">
-                                            <label for="@("check-item-" + i)" class="m-b-0"></label>
-                                        </div>
-                                    </td>
-
-                                    <td>
-                                        @if (item.ThumbnailUrl != null)
-                                        {
-                                            <div class="d-flex align-items-center">
-                                                <img class="img-fluid rounded" src="@Url.Content("~/adminassets/images/others/" + item.ThumbnailUrl)" style="max-width: 60px" alt="">
-                                            </div>
-                                        }
-                                    </td>
-		
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Name)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.SellPrice)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.TotalQuantity)
-                                    </td>
-                                    <td>
-
-                                        <div class="d-flex align-items-center">
-                                            @if (item.Active == 1)
-                                            {
-                                                <div class="badge badge-success badge-dot m-r-10"></div>
-                                                <div>Đang bán</div>
-                                            }
-                                            else if (item.Active == 0)
-                                            {
-                                                <div class="badge badge-danger badge-dot m-r-10"></div>
-                                                <div>Hết hàng</div>
-                                            }
-                                            else if (item.Active == -1)
-                                            {
-                                                <div class="badge badge-danger badge-dot m-r-10"></div>
-                                                <div>Ngưng kinh doanh</div>
-                                            }
-                                        </div>
-                                    </td>
-
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Category.CategoryName)
-                                    </td>
-
-                                    <td class="text-right">
-                                        <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Details" asp-route-id="@item.ProductId">
-                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xem chi tiết sản phẩm">
-                                                <i class="anticon anticon-eye"></i>
-                                            </button>
-                                        </a>
-                                        <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Edit" asp-route-id="@item.ProductId">
-                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right" title="Sửa thông tin sản phẩm">
-                                                <i class="anticon anticon-edit"></i>
-                                            </button>
-                                        </a>
-                                        <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Delete" asp-route-id="@item.ProductId">
-                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xóa sản phẩm này">
-                                                <i class="anticon anticon-delete"></i>
-                                            </button>
-                                        </a>
-                                    </td>
-                                </tr>
-                                i++;
-                            }
-                        }
-
-                    </tbody>
-                </table>
-                <div aria-label="Page navigation example" style="display:flex; justify-content:center">
-                    <ul class="pagination">
-                        <pager class="page-container" asp-route-CatID="@ViewBag.CurrentCateID" list="@Model" asp-action="Index"></pager>
-                    </ul>
-
-                </div> *@
+                
             </div>
         </div>
     </div>
@@ -265,44 +143,69 @@
                 });
             });
 
+            
+            
+        });
+    </script>
+    <script>
+        function performAjaxRequest(pageNumber) {
 
-           
-
-            function performAjaxRequest(strKeyword) {
-               
-                // Extract the page number from the clicked link
-                var pageNumber = $(this).text();
-                // Perform your custom action with the page number
-                alert('User clicked on page ' + pageNumber + 'with key word is: '+strKeyword);
-                $.ajax({
-                    url: '/Admin/Search/FindProducts',
-                    datatype: "json",
-                    type: "POST",
-                    data: { page: pageNumber, keyword: strKeyword },
-                    async: true,
-                    success: function (result) {
-                        $("#records_table").html("");
-                        $("#records_table").html(result);
-                    },
-                    error: function (xhr) {
-                        alert('error');
-                    }
-                });
-            }
-            $('.pagination-container a').on('click', function (e) {
-                var pageLinkElement = document.querySelector('.pagination');
-                if (pageLinkElement) {
-                    alert('Con cac');
-                    linkElement.setAttribute('disabled', true);
+            // Extract the page number from the clicked link
+            var strKeyword = $('#keyword').val();
+            // Perform your custom action with the page number
+            $.ajax({
+                url: '/Admin/Search/FindProduct',
+                datatype: "json",
+                type: "POST",
+                data: { page: pageNumber, keyword: strKeyword },
+                async: true,
+                success: function (result) {
+                    $("#records_table").html("");
+                    $("#records_table").html(result);
+                    addEvents();
+                },
+                error: function (xhr) {
+                    alert('error');
                 }
-                performAjaxRequest(strkeyword);
             });
-            $("#keyword").keyup(function () {
-                var strkeyword = $('#keyword').val();
-                console.log("Hello");
-                performAjaxRequest(strkeyword);
+        }
+        </script>
+    <script src="https://cdn.rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let scanner = new Instascan.Scanner({ video: document.getElementById('qr-video') });
+
+            scanner.addListener('scan', function (content) {
+                // Send the scanned QR code data to the backend
+                sendQRCodeData(content);
             });
-            performAjaxRequest('');
+
+            Instascan.Camera.getCameras().then(function (cameras) {
+                if (cameras.length > 0) {
+                    scanner.start(cameras[1]);
+                } else {
+                    console.error('No cameras found.');
+                }
+            });
+
+            function sendQRCodeData(data) {
+                // Send the data to the backend using AJAX or fetch
+                fetch('/api/scan/scan', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                })
+                    .then(response => response.json())
+                    .then(result => {
+                        console.log(result);
+                        // Handle the backend response as needed
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            }
         });
     </script>
 }

@@ -14,9 +14,6 @@ using DocumentFormat.OpenXml.Office2010.Excel;
 using Client_Home.Areas.Admin.Models;
 using Humanizer;
 using System.Data;
-using Client_Home.Areas.Admin.DTO.Product;
-using Client_Home.Areas.Admin.DTO.Product;
-using System.Data;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
@@ -25,10 +22,10 @@ namespace Client_Home.Areas.Admin.Controllers
     {
         private readonly Data.ConveniencestoreContext _context;
         private IWebHostEnvironment _webHostEnvironment;
-        private readonly IAddProductFromExcel _addFromExcel;
+        private readonly DTO.Product.IAddProductFromExcel _addFromExcel;
         private readonly ILogger<AdminProductsController> _logger;
         public INotyfService _notifyService { get; }
-        public AdminProductsController(ILogger<AdminProductsController> logger, Data.ConveniencestoreContext context, INotyfService notifyService, IWebHostEnvironment webHostEnvironment, IAddProductFromExcel addFromExcel)
+        public AdminProductsController(ILogger<AdminProductsController> logger, Data.ConveniencestoreContext context, INotyfService notifyService, IWebHostEnvironment webHostEnvironment, DTO.Product.IAddProductFromExcel addFromExcel)
         {
             _logger = logger;
             _context = context;
@@ -224,43 +221,63 @@ namespace Client_Home.Areas.Admin.Controllers
         }
 
         [HttpPost("/Admin/AdminProducts/DeleteMultiple")]
-        public async Task<IActionResult> DeleteMultiple([FromBody]DeleteMulti productIds)
+        public async Task<IActionResult> UpdateStatusMultiple([FromBody] DeleteMulti productIds)
         {
-            
             try
             {
                 if (_context.Products == null)
                 {
                     return Problem("Entity set 'ConveniencestoreContext.Products' is null.");
                 }
-                // Implement your logic to delete products based on the received productIds
-                // Example: Delete products from the database
-                foreach (var productId in productIds.ProductIds)
-                {
 
+                var errors = new List<object>(); // List to store information about records that could not be updated
+
+                foreach (var productId in productIds.itemIds)
+                {
                     var product = await _context.Products.FindAsync(productId);
+
                     if (product != null)
                     {
-                        _context.Products.Remove(product);
+                        // Update the status of the product to inactive (or any other status you prefer)
+                        product.Active = -1; // Assuming there is a property like IsActive in your Product entity
+
+                        // Optionally, you can add some additional logic or validation before updating
+                        // For example, check for foreign key references, business rules, etc.
+
+                        _context.Products.Update(product);
+                    }
+                    else
+                    {
+                        errors.Add(new { productId, message = $"Sản phẩm có ID {productId} không tồn tại." });
                     }
                 }
+
                 try
                 {
                     await _context.SaveChangesAsync();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                    return Json(new { success = false, message = "Error deleting products." });
+                    // Log the exception or handle it appropriately
+                    return Json(new { success = false, message = "Error updating product status.", errors });
                 }
-                // You can return a success message or any other necessary response
-                return Json(new { success = true, message = "Products deleted successfully." });
+
+                if (errors.Any())
+                {
+                    // If there are errors, return the list of records that could not be updated along with a message
+                    return Json(new { success = false, message = "Some product statuses were not updated.", errors });
+                }
+
+                // If there are no errors, return a success message
+                return Json(new { success = true, message ="Cập nhật trạng thái sản phẩm thành công!"});
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                // Log the exception or handle it appropriately
-                return Json(new { success = false, message = "Error deleting products." });
+                return Json(new { success = false, message = "Error updating product statuses." });
             }
         }
+
+
 
         private bool ProductExists(int id)
         {

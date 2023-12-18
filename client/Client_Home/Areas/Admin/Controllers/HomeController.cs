@@ -14,6 +14,7 @@ namespace Client_Home.Areas.Admin.Controllers
         {
             using (var context = new Data.ConveniencestoreContext())
             {
+
                 var invoices = await context.Invoices.FromSqlRaw("EXEC GetLatestInvoices").ToListAsync();
                 var TopCustomers = await context.AdminRichestCustomerView.FromSqlRaw("EXEC GetTopCustomers").ToListAsync();
                 var TopProduct = await context.AdminBestSellingProduct.FromSqlRaw("EXEC GetTop5Products").ToListAsync();

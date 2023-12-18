@@ -11,6 +11,7 @@ public partial class ConveniencestoreContext : DbContext
     public ConveniencestoreContext()
     {
     }
+
     public ConveniencestoreContext(DbContextOptions<ConveniencestoreContext> options)
         : base(options)
     {
@@ -37,11 +38,13 @@ public partial class ConveniencestoreContext : DbContext
 
     public virtual DbSet<InvoiceDetail> InvoiceDetails { get; set; }
 
-    public virtual DbSet<Orders> Orders { get; set; }
+    public virtual DbSet<Order> Orders { get; set; }
 
     public virtual DbSet<OrderDetail> OrderDetails { get; set; }
 
     public virtual DbSet<Payment> Payments { get; set; }
+
+    public virtual DbSet<ProblemCustomer> ProblemCustomers { get; set; }
 
     public virtual DbSet<Product> Products { get; set; }
 
@@ -100,9 +103,7 @@ public partial class ConveniencestoreContext : DbContext
         {
             entity.HasKey(e => e.CategoryId).HasName("PK__Categori__19093A2B10713FBC");
 
-            entity.Property(e => e.CategoryId)
-                .ValueGeneratedNever()
-                .HasColumnName("CategoryID");
+            entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
             entity.Property(e => e.CategoryName)
                 .HasMaxLength(255)
                 .IsUnicode(false);
@@ -277,17 +278,15 @@ public partial class ConveniencestoreContext : DbContext
                 .HasConstraintName("FK__InvoiceDe__produ__662B2B3B");
         });
 
-        modelBuilder.Entity<Orders>(entity =>
+        modelBuilder.Entity<Order>(entity =>
         {
             entity.HasKey(e => e.OrderId).HasName("PK__Orders__C3905BAFD0BC4AE7");
 
-            entity.Property(e => e.OrderId)
-                .ValueGeneratedNever()
-                .HasColumnName("OrderID");
+            entity.Property(e => e.OrderId).HasColumnName("OrderID");
             entity.Property(e => e.OrderDate).HasColumnType("date");
             entity.Property(e => e.SupplierId).HasColumnName("SupplierID");
             entity.Property(e => e.TotalAmount)
-                .HasColumnType("money")
+                .HasColumnType("decimal(10, 2)")
                 .HasColumnName("totalAmount");
 
             //entity.HasOne(d => d.Supplier).WithMany(p => p.Orders)
@@ -331,9 +330,21 @@ public partial class ConveniencestoreContext : DbContext
                 .IsUnicode(false);
         });
 
+        modelBuilder.Entity<ProblemCustomer>(entity =>
+        {
+            entity.HasKey(e => e.ProblemId);
+
+            entity.ToTable("ProblemCustomer", tb => tb.HasTrigger("SetDefaultStatus"));
+
+            entity.Property(e => e.ProblemId).HasColumnName("ProblemID");
+            entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
+        });
+
         modelBuilder.Entity<Product>(entity =>
         {
             entity.HasKey(e => e.ProductId).HasName("PK__Products__B40CC6ED2EBDBC5C");
+
+            entity.ToTable(tb => tb.HasTrigger("Update_DiscountPrice"));
 
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
             entity.Property(e => e.Active)
@@ -347,14 +358,14 @@ public partial class ConveniencestoreContext : DbContext
                 .HasColumnType("date")
                 .HasColumnName("dateAdded");
             entity.Property(e => e.Description)
-                .HasColumnType("text")
+                .HasMaxLength(200)
+                .IsUnicode(false)
                 .HasColumnName("description");
             entity.Property(e => e.Discount)
                 .HasColumnType("decimal(10, 2)")
                 .HasColumnName("discount");
             entity.Property(e => e.DiscountPrice)
-                .HasComputedColumnSql("([sellPrice]-([sellPrice]*[discount])/(100))", false)
-                .HasColumnType("decimal(26, 8)")
+                .HasColumnType("decimal(10, 2)")
                 .HasColumnName("discountPrice");
             entity.Property(e => e.HomeFlag)
                 .HasDefaultValueSql("((0))")
@@ -375,6 +386,7 @@ public partial class ConveniencestoreContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("thumbnailUrl");
             entity.Property(e => e.TotalQuantity).HasColumnName("totalQuantity");
+            entity.Property(e => e.Unit).HasMaxLength(20);
             entity.Property(e => e.VideoUrl)
                 .HasMaxLength(255)
                 .IsUnicode(false)
@@ -616,14 +628,12 @@ public partial class ConveniencestoreContext : DbContext
             entity.Property(e => e.Address)
                 .HasMaxLength(255)
                 .IsUnicode(false);
-            entity.Property(e => e.City)
-                .HasMaxLength(255)
-                .IsUnicode(false);
+            entity.Property(e => e.City).HasMaxLength(255);
             entity.Property(e => e.ContactName)
                 .HasMaxLength(255)
                 .IsUnicode(false);
             entity.Property(e => e.Country)
-                .HasMaxLength(100)
+                .HasMaxLength(50)
                 .IsUnicode(false);
             entity.Property(e => e.Phone)
                 .HasMaxLength(20)

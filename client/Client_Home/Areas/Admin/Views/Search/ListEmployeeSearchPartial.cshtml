@@ -1,16 +1,63 @@
-﻿@model List<Employee>
+﻿@using Client_Home.Areas.Admin.Models;
+@model Pager<Employee>
 @*
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
 <table class="table">
-    
-    <tbody>
+    <thead>
+        <tr>
+            <th>
+                <div class="checkbox">
+                    <input id="checkAll" type="checkbox">
+                    <label for="checkAll" class="m-b-0"></label>
+                </div>
+            </th>
+            <th>
+                FirstName
+            </th>
+            <th>
+                LastName
+            </th>
+            <th>
+                Position
+            </th>
+            <th>
+                DateHired
+            </th>
+            <th>
+                BirthDate
+            </th>
+            <th>
+                CitizenId
+            </th>
+            <th>
+                Gender
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                PhoneNumber
+            </th>
+            <th>
+                User
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody >
         @if (Model != null)
         {
             int i = 1;
-            @foreach (var item in Model)
+            @foreach (var item in Model.Items)
             {
                 <tr>
+                    <td>
+                        <div class="checkbox">
+                            <input id="@("check-item-" + item.EmployeeId)" type="checkbox">
+                            <label for="@("check-item-" + item.EmployeeId)" class="m-b-0"></label>
+                        </div>
+                    </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.FirstName)
                     </td>
@@ -53,3 +100,4 @@
         }
     </tbody>
 </table>
+@Html.Partial("//Areas//Admin//Views//Search//PaginationPartialView.cshtml");

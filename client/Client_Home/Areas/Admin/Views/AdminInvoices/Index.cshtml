@@ -1,12 +1,9 @@
-﻿﻿@using PagedList.Core.Mvc
-@model PagedList.Core.IPagedList<Client_Home.Models.Invoice>
-@{
-    int CurrentPage = ViewBag.CurrentPage;
+﻿@{
     ViewData["Title"] = "Danh sách hóa đơn";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="main-content">
+<div id="main-content-Invoices">
     <div class="page-header">
         <h2 class="header-title">Quản lý hóa đơn</h2>
         <div class="header-sub-title">
@@ -17,6 +14,7 @@
                 <span class="breadcrumb-item active">Danh sách hoá đơn khách hàng</span>
             </nav>
         </div>
+
     </div>
     <div class="card">  
         <div class="card-body">
@@ -55,98 +53,22 @@
                     </a>
                 </div>
                 <div class="col-lg-3 text-right">
-                    <a asp-area="Admin" asp-controller="AdminInvoices" asp-action="Create">
-                        <button class="btn btn-primary">
-                            <i class="anticon anticon-plus-circle m-r-5"></i>
-                            <span>Thêm hóa đơn</span>
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            <span>Tác vụ</span>
                         </button>
-                    </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" asp-area="Admin" asp-controller="AdminProducts" asp-action="Create">Thêm thủ công</a>
+                            <a class="dropdown-item" asp-area="Admin" asp-controller="AdminProducts" asp-action="AddFromExcel">Thêm bằng file excel</a>
+                            <button id="deleteSeletedItemsButton" class="dropdown-item" title="Xóa các hóa đơn đã chọn">
+                                Xóa các hóa đơn đã chọn
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="table-responsive">
-                <table class="table table-hover e-commerce-table">
-                    <thead>
-                        <tr>
-                            <th>
-                                Số hóa đơn
-                            </th>
-                            <th>
-                                Tên khách hàng
-                            </th>
-                            <th>
-                                Tên nhân viên
-                            </th>
-                            <th>
-                                Ngày tạo
-                            </th>
-                            <th>
-                                Trạng thái
-                            </th>
-                            <th>
-                                Tổng tiền
-                            </th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody id="records_table">
-                        <tr>
-                            @if (Model != null)
-                            {
-                                int i = 1;
-                                @foreach (var item in Model)
-                                {
-                                <tr>
-
-                                    <td>
-                                            @Html.DisplayFor(modelItem => item.InvoiceId)
-                                    </td>
-                                    <td>
-                                            @Html.DisplayFor(modelItem => item.Customer.LastName)
-                                    </td>
-                                    <td>
-                                            @Html.DisplayFor(modelItem => item.Employee.LastName)
-                                    </td>
-                                    <td>
-                                            @Html.DisplayFor(modelItem => item.CreatedDate)
-                                    </td>
-                                    <td>
-                                            @Html.DisplayFor(modelItem => item.Status)
-                                    </td>
-
-                                    <td>
-                                            @Html.DisplayFor(modelItem => item.TotalAmount)
-                                    </td>
-
-                                    <td class="text-right">
-                                        <a asp-area="Admin" asp-controller="AdminInvoices" asp-action="Details" asp-route-id="@item.InvoiceId">
-                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xem chi tiết hóa đơn">
-                                                <i class="anticon anticon-eye"></i>
-                                            </button>
-                                        </a>
-                                        <a asp-area="Admin" asp-controller="AdminInvoices" asp-action="Edit" asp-route-id="@item.InvoiceId">
-                                         <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right" title="Sửa thông tin hóa đơn">
-                                          <i class="anticon anticon-edit"></i>
-                                         </button>
-                                        </a> 
-                                             <a asp-area="Admin" asp-controller="AdminInvoices" asp-action="Delete" asp-route-id="@item.InvoiceId">
-                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xóa hóa đơn này">
-                                                <i class="anticon anticon-delete"></i>
-                                                </button>
-                                            </a>
-                                    </td>
-                                </tr>
-                                    i++;
-                                }
-                            }
-                        </tr>
-                    </tbody>
-                </table>
-                <div aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <pager class="page-container" list="@Model" asp-area="Admin" asp-controller="AdminInvoices" asp-action="Index"></pager>
-                    </ul>
-
-                </div>
+            <div class="table-responsive" id="records_table">
+                
             </div>
         </div>
     </div>
@@ -154,29 +76,28 @@
 @section Scripts{
 
     <script>
-        $(document).ready(function () {
-            var originalData = $("#records_table").html();
-            $("#keyword").keyup(function () {
-                var strkeyword = $('#keyword').val();
-                $.ajax({
-                    url: '/Admin/Search/FindInvoices',
-                    datatype: "json",
-                    type: "POST",
-                    data: { keyword: strkeyword },
-                    async: true,
-                    success: function (result) {
-                        if ($('#keyword').val() == '') {
-                            console.log("hello");
-                            return originalData;
-                        }
-                        $("#records_table").html("");
-                        $("#records_table").html(result);
-                    },
-                    error: function (xhr) {
-                        alert('error');
-                    }
-                });
+        function performAjaxRequest(pageNumber) {
+
+            // Extract the page number from the clicked link
+            var strKeyword = $('#keyword').val();
+            // Perform your custom action with the page number
+            $.ajax({
+                url: '/Admin/Search/FindInvoices',
+                datatype: "json",
+                type: "POST",
+                data: { page: pageNumber, keyword: strKeyword },
+                async: true,
+                success: function (result) {
+                    $("#records_table").html("");
+                    $("#records_table").html(result);
+                    addEvents();
+                },
+                error: function (xhr) {
+                    alert('error');
+                }
             });
-        });
+        }
+
     </script>
+
 }

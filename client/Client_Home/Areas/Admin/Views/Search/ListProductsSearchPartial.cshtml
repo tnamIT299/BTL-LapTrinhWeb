@@ -1,6 +1,5 @@
-﻿@using PagedList.Core.Mvc
-@using X.PagedList.Mvc.Core;
-@model PagedList.Core.IPagedList<Client_Home.Models.Product>
+﻿@using Client_Home.Areas.Admin.Models;
+@model Pager<Product>
 @*
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -35,10 +34,10 @@
         </tr>
     </thead>
     <tbody>
-        @if (Model != null)
+        @if (Model.Items != null)
         {
             int i = 1;
-            @foreach (var item in Model)
+            @foreach (var item in Model.Items)
             {
                 <tr>
                     <td>
@@ -115,10 +114,4 @@
 
     </tbody>
 </table>
-<div aria-label="Page navigation example" style="display:flex; justify-content:center">
-    <ul class="pagination">
-        <pager class="page-container" list="@Model" asp-action="FindProduct" id="myPager"></pager>
-    </ul>
-</div>
-
-<script src="~/adminassets/js/script.js"></script>
+@Html.Partial("//Areas//Admin//Views//Search//PaginationPartialView.cshtml");

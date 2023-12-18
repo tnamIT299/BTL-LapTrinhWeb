@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace Client_Home.Models;
 
 public partial class ProblemCustomer
 {
-    [Key]
     public int ProblemId { get; set; }
 
     public int? CustomerId { get; set; }

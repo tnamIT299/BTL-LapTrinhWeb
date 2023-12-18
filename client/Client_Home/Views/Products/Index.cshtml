@@ -7,6 +7,7 @@
 @{
     int CurrentPage = ViewBag.CurrentPage;
     ViewData["Title"] = "" + CurrentPage;
+    
 }
 
 
@@ -39,586 +40,319 @@
 
 <!-- Categories Section End -->
 <!-- Featured Section Begin -->
-<section class="featured spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title">
-                    <h2>Featured Product</h2>
+<header class="header-wrapper header-layout7">
+    <div class="header-top">
+        <div class="header-top-shape"></div>
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-auto col-xxl-3 d-none d-lg-block" style="display:flex">
+                    <a href="login-register.html" class="header-login"><i class="fas fa-user-circle"></i> </a>
+                    <partial name="_loginPartial" />
+
                 </div>
-                <div class="featured__controls">
-                    <ul>
-                        <li class="active" data-filter="*">All</li>
-                        <li data-filter=".oranges">Oranges</li>
-                        <li data-filter=".fresh-meat">Fresh Meat</li>
-                        <li data-filter=".vegetables">Vegetables</li>
-                        <li data-filter=".fastfood">Fastfood</li>
-                    </ul>
+
+                <div class="col-lg-auto col-xxl text-center text-lg-end py-2 py-lg-0">
+                    <div class="header-infos">
+                        <p class="info"><i class="fas fa-phone-alt"></i>Phone:<a href="tel:02073885619">020 7388 5619</a></p>
+                        <p class="info d-none d-sm-inline-block"><i class="fas fa-envelope"></i>Email:<a href="mailto:info@username.com.uk">info@username.com.uk</a></p>
+
+                    </div>
                 </div>
             </div>
         </div>
-       @using (Html.BeginForm("Index","Products",FormMethod.Get))
-        {
-            <p>
-                Search Products : @Html.TextBox("searchString",ViewBag.CurrentFilter as string)
-                <input type="submit" value="Search"/>
-            </p>
-            
-        }
+    </div>
+    <div class="menu-area">
+        <div class="header-shape" data-bg-src="assets/img/shape/header-shape-9-1.png"></div>
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col col-lg-auto py-3 py-lg-0">
+                    <div class="header-logo">
+                        <a href="index.html"><img src="assets/img/logo-white.svg" alt="Foodano"></a>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <nav class="main-menu mobile-menu-active menu-style4">
+                        <ul>
+                            <li class="menu-item-has-children">
+                                <a href="index.html">Home</a>
+                                <ul class="sub-menu">
+                                    <li><a href="index.html">Home Style 1</a></li>
+                                    <li><a href="index-2.html">Home Style 2</a></li>
+                                    <li><a href="index-3.html">Home Style 3</a></li>
+                                    <li><a href="index-4.html">Home Style 4</a></li>
+                                    <li><a href="index-5.html">Home Style 5</a></li>
+                                    <li><a href="index-6.html">Home Style 6</a></li>
+                                    <li><a href="index-7.html">Home Style 7</a></li>
+                                    <li><a href="index-8.html">Home Style 8</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="/Products">Shop</a>
+                                <ul class="sub-menu">
+                                    <li><a href="/home/shop">Shop</a></li>
+                                    <li><a href="shop-list.html">Shop List</a></li>
+                                    <li><a href="shop-details.html">Shop Details</a></li>
+                                    <li><a href="cart.html">Shopping Cart</a></li>
+                                    <li><a href="checkout.html">Check Out</a></li>
+                                    <li><a href="wishlist.html">Wishlist</a></li>
+                                    <li><a href="login-register.html">Login & Register</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="blog.html">Blog</a>
+                                <ul class="sub-menu">
+                                    <li><a href="blog.html">Blog</a></li>
+                                    <li><a href="blog-list.html">Blog List</a></li>
+                                    <li><a href="blog-grid.html">Blog Grid</a></li>
+                                    <li><a href="blog-grid-sidebar.html">Blog Grid Sidebar</a></li>
+                                    <li><a href="blog-masonry.html">Blog Masonry</a></li>
+                                    <li><a href="blog-details.html">Blog Details</a></li>
+                                </ul>
+                            </li>
+                            <li class="mega-menu-wrap menu-item-has-children">
+                                <a href="#">Pages</a>
+                                <ul class="mega-menu">
+                                    <li>
+                                        <a href="shop.html">Pagelist 1</a>
+                                        <ul>
+                                            <li><a href="index.html">Home Style 1</a></li>
+                                            <li><a href="index-2.html">Home Style 2</a></li>
+                                            <li><a href="index-3.html">Home Style 3</a></li>
+                                            <li><a href="index-4.html">Home Style 4</a></li>
+                                            <li><a href="index-5.html">Home Style 5</a></li>
+                                            <li><a href="index-6.html">Home Style 6</a></li>
+                                            <li><a href="index-7.html">Home Style 7</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Pagelist 2</a>
+                                        <ul>
+                                            <li><a href="index-8.html">Home Style 8</a></li>
+                                            <li><a href="about.html">About</a></li>
+                                            <li><a href="service.html">Services</a></li>
+                                            <li><a href="team.html">Team</a></li>
+                                            <li><a href="faq.html">FAQ Page</a></li>
+                                            <li><a href="contact.html">Contact Us</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Pagelist 3</a>
+                                        <ul>
+                                            <li><a href="blog.html">Blog</a></li>
+                                            <li><a href="blog-list.html">Blog List</a></li>
+                                            <li><a href="blog-grid.html">Blog Grid</a></li>
+                                            <li><a href="blog-grid-sidebar.html">Blog Grid Sidebar</a></li>
+                                            <li><a href="blog-masonry.html">Blog Masonry</a></li>
+                                            <li><a href="blog-details.html">Blog Details</a></li>
+                                            <li><a href="error.html">Error Page</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Pagelist 4</a>
+                                        <ul>
+                                            <li><a href="/home/shop">Shop</a></li>
+                                            <li><a href="shop-list.html">Shop List</a></li>
+                                            <li><a href="shop-details.html">Shop Details</a></li>
+                                            <li><a href="cart.html">Shopping Cart</a></li>
+                                            <li><a href="checkout.html">Check Out</a></li>
+                                            <li><a href="wishlist.html">Wishlist</a></li>
+                                            <li><a href="login-register.html">Login / Register</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="contact.html">Contact Us</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-auto d-none d-sm-block">
+                    <div class="header-buttons">
+                        <button type="button" class="searchBoxTggler"><i class="far fa-search"></i></button>
+                        <a href="wishlist.html"><i class="fal fa-heart"></i></a>
+                        <button class="sideMenuToggler has-badge" type="button"><i class="fal fa-shopping-cart"></i><span class="badge">
+                            @await Component.InvokeAsync("CartWidget")
+                        </span></button>
+                    </div>
+                </div>
+                <div class="col-auto d-block d-lg-none">
+                    <button type="button" class="vs-menu-toggle "><i class="far fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="sticky-header-wrap sticky-header py-2 py-lg-1">
+    <div class="container position-relative">
+        <div class="row align-items-center">
+            <div class="col-5 col-md-3">
+                <div class="logo">
+                    <a href="index.html"><img src="assets/img/logo.svg" alt="Foodano"></a>
+                </div>
+            </div>
+            <div class="col-7 col-md-9 text-end position-static">
+                <nav class="main-menu menu-sticky1 d-none d-lg-block link-inherit">
+                    <ul>
+                        <li class="menu-item-has-children">
+                            <a href="index.html">Home</a>
+                            <ul class="sub-menu">
+                                <li><a href="index.html">Home Style 1</a></li>
+                                <li><a href="index-2.html">Home Style 2</a></li>
+                                <li><a href="index-3.html">Home Style 3</a></li>
+                                <li><a href="index-4.html">Home Style 4</a></li>
+                                <li><a href="index-5.html">Home Style 5</a></li>
+                                <li><a href="index-6.html">Home Style 6</a></li>
+                                <li><a href="index-7.html">Home Style 7</a></li>
+                                <li><a href="index-8.html">Home Style 8</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="shop.html">Shop</a>
+                            <ul class="sub-menu">
+                                <li><a href="/home/shop">Shop</a></li>
+                                <li><a href="shop-list.html">Shop List</a></li>
+                                <li><a href="shop-details.html">Shop Details</a></li>
+                                <li><a href="cart.html">Shopping Cart</a></li>
+                                <li><a href="checkout.html">Check Out</a></li>
+                                <li><a href="wishlist.html">Wishlist</a></li>
+                                <li><a href="login-register.html">Login & Register</a></li>
+                                <partial name="_loginPartial" />
+                            </ul>
+
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="blog.html">Blog</a>
+                            <ul class="sub-menu">
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="blog-list.html">Blog List</a></li>
+                                <li><a href="blog-grid.html">Blog Grid</a></li>
+                                <li><a href="blog-grid-sidebar.html">Blog Grid Sidebar</a></li>
+                                <li><a href="blog-masonry.html">Blog Masonry</a></li>
+                                <li><a href="blog-details.html">Blog Details</a></li>
+                            </ul>
+                        </li>
+                        <li class="mega-menu-wrap menu-item-has-children">
+                            <a href="#">Pages</a>
+                            <ul class="mega-menu">
+                                <li>
+                                    <a href="shop.html">Pagelist 1</a>
+                                    <ul>
+                                        <li><a href="index.html">Home Style 1</a></li>
+                                        <li><a href="index-2.html">Home Style 2</a></li>
+                                        <li><a href="index-3.html">Home Style 3</a></li>
+                                        <li><a href="index-4.html">Home Style 4</a></li>
+                                        <li><a href="index-5.html">Home Style 5</a></li>
+                                        <li><a href="index-6.html">Home Style 6</a></li>
+                                        <li><a href="index-7.html">Home Style 7</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Pagelist 2</a>
+                                    <ul>
+                                        <li><a href="index-8.html">Home Style 8</a></li>
+                                        <li><a href="about.html">About</a></li>
+                                        <li><a href="service.html">Services</a></li>
+                                        <li><a href="team.html">Team</a></li>
+                                        <li><a href="faq.html">FAQ Page</a></li>
+                                        <li><a href="contact.html">Contact Us</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Pagelist 3</a>
+                                    <ul>
+                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="blog-list.html">Blog List</a></li>
+                                        <li><a href="blog-grid.html">Blog Grid</a></li>
+                                        <li><a href="blog-grid-sidebar.html">Blog Grid Sidebar</a></li>
+                                        <li><a href="blog-masonry.html">Blog Masonry</a></li>
+                                        <li><a href="blog-details.html">Blog Details</a></li>
+                                        <li><a href="error.html">Error Page</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Pagelist 4</a>
+                                    <ul>
+                                        <li><a href="/home/shop">Shop</a></li>
+                                        <li><a href="shop-list.html">Shop List</a></li>
+                                        <li><a href="shop-details.html">Shop Details</a></li>
+                                        <li><a href="cart.html">Shopping Cart</a></li>
+                                        <li><a href="checkout.html">Check Out</a></li>
+                                        <li><a href="wishlist.html">Wishlist</a></li>
+                                        <li><a href="login-register.html">Login / Register</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="contact.html">Contact Us</a>
+                        </li>
+                    </ul>
+                </nav>
+                <button class="vs-menu-toggle d-inline-block d-lg-none"><i class="far fa-bars"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="featured spad">
+    <div class="container">
+
         <section class=" vs-shop-wrapper  space-top space-md-bottom">
             <div class="section-title text-center">
                 <div class="sec-icon"><img src="assets/img/icons/sec-icon-2.png" alt="icon"></div>
+          
                 <span class="sub-title4">Category Products</span>
                 <h2 class="sec-title3">Shop By Categories</h2>
             </div>
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-xl-4">
-                        <div class="filter-menu4 vs-slideTab" data-asnavfor="#shopTabSlide1">
-                            <button class="tab-btn ">
-                                <img src="assets/img/icons/cat-icon-2-1.png" alt="image">
-                                <span class="title">Best Seller</span>
-                                <span class="text">10 Products</span>
-                            </button>
-                            <button class="tab-btn ">
-                                <img src="assets/img/icons/cat-icon-2-2.png" alt="image">
-                                <span class="title">Fresh Fruits</span>
-                                <span class="text">78 Products</span>
-                            </button>
-                            <button class="tab-btn active">
-                                <img src="assets/img/icons/cat-icon-2-3.png" alt="image">
-                                <span class="title">Tea & Coffee</span>
-                                <span class="text">22 Products</span>
-                            </button>
-                            <button class="tab-btn ">
-                                <img src="assets/img/icons/cat-icon-2-4.png" alt="image">
-                                <span class="title">Vegetables</span>
-                                <span class="text">19 Products</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="col-lg-8 col-xl-8">
-                        <div class="vs-carousel" data-slide-show="1" data-lg-slide-show="1" data-md-slide-show="1" data-sm-slide-show="1" data-fade="true" id="shopTabSlide1">
+                <div class="tab-pane fade show active" id="tab-grid" role="tabpanel" aria-labelledby="tab-shop-grid">
+                    <div class="row">
+                        @if (Model != null)
+                        {
 
-                            <div>
-                                <div class="row gx-30">
-                                    <div class="col-md-6 col-xl-4">
-                                        <div class="vs-product-box3 style3">
-                                            <div class="product-img">
-                                                <a href="shop-details.html"><img src="assets/img/shop/product-3-1.png" alt="Product Image" class="w-100"></a>
-                                                <span class="product-tag1">HOT</span>
-                                            </div>
-                                            <div class="actions-btn">
-                                                <a href="assets/img/shop/product-3-1.png" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                                <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                                <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="product-rating-box">
-                                                    5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                                </div>
-                                                <h4 class="product-title"><a href="shop-details.html">Organic Apple Juice</a></h4>
-                                                <span class="price"><strong>$18.00</strong><del>$47.00</del></span>
-                                            </div>
+                            @foreach (var item in Model)
+                            {
+                                <div class="col-sm-6 col-xl-4">
+                                    <div class="vs-product-box1 thumb_swap">
+                                        <div class="product-tag1">sale</div>
+                                        <div class="product-img">
+                                            <a href="shop-details.html"><img src="assets/img/shop/product-1-1.png" alt="Product Image" class="w-100"></a>
+                                            <a href="shop-details.html"><img src="assets/img/shop/product-1-8.png" alt="Product Image" class="w-100 img_swap"></a>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6 col-xl-4">
-                                        <div class="vs-product-box3 style3">
-                                            <div class="product-img">
-                                                <a href="shop-details.html"><img src="assets/img/shop/product-3-2.png" alt="Product Image" class="w-100"></a>
-                                            </div>
+                                        <div class="product-content">
                                             <div class="actions-btn">
-                                                <a href="assets/img/shop/product-3-2.png" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                                <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                                <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
+                                                <a href="/Cart/AddToCart/?productId=@Html.DisplayFor(modelItem => item.ProductId)"><i class="fal fa-cart-plus"></i></a>
+                                                <a href="assets/img/shop/product-1-1.png" class="popup-image"><i class="far fa-search"></i></a>
+                                                <a href="wishlist.html"><i class="fal fa-heart"></i></a>
                                             </div>
-                                            <div class="product-content">
-                                                <div class="product-rating-box">
-                                                    5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                                </div>
-                                                <h4 class="product-title"><a href="shop-details.html">Clark’s Nutrition</a></h4>
-                                                <span class="price"><strong>$45.00</strong></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-xl-4">
-                                        <div class="vs-product-box3 style3">
-                                            <div class="product-img">
-                                                <a href="shop-details.html"><img src="assets/img/shop/product-3-3.png" alt="Product Image" class="w-100"></a>
-                                                <span class="product-tag2">New</span><span class="product-tag3">Sale</span>
-                                            </div>
-                                            <div class="actions-btn">
-                                                <a href="assets/img/shop/product-3-3.png" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                                <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                                <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="product-rating-box">
-                                                    5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                                </div>
-                                                <h4 class="product-title"><a href="shop-details.html">Organic Cravings</a></h4>
-                                                <span class="price"><strong>$78.00</strong><del>$66.00</del></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-xl-4">
-                                        <div class="vs-product-box3 style3">
-                                            <div class="product-img">
-                                                <a href="shop-details.html"><img src="assets/img/shop/product-3-4.png" alt="Product Image" class="w-100"></a>
-                                            </div>
-                                            <div class="actions-btn">
-                                                <a href="assets/img/shop/product-3-4.png" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                                <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                                <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="product-rating-box">
-                                                    5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                                </div>
-                                                <h4 class="product-title"><a href="shop-details.html">Organic Meats</a></h4>
-                                                <span class="price"><strong>$15.00</strong></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-xl-4">
-                                        <div class="vs-product-box3 style3">
-                                            <div class="product-img">
-                                                <a href="shop-details.html"><img src="assets/img/shop/product-3-5.png" alt="Product Image" class="w-100"></a>
-                                            </div>
-                                            <div class="actions-btn">
-                                                <a href="assets/img/shop/product-3-5.png" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                                <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                                <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="product-rating-box">
-                                                    5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                                </div>
-                                                <h4 class="product-title"><a href="shop-details.html">Untouched Organic</a></h4>
-                                                <span class="price"><strong>$56.00</strong></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-xl-4">
-                                        <div class="vs-product-box3 style3">
-                                            <div class="product-img">
-                                                <a href="shop-details.html"><img src="assets/img/shop/product-3-6.png" alt="Product Image" class="w-100"></a>
-                                                <span class="product-tag3">Sale</span>
-                                            </div>
-                                            <div class="actions-btn">
-                                                <a href="assets/img/shop/product-3-6.png" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                                <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                                <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="product-rating-box">
-                                                    5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                                </div>
-                                                <h4 class="product-title"><a href="shop-details.html">Balance Bearing</a></h4>
-                                                <span class="price"><strong>$41.00</strong></span>
-                                            </div>
+                                            <h4 class="product-title h5 mb-0"><a href="/Products/Details/@Html.DisplayFor(modelItem => item.ProductId)"> @item.Name</a></h4>
+                                            <span class="price font-theme"><strong>$@Html.DisplayFor(modelItem => item.SellPrice)</strong></span>                                           
+                                            <p class="m-0 rating fs-xs text-theme lh-base">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div>
-                                <div class="row gx-30">
-                                    <div class="col-md-6 col-xl-4">
-                                        <div class="vs-product-box3 style3">
-                                            <div class="product-img">
-                                                <a href="shop-details.html"><img src="assets/img/shop/product-3-9.png" alt="Product Image" class="w-100"></a>
-                                                <span class="product-tag3">Sale</span>
-                                            </div>
-                                            <div class="actions-btn">
-                                                <a href="assets/img/shop/product-3-9.png" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                                <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                                <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="product-rating-box">
-                                                    5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                                </div>
-                                                <h4 class="product-title"><a href="shop-details.html">Grateful Organic</a></h4>
-                                                <span class="price"><strong>$78.00</strong><del>$88.00</del></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-xl-4">
-                                        <div class="vs-product-box3 style3">
-                                            <div class="product-img">
-                                                <a href="shop-details.html"><img src="assets/img/shop/product-3-10.png" alt="Product Image" class="w-100"></a>
-                                                <span class="product-tag2">New</span>
-                                            </div>
-                                            <div class="actions-btn">
-                                                <a href="assets/img/shop/product-3-10.png" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                                <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                                <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="product-rating-box">
-                                                    5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                                </div>
-                                                <h4 class="product-title"><a href="shop-details.html">Root For Organics</a></h4>
-                                                <span class="price"><strong>$96.00</strong></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-xl-4">
-                                        <div class="vs-product-box3 style3">
-                                            <div class="product-img">
-                                                <a href="shop-details.html"><img src="assets/img/shop/product-3-11.png" alt="Product Image" class="w-100"></a>
-                                            </div>
-                                            <div class="actions-btn">
-                                                <a href="assets/img/shop/product-3-11.png" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                                <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                                <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="product-rating-box">
-                                                    5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                                </div>
-                                                <h4 class="product-title"><a href="shop-details.html">Elemental Organic</a></h4>
-                                                <span class="price"><strong>$75.00</strong></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-xl-4">
-                                        <div class="vs-product-box3 style3">
-                                            <div class="product-img">
-                                                <a href="shop-details.html"><img src="assets/img/shop/product-3-12.png" alt="Product Image" class="w-100"></a>
-                                            </div>
-                                            <div class="actions-btn">
-                                                <a href="assets/img/shop/product-3-12.png" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                                <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                                <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="product-rating-box">
-                                                    5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                                </div>
-                                                <h4 class="product-title"><a href="shop-details.html">Organic Compliment</a></h4>
-                                                <span class="price"><strong>$23.00</strong></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-xl-4">
-                                        <div class="vs-product-box3 style3">
-                                            <div class="product-img">
-                                                <a href="shop-details.html"><img src="assets/img/shop/product-3-13.png" alt="Product Image" class="w-100"></a>
-                                            </div>
-                                            <div class="actions-btn">
-                                                <a href="assets/img/shop/product-3-13.png" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                                <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                                <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="product-rating-box">
-                                                    5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                                </div>
-                                                <h4 class="product-title"><a href="shop-details.html">Careful Compounds</a></h4>
-                                                <span class="price"><strong>$63.00</strong><del>$99.00</del></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-xl-4">
-                                        <div class="vs-product-box3 style3">
-                                            <div class="product-img">
-                                                <a href="shop-details.html"><img src="assets/img/shop/product-3-14.png" alt="Product Image" class="w-100"></a>
-                                                <span class="product-tag3">Sale</span>
-                                            </div>
-                                            <div class="actions-btn">
-                                                <a href="assets/img/shop/product-3-14.png" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                                <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                                <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="product-rating-box">
-                                                    5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                                </div>
-                                                <h4 class="product-title"><a href="shop-details.html">Organic Delights</a></h4>
-                                                <span class="price"><strong>$78.00</strong></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            }
+                        }
+                        <div aria-label="Page navigation example" class="pagination-layout1 list-style-none mt-0 mt-lg-4 mb-30" style="display:flex; justify-content:center">
+                            <ul class="pagination">
+                                <pager class="page-container" list="@Model" asp-action="Index"></pager>
+                            </ul>
 
-                            <div>
-                                <div class="row gx-30">
-                                    <div class="col-md-6 col-xl-4">
-                                        <div class="vs-product-box3 style3">
-                                            <div class="product-img">
-                                                <a href="shop-details.html"><img src="assets/img/shop/product-3-17.png" alt="Product Image" class="w-100"></a>
-                                            </div>
-                                            <div class="actions-btn">
-                                                <a href="assets/img/shop/product-3-17.png" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                                <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                                <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="product-rating-box">
-                                                    5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                                </div>
-                                                <h4 class="product-title"><a href="shop-details.html">Organic Choice</a></h4>
-                                                <span class="price"><strong>$79.00</strong></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-xl-4">
-                                        <div class="vs-product-box3 style3">
-                                            <div class="product-img">
-                                                <a href="shop-details.html"><img src="assets/img/shop/product-3-18.png" alt="Product Image" class="w-100"></a>
-                                                <span class="product-tag3">Sale</span>
-                                            </div>
-                                            <div class="actions-btn">
-                                                <a href="assets/img/shop/product-3-18.png" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                                <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                                <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="product-rating-box">
-                                                    5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                                </div>
-                                                <h4 class="product-title"><a href="shop-details.html">The Nitty-Gritty</a></h4>
-                                                <span class="price"><strong>$79.00</strong></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-xl-4">
-                                        <div class="vs-product-box3 style3">
-                                            <div class="product-img">
-                                                <a href="shop-details.html"><img src="assets/img/shop/product-3-19.png" alt="Product Image" class="w-100"></a>
-                                            </div>
-                                            <div class="actions-btn">
-                                                <a href="assets/img/shop/product-3-19.png" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                                <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                                <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="product-rating-box">
-                                                    5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                                </div>
-                                                <h4 class="product-title"><a href="shop-details.html">Nature’S Own Organic</a></h4>
-                                                <span class="price"><strong>$63.00</strong></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-xl-4">
-                                        <div class="vs-product-box3 style3">
-                                            <div class="product-img">
-                                                <a href="shop-details.html"><img src="assets/img/shop/product-3-20.png" alt="Product Image" class="w-100"></a>
-                                                <span class="product-tag3">Sale</span>
-                                            </div>
-                                            <div class="actions-btn">
-                                                <a href="assets/img/shop/product-3-20.png" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                                <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                                <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="product-rating-box">
-                                                    5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                                </div>
-                                                <h4 class="product-title"><a href="shop-details.html">Love Light Organics</a></h4>
-                                                <span class="price"><strong>$76.00</strong></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-xl-4">
-                                        <div class="vs-product-box3 style3">
-                                            <div class="product-img">
-                                                <a href="shop-details.html"><img src="assets/img/shop/product-3-21.png" alt="Product Image" class="w-100"></a>
-                                            </div>
-                                            <div class="actions-btn">
-                                                <a href="assets/img/shop/product-3-21.png" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                                <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                                <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="product-rating-box">
-                                                    5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                                </div>
-                                                <h4 class="product-title"><a href="shop-details.html">Double Nature</a></h4>
-                                                <span class="price"><strong>$39.00</strong><del>$59.00</del></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-xl-4">
-                                        <div class="vs-product-box3 style3">
-                                            <div class="product-img">
-                                                <a href="shop-details.html"><img src="assets/img/shop/product-3-22.png" alt="Product Image" class="w-100"></a>
-                                                <span class="product-tag2">New</span>
-                                            </div>
-                                            <div class="actions-btn">
-                                                <a href="assets/img/shop/product-3-22.png" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                                <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                                <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="product-rating-box">
-                                                    5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                                </div>
-                                                <h4 class="product-title"><a href="shop-details.html">Straight The Firm</a></h4>
-                                                <span class="price"><strong>$19.00</strong><del>$99.00</del></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="row gx-30">
-                                    <div class="col-md-6 col-xl-4">
-                                        <div class="vs-product-box3 style3">
-                                            <div class="product-img">
-                                                <a href="shop-details.html"><img src="assets/img/shop/product-3-25.png" alt="Product Image" class="w-100"></a>
-                                            </div>
-                                            <div class="actions-btn">
-                                                <a href="assets/img/shop/product-3-25.png" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                                <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                                <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="product-rating-box">
-                                                    5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                                </div>
-                                                <h4 class="product-title"><a href="shop-details.html">Goodness Organics</a></h4>
-                                                <span class="price"><strong>$63.00</strong></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-xl-4">
-                                        <div class="vs-product-box3 style3">
-                                            <div class="product-img">
-                                                <a href="shop-details.html"><img src="assets/img/shop/product-3-26.png" alt="Product Image" class="w-100"></a>
-                                                <span class="product-tag3">Sale</span>
-                                            </div>
-                                            <div class="actions-btn">
-                                                <a href="assets/img/shop/product-3-26.png" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                                <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                                <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="product-rating-box">
-                                                    5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                                </div>
-                                                <h4 class="product-title"><a href="shop-details.html">Organic Seed</a></h4>
-                                                <span class="price"><strong>$39.00</strong><del>$49.00</del></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-xl-4">
-                                        <div class="vs-product-box3 style3">
-                                            <div class="product-img">
-                                                <a href="shop-details.html"><img src="assets/img/shop/product-3-27.png" alt="Product Image" class="w-100"></a>
-                                                <span class="product-tag3">Sale</span>
-                                            </div>
-                                            <div class="actions-btn">
-                                                <a href="assets/img/shop/product-3-27.png" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                                <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                                <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="product-rating-box">
-                                                    5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                                </div>
-                                                <h4 class="product-title"><a href="shop-details.html">Double Organics</a></h4>
-                                                <span class="price"><strong>$79.00</strong><del>$99.00</del></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-xl-4">
-                                        <div class="vs-product-box3 style3">
-                                            <div class="product-img">
-                                                <a href="shop-details.html"><img src="assets/img/shop/product-3-28.png" alt="Product Image" class="w-100"></a>
-                                            </div>
-                                            <div class="actions-btn">
-                                                <a href="assets/img/shop/product-3-28.png" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                                <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                                <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="product-rating-box">
-                                                    5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                                </div>
-                                                <h4 class="product-title"><a href="shop-details.html">The Organic Base</a></h4>
-                                                <span class="price"><strong>$18.00</strong></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-xl-4">
-                                        <div class="vs-product-box3 style3">
-                                            <div class="product-img">
-                                                <a href="shop-details.html"><img src="assets/img/shop/product-3-29.png" alt="Product Image" class="w-100"></a>
-                                                <span class="product-tag3">Sale</span>
-                                            </div>
-                                            <div class="actions-btn">
-                                                <a href="assets/img/shop/product-3-29.png" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                                <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                                <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="product-rating-box">
-                                                    5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                                </div>
-                                                <h4 class="product-title"><a href="shop-details.html">The Organic Body</a></h4>
-                                                <span class="price"><strong>$75.00</strong><del>$20.00</del></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-xl-4">
-                                        <div class="vs-product-box3 style3">
-                                            <div class="product-img">
-                                                <a href="shop-details.html"><img src="assets/img/shop/product-3-30.png" alt="Product Image" class="w-100"></a>
-                                            </div>
-                                            <div class="actions-btn">
-                                                <a href="assets/img/shop/product-3-30.png" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                                <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                                <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="product-rating-box">
-                                                    5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                                </div>
-                                                <h4 class="product-title"><a href="shop-details.html">Organic BioKitchen</a></h4>
-                                                <span class="price"><strong>$96.00</strong></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <div class="row featured__filter">
-            @foreach(var item in Model)
-            {
-                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="@Html.DisplayFor(modelItem => item.ThumbnailUrl)">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="/Cart/AddToCart/?productId=@Html.DisplayFor(modelItem => item.ProductId)"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="/Products/Details/@Html.DisplayFor(modelItem => item.ProductId)">@Html.DisplayFor(modelItem => item.Name)</a></h6>
-                            <h5>@Html.DisplayFor(modelItem => item.SellPrice)</h5>
-                        </div>
-                    </div>
-                </div>
-            }
 
-        </div>
-        <div aria-label="Page navigation example" style="display:flex; justify-content:center">
-            <ul class="pagination">
-                <pager class="page-container" list="@Model" asp-action="Index"></pager>
-            </ul>
-
-        </div>
+        
     </div>
 </section>
 <!-- Featured Section End -->
@@ -702,6 +436,245 @@
         </div>
     </div>
 </section>
+<body class=" ">
+
+
+    <!--[if lte IE 9]>
+          <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+    <!--********************************
+        Code Start From Here
+    ******************************** -->
+    <!--==============================
+       Preloader
+    ==============================-->
+    <div class="preloader  ">
+        <button class="vs-btn preloaderCls">Cancel Preloader </button>
+        <div class="preloader-inner">
+            <div class="loader-logo">
+                <img src="assets/img/logo.svg" alt="Foodano">
+            </div>
+            <div class="loader-wrap pt-4">
+                <span class="loader"></span>
+            </div>
+        </div>
+    </div>
+    <!--==============================
+        Header Top
+    ==============================-->
+    <!--========================
+        Sticky Header
+    ========================-->
+    <div class="sticky-header-wrap sticky-header py-2 py-lg-1">
+        <div class="container position-relative">
+            <div class="row align-items-center">
+                <div class="col-5 col-md-3">
+                    <div class="logo">
+                        <a href="index.html"><img src="assets/img/logo.svg" alt="Foodano"></a>
+                    </div>
+                </div>
+                <div class="col-7 col-md-9 text-end position-static">
+                    <nav class="main-menu menu-sticky1 d-none d-lg-block link-inherit">
+                        <ul>
+                            <li class="menu-item-has-children">
+                                <a href="index.html">Home</a>
+                                <ul class="sub-menu">
+                                    <li><a href="index.html">Home Style 1</a></li>
+                                    <li><a href="index-2.html">Home Style 2</a></li>
+                                    <li><a href="index-3.html">Home Style 3</a></li>
+                                    <li><a href="index-4.html">Home Style 4</a></li>
+                                    <li><a href="index-5.html">Home Style 5</a></li>
+                                    <li><a href="index-6.html">Home Style 6</a></li>
+                                    <li><a href="index-7.html">Home Style 7</a></li>
+                                    <li><a href="index-8.html">Home Style 8</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="shop.html">Shop</a>
+                                <ul class="sub-menu">
+                                    <li><a href="shop.html">Shop</a></li>
+                                    <li><a href="shop-list.html">Shop List</a></li>
+                                    <li><a href="shop-details.html">Shop Details</a></li>
+                                    <li><a href="cart.html">Shopping Cart</a></li>
+                                    <li><a href="checkout.html">Check Out</a></li>
+                                    <li><a href="wishlist.html">Wishlist</a></li>
+                                    <li><a href="login-register.html">Login & Register</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="blog.html">Blog</a>
+                                <ul class="sub-menu">
+                                    <li><a href="blog.html">Blog</a></li>
+                                    <li><a href="blog-list.html">Blog List</a></li>
+                                    <li><a href="blog-grid.html">Blog Grid</a></li>
+                                    <li><a href="blog-grid-sidebar.html">Blog Grid Sidebar</a></li>
+                                    <li><a href="blog-masonry.html">Blog Masonry</a></li>
+                                    <li><a href="blog-details.html">Blog Details</a></li>
+                                </ul>
+                            </li>
+                            <li class="mega-menu-wrap menu-item-has-children">
+                                <a href="#">Pages</a>
+                                <ul class="mega-menu">
+                                    <li>
+                                        <a href="shop.html">Pagelist 1</a>
+                                        <ul>
+                                            <li><a href="index.html">Home Style 1</a></li>
+                                            <li><a href="index-2.html">Home Style 2</a></li>
+                                            <li><a href="index-3.html">Home Style 3</a></li>
+                                            <li><a href="index-4.html">Home Style 4</a></li>
+                                            <li><a href="index-5.html">Home Style 5</a></li>
+                                            <li><a href="index-6.html">Home Style 6</a></li>
+                                            <li><a href="index-7.html">Home Style 7</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Pagelist 2</a>
+                                        <ul>
+                                            <li><a href="index-8.html">Home Style 8</a></li>
+                                            <li><a href="about.html">About</a></li>
+                                            <li><a href="service.html">Services</a></li>
+                                            <li><a href="team.html">Team</a></li>
+                                            <li><a href="faq.html">FAQ Page</a></li>
+                                            <li><a href="contact.html">Contact Us</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Pagelist 3</a>
+                                        <ul>
+                                            <li><a href="blog.html">Blog</a></li>
+                                            <li><a href="blog-list.html">Blog List</a></li>
+                                            <li><a href="blog-grid.html">Blog Grid</a></li>
+                                            <li><a href="blog-grid-sidebar.html">Blog Grid Sidebar</a></li>
+                                            <li><a href="blog-masonry.html">Blog Masonry</a></li>
+                                            <li><a href="blog-details.html">Blog Details</a></li>
+                                            <li><a href="error.html">Error Page</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Pagelist 4</a>
+                                        <ul>
+                                            <li><a href="shop.html">Shop</a></li>
+                                            <li><a href="shop-list.html">Shop List</a></li>
+                                            <li><a href="shop-details.html">Shop Details</a></li>
+                                            <li><a href="cart.html">Shopping Cart</a></li>
+                                            <li><a href="checkout.html">Check Out</a></li>
+                                            <li><a href="wishlist.html">Wishlist</a></li>
+                                            <li><a href="login-register.html">Login / Register</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="contact.html">Contact Us</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <button class="vs-menu-toggle d-inline-block d-lg-none"><i class="far fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--==============================
+      Mobile Menu
+    ============================== -->
+    <div class="vs-menu-wrapper">
+        <div class="vs-menu-area">
+            <button class="vs-menu-toggle"><i class="fal fa-times"></i></button>
+            <div class="mobile-logo">
+                <a href="index.html"><img src="assets/img/logo.svg" alt="Foodano"></a>
+            </div>
+            <div class="vs-mobile-menu link-inherit"></div><!-- Menu Will Append With Javascript -->
+        </div>
+    </div>
+    <!--==============================
+        Sidemenu
+    ============================== -->
+    <div class="sidemenu-wrapper d-none d-lg-block  ">
+        <div class="sidemenu-content">
+            <button class="closeButton border-theme text-theme bg-theme-hover sideMenuCls"><i class="far fa-times"></i></button>
+            <div class="widget widget_shopping_cart">
+                <h3 class="widget_title">Shopping cart</h3>
+                <div class="widget_shopping_cart_content">
+                    <ul class="cart_list ">
+                        <li class="mini_cart_item">
+                            <a href="shop.html" class="remove"><i class="fal fa-trash-alt"></i></a>
+                            <a href="shop.html"><img src="assets/img/cart/cart-img-1-1.jpg" alt="Cart Image">Hot Burger</a>
+                            <span class="quantity">
+                                1 ×
+                                <span class="amount">
+                                    <span>$</span>40.00
+                                </span>
+                            </span>
+                        </li>
+                        <li class="mini_cart_item">
+                            <a href="shop.html" class="remove"><i class="fal fa-trash-alt"></i></a>
+                            <a href="shop.html"><img src="assets/img/cart/cart-img-1-2.jpg" alt="Cart Image">Vegetable</a>
+                            <span class="quantity">
+                                1 ×
+                                <span class="amount">
+                                    <span>$</span>99.00
+                                </span>
+                            </span>
+                        </li>
+
+                        <li class="mini_cart_item">
+                            <a href="shop.html" class="remove"><i class="fal fa-trash-alt"></i></a>
+                            <a href="shop.html"><img src="assets/img/cart/cart-img-1-3.jpg" alt="Cart Image">Pop Pizza</a>
+                            <span class="quantity">
+                                1 ×
+                                <span class="amount">
+                                    <span>$</span>56.00
+                                </span>
+                            </span>
+                        </li>
+                        <li class="mini_cart_item">
+                            <a href="shop.html" class="remove"><i class="fal fa-trash-alt"></i></a>
+                            <a href="shop.html"><img src="assets/img/cart/cart-img-1-4.jpg" alt="Cart Image">Onion & Tomato</a>
+                            <span class="quantity">
+                                1 ×
+                                <span class="amount">
+                                    <span>$</span>23.00
+                                </span>
+                            </span>
+                        </li>
+                        <li class="mini_cart_item">
+                            <a href="shop.html" class="remove"><i class="fal fa-trash-alt"></i></a>
+                            <a href="shop.html"><img src="assets/img/cart/cart-img-1-5.jpg" alt="Cart Image">Cool Drinks</a>
+                            <span class="quantity">
+                                1 ×
+                                <span class="amount">
+                                    <span>$</span>100.00
+                                </span>
+                            </span>
+                        </li>
+                    </ul>
+                    <p class="total">
+                        <strong>Subtotal:</strong>
+                        <span class="amount">
+                            <span>$</span>318.00
+                        </span>
+                    </p>
+                    <p class="buttons">
+                        <a href="cart.html" class="vs-btn">View cart</a>
+                        <a href="checkout.html" class="vs-btn">Checkout</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--==============================
+        Header Area
+    ==============================-->
+    
+    <!--==============================
+        Breadcumb
+    ============================== -->
+  
+    <!--==============================
+    Feature Products
+    ==============================-->
+
+</body>
 <!-- Blog Section End -->
 <!-- Footer Section Begin -->
 @section Scripts{

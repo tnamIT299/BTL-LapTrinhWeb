@@ -19,7 +19,9 @@ builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<Data.ConveniencestoreContext>(options =>
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("SalesLeadEntity")));
+builder.Services.AddDbContext<ConveniencestoreContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("dbCONVENIENCESTORE")));
 builder.Services.AddScoped<IAddCusFromExcel, AddCusFromExcel>();
 builder.Services.AddScoped<IAddEmployFromExcel, AddEmployFromExcel>();
@@ -27,12 +29,12 @@ builder.Services.AddScoped<IAddCategoryFromExcel, AddCategoryFromExcel>();
 builder.Services.AddScoped<IAddProductFromExcel, AddProductFromExcel>();
 builder.Services.AddScoped<IAddProductBatchFromExcel, AddProductBatchFromExcel>();
 builder.Services.AddScoped<IAddSupplierFromExcel, AddSupplierFromExcel>();
-//builder.Services.AddDefaultIdentity<IdentityUser>().AddDefaultTokenProviders()
-//   .AddRoles<IdentityRole>()
-//   .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddDefaultIdentity<IdentityUser>().AddDefaultTokenProviders()
-    .AddRoles<IdentityRole>()
-    .AddEntityFrameworkStores<Client_Home.Data.ConveniencestoreContext>();
+   .AddRoles<IdentityRole>()
+   .AddEntityFrameworkStores<ApplicationDbContext>();
+//builder.Services.AddDefaultIdentity<IdentityUser>().AddDefaultTokenProviders()
+    //.AddRoles<IdentityRole>()
+    //.AddEntityFrameworkStores<Client_Home.Data.ConveniencestoreContext>();
 
 builder.Services.AddNotyf(config =>
 {

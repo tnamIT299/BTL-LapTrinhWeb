@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7TDhmZwZ0+ha9XNkeDSNv1ZIM5ULJu5gGkK42HVC+iA=",
+  "Hash": "c9XtGdjo2jESkyCQys0jAx5fp5sFx4GtGggK21TON+Q=",
   "Source": "Client_Home",
   "BasePath": "_content/Client_Home",
   "Mode": "Default",
@@ -23662,6 +23662,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\template\\Template_Supplier.xlsx"
+    },
+    {
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\uploaded_doc\\Product.xlsx",
+      "SourceId": "Client_Home",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
+      "BasePath": "_content/Client_Home",
+      "RelativePath": "uploaded_doc/Product.xlsx",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploaded_doc\\Product.xlsx"
+    },
+    {
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\uploaded_doc\\template_customer.xlsx",
+      "SourceId": "Client_Home",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
+      "BasePath": "_content/Client_Home",
+      "RelativePath": "uploaded_doc/template_customer.xlsx",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploaded_doc\\template_customer.xlsx"
     },
     {
       "Identity": "C:\\Users\\admin\\.nuget\\packages\\aspnetcorehero.toastnotification\\1.1.0\\staticwebassets\\notyf.min.css",

@@ -61,7 +61,7 @@ namespace Client_Home.Areas.Admin.Controllers
             {
                 url = $"/Admin/AdminProducts";
             }
-            return Json(new { status = "success", redirectUrl = url });
+            return Json(new { status = "success", redirectUrl = url }); 
         }
 
         // GET: Admin/AdminProducts/Details/5   

@@ -427,7 +427,7 @@
                     </div>
                    
                     <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="tab-grid" role="tabpanel" aria-labelledby="tab-shop-grid">
+                        <div class="tab-pane fade show active" id="tab-grid" role="tabpanel" aria-labelledby="tab-shop-grid">                                                                           
                             <div class="row">
                                  @if (Model != null)
                                 {
@@ -443,11 +443,11 @@
                                                 </div>
                                                 <div class="product-content">
                                                     <div class="actions-btn">
-                                                        <a href="cart.html"><i class="fal fa-cart-plus"></i></a>
+                                                        <a href="/Cart/AddToCart/?productId=@Html.DisplayFor(modelItem => item.ProductId)"><i class="fal fa-cart-plus"></i></a>
                                                         <a href="assets/img/shop/product-1-1.png" class="popup-image"><i class="far fa-search"></i></a>
                                                         <a href="wishlist.html"><i class="fal fa-heart"></i></a>
                                                     </div>
-                                                    <h4 class="product-title h5 mb-0"><a href="shop-details.html"> @item.Name</a></h4>
+                                                    <h4 class="product-title h5 mb-0"><a href="/Products/Details/@Html.DisplayFor(modelItem => item.ProductId)"> @item.Name</a></h4>
                                                     <span class="price font-theme"><strong>$40.00</strong></span>
                                                     <p class="m-0 rating fs-xs text-theme lh-base">
                                                         <i class="fas fa-star"></i>
@@ -666,28 +666,6 @@
 
                         @await Component.InvokeAsync("LoaiSPMenu")
                        
-
-
-                        <div class="widget widget_categories   ">
-                            <h3 class="widget_title">Categories</h3>
-                            <ul>
-                                <li>
-                                    <input type="checkbox" name="juice" id="juice">
-                                    <label for="juice">Juice</label>
-                                    <span>(06)</span>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="Fresh" id="Fresh">
-                                    <label for="Fresh">Fresh</label>
-                                    <span>(06)</span>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="Smoothie" id="Smoothie">
-                                    <label for="Smoothie">Smoothie</label>
-                                    <span>(06)</span>
-                                </li>
-                            </ul>
-                        </div>
                         <div class="widget widget_search   ">
                             <h3 class="widget_title">Product Name</h3>
                             <form class="search-form">

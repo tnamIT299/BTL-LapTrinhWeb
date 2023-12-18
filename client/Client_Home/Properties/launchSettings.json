@@ -32,6 +32,12 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
+    },
+    "Authentication": {
+      "Google": {
+        "ClientId": "188107082756-je1c2au6caoge8e5ii2e7b8usd4jm361.apps.googleusercontent.com",
+        "ClientSecret": "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"
+      }
     }
   }
 }

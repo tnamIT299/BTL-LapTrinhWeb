@@ -1,9 +1,5 @@
 ﻿@inject SignInManager<IdentityUser> SignInManager
 @{
-    ViewData["Title"] = "Change password";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-@{
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }
 <ul class="nav nav-pills flex-column">

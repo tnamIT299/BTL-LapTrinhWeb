@@ -12,6 +12,9 @@ using Client_Home.Areas.Admin.DTO.ProductBatch;
 using Client_Home.Areas.Admin.DTO.Suppliers;
 using NuGet.Protocol.Core.Types;
 using Client_Home.Repository;
+using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
+using Hangfire;
+using Client_Home.Areas.Admin.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
@@ -33,6 +36,12 @@ builder.Services.AddScoped<IAddSupplierFromExcel, AddSupplierFromExcel>();
 builder.Services.AddDefaultIdentity<IdentityUser>().AddDefaultTokenProviders()
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<Client_Home.Data.ConveniencestoreContext>();
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("RequireLoggedIn", policy =>
+        policy.RequireAuthenticatedUser());
+});
+
 
 builder.Services.AddNotyf(config =>
 {
@@ -41,12 +50,13 @@ builder.Services.AddNotyf(config =>
     config.Position = NotyfPosition.TopRight;
 
 });
+builder.Services.AddHangfire(config => config.UseSqlServerStorage("dbCONVENIENCESTORE"));
 
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();
 builder.Services.AddScoped<ILoaiSpRepository, LoaiSpRepository>();
 var app = builder.Build();
-
+app.UseStatusCodePagesWithReExecute("/Account/Login", "?statusCode={0}");
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -58,7 +68,8 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseSession();
-
+app.UseHangfireDashboard();
+RecurringJob.AddOrUpdate<EmailJob>("daily-email-job", x => x.SendEmail(), Cron.Daily);
 app.UseRouting();
 
 app.UseAuthorization();

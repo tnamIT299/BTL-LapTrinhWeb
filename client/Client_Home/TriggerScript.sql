@@ -60,3 +60,15 @@ begin
     FROM Products p
     INNER JOIN inserted i ON p.ProductID = i.ProductID;
 end
+
+-- set status ở ProblemCustomer mỗi lần thêm mới
+CREATE TRIGGER SetDefaultStatus
+ON dbo.ProblemCustomer
+AFTER INSERT
+AS
+BEGIN
+    UPDATE pc
+    SET pc.Status = 0
+    FROM dbo.ProblemCustomer pc
+    INNER JOIN inserted i ON pc.ProblemID = i.ProblemID;
+END;

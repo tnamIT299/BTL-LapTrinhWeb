@@ -675,6 +675,16 @@ public partial class ConveniencestoreContext : DbContext
                 .HasConstraintName("FK__ACCOUNTS__ROLEID__74AE54BC");
         });
 
+        modelBuilder.Entity<ProblemCustomer>(entity =>
+        {
+            entity.HasKey(e => e.ProblemId);
+
+            entity.ToTable("ProblemCustomer", tb => tb.HasTrigger("SetDefaultStatus"));
+
+            entity.Property(e => e.ProblemId).HasColumnName("ProblemID");
+            entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
+        });
+
         OnModelCreatingPartial(modelBuilder);
     }
 

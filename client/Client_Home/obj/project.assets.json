@@ -13983,6 +13983,8 @@
       "Chart.js >= 3.7.1",
       "ClosedXML >= 0.102.1",
       "EPPlus >= 7.0.0",
+      "Hangfire.AspNetCore >= 1.8.6",
+      "Hangfire.SqlServer >= 1.8.6",
       "Microsoft.AspNetCore.Authentication.MicrosoftAccount >= 7.0.14",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 7.0.13",
       "Microsoft.AspNetCore.Identity.UI >= 7.0.13",
@@ -14058,6 +14060,14 @@
           "EPPlus": {
             "target": "Package",
             "version": "[7.0.0, )"
+          },
+          "Hangfire.AspNetCore": {
+            "target": "Package",
+            "version": "[1.8.6, )"
+          },
+          "Hangfire.SqlServer": {
+            "target": "Package",
+            "version": "[1.8.6, )"
           },
           "Microsoft.AspNetCore.Authentication.MicrosoftAccount": {
             "target": "Package",

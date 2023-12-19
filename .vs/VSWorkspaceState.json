@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\client",
+    "\\client\\Client_Home"
   ],
-  "SelectedNode": "\\Client_Home.sln",
+  "SelectedNode": "\\client\\Client_Home\\ProcedureScript.sql",
   "PreviewInSolutionExplorer": false
 }

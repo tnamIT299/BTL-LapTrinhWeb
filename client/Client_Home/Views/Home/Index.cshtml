@@ -128,7 +128,9 @@
                                     <li><a href="checkout.html">Check Out</a></li>
                                     <li><a href="wishlist.html">Wishlist</a></li>
                                     <li><a href="login-register.html">Login & Register</a></li>
+                                    <partial name="_loginPartial"/>
                                 </ul>
+                                
                             </li>
                             <li class="menu-item-has-children">
                                 <a href="/home/blog">Blog</a>
@@ -309,20 +311,17 @@
             <div class="header-top-shape"></div>
             <div class="container">
                 <div class="row align-items-center justify-content-between">
-                    <div class="col-auto col-xxl-3 d-none d-lg-block">
-                        <a href="login-register.html" class="header-login"><i class="fas fa-user-circle"></i> Login & Register</a>
-                    </div>
-                    <div class="col-auto col-xxl-4  d-none d-lg-block">
-                        <div class="social-header">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                        </div>
-                    </div>
+                    <div class="col-auto col-xxl-3 d-none d-lg-block" style="display:flex">
+                        <a href="login-register.html" class="header-login"><i class="fas fa-user-circle"></i> </a>
+                        <partial name="_loginPartial" />
+                           
+                    </div>                  
+                   
                     <div class="col-lg-auto col-xxl text-center text-lg-end py-2 py-lg-0">
                         <div class="header-infos">
                             <p class="info"><i class="fas fa-phone-alt"></i>Phone:<a href="tel:02073885619">020 7388 5619</a></p>
                             <p class="info d-none d-sm-inline-block"><i class="fas fa-envelope"></i>Email:<a href="mailto:info@username.com.uk">info@username.com.uk</a></p>
+                            
                         </div>
                     </div>
                 </div>
@@ -354,7 +353,7 @@
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="/home/shop">Shop</a>
+                                    <a href="/Products">Shop</a>
                                     <ul class="sub-menu">
                                         <li><a href="/home/shop">Shop</a></li>
                                         <li><a href="shop-list.html">Shop List</a></li>

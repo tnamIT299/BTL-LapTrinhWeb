@@ -425,7 +425,7 @@
                     </div>
                    
                     <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="tab-grid" role="tabpanel" aria-labelledby="tab-shop-grid">
+                        <div class="tab-pane fade show active" id="tab-grid" role="tabpanel" aria-labelledby="tab-shop-grid">                                                                           
                             <div class="row">
                                  @if (Model != null)
                                 {
@@ -441,7 +441,7 @@
                                                 </div>
                                                 <div class="product-content">
                                                     <div class="actions-btn">
-                                                        <a href="cart.html"><i class="fal fa-cart-plus"></i></a>
+                                                        <a href="/Cart/AddToCart/?productId=@Html.DisplayFor(modelItem => item.ProductId)"><i class="fal fa-cart-plus"></i></a>
                                                         <a href="assets/img/shop/product-1-1.png" class="popup-image"><i class="far fa-search"></i></a>
                                                         <a href="wishlist.html"><i class="fal fa-heart"></i></a>
                                                     </div>

@@ -42,7 +42,7 @@ namespace Client_Home.Controllers
 
             }
             var pageNumber = page == null || page <= 0 ? 1 : page.Value;
-            var pageSize = 8;
+            var pageSize = 9;
             PagedList.Core.IPagedList<Product> model = new PagedList.Core.PagedList<Product>(lsProducts, pageNumber, pageSize);
             ViewBag.CurrentPage = pageNumber;
 

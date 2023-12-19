@@ -22,20 +22,20 @@ namespace Client_Home.Controllers
         // GET: Leads
         public async Task<IActionResult> Index()
         {
-              return _context.SalesLeadEntities != null ? 
-                          View(await _context.SalesLeadEntities.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.SalesLeadEntities'  is null.");
+              return _context.SalesLead != null ? 
+                          View(await _context.SalesLead.ToListAsync()) :
+                          Problem("Entity set 'ApplicationDbContext.SalesLead'  is null.");
         }
 
         // GET: Leads/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.SalesLeadEntities == null)
+            if (id == null || _context.SalesLead == null)
             {
                 return NotFound();
             }
 
-            var salesLeadEntity = await _context.SalesLeadEntities
+            var salesLeadEntity = await _context.SalesLead
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (salesLeadEntity == null)
             {
@@ -70,12 +70,12 @@ namespace Client_Home.Controllers
         // GET: Leads/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.SalesLeadEntities == null)
+            if (id == null || _context.SalesLead == null)
             {
                 return NotFound();
             }
 
-            var salesLeadEntity = await _context.SalesLeadEntities.FindAsync(id);
+            var salesLeadEntity = await _context.SalesLead.FindAsync(id);
             if (salesLeadEntity == null)
             {
                 return NotFound();
@@ -121,12 +121,12 @@ namespace Client_Home.Controllers
         // GET: Leads/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.SalesLeadEntities == null)
+            if (id == null || _context.SalesLead == null)
             {
                 return NotFound();
             }
 
-            var salesLeadEntity = await _context.SalesLeadEntities
+            var salesLeadEntity = await _context.SalesLead
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (salesLeadEntity == null)
             {
@@ -141,14 +141,14 @@ namespace Client_Home.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.SalesLeadEntities == null)
+            if (_context.SalesLead == null)
             {
-                return Problem("Entity set 'ApplicationDbContext.SalesLeadEntities'  is null.");
+                return Problem("Entity set 'ApplicationDbContext.SalesLead'  is null.");
             }
-            var salesLeadEntity = await _context.SalesLeadEntities.FindAsync(id);
+            var salesLeadEntity = await _context.SalesLead.FindAsync(id);
             if (salesLeadEntity != null)
             {
-                _context.SalesLeadEntities.Remove(salesLeadEntity);
+                _context.SalesLead.Remove(salesLeadEntity);
             }
             
             await _context.SaveChangesAsync();
@@ -157,7 +157,7 @@ namespace Client_Home.Controllers
 
         private bool SalesLeadEntityExists(int id)
         {
-          return (_context.SalesLeadEntities?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.SalesLead?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

@@ -2,7 +2,7 @@
   "version": 2,
   "dgSpecHash": "IRW3QxUGprohAwGCLXg2+DKN0d/NasFWBzJVf8Lu5Pqp6MdTxZGyNZdjQyRkw0hSeBQlYvUOJdWusXJWfwsD3A==",
   "success": true,
-  "projectFilePath": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\Client_Home.csproj",
+  "projectFilePath": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\Client_Home.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\huypro\\.nuget\\packages\\aspnetcorehero.toastnotification\\1.1.0\\aspnetcorehero.toastnotification.1.1.0.nupkg.sha512",
     "C:\\Users\\huypro\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",

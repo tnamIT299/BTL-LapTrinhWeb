@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using AspNetCoreHero.ToastNotification;
 
@@ -15,6 +15,7 @@ using Client_Home.Areas.Admin.Services;
 using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 using System.Configuration;
 using DocumentFormat.OpenXml.Math;
+using Client_Home.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
@@ -36,8 +37,8 @@ builder.Services.AddDefaultIdentity<IdentityUser>().AddDefaultTokenProviders()
    .AddRoles<IdentityRole>()
    .AddEntityFrameworkStores<ApplicationDbContext>();
 //builder.Services.AddDefaultIdentity<IdentityUser>().AddDefaultTokenProviders()
-    //.AddRoles<IdentityRole>()
-    //.AddEntityFrameworkStores<Client_Home.Data.ConveniencestoreContext>();
+//.AddRoles<IdentityRole>()
+//.AddEntityFrameworkStores<Client_Home.Data.ConveniencestoreContext>();
 
 builder.Services.AddNotyf(config =>
 {
@@ -46,10 +47,10 @@ builder.Services.AddNotyf(config =>
     config.Position = NotyfPosition.TopRight;
 
 });
-builder.Services.AddHostedService<ScheduledJob>();
-var smtpSettingsSection = builder.Configuration.GetSection("SmtpSettings");
-builder.Services.Configure<SmtpSettings>(smtpSettingsSection);
-services.AddSingleton<EmailService>();
+//builder.Services.AddHostedService<ScheduledJob>();
+//var smtpSettingsSection = builder.Configuration.GetSection("SmtpSettings");
+//builder.Services.Configure<SmtpSettings>(smtpSettingsSection);
+//services.AddSingleton<EmailService>();
 
 
 

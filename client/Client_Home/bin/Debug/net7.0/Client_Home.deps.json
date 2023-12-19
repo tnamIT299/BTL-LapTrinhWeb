@@ -39,7 +39,7 @@
           "Chart.js": "3.7.1",
           "ClosedXML": "0.102.1",
           "EPPlus": "7.0.0",
-          "Microsoft.AspNetCore.Authentication.MicrosoftAccount": "7.0.14",
+          "MailKit": "4.3.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.13",
           "Microsoft.AspNetCore.Identity.UI": "7.0.13",
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "7.0.13",
@@ -426,6 +426,17 @@
           "lib/BouncyCastle.Crypto.dll": {}
         }
       },
+      "BouncyCastle.Cryptography/2.2.1": {
+        "runtime": {
+          "lib/net6.0/BouncyCastle.Cryptography.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.2.1.47552"
+          }
+        },
+        "compile": {
+          "lib/net6.0/BouncyCastle.Cryptography.dll": {}
+        }
+      },
       "Chart.js/3.7.1": {},
       "ClosedXML/0.102.1": {
         "dependencies": {
@@ -468,7 +479,7 @@
           "Microsoft.Extensions.Configuration.Json": "7.0.0",
           "Microsoft.IO.RecyclableMemoryStream": "2.3.2",
           "System.ComponentModel.Annotations": "5.0.0",
-          "System.Security.Cryptography.Pkcs": "7.0.2",
+          "System.Security.Cryptography.Pkcs": "7.0.3",
           "System.Text.Encoding.CodePages": "7.0.0"
         },
         "runtime": {
@@ -1105,15 +1116,18 @@
           "lib/netstandard2.0/JetBrains.Annotations.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Authentication.MicrosoftAccount/7.0.14": {
+      "MailKit/4.3.0": {
+        "dependencies": {
+          "MimeKit": "4.3.0"
+        },
         "runtime": {
-          "lib/net7.0/Microsoft.AspNetCore.Authentication.MicrosoftAccount.dll": {
-            "assemblyVersion": "7.0.14.0",
-            "fileVersion": "7.0.1423.52316"
+          "lib/net6.0/MailKit.dll": {
+            "assemblyVersion": "4.3.0.0",
+            "fileVersion": "4.3.0.0"
           }
         },
         "compile": {
-          "lib/net7.0/Microsoft.AspNetCore.Authentication.MicrosoftAccount.dll": {}
+          "lib/net6.0/MailKit.dll": {}
         }
       },
       "Microsoft.AspNetCore.Cryptography.Internal/7.0.13": {
@@ -2361,6 +2375,23 @@
           "lib/net7.0/Microsoft.Win32.SystemEvents.dll": {}
         }
       },
+      "MimeKit/4.3.0": {
+        "dependencies": {
+          "BouncyCastle.Cryptography": "2.2.1",
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0",
+          "System.Security.Cryptography.Pkcs": "7.0.3",
+          "System.Text.Encoding.CodePages": "7.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/MimeKit.dll": {
+            "assemblyVersion": "4.3.0.0",
+            "fileVersion": "4.3.0.0"
+          }
+        },
+        "compile": {
+          "lib/net6.0/MimeKit.dll": {}
+        }
+      },
       "Mono.TextTemplating/2.2.1": {
         "dependencies": {
           "System.CodeDom": "4.4.0"
@@ -2508,7 +2539,7 @@
           "NuGet.Configuration": "6.6.1",
           "NuGet.Versioning": "6.6.1",
           "System.Security.Cryptography.Cng": "5.0.0",
-          "System.Security.Cryptography.Pkcs": "7.0.2"
+          "System.Security.Cryptography.Pkcs": "7.0.3"
         },
         "runtime": {
           "lib/net5.0/NuGet.Packaging.dll": {
@@ -3535,14 +3566,14 @@
           "runtime.native.System.Security.Cryptography.OpenSsl": "4.3.2"
         }
       },
-      "System.Security.Cryptography.Pkcs/7.0.2": {
+      "System.Security.Cryptography.Pkcs/7.0.3": {
         "dependencies": {
           "System.Formats.Asn1": "7.0.0"
         },
         "runtime": {
           "lib/net7.0/System.Security.Cryptography.Pkcs.dll": {
             "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.723.27404"
+            "fileVersion": "7.0.823.31807"
           }
         },
         "runtimeTargets": {
@@ -3550,7 +3581,7 @@
             "rid": "win",
             "assetType": "runtime",
             "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.723.27404"
+            "fileVersion": "7.0.823.31807"
           }
         },
         "compile": {
@@ -5560,6 +5591,13 @@
       "path": "bouncycastle/1.8.9",
       "hashPath": "bouncycastle.1.8.9.nupkg.sha512"
     },
+    "BouncyCastle.Cryptography/2.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-A6Zr52zVqJKt18ZBsTnX0qhG0kwIQftVAjLmszmkiR/trSp8H+xj1gUOzk7XHwaKgyREMSV1v9XaKrBUeIOdvQ==",
+      "path": "bouncycastle.cryptography/2.2.1",
+      "hashPath": "bouncycastle.cryptography.2.2.1.nupkg.sha512"
+    },
     "Chart.js/3.7.1": {
       "type": "package",
       "serviceable": true,
@@ -5980,12 +6018,12 @@
       "path": "jetbrains.annotations/2022.3.1",
       "hashPath": "jetbrains.annotations.2022.3.1.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Authentication.MicrosoftAccount/7.0.14": {
+    "MailKit/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kucJqebvM+SL+pwBMz00cw4PMr2RGN5kDxKQxUEf3LB0Cvt2vKfl1qHAiR50th7ipWs8iYtMDSZkY9u6DTa31w==",
-      "path": "microsoft.aspnetcore.authentication.microsoftaccount/7.0.14",
-      "hashPath": "microsoft.aspnetcore.authentication.microsoftaccount.7.0.14.nupkg.sha512"
+      "sha512": "sha512-jVmB3Nr0JpqhyMiXOGWMin+QvRKpucGpSFBCav9dG6jEJPdBV+yp1RHVpKzxZPfT+0adaBuZlMFdbIciZo1EWA==",
+      "path": "mailkit/4.3.0",
+      "hashPath": "mailkit.4.3.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Cryptography.Internal/7.0.13": {
       "type": "package",
@@ -6525,6 +6563,13 @@
       "sha512": "sha512-2nXPrhdAyAzir0gLl8Yy8S5Mnm/uBSQQA7jEsILOS1MTyS7DbmV1NgViMtvV1sfCD1ebITpNwb1NIinKeJgUVQ==",
       "path": "microsoft.win32.systemevents/7.0.0",
       "hashPath": "microsoft.win32.systemevents.7.0.0.nupkg.sha512"
+    },
+    "MimeKit/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-39KDXuERDy5VmHIn7NnCWvIVp/Ar4qnxZWg9m06DfRqDbW1B6zFv9o3Tdoa4CCu71tE/0SRqRCN5Z+bbffw6uw==",
+      "path": "mimekit/4.3.0",
+      "hashPath": "mimekit.4.3.0.nupkg.sha512"
     },
     "Mono.TextTemplating/2.2.1": {
       "type": "package",
@@ -7268,12 +7313,12 @@
       "path": "system.security.cryptography.openssl/4.3.0",
       "hashPath": "system.security.cryptography.openssl.4.3.0.nupkg.sha512"
     },
-    "System.Security.Cryptography.Pkcs/7.0.2": {
+    "System.Security.Cryptography.Pkcs/7.0.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-xhFNJOcQSWhpiVGLLBQYoxAltQSQVycMkwaX1z7I7oEdT9Wr0HzSM1yeAbfoHaERIYd5s6EpLSOLs2qMchSKlA==",
-      "path": "system.security.cryptography.pkcs/7.0.2",
-      "hashPath": "system.security.cryptography.pkcs.7.0.2.nupkg.sha512"
+      "sha512": "sha512-yhwEHH5Gzl/VoADrXtt5XC95OFoSjNSWLHNutE7GwdOgefZVRvEXRSooSpL8HHm3qmdd9epqzsWg28UJemt22w==",
+      "path": "system.security.cryptography.pkcs/7.0.3",
+      "hashPath": "system.security.cryptography.pkcs.7.0.3.nupkg.sha512"
     },
     "System.Security.Cryptography.Primitives/4.3.0": {
       "type": "package",

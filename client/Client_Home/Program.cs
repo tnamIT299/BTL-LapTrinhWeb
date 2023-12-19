@@ -1,24 +1,24 @@
-using Client_Home.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using AspNetCoreHero.ToastNotification;
 
-using Client_Home.Models;
 using Client_Home.Areas.Admin.DTO.Customers;
 using Client_Home.Areas.Admin.DTO.Employees;
 using Client_Home.Areas.Admin.DTO.Category;
 using Client_Home.Areas.Admin.DTO.Product;
 using Client_Home.Areas.Admin.DTO.ProductBatch;
 using Client_Home.Areas.Admin.DTO.Suppliers;
-using NuGet.Protocol.Core.Types;
 using Client_Home.Repository;
-using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
-using Hangfire;
 using Client_Home.Areas.Admin.Models;
+using Client_Home.Areas.Admin.Services.SendEmail;
+using Client_Home.Areas.Admin.Services;
+using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
+using System.Configuration;
+using DocumentFormat.OpenXml.Math;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
-
+var services = builder.Services;
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -50,7 +50,13 @@ builder.Services.AddNotyf(config =>
     config.Position = NotyfPosition.TopRight;
 
 });
-builder.Services.AddHangfire(config => config.UseSqlServerStorage("dbCONVENIENCESTORE"));
+builder.Services.AddHostedService<ScheduledJob>();
+var smtpSettingsSection = builder.Configuration.GetSection("SmtpSettings");
+builder.Services.Configure<SmtpSettings>(smtpSettingsSection);
+services.AddSingleton<EmailService>();
+
+
+
 
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();
@@ -68,8 +74,6 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseSession();
-app.UseHangfireDashboard();
-RecurringJob.AddOrUpdate<EmailJob>("daily-email-job", x => x.SendEmail(), Cron.Daily);
 app.UseRouting();
 
 app.UseAuthorization();

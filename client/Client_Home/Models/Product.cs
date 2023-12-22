@@ -46,7 +46,6 @@ public partial class Product
     public virtual ICollection<Discount> Discounts { get; set; } = new List<Discount>();
 
     public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
-
     public virtual ICollection<ProductBatch> ProductBatches { get; set; } = new List<ProductBatch>();
 
     public virtual ICollection<ProductComment> ProductComments { get; set; } = new List<ProductComment>();

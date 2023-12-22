@@ -2,9 +2,9 @@
 
 @{
     ViewData["Title"] = "Details";
-    
+    Layout = "~/Views/Shared/_Layout_Shop.cshtml";
 }
-@section styles{
+@* @section styles{
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet" type="text/css" />
@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="/css/style.css" type="text/css">
 
-}
+} *@
 <h2 style="font-weight:600; font-family:sans-serif;color:#7fad39">Details Product</h2>
 
 <div class="container mt-5 mb-5">
@@ -38,11 +38,13 @@
                                 <div class="d-flex align-items-center"> <i class="fa fa-long-arrow-left"></i><a href="/home/shop" style="font-family:sans-serif;font-size:16px;color:#7fad39" class="ml-1">Back To List</a> </div>
                             </div>
                             <div class="mt-4 mb-3">
-                                <span class="text-uppercase text-muted brand">Orianz</span>
-                                <h5 class="@Html.DisplayFor(model => model.Name)</h5>
+                                <span class="text-uppercase text-muted brand">@Html.DisplayFor(model => model.Name)</span>
+                                @* <h5 class="act-name">@Html.DisplayFor(model => model.Name)</h5> *@
                                 <div class="price d-flex flex-row align-items-center">
-                                    <span class="act-price">@Html.DisplayFor(model => model.SellPrice)</span>
-                                    <div class="ml-2"> <small class="dis-price">@Html.DisplayFor(model => model.SellPrice)*@Html.DisplayFor(model => model.Discount)</small> <span>@Html.DisplayFor(model => model.Discount) OFF</span> </div>
+                                    <span class="act-price">@Html.DisplayFor(model => model.SellPrice)</span> </br  >
+                                    <div class="ml-2"> <small class="dis-price">@Html.DisplayFor(model => model.SellPrice)*@Html.DisplayFor(model => model.Discount)</small>
+                                        <span>@Html.DisplayFor(model => model.Discount) OFF</span> 
+                                    </div>
                                 </div>
                             </div>
                             <p class="about">@Html.DisplayFor(model => model.Description)</p>
@@ -55,7 +57,7 @@
         </div>
     </div>
 </div>
-@section Scripts{
+@* @section Scripts{
     <!-- Js Plugins -->
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
@@ -65,4 +67,4 @@
     <script src="/js/mixitup.min.js"></script>
     <script src="/js/owl.carousel.min.js"></script>
     <script src="/js/main.js"></script>
-}
+} *@

@@ -424,8 +424,8 @@
                                             <div class="vs-product-box1 thumb_swap">
                                                 <div class="product-tag1">Sale - @item.Discount%</div>
                                                 <div class="product-img">
-                                                    <a href="shop-details.html"><img src="@Url.Content("~/adminassets/images/others/" + item.ThumbnailUrl)" alt="Product Image" class="w-100"></a>
-                                                    <a href="shop-details.html"><img src="assets/img/shop/product-1-8.png" alt="Product Image" class="w-100 img_swap"></a>
+                                                    <a href="/Products/Details/@Html.DisplayFor(modelItem => item.ProductId)"><img src="@Url.Content("~/adminassets/images/others/" + item.ThumbnailUrl)" alt="Product Image" class="w-100"></a>
+                                                    <a href="/Products/Details/@Html.DisplayFor(modelItem => item.ProductId)l"><img src="assets/img/shop/product-1-8.png" alt="Product Image" class="w-100 img_swap"></a>
                                                 </div>
                                                 <div class="product-content">
                                                     <div class="actions-btn">

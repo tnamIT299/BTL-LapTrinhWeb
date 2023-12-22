@@ -13790,9 +13790,7 @@
       "Chart.js >= 3.7.1",
       "ClosedXML >= 0.102.1",
       "EPPlus >= 7.0.0",
-      "Hangfire.AspNetCore >= 1.8.6",
-      "Hangfire.SqlServer >= 1.8.6",
-      "Microsoft.AspNetCore.Authentication.MicrosoftAccount >= 7.0.14",
+      "MailKit >= 4.3.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 7.0.13",
       "Microsoft.AspNetCore.Identity.UI >= 7.0.13",
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 7.0.13",
@@ -13873,15 +13871,7 @@
             "target": "Package",
             "version": "[7.0.0, )"
           },
-          "Hangfire.AspNetCore": {
-            "target": "Package",
-            "version": "[1.8.6, )"
-          },
-          "Hangfire.SqlServer": {
-            "target": "Package",
-            "version": "[1.8.6, )"
-          },
-          "Microsoft.AspNetCore.Authentication.MicrosoftAccount": {
+          "MailKit": {
             "target": "Package",
             "version": "[4.3.0, )"
           },
@@ -13988,6 +13978,12 @@
     }
   },
   "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
     {
       "code": "NU1701",
       "level": "Warning",

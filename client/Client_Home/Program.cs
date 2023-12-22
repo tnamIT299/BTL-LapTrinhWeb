@@ -26,9 +26,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("SalesLeadEntity")));
 builder.Services.AddDbContext<ConveniencestoreContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("dbCONVENIENCESTORE")));
+options.UseSqlServer(builder.Configuration.GetConnectionString("dbCONVENIENCESTORE"))); 
 builder.Services.AddScoped<IAddCusFromExcel, AddCusFromExcel>();
-builder.Services.AddScoped<IAddEmployFromExcel, AddEmployFromExcel>();
+builder.Services.AddScoped<IAddEmployFromExcel, AddEmployFromExcel>();  
 builder.Services.AddScoped<IAddCategoryFromExcel, AddCategoryFromExcel>();
 builder.Services.AddScoped<IAddProductFromExcel, AddProductFromExcel>();
 builder.Services.AddScoped<IAddProductBatchFromExcel, AddProductBatchFromExcel>();

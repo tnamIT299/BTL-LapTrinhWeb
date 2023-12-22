@@ -37,9 +37,11 @@ public partial class ConveniencestoreContext : DbContext
 
     public virtual DbSet<InvoiceDetail> InvoiceDetails { get; set; }
 
-    public virtual DbSet<Order> Orders { get; set; }
+    public virtual DbSet<Orders> Orders { get; set; }
 
     public virtual DbSet<OrderDetail> OrderDetails { get; set; }
+
+    public virtual DbSet<Pannel> Pannels { get; set; }
 
     public virtual DbSet<Payment> Payments { get; set; }
 
@@ -277,7 +279,7 @@ public partial class ConveniencestoreContext : DbContext
                 .HasConstraintName("FK__InvoiceDe__produ__662B2B3B");
         });
 
-        modelBuilder.Entity<Order>(entity =>
+        modelBuilder.Entity<Orders>(entity =>
         {
             entity.HasKey(e => e.OrderId).HasName("PK__Orders__C3905BAFD0BC4AE7");
 
@@ -535,6 +537,22 @@ public partial class ConveniencestoreContext : DbContext
             entity.HasOne(d => d.Employee).WithMany(p => p.Salaries)
                 .HasForeignKey(d => d.EmployeeId)
                 .HasConstraintName("FK__Salaries__Employ__3B75D760");
+        });
+
+        modelBuilder.Entity<Pannel>(entity =>
+        {
+            entity.HasKey(e => e.IdPannel);
+
+            entity.ToTable("Pannel");
+
+            entity.Property(e => e.IdPannel).HasColumnName("Id_pannel");
+            entity.Property(e => e.NamePannel)
+                .HasMaxLength(150)
+                .HasColumnName("name_pannel");
+            entity.Property(e => e.UrlPannel)
+                .HasMaxLength(255)
+                .IsFixedLength()
+                .HasColumnName("url_pannel");
         });
 
         modelBuilder.Entity<SellPriceHistory>(entity =>

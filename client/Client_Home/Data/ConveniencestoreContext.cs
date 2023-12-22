@@ -21,7 +21,6 @@ public partial class ConveniencestoreContext : DbContext
     public virtual DbSet<AdminRevenueByMonth> AdminRevenueByMonth { get; set; }
     public virtual DbSet<AdminRichestCustomerView> AdminRichestCustomerView { get; set; }
     public virtual DbSet<AdminSingleIntForProcedure> AdminSingleIntForProcedure { get; set; }
-
     public virtual DbSet<CartItem> CartItems { get; set; }
 
     public virtual DbSet<Category> Categories { get; set; }
@@ -70,7 +69,7 @@ public partial class ConveniencestoreContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("server=DESKTOP-BVECHRQ\\PHUHUYIT;database=CONVENIENCESTORE;Encrypt=False;Integrated Security=true;");
+        => optionsBuilder.UseSqlServer("server=DESKTOP-BVECHRQ\\PHUHUYIT;database=CONVENIENCESTORE;Encrypt=False;Integrated Security=true; TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -289,10 +288,10 @@ public partial class ConveniencestoreContext : DbContext
                 .HasColumnType("decimal(10, 2)")
                 .HasColumnName("totalAmount");
 
-            //entity.HasOne(d => d.Supplier).WithMany(p => p.Orders)
-            //    .HasForeignKey(d => d.SupplierId)
-            //    .OnDelete(DeleteBehavior.ClientSetNull)
-            //    .HasConstraintName("FK__Orders__Supplier__6CD828CA");
+            entity.HasOne(d => d.Supplier).WithMany(p => p.Orders)
+                .HasForeignKey(d => d.SupplierId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Orders__Supplier__6CD828CA");
         });
 
         modelBuilder.Entity<OrderDetail>(entity =>
@@ -456,11 +455,6 @@ public partial class ConveniencestoreContext : DbContext
                 .HasColumnName("importPrice");
             entity.Property(e => e.ManufactureDate).HasColumnType("date");
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
-
-            entity.HasOne(d => d.Product).WithMany(p => p.ProductBatches)
-                .HasForeignKey(d => d.ProductId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__ProductBa__Produ__59FA5E80");
         });
 
         modelBuilder.Entity<ProductComment>(entity =>

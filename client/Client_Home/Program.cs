@@ -50,7 +50,7 @@ builder.Services.AddNotyf(config =>
     config.Position = NotyfPosition.TopRight;
 
 });
-builder.Services.AddHangfire(config => config.UseSqlServerStorage("dbCONVENIENCESTORE"));
+//builder.Services.AddHangfire(config => config.UseSqlServerStorage("dbCONVENIENCESTORE"));
 
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();
@@ -68,8 +68,8 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseSession();
-app.UseHangfireDashboard();
-RecurringJob.AddOrUpdate<EmailJob>("daily-email-job", x => x.SendEmail(), Cron.Daily);
+//app.UseHangfireDashboard();
+//RecurringJob.AddOrUpdate<EmailJob>("daily-email-job", x => x.SendEmail(), Cron.Daily);
 app.UseRouting();
 
 app.UseAuthorization();

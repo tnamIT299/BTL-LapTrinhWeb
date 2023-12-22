@@ -1,7 +1,7 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@model List<Product>
+@model HomeModel
 @{
     ViewBag.Title = "Shop";
     Layout = "~/Views/Shared/_Layout_Shop.cshtml";
@@ -48,18 +48,8 @@
                 <div class="col-7 col-md-9 text-end position-static">
                     <nav class="main-menu menu-sticky1 d-none d-lg-block link-inherit">
                         <ul>
-                            <li class="menu-item-has-children">
+                            <li>
                                 <a asp-controller="Home" asp-action="Index">Home</a>
-                                <ul class="sub-menu">
-                                    <li><a asp-controller="Home" asp-action="Index">Home Style 1</a></li>
-                                    <li><a href="index-2.html">Home Style 2</a></li>
-                                    <li><a href="index-3.html">Home Style 3</a></li>
-                                    <li><a href="index-4.html">Home Style 4</a></li>
-                                    <li><a href="index-5.html">Home Style 5</a></li>
-                                    <li><a href="index-6.html">Home Style 6</a></li>
-                                    <li><a href="index-7.html">Home Style 7</a></li>
-                                    <li><a href="index-8.html">Home Style 8</a></li>
-                                </ul>
                             </li>
                             <li class="menu-item-has-children">
                                 <a href="/home/shop">Shop</a>
@@ -265,18 +255,8 @@
                     <div class="col-lg-6 col-xl-7">
                         <nav class="main-menu menu-style1 mobile-menu-active menu-style2">
                             <ul>
-                                <li class="menu-item-has-children">
+                                <li>
                                     <a asp-controller="Home" asp-action="Index">Home</a>
-                                    <ul class="sub-menu">
-                                        <li><a asp-controller="Home" asp-action="Index">Home Style 1</a></li>
-                                        <li><a href="index-2.html">Home Style 2</a></li>
-                                        <li><a href="index-3.html">Home Style 3</a></li>
-                                        <li><a href="index-4.html">Home Style 4</a></li>
-                                        <li><a href="index-5.html">Home Style 5</a></li>
-                                        <li><a href="index-6.html">Home Style 6</a></li>
-                                        <li><a href="index-7.html">Home Style 7</a></li>
-                                        <li><a href="index-8.html">Home Style 8</a></li>
-                                    </ul>
                                 </li>
                                 <li class="menu-item-has-children">
                                     <a href="/home/shop">Shop</a>
@@ -372,7 +352,13 @@
     <!--==============================
         Breadcumb
     ============================== -->
-    <div class="breadcumb-wrapper breadcumb-layout1 bg-fluid pt-200 pb-200" data-bg-src="assets/img/breadcumb/breadcumb-img-1.jpg">
+    
+                                 
+        @foreach (var item in Model.PanelItems)
+        {
+        if (item.IdPannel == 1)
+        {
+            <div class="breadcumb-wrapper breadcumb-layout1 bg-fluid pt-200 pb-200" data-bg-src="@Url.Content("~/assets/img/banner/" + item.UrlPannel)">
         <div class="container">
             <div class="breadcumb-content text-center">
                 <h1 class="breadcumb-title">Organic</h1>
@@ -383,6 +369,8 @@
             </div>
         </div>
     </div>
+    }
+    }
     <!--==============================
     Feature Products
     ==============================-->
@@ -430,7 +418,7 @@
                                  @if (Model != null)
                                 {
                                  
-                                    @foreach (var item in Model)
+                                    @foreach (var item in Model.ProductItem)
                                     {
                                         <div class="col-sm-6 col-xl-4">
                                             <div class="vs-product-box1 thumb_swap">

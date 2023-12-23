@@ -24,16 +24,7 @@ namespace Client_Home.Areas.Admin.Controllers
         // GET: Admin/AdminOrders
         public async Task<IActionResult> Index(int? page)
         {
-            var pageNumber = page == null || page <= 0 ? 1 : page.Value;
-            var pageSize = 10;
-            var isOrder = _context.Orders
-                 .Include(p => p.Supplier)
-                .AsNoTracking()
-                .OrderByDescending(x => x.OrderId);
-            PagedList.Core.IPagedList<Orders> models = new PagedList.Core.PagedList<Orders>((IQueryable<Orders>)isOrder, pageNumber, pageSize);
-            ViewBag.CurrentPage = pageNumber;
-            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierName");
-            return View(models);
+            return View();
         }
 
         // GET: Admin/AdminOrders/Details/5

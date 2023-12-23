@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Client_Home.Areas.Admin.Models;
 using Client_Home.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,11 +15,7 @@ public partial class ConveniencestoreContext : DbContext
         : base(options)
     {
     }
-    public virtual DbSet<AdminBestSellingProduct> AdminBestSellingProduct { get; set; }
-    public virtual DbSet<AdminOnlineOfflinePurchaseCount> AdminOnlineOfflinePurchaseCount { get; set; }
-    public virtual DbSet<AdminRevenueByMonth> AdminRevenueByMonth { get; set; }
-    public virtual DbSet<AdminRichestCustomerView> AdminRichestCustomerView { get; set; }
-    public virtual DbSet<AdminSingleIntForProcedure> AdminSingleIntForProcedure { get; set; }
+
     public virtual DbSet<CartItem> CartItems { get; set; }
 
     public virtual DbSet<Category> Categories { get; set; }
@@ -37,7 +32,7 @@ public partial class ConveniencestoreContext : DbContext
 
     public virtual DbSet<InvoiceDetail> InvoiceDetails { get; set; }
 
-    public virtual DbSet<Orders> Orders { get; set; }
+    public virtual DbSet<Order> Orders { get; set; }
 
     public virtual DbSet<OrderDetail> OrderDetails { get; set; }
 
@@ -71,7 +66,7 @@ public partial class ConveniencestoreContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("server=DESKTOP-BVECHRQ\\PHUHUYIT;database=CONVENIENCESTORE;Encrypt=False;Integrated Security=true; TrustServerCertificate=True");
+        => optionsBuilder.UseSqlServer("Server=DESKTOP-BVECHRQ\\PHUHUYIT;Initial Catalog=CONVENIENCESTORE;Integrated Security=true;Connection Timeout=30;Encrypt=False;Trust Server Certificate=True;Application Intent =ReadWrite;Multi Subnet Failover=False");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -269,6 +264,9 @@ public partial class ConveniencestoreContext : DbContext
             entity.Property(e => e.InvoiceId).HasColumnName("InvoiceID");
             entity.Property(e => e.Price).HasColumnType("decimal(10, 2)");
             entity.Property(e => e.ProductBatchId).HasColumnName("productBatchID");
+            entity.Property(e => e.UnitPrice)
+                .HasColumnType("decimal(10, 2)")
+                .HasColumnName("unitPrice");
 
             entity.HasOne(d => d.Invoice).WithMany(p => p.InvoiceDetails)
                 .HasForeignKey(d => d.InvoiceId)
@@ -279,7 +277,7 @@ public partial class ConveniencestoreContext : DbContext
                 .HasConstraintName("FK__InvoiceDe__produ__662B2B3B");
         });
 
-        modelBuilder.Entity<Orders>(entity =>
+        modelBuilder.Entity<Order>(entity =>
         {
             entity.HasKey(e => e.OrderId).HasName("PK__Orders__C3905BAFD0BC4AE7");
 
@@ -316,6 +314,22 @@ public partial class ConveniencestoreContext : DbContext
                 .HasForeignKey(d => d.ProductId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__OrderDeta__Produ__681373AD");
+        });
+
+        modelBuilder.Entity<Pannel>(entity =>
+        {
+            entity.HasKey(e => e.IdPannel);
+
+            entity.ToTable("Pannel");
+
+            entity.Property(e => e.IdPannel).HasColumnName("Id_pannel");
+            entity.Property(e => e.NamePannel)
+                .HasMaxLength(150)
+                .HasColumnName("name_pannel");
+            entity.Property(e => e.UrlPannel)
+                .HasMaxLength(255)
+                .IsFixedLength()
+                .HasColumnName("url_pannel");
         });
 
         modelBuilder.Entity<Payment>(entity =>
@@ -457,6 +471,11 @@ public partial class ConveniencestoreContext : DbContext
                 .HasColumnName("importPrice");
             entity.Property(e => e.ManufactureDate).HasColumnType("date");
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
+
+            entity.HasOne(d => d.Product).WithMany(p => p.ProductBatches)
+                .HasForeignKey(d => d.ProductId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__ProductBa__Produ__59FA5E80");
         });
 
         modelBuilder.Entity<ProductComment>(entity =>
@@ -537,22 +556,6 @@ public partial class ConveniencestoreContext : DbContext
             entity.HasOne(d => d.Employee).WithMany(p => p.Salaries)
                 .HasForeignKey(d => d.EmployeeId)
                 .HasConstraintName("FK__Salaries__Employ__3B75D760");
-        });
-
-        modelBuilder.Entity<Pannel>(entity =>
-        {
-            entity.HasKey(e => e.IdPannel);
-
-            entity.ToTable("Pannel");
-
-            entity.Property(e => e.IdPannel).HasColumnName("Id_pannel");
-            entity.Property(e => e.NamePannel)
-                .HasMaxLength(150)
-                .HasColumnName("name_pannel");
-            entity.Property(e => e.UrlPannel)
-                .HasMaxLength(255)
-                .IsFixedLength()
-                .HasColumnName("url_pannel");
         });
 
         modelBuilder.Entity<SellPriceHistory>(entity =>

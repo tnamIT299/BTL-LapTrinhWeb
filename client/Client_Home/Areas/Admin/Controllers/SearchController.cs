@@ -18,7 +18,7 @@ namespace Client_Home.Areas.Admin.Controllers
 
 
         [HttpPost]
-        public IActionResult FindProduct(int page, string keyword)
+        public IActionResult FindProducts(int page, string keyword)
         {
             var pageSize = 50;
 
@@ -55,7 +55,7 @@ namespace Client_Home.Areas.Admin.Controllers
 
 
         [HttpPost]
-        public IActionResult FindEmployee(int page, string keyword)
+        public IActionResult FindEmployees(int page, string keyword)
         {
             var pageSize = 50;
 
@@ -90,7 +90,7 @@ namespace Client_Home.Areas.Admin.Controllers
             return PartialView("ListEmployeeSearchPartial", models);
         }
         [HttpPost]
-        public IActionResult FindCustomer(int page, string keyword)
+        public IActionResult FindCustomers(int page, string keyword)
         {
             var pageSize = 50;
 
@@ -160,51 +160,73 @@ namespace Client_Home.Areas.Admin.Controllers
             return PartialView("ListInvoicesSearchPartial", models);
         }
         [HttpPost]
-        public IActionResult FindSupplier(string keyword)
+        public IActionResult FindSuppliers(int page, string keyword)
         {
-            List<Supplier> ls = new List<Supplier>();
-            if (string.IsNullOrEmpty(keyword) || keyword.Length < 1)
+            var pageSize = 50;
+
+            IQueryable<Supplier> ls = _context.Suppliers
+                            .AsNoTracking()
+                            .OrderByDescending(x => x.SupplierId);
+
+            if (!string.IsNullOrEmpty(keyword))
             {
-                return PartialView("ListSupplierSearchPartial", null);
+                ls = _context.Suppliers
+                .AsNoTracking()
+                .Include(i => i.Products)
+                .Where(i => i.SupplierId.ToString().Contains(keyword))
+                .OrderByDescending(x => x.SupplierId);
             }
-            ls = _context.Suppliers
-                .AsNoTracking()         
-                .Where(x => x.SupplierName.Contains(keyword))
-                .OrderByDescending(x => x.SupplierId)
-                .Take(15)
-                .ToList();
-            if (ls == null)
+
+            if (page <= 0)
             {
-                return PartialView("ListSupplierSearchPartial", null);
+                page = 1;
             }
-            else
+
+            var paginatedItems = ls.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+            var models = new Pager<Supplier>
             {
-                return PartialView("ListSupplierSearchPartial", ls);
-            }
+                Items = paginatedItems,
+                PageIndex = page,
+                CurrentPage = page,
+                PageSize = pageSize,
+                TotalItems = ls.Count()
+            };
+
+            return PartialView("ListSupplierSearchPartial", models);
         }
         [HttpPost]
-        public IActionResult FindOrders(string keyword)
+        public IActionResult FindOrders(int page, string keyword)
         {
-            List<Orders> ls = new List<Orders>();
-            if (string.IsNullOrEmpty(keyword) || keyword.Length < 1)
+            var pageSize = 50;
+
+            IQueryable<Orders> ls = _context.Orders
+                            .AsNoTracking()
+                            .OrderByDescending(x => x.OrderId);
+
+            if (!string.IsNullOrEmpty(keyword))
             {
-                return PartialView("ListOrdersSearchPartial", null);
+                ls = _context.Orders
+                .AsNoTracking()
+                .Where(i => i.OrderId.ToString().Contains(keyword))
+                .OrderByDescending(x => x.OrderId);
             }
-            var isOrder = _context.Orders
-                .Include(p => p.Supplier)
-               .AsNoTracking()              
-               .Where(x => x.OrderId.ToString().Contains(keyword))
-               .OrderByDescending(x => x.OrderId)
-                .Take(10)
-                .ToList();
-            if (ls == null)
+
+            if (page <= 0)
             {
-                return PartialView("ListOrdersSearchPartial", null);
+                page = 1;
             }
-            else
+
+            var paginatedItems = ls.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+            var models = new Pager<Orders>
             {
-                return PartialView("ListOrdersSearchPartial", ls);
-            }
+                Items = paginatedItems,
+                PageIndex = page,
+                CurrentPage = page,
+                PageSize = pageSize,
+                TotalItems = ls.Count()
+            };
+
+            return PartialView("ListOrdersSearchPartial", models);
         }
     }
 }

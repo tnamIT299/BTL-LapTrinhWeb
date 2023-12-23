@@ -5,56 +5,12 @@
 @using X.PagedList.Mvc.Core;
 @model PagedList.Core.IPagedList<Client_Home.Models.Orders>
 @{
-    int CurrentPage = ViewBag.CurrentPage;
-    ViewData["Title"] = "Danh sách phiếu nhập" + CurrentPage;
+    ViewData["Title"] = "Danh sách phiếu nhập" ;
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
 
-@* <h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.OrderDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TotalAmount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Supplier)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TotalAmount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Supplier.SupplierId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.OrderId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.OrderId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.OrderId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table> *@
-
-
-<div class="main-content">
+<div class="main-content" id="main-content-Orders">
     <div class="page-header">
         <h2 class="header-title">Quản lý hoá đơn</h2>
         <div class="header-sub-title">
@@ -113,85 +69,8 @@
                 </div>
             </div>
 
-            <div class="table-responsive">
-                <table class="table table-hover e-commerce-table">
-                    <thead>
-                        <tr>
-                            <th>
-                                Mã phiếu nhập
-                            </th>
-                            <th>
-                                Nhà cung cấp
-                            </th>
-                            <th>
-                                Ngày đặt hàng
-                            </th>
-                            <th>
-                                Tổng số lượng
-                            </th>
+            <div class="table-responsive" id="records_table">
 
-
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody id="records_table">
-                        <tr>
-                            @if (Model != null)
-                            {
-                                int i = 1;
-                                @foreach (var item in Model)
-                                {
-                                <tr>
-                                    <td>
-                                            @Html.DisplayFor(model => item.OrderId)
-                                    </td>
-                                    <td>
-                                            @Html.DisplayFor(model => item.Supplier.SupplierName)
-                                           
-                                    </td>
-                                    <td>
-                                            @Html.DisplayFor(model => item.OrderDate)
-                                    </td>
-                                    <td>
-
-                                            @Html.DisplayFor(model => item.TotalAmount)
-                                    </td>
-
-
-
-                                    <td class="text-right">
-                                        <a asp-area="Admin" asp-controller="AdminOrders" asp-action="Details" asp-route-id="@item.OrderId">
-                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xem chi tiết thông tin phiếu nhập">
-                                                <i class="anticon anticon-eye"></i>
-                                            </button>
-                                        </a>
-
-                                        <a asp-area="Admin" asp-controller="AdminOrders" asp-action="Edit" asp-route-id="@item.OrderId">
-                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right" title="Sửa thông tin phiếu nhập">
-                                                <i class="anticon anticon-edit"></i>
-                                            </button>
-                                        </a>
-
-                                        <a asp-area="Admin" asp-controller="AdminOrders" asp-action="Delete" asp-route-id="@item.OrderId">
-                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xóa phiếu nhập này">
-                                                <i class="anticon anticon-delete"></i>
-                                            </button>
-                                        </a>
-
-                                    </td>
-                                </tr>
-                                    i++;
-                                }
-                            }
-                        </tr>
-                    </tbody>
-                </table>
-                <div aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <pager class="page-container" list="@Model" asp-area="Admin" asp-controller="AdminOrders" asp-action="Index"></pager>
-                    </ul>
-
-                </div>
             </div>
         </div>
     </div>

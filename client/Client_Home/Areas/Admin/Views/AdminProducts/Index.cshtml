@@ -148,27 +148,7 @@
         });
     </script>
     <script>
-        function performAjaxRequest(pageNumber) {
-
-            // Extract the page number from the clicked link
-            var strKeyword = $('#keyword').val();
-            // Perform your custom action with the page number
-            $.ajax({
-                url: '/Admin/Search/FindProduct',
-                datatype: "json",
-                type: "POST",
-                data: { page: pageNumber, keyword: strKeyword },
-                async: true,
-                success: function (result) {
-                    $("#records_table").html("");
-                    $("#records_table").html(result);
-                    addEvents();
-                },
-                error: function (xhr) {
-                    alert('error');
-                }
-            });
-        }
+        
         </script>
     <script src="https://cdn.rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
     <script>

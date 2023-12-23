@@ -9,7 +9,7 @@
 
 <h4>Pannel</h4>
 <hr />
-<div class="row">
+@* <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -34,7 +34,56 @@
 
 <div>
     <a asp-action="Index">Back to List</a>
+</div> *@
+
+<link href="~/assets/css/app.min.css" rel="stylesheet">
+<!-- page css -->
+<link href="~/adminassets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" />
+<!-- page js -->
+<script src="~/adminassets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<div class="main-content">
+    <form method="post" asp-action="Create">
+        <div class="page-header no-gutters has-tab">
+            <div class="d-md-flex m-b-15 align-items-center justify-content-between">
+                <div class="media align-items-center m-b-15">
+                    <div class="avatar avatar-image rounded" style="height: 70px; width: 70px">
+                    </div>
+                    <div class="m-l-15">
+                        <h4 class="m-b-0">Thêm mới Pannel</h4>
+                    </div>
+                </div>
+                <div class="m-b-15">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="anticon anticon-save"></i>
+                        <span>Lưu</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="tab-content m-t-15">
+            <div class="tab-pane fade show active" id="">
+                <div class="card">
+                    <div class="card-body">
+
+                        <div class="form-group">
+                            <label asp-for="NamePannel" class="control-label">Tên Pannel</label>
+                            <input asp-for="NamePannel" class="form-control" />
+                            <span asp-validation-for="NamePannel" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="UrlPannel" class="control-label">Hình ảnh</label>
+                            <input asp-for="UrlPannel" type="file" id="fileInput" multiple accept="image/*" hidden>
+
+                            <div id="imagePreviews"></div>
+                            <button class=" btn btn-primary m-r-5" id="selectImageButton">Tải hình ảnh</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const selectImageButton = document.getElementById('selectImageButton');

@@ -288,10 +288,10 @@ public partial class ConveniencestoreContext : DbContext
                 .HasColumnType("decimal(10, 2)")
                 .HasColumnName("totalAmount");
 
-            entity.HasOne(d => d.Supplier).WithMany(p => p.Orders)
-                .HasForeignKey(d => d.SupplierId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Orders__Supplier__6CD828CA");
+            //entity.HasOne(d => d.Supplier).WithMany(p => p.Orders)
+            //    .HasForeignKey(d => d.SupplierId)
+            //    .OnDelete(DeleteBehavior.ClientSetNull)
+            //    .HasConstraintName("FK__Orders__Supplier__6CD828CA");
         });
 
         modelBuilder.Entity<OrderDetail>(entity =>

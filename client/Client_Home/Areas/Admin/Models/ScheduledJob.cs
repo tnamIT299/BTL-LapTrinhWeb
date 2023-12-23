@@ -36,7 +36,7 @@ namespace Client_Home.Areas.Admin.Models
 
             using (var scope = _serviceScopeFactory.CreateScope())
             {
-                var dbContext = scope.ServiceProvider.GetRequiredService<ConveniencestoreContext>();
+                var dbContext = scope.ServiceProvider.GetRequiredService<Data.ConveniencestoreContext>();
                 // Lấy ngày hiện tại
                 var currentDate = DateTime.Now.Date;
 

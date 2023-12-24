@@ -39,6 +39,10 @@ public partial class Product
 
     public string? Unit { get; set; }
 
+    public int? TotalRatings { get; set; }
+
+    public double? AverageRating { get; set; }
+
     public virtual ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
 
     public virtual Category? Category { get; set; }
@@ -46,11 +50,14 @@ public partial class Product
     public virtual ICollection<Discount> Discounts { get; set; } = new List<Discount>();
 
     public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
+
     public virtual ICollection<ProductBatch> ProductBatches { get; set; } = new List<ProductBatch>();
 
     public virtual ICollection<ProductComment> ProductComments { get; set; } = new List<ProductComment>();
 
     public virtual ICollection<ProductSubImage> ProductSubImages { get; set; } = new List<ProductSubImage>();
+
+    public virtual ICollection<Rating> Ratings { get; set; } = new List<Rating>();
 
     public virtual ICollection<SellPriceHistory> SellPriceHistories { get; set; } = new List<SellPriceHistory>();
 

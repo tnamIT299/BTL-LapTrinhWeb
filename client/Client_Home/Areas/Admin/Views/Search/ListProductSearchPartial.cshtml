@@ -1,0 +1,117 @@
+﻿@using Client_Home.Areas.Admin.Models;
+@model Pager<Product>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<table class="table table-hover e-commerce-table">
+    <thead>
+        <tr>
+            <th>
+                <div class="checkbox">
+                    <input id="checkAll" type="checkbox">
+                    <label for="checkAll" class="m-b-0"></label>
+                </div>
+            </th>
+            <th>
+                Hình ảnh
+            </th>
+            <th>
+                Tên
+            </th>
+            <th>
+                Giá bán
+            </th>
+            <th>
+                Tổng số lượng
+            </th>
+            <th>
+                Trạng thái
+            </th>
+            <th>
+                Danh mục
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Items != null)
+        {
+            int i = 1;
+            @foreach (var item in Model.Items)
+            {
+                <tr>
+                    <td>
+                        <div class="checkbox">
+                            <input id="@("check-item-" + item.ProductId)" type="checkbox">
+                            <label for="@("check-item-" + item.ProductId)" class="m-b-0"></label>
+                        </div>
+                    </td>
+
+                    <td>
+                        @if (item.ThumbnailUrl != null)
+                        {
+                            <div class="d-flex align-items-center">
+                                <img class="img-fluid rounded" src="@Url.Content("~/adminassets/images/others/" + item.ThumbnailUrl)" style="max-width: 60px" alt="">
+                            </div>
+                        }
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SellPrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalQuantity)
+                    </td>
+                    <td>
+
+                        <div class="d-flex align-items-center">
+                            @if (item.Active == 1)
+                            {
+                                <div class="badge badge-success badge-dot m-r-10"></div>
+                                <div>Đang bán</div>
+                            }
+                            else if (item.Active == 0)
+                            {
+                                <div class="badge badge-danger badge-dot m-r-10"></div>
+                                <div>Hết hàng</div>
+                            }
+                            else if (item.Active == -1)
+                            {
+                                <div class="badge badge-danger badge-dot m-r-10"></div>
+                                <div>Ngưng kinh doanh</div>
+                            }
+                        </div>
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                    </td>
+
+                    <td class="text-right">
+                        <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Details" asp-route-id="@item.ProductId">
+                            <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xem chi tiết sản phẩm">
+                                <i class="anticon anticon-eye"></i>
+                            </button>
+                        </a>
+                        <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Edit" asp-route-id="@item.ProductId">
+                            <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right" title="Sửa thông tin sản phẩm">
+                                <i class="anticon anticon-edit"></i>
+                            </button>
+                        </a>
+                        <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Delete" asp-route-id="@item.ProductId">
+                            <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xóa sản phẩm này">
+                                <i class="anticon anticon-delete"></i>
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+                i++;
+            }
+        }
+
+    </tbody>
+</table>
+@Html.Partial("//Areas//Admin//Views//Search//PaginationPartialView.cshtml");

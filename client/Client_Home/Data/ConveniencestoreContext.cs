@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Client_Home.Areas.Admin.Models;
 using Client_Home.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,7 +16,11 @@ public partial class ConveniencestoreContext : DbContext
         : base(options)
     {
     }
-
+    public virtual DbSet<AdminBestSellingProduct> AdminBestSellingProduct { get; set; }
+    public virtual DbSet<AdminOnlineOfflinePurchaseCount> AdminOnlineOfflinePurchaseCount { get; set; }
+    public virtual DbSet<AdminRevenueByMonth> AdminRevenueByMonth { get; set; }
+    public virtual DbSet<AdminRichestCustomerView> AdminRichestCustomerView { get; set; }
+    public virtual DbSet<AdminSingleIntForProcedure> AdminSingleIntForProcedure { get; set; }
     public virtual DbSet<CartItem> CartItems { get; set; }
 
     public virtual DbSet<Category> Categories { get; set; }
@@ -288,10 +293,10 @@ public partial class ConveniencestoreContext : DbContext
                 .HasColumnType("decimal(10, 2)")
                 .HasColumnName("totalAmount");
 
-            //entity.HasOne(d => d.Supplier).WithMany(p => p.Orders)
-            //    .HasForeignKey(d => d.SupplierId)
-            //    .OnDelete(DeleteBehavior.ClientSetNull)
-            //    .HasConstraintName("FK__Orders__Supplier__6CD828CA");
+            entity.HasOne(d => d.Supplier).WithMany(p => p.Orders)
+                .HasForeignKey(d => d.SupplierId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Orders__Supplier__6CD828CA");
         });
 
         modelBuilder.Entity<OrderDetail>(entity =>

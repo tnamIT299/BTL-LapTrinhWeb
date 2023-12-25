@@ -5,6 +5,7 @@ using Client_Home.Data;
 using DocumentFormat.OpenXml.Spreadsheet;
 using Client_Home.Areas.Admin.Models;
 
+
 namespace Client_Home.Areas.Admin.Controllers
 {
     [Area("Admin")]
@@ -18,7 +19,7 @@ namespace Client_Home.Areas.Admin.Controllers
 
 
         [HttpPost]
-        public IActionResult FindProducts(int page, string keyword)
+        public IActionResult FindProduct(int page, string keyword)
         {
             var pageSize = 50;
 
@@ -50,7 +51,7 @@ namespace Client_Home.Areas.Admin.Controllers
                 TotalItems = ls.Count()
             };
 
-            return PartialView("ListProductsSearchPartial", models);
+            return PartialView("ListProductSearchPartial", models);
         }
 
 
@@ -199,7 +200,7 @@ namespace Client_Home.Areas.Admin.Controllers
         {
             var pageSize = 50;
 
-            IQueryable<Orders> ls = _context.Orders
+            IQueryable<Order> ls = _context.Orders
                             .AsNoTracking()
                             .OrderByDescending(x => x.OrderId);
 
@@ -217,7 +218,41 @@ namespace Client_Home.Areas.Admin.Controllers
             }
 
             var paginatedItems = ls.Skip((page - 1) * pageSize).Take(pageSize).ToList();
-            var models = new Pager<Orders>
+            var models = new Pager<Order>
+            {
+                Items = paginatedItems,
+                PageIndex = page,
+                CurrentPage = page,
+                PageSize = pageSize,
+                TotalItems = ls.Count()
+            };
+
+            return PartialView("ListOrdersSearchPartial", models);
+        }
+        [HttpPost]
+        public IActionResult FindProductBatches(int page, string keyword)
+        {
+            var pageSize = 50;
+
+            IQueryable<Order> ls = _context.Orders
+                            .AsNoTracking()
+                            .OrderByDescending(x => x.OrderId);
+
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                ls = _context.Orders
+                .AsNoTracking()
+                .Where(i => i.OrderId.ToString().Contains(keyword))
+                .OrderByDescending(x => x.OrderId);
+            }
+
+            if (page <= 0)
+            {
+                page = 1;
+            }
+
+            var paginatedItems = ls.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+            var models = new Pager<Order>
             {
                 Items = paginatedItems,
                 PageIndex = page,

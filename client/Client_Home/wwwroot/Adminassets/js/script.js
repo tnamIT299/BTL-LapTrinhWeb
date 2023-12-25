@@ -70,12 +70,15 @@ function performAjaxRequest(pageNumber) {
         controllerName = controllerElement.id.replace('main-content-', '');
     }
     // Perform your custom action with the page number
-    console.log('/Admin/Search/Find' + controllerName)
     $.ajax({
-        url: '/Admin/Search/Find' + controllerName,
+        url: '/Admin/Search/Find' + controllerName ,
         datatype: "json",
         type: "POST",
-        data: { page: pageNumber, keyword: strKeyword },
+        data: {
+            page: pageNumber,
+            keyword: strKeyword,
+            typeName: 'Client_Home.Models.'+controllerName
+        },
         async: true,
         success: function (result) {
             $("#records_table").html("");

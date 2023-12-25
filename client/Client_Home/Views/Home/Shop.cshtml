@@ -54,7 +54,7 @@
                             <li class="menu-item-has-children">
                                 <a href="/home/shop">Shop</a>
                                 <ul class="sub-menu">
-                                    <li><a href="/home/shop">Shop</a></li>
+                                    <li><a href="/home/shop?maloai=1#">Shop</a></li>
                                     <li><a href="shop-list.html">Shop List</a></li>
                                     <li><a href="shop-details.html">Shop Details</a></li>
                                     <li><a href="cart.html">Shopping Cart</a></li>
@@ -261,7 +261,7 @@
                                 <li class="menu-item-has-children">
                                     <a href="/home/shop">Shop</a>
                                     <ul class="sub-menu">
-                                        <li><a href="/home/shop">Shop</a></li>
+                                        <li><a href="/home/shop?maloai=1#">Shop</a></li>
                                         <li><a href="shop-list.html">Shop List</a></li>
                                         <li><a href="shop-details.html">Shop Details</a></li>
                                         <li><a href="cart.html">Shopping Cart</a></li>
@@ -425,12 +425,12 @@
                                                 <div class="product-tag1">Sale - @item.Discount%</div>
                                                 <div class="product-img">
                                                     <a href="/Products/Details/@Html.DisplayFor(modelItem => item.ProductId)"><img src="@Url.Content("~/adminassets/images/others/" + item.ThumbnailUrl)" alt="Product Image" class="w-100"></a>
-                                                    <a href="/Products/Details/@Html.DisplayFor(modelItem => item.ProductId)l"><img src="assets/img/shop/product-1-8.png" alt="Product Image" class="w-100 img_swap"></a>
+                                                    <a href="/Products/Details/@Html.DisplayFor(modelItem => item.ProductId)"><img src="~/assets/img/shop/product-1-8.png" alt="Product Image" class="w-100 img_swap"></a>
                                                 </div>
                                                 <div class="product-content">
                                                     <div class="actions-btn">
                                                         <a href="/Cart/AddToCart/?productId=@Html.DisplayFor(modelItem => item.ProductId)"><i class="fal fa-cart-plus"></i></a>
-                                                        <a href="assets/img/shop/product-1-1.png" class="popup-image"><i class="far fa-search"></i></a>
+                                                        <a href="~/assets/img/shop/product-1-1.png" class="popup-image"><i class="far fa-search"></i></a>
                                                         <a href="wishlist.html"><i class="fal fa-heart"></i></a>
                                                     </div>
                                                     <h4 class="product-title h5 mb-0"><a href="shop-details.html"> @item.Name</a></h4>

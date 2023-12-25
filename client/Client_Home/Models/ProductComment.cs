@@ -13,7 +13,7 @@ public partial class ProductComment
 
     public string? CommentText { get; set; }
 
-    public byte[] CreatedDate { get; set; } = null!;
+    public DateTime CreatedDate { get; set; }
 
     public virtual ICollection<CommentReply> CommentReplies { get; set; } = new List<CommentReply>();
 

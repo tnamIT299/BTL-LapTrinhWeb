@@ -62,6 +62,9 @@ namespace Client_Home.Controllers
             var product = await _context.Products
                 .Include(p => p.Category)
                 .Include(p => p.Supplier)
+                .Include(p => p.ProductComments)
+                   .ThenInclude(pc => pc.User)
+                .Include(p => p.Ratings)
                 .FirstOrDefaultAsync(m => m.ProductId == id);
             if (product == null)
             {

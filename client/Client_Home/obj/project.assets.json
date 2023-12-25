@@ -13815,18 +13815,26 @@
   },
   "packageFolders": {
     "C:\\Users\\huypro\\.nuget\\packages\\": {}
+    "C:\\Users\\Tan Thinh\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
       "projectUniqueName": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\Client_Home.csproj",
+      "projectUniqueName": "C:\\Users\\Tan Thinh\\Source\\Repos\\BTL-LapTrinhWeb\\client\\Client_Home\\Client_Home.csproj",
       "projectName": "Client_Home",
       "projectPath": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\Client_Home.csproj",
       "packagesPath": "C:\\Users\\huypro\\.nuget\\packages\\",
       "outputPath": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\obj\\",
+      "projectPath": "C:\\Users\\Tan Thinh\\Source\\Repos\\BTL-LapTrinhWeb\\client\\Client_Home\\Client_Home.csproj",
+      "packagesPath": "C:\\Users\\Tan Thinh\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Tan Thinh\\Source\\Repos\\BTL-LapTrinhWeb\\client\\Client_Home\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\huypro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Tan Thinh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -13834,6 +13842,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

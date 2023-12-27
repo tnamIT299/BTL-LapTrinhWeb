@@ -196,39 +196,39 @@ namespace Client_Home.Areas.Admin.Controllers
             return PartialView("ListSupplierSearchPartial", models);
         }
         [HttpPost]
-        public IActionResult FindOrders(int page, string keyword)
-        {
-            var pageSize = 50;
+        //public IActionResult FindOrders(int page, string keyword)
+        //{
+        //    var pageSize = 50;
 
-            IQueryable<Order> ls = _context.Orders
-                            .AsNoTracking()
-                            .OrderByDescending(x => x.OrderId);
+        //    IQueryable<Order> ls = _context.Orders
+        //                    .AsNoTracking()
+        //                    .OrderByDescending(x => x.OrderId);
 
-            if (!string.IsNullOrEmpty(keyword))
-            {
-                ls = _context.Orders
-                .AsNoTracking()
-                .Where(i => i.OrderId.ToString().Contains(keyword))
-                .OrderByDescending(x => x.OrderId);
-            }
+        //    if (!string.IsNullOrEmpty(keyword))
+        //    {
+        //        ls = _context.Orders
+        //        .AsNoTracking()
+        //        .Where(i => i.OrderId.ToString().Contains(keyword))
+        //        .OrderByDescending(x => x.OrderId);
+        //    }
 
-            if (page <= 0)
-            {
-                page = 1;
-            }
+        //    if (page <= 0)
+        //    {
+        //        page = 1;
+        //    }
 
-            var paginatedItems = ls.Skip((page - 1) * pageSize).Take(pageSize).ToList();
-            var models = new Pager<Order>
-            {
-                Items = paginatedItems,
-                PageIndex = page,
-                CurrentPage = page,
-                PageSize = pageSize,
-                TotalItems = ls.Count()
-            };
+        //    var paginatedItems = ls.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+        //    var models = new Pager<Order>
+        //    {
+        //        Items = paginatedItems,
+        //        PageIndex = page,
+        //        CurrentPage = page,
+        //        PageSize = pageSize,
+        //        TotalItems = ls.Count()
+        //    };
 
-            return PartialView("ListOrdersSearchPartial", models);
-        }
+        //    return PartialView("ListOrdersSearchPartial", models);
+        //}
         [HttpPost]
         public IActionResult FindProductBatches(int page, string keyword)
         {

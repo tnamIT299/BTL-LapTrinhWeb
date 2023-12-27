@@ -1154,7 +1154,7 @@
           "lib/net7.0/Microsoft.AspNetCore.Authentication.Google.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Cryptography.Internal/7.0.13": {
+      "Microsoft.AspNetCore.Cryptography.Internal/7.0.14": {
         "runtime": {
           "lib/net7.0/Microsoft.AspNetCore.Cryptography.Internal.dll": {
             "assemblyVersion": "7.0.0.0",
@@ -6063,7 +6063,7 @@
       "path": "microsoft.aspnetcore.authentication.google/7.0.14",
       "hashPath": "microsoft.aspnetcore.authentication.google.7.0.14.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Cryptography.Internal/7.0.13": {
+    "Microsoft.AspNetCore.Cryptography.Internal/7.0.14": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-StEKNGdcZtaVQKAX9EqnbUwMK1EtWSyKXdNg1a0jiVJ2rrGLU2qSvHMODh7mY1OzIEOuCpO/Xa8KdVWzY1I5aQ==",

@@ -873,7 +873,7 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Microsoft.AspNetCore.Cryptography.Internal/7.0.13": {
+      "Microsoft.AspNetCore.Cryptography.Internal/7.0.14": {
         "type": "package",
         "compile": {
           "lib/net7.0/Microsoft.AspNetCore.Cryptography.Internal.dll": {
@@ -5916,8 +5916,8 @@
         "microsoft.aspnetcore.authentication.google.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Cryptography.Internal/7.0.13": {
-      "sha512": "6sNoxroDYrUDq5clJxcEEGdYFwXVWZDVGwCZfruHzxgiBt4UTcO4W30YZuRPfGcuky674NBx/xxbebQ2QLjp6g==",
+    "Microsoft.AspNetCore.Cryptography.Internal/7.0.14": {
+      "sha512": "StEKNGdcZtaVQKAX9EqnbUwMK1EtWSyKXdNg1a0jiVJ2rrGLU2qSvHMODh7mY1OzIEOuCpO/Xa8KdVWzY1I5aQ==",
       "type": "package",
       "path": "microsoft.aspnetcore.cryptography.internal/7.0.14",
       "files": [
@@ -13853,7 +13853,7 @@
       "AspNetCoreHero.ToastNotification >= 1.1.0",
       "Chart.js >= 3.7.1",
       "ClosedXML >= 0.102.1",
-      "EPPlus >= 7.0.0",
+      "EPPlus >= 7.0.5",
       "MailKit >= 4.3.0",
       "Microsoft.AspNetCore.Authentication.Facebook >= 7.0.14",
       "Microsoft.AspNetCore.Authentication.Google >= 7.0.14",
@@ -13898,7 +13898,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -13931,7 +13930,7 @@
           },
           "EPPlus": {
             "target": "Package",
-            "version": "[7.0.0, )"
+            "version": "[7.0.5, )"
           },
           "MailKit": {
             "target": "Package",

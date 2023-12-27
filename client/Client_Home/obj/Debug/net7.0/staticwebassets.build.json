@@ -16422,7 +16422,41 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\award\\award-1-4.png"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\ab-11-1.jpg",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\ab-11-1.jpg",
+      "SourceId": "Client_Home",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
+      "BasePath": "_content/Client_Home",
+      "RelativePath": "assets/img/banner/ab-11-1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\ab-11-1.jpg"
+    },
+    {
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\ab-11-2.jpg",
+      "SourceId": "Client_Home",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
+      "BasePath": "_content/Client_Home",
+      "RelativePath": "assets/img/banner/ab-11-2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\ab-11-2.jpg"
+    },
+    {
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\ad-7-1.jpg",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
@@ -16592,10 +16626,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\ad-img-3-2.jpg"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\award-1-1.png",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\award-1-1.png",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/banner/award-1-1.png",
       "AssetKind": "All",
@@ -16609,10 +16643,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\award-1-1.png"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\award-1-2.png",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\award-1-2.png",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/banner/award-1-2.png",
       "AssetKind": "All",
@@ -16626,10 +16660,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\award-1-2.png"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\award-1-3.png",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\award-1-3.png",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/banner/award-1-3.png",
       "AssetKind": "All",
@@ -16643,10 +16677,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\award-1-3.png"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\award-1-4.png",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\award-1-4.png",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/banner/award-1-4.png",
       "AssetKind": "All",
@@ -16660,10 +16694,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\award-1-4.png"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\banner_Sale_30.png",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\banner_Sale_30.png",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/banner/banner_Sale_30.png",
       "AssetKind": "All",
@@ -16677,10 +16711,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\banner_Sale_30.png"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\banner_sale_50.jpg",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\banner_sale_50.jpg",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/banner/banner_sale_50.jpg",
       "AssetKind": "All",
@@ -16694,10 +16728,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\banner_sale_50.jpg"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\banner_sale_bd.jpg",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\banner_sale_bd.jpg",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/banner/banner_sale_bd.jpg",
       "AssetKind": "All",
@@ -16711,7 +16745,75 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\banner_sale_bd.jpg"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\banner_sale_meat.webp",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\banner_sale_meat.webp",
+      "SourceId": "Client_Home",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
+      "BasePath": "_content/Client_Home",
+      "RelativePath": "assets/img/banner/banner_sale_meat.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\banner_sale_meat.webp"
+    },
+    {
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\banner_sale_vegetable.webp",
+      "SourceId": "Client_Home",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
+      "BasePath": "_content/Client_Home",
+      "RelativePath": "assets/img/banner/banner_sale_vegetable.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\banner_sale_vegetable.webp"
+    },
+    {
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\banner_sale_weekend.jpg",
+      "SourceId": "Client_Home",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
+      "BasePath": "_content/Client_Home",
+      "RelativePath": "assets/img/banner/banner_sale_weekend.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\banner_sale_weekend.jpg"
+    },
+    {
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\banner_tet.jpg",
+      "SourceId": "Client_Home",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
+      "BasePath": "_content/Client_Home",
+      "RelativePath": "assets/img/banner/banner_tet.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\banner_tet.jpg"
+    },
+    {
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\banner-1-1.jpg",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
@@ -16983,10 +17085,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\banner-7-1.jpg"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\banner-7-1.PNG",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\banner-7-1.PNG",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/banner/banner-7-1.PNG",
       "AssetKind": "All",
@@ -17000,12 +17102,29 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\banner-7-1.PNG"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\banner-7-2.jpg",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\banner-7-2.jpg",
+      "SourceId": "Client_Home",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
+      "BasePath": "_content/Client_Home",
+      "RelativePath": "assets/img/banner/banner-7-2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\banner-7-2.jpg"
+    },
+    {
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\banner-7-2.PNG",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
-      "RelativePath": "assets/img/banner/banner-7-2.jpg",
+      "RelativePath": "assets/img/banner/banner-7-2.PNG",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -17034,7 +17153,7 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\banner-7-2.PNG"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\big_sale.webp",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\big_sale.webp",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
@@ -17051,10 +17170,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\big_sale.webp"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\blog-6-1.jpg",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\blog-6-1.jpg",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/banner/blog-6-1.jpg",
       "AssetKind": "All",
@@ -17068,10 +17187,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\blog-6-1.jpg"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\blog-6-2.jpg",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\blog-6-2.jpg",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/banner/blog-6-2.jpg",
       "AssetKind": "All",
@@ -17085,10 +17204,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\blog-6-2.jpg"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\blog-6-3.jpg",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\blog-6-3.jpg",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/banner/blog-6-3.jpg",
       "AssetKind": "All",
@@ -17102,10 +17221,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\blog-6-3.jpg"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\blog-auth-1-1.jpg",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\blog-auth-1-1.jpg",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/banner/blog-auth-1-1.jpg",
       "AssetKind": "All",
@@ -17119,10 +17238,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\blog-auth-1-1.jpg"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\card-9840.png",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\card-9840.png",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/banner/card-9840.png",
       "AssetKind": "All",
@@ -17136,10 +17255,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\card-9840.png"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\hero-8-1-1.png",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\hero-8-1-1.png",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/banner/hero-8-1-1.png",
       "AssetKind": "All",
@@ -17153,10 +17272,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\hero-8-1-1.png"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\hero-bg-1.jpg",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\hero-bg-1.jpg",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/banner/hero-bg-1.jpg",
       "AssetKind": "All",
@@ -17170,10 +17289,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\hero-bg-1.jpg"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\hero-bg-8-3.jpg",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\hero-bg-8-3.jpg",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/banner/hero-bg-8-3.jpg",
       "AssetKind": "All",
@@ -17187,10 +17306,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\hero-bg-8-3.jpg"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\img-7984.png",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\img-7984.png",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/banner/img-7984.png",
       "AssetKind": "All",
@@ -17204,10 +17323,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\img-7984.png"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\imgTitle.png",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\imgTitle.png",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/banner/imgTitle.png",
       "AssetKind": "All",
@@ -17221,7 +17340,7 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\imgTitle.png"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\logo-1-1.png",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\logo-1-1.png",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
@@ -17238,10 +17357,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\logo-1-1.png"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\logo-1-2.png",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\logo-1-2.png",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/banner/logo-1-2.png",
       "AssetKind": "All",
@@ -17255,10 +17374,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\logo-1-2.png"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\logo-1-3.png",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\logo-1-3.png",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/banner/logo-1-3.png",
       "AssetKind": "All",
@@ -17272,10 +17391,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\logo-1-3.png"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\logo-1-4.png",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\logo-1-4.png",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/banner/logo-1-4.png",
       "AssetKind": "All",
@@ -17289,10 +17408,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\logo-1-4.png"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\mega_Sale_70.webp",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\mega_Sale_70.webp",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/banner/mega_Sale_70.webp",
       "AssetKind": "All",
@@ -17306,10 +17425,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\mega_Sale_70.webp"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\product-7-1.png",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\product-7-1.png",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/banner/product-7-1.png",
       "AssetKind": "All",
@@ -17323,10 +17442,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\product-7-1.png"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\product-7-2.png",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\product-7-2.png",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/banner/product-7-2.png",
       "AssetKind": "All",
@@ -17340,10 +17459,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\product-7-2.png"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\product-7-3.png",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\product-7-3.png",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/banner/product-7-3.png",
       "AssetKind": "All",
@@ -17357,10 +17476,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\product-7-3.png"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\product-7-4.png",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\product-7-4.png",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/banner/product-7-4.png",
       "AssetKind": "All",
@@ -17374,10 +17493,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\product-7-4.png"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\shape-56578.png",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\banner\\shape-56578.png",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/banner/shape-56578.png",
       "AssetKind": "All",
@@ -17391,10 +17510,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner\\shape-56578.png"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\best-seller\\seller-1-1.jpg",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\best-seller\\seller-1-1.jpg",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/best-seller/seller-1-1.jpg",
       "AssetKind": "All",
@@ -17629,7 +17748,7 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\bg\\shop-bg-1.png"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\blog\\blog-1.jpg",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\blog\\blog-1.jpg",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
@@ -17646,10 +17765,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\blog\\blog-1.jpg"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\blog\\blog-2.jpg",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\blog\\blog-2.jpg",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/blog/blog-2.jpg",
       "AssetKind": "All",
@@ -17663,10 +17782,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\blog\\blog-2.jpg"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\blog\\blog-3.jpg",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\blog\\blog-3.jpg",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/blog/blog-3.jpg",
       "AssetKind": "All",
@@ -17680,10 +17799,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\blog\\blog-3.jpg"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\blog\\blog-4.jpg",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\blog\\blog-4.jpg",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/blog/blog-4.jpg",
       "AssetKind": "All",
@@ -17697,10 +17816,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\blog\\blog-4.jpg"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\blog\\blog-4-1.jpg",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\blog\\blog-4-1.jpg",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/blog/blog-4-1.jpg",
       "AssetKind": "All",
@@ -17765,7 +17884,7 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\blog\\blog-4-4.jpg"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\blog\\blog-5.jpg",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\blog\\blog-5.jpg",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
@@ -17782,10 +17901,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\blog\\blog-5.jpg"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\blog\\blog-5-1.jpg",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\blog\\blog-5-1.jpg",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/blog/blog-5-1.jpg",
       "AssetKind": "All",
@@ -17850,7 +17969,7 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\blog\\blog-5-4.jpg"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\blog\\blog-6.jpg",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\blog\\blog-6.jpg",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
@@ -17867,10 +17986,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\blog\\blog-6.jpg"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\blog\\blog-6-1.jpg",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\blog\\blog-6-1.jpg",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
+      "ContentRoot": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\",
       "BasePath": "_content/Client_Home",
       "RelativePath": "assets/img/blog/blog-6-1.jpg",
       "AssetKind": "All",
@@ -19278,7 +19397,7 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\footer\\footer-bg-3-784.jpg"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\gallery\\gal-1-2.jpg",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\gallery\\gal-1-2.jpg",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
@@ -19295,7 +19414,7 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\gallery\\gal-1-2.jpg"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\gallery\\gal-2-1.jpg",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\gallery\\gal-2-1.jpg",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
@@ -19312,7 +19431,7 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\gallery\\gal-2-1.jpg"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\gallery\\gal-2-3.jpg",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\gallery\\gal-2-3.jpg",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",
@@ -19380,7 +19499,7 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\gallery\\gal-2-6.jpg"
     },
     {
-      "Identity": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\assets\\img\\hero\\hero-6-1.png",
+      "Identity": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\wwwroot\\assets\\img\\hero\\hero-6-1.png",
       "SourceId": "Client_Home",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\wwwroot\\",

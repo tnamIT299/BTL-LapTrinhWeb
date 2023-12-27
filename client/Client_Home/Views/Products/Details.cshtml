@@ -3,7 +3,7 @@
 
 @{
     ViewData["Title"] = "Details";
-    Layout = "~/Views/Shared/_Layout_Shop.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
 <link rel="stylesheet" href="~/assets/css/ProductDetail.css" />
@@ -367,12 +367,14 @@
             <div class="card">
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="images p-3">
+                       
+                                <div class="images p-3">
 
-                             <a href="/Products/Details/@Html.DisplayFor(model => model.ProductId)"><img src="@Url.Content("~/adminassets/images/others/" + @Html.DisplayFor(model => model.ThumbnailUrl))" alt="Product Image" class="w-100"></a>
-                         @*    <a href="/Products/Details/@Html.DisplayFor(model => model.ProductId)"><img src="~/assets/img/shop/product-demo.png" alt="Product Image" class="w-100 img_swap"></a> *@
+                                    <a href="/Products/Details/@Html.DisplayFor(model => model.ProductId)"><img src ="@Url.Content("~/adminassets/images/others/" + Model.ThumbnailUrl)" alt="Product Image" class="w-100"></a>
+                                    @*    <a href="/Products/Details/@Html.DisplayFor(model => model.ProductId)"><img src="~/assets/img/shop/product-demo.png" alt="Product Image" class="w-100 img_swap"></a> *@
 
-                        </div>
+                                </div>
+                        
                     </div>
                     <div class="col-md-6">
                         <div class="product mt-4 ">
@@ -495,7 +497,7 @@
                  } 
                  else
                 {
-                        <p>Please <a href="~/Adim/Indentity/Page/Account/Login">log in</a> to leave a comment.</p>
+                        <p>Please <a href="/Identity/Account/Login">log in</a> to leave a comment.</p>
                 }
                 </div>
 

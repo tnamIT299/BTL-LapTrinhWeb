@@ -35,25 +35,4 @@
     </ul>
 
 </div>
-@* <div aria-label="Page navigation example" style="display:flex; justify-content:center">
-    <ul class="pagination">
-        <li class="page-item @(Model.CurrentPage == 1 ? "disabled" : "")">
-            <a class="page-link" onclick="performAjaxRequest(@(Model.CurrentPage - 1))">Previous</a>
-        </li>
-        @if (Model.TotalPages > 1)
-        {
-            var startPage = Model.CurrentPage <= 4 ? 1 : Math.Max(Model.CurrentPage - 4, 1);
-            var endPage = Model.TotalPages - Model.CurrentPage <= 4 ? Model.TotalPages : Math.Min(Model.CurrentPage + 4, Model.TotalPages);
 
-            for (var i = startPage; i <= endPage; i++)
-            {
-                <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
-                    <a class="page-link" onclick="performAjaxRequest(@i)">@i</a>
-                </li>
-            }
-        }
-        <li class="page-item @(Model.CurrentPage == Model.TotalPages ? "disabled" : "")">
-            <a class="page-link" onclick="performAjaxRequest(@(Model.CurrentPage + 1))">Next</a>
-        </li>
-    </ul>
-</div> *@

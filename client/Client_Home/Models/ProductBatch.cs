@@ -19,6 +19,8 @@ public partial class ProductBatch
 
     public decimal? ImportPrice { get; set; }
 
+    public bool? Status { get; set; }
+
     public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; } = new List<InvoiceDetail>();
 
     public virtual Product Product { get; set; } = null!;

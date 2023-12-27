@@ -19,7 +19,7 @@ namespace Client_Home.Areas.Admin.Controllers
 
 
         [HttpPost]
-        public IActionResult FindProduct(int page, string keyword)
+        public IActionResult FindProducts(int page, string keyword)
         {
             var pageSize = 50;
 
@@ -234,16 +234,17 @@ namespace Client_Home.Areas.Admin.Controllers
         {
             var pageSize = 50;
 
-            IQueryable<Order> ls = _context.Orders
+
+            IQueryable<ProductBatch> ls = _context.ProductBatches
                             .AsNoTracking()
-                            .OrderByDescending(x => x.OrderId);
+                            .OrderByDescending(x => x.ProductId);
 
             if (!string.IsNullOrEmpty(keyword))
             {
-                ls = _context.Orders
+                ls = _context.ProductBatches
                 .AsNoTracking()
-                .Where(i => i.OrderId.ToString().Contains(keyword))
-                .OrderByDescending(x => x.OrderId);
+                .Where(i => i.ProductId.ToString().Contains(keyword))
+                .OrderByDescending(x => x.ProductId);
             }
 
             if (page <= 0)
@@ -252,7 +253,7 @@ namespace Client_Home.Areas.Admin.Controllers
             }
 
             var paginatedItems = ls.Skip((page - 1) * pageSize).Take(pageSize).ToList();
-            var models = new Pager<Order>
+            var models = new Pager<ProductBatch>
             {
                 Items = paginatedItems,
                 PageIndex = page,
@@ -261,7 +262,7 @@ namespace Client_Home.Areas.Admin.Controllers
                 TotalItems = ls.Count()
             };
 
-            return PartialView("ListOrdersSearchPartial", models);
+            return PartialView("ListProductBatchesSearchPartial", models);
         }
     }
 }

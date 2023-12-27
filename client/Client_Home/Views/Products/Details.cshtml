@@ -462,7 +462,7 @@
                                         <div class="comment-header">
                                             <div class="user-info-date">
                                                 <div class="user-info">@comment.User.Fullname</div>
-                                                <div class="comment-date">@comment.CreatedDate.ToString("dd/MM/yyyy")</div>
+                                                <div class="comment-date">@comment.CreatedDate?.ToString("dd/MM/yyyy")</div>
                                             </div>
                                         </div>
                                         <div class="comment-text">@comment.CommentText</div>

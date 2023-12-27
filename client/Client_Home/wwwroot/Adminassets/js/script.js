@@ -7,13 +7,24 @@
         });
     });
 
-    var deleteButton = document.getElementById('deleteSeletedItemsButton');
+    var deleteButton = document.getElementById('update-action-DeleteMultiple');
+    var updateStatusButton = document.getElementById('update-action-UpdateStatusMultiple');
     //Get controllerName
     var controllerElement = document.querySelector('[id^="main-content-"]');
     if (controllerElement) {
         controllerName = controllerElement.id.replace('main-content-', '');
     }
-    deleteButton.addEventListener('click', function () {
+
+    updateStatusButton.addEventListener('click', function () {
+        sendUpdateRequest('UpdateStatusMultiple');
+    });
+    if (deleteButton != null) {
+        console.log('Cúc cái');
+        deleteButton.addEventListener('click', function () {
+            sendUpdateRequest('DeleteMultiple');
+        });
+    }
+    function sendUpdateRequest(actionName) {
         var checkboxes = document.querySelectorAll('[id^="check-item-"]:checked');
         var itemIds = [];
 
@@ -22,7 +33,7 @@
             var itemId = parseInt(checkbox.id.replace('check-item-', ''));
             itemIds.push(itemId);
         });
-
+        console.log(itemIds);
         // Send the list of item IDs to the server for deletion
         if (itemIds.length > 0) {
             // Display a confirmation dialog with item information
@@ -30,9 +41,9 @@
             itemIds.forEach(function (item) {
                 confirmationMessage += "Item ID: " + item + "\n";
             });
-
+            console.log('/Admin/Admin' + controllerName + '/' + actionName);
             if (confirm(confirmationMessage)) {
-                fetch('/Admin/Admin' + controllerName + '/DeleteMultiple', {
+                fetch('/Admin/Admin' + controllerName + '/' + actionName, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -52,14 +63,14 @@
                             });
                             alert(errorMessage);
                         }
-                        performAjaxRequest('');
+                        location.reload(true);
                     });
-                    
             }
         }
-    });
-
+    }
 }
+
+
 function performAjaxRequest(pageNumber) {
 
     // Extract the page number from the clicked link
@@ -76,8 +87,7 @@ function performAjaxRequest(pageNumber) {
         type: "POST",
         data: {
             page: pageNumber,
-            keyword: strKeyword,
-            typeName: 'Client_Home.Models.'+controllerName
+            keyword: strKeyword
         },
         async: true,
         success: function (result) {
@@ -97,11 +107,10 @@ $(document).ready(function () {
         if (pageLinkElement) {
             linkElement.setAttribute('disabled', true);
         }
-        performAjaxRequest(strkeyword);
+        performAjaxRequest(0);
     });
     $("#keyword").keyup(function () {
-        var strkeyword = $('#keyword').val();
-        performAjaxRequest(strkeyword);
+        performAjaxRequest(0);
     });
-    performAjaxRequest('');
+    performAjaxRequest(0);
 });

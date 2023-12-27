@@ -239,7 +239,8 @@ namespace Client_Home.Areas.Admin.Controllers
                     if (product != null)
                     {
                         // Update the status of the product to inactive (or any other status you prefer)
-                        product.Active = -1; // Assuming there is a property like IsActive in your Product entity
+                        
+                        product.Active = (product.Active==0) ? 1 : 0; // Assuming there is a property like IsActive in your Product entity
 
                         // Optionally, you can add some additional logic or validation before updating
                         // For example, check for foreign key references, business rules, etc.
@@ -330,7 +331,7 @@ namespace Client_Home.Areas.Admin.Controllers
                         worksheet.Cell(currentRow, 2).Value = product.Name;
                         worksheet.Cell(currentRow, 3).Value = product.Description;
                         worksheet.Cell(currentRow, 4).Value = product.SellPrice;
-                        worksheet.Cell(currentRow, 5).Value = product.Category.CategoryName;
+                        worksheet.Cell(currentRow, 5).Value = (product.Category.CategoryName!=null)? "" : product.Category.CategoryName;
                         worksheet.Cell(currentRow, 6).Value = product.ThumbnailUrl;
                         worksheet.Cell(currentRow, 7).Value = (XLCellValue)product.BestsellerFlag;
                         worksheet.Cell(currentRow, 8).Value = (XLCellValue)product.Active;

@@ -47,13 +47,8 @@ builder.Services.AddNotyf(config =>
     config.Position = NotyfPosition.TopRight;
 
 });
-//builder.Services.AddHostedService<ScheduledJob>();
-//var smtpSettingsSection = builder.Configuration.GetSection("SmtpSettings");
-//builder.Services.Configure<SmtpSettings>(smtpSettingsSection);
-//services.AddSingleton<EmailService>();
-
-
-
+// Add Barcode services
+builder.Services.AddSingleton<AdminQRService>();
 
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();

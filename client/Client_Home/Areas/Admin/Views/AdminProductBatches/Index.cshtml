@@ -1,18 +1,16 @@
-﻿@model PagedList.Core.IPagedList<Client_Home.Models.ProductBatch>
+﻿
 ﻿@using Azure;
 @using DocumentFormat.OpenXml.Spreadsheet;
 @using Microsoft.AspNetCore.Mvc.RazorPages;
-@using PagedList.Core.Mvc
-@using X.PagedList.Mvc.Core;
+
 
 
 @{
-    int CurrentPage = ViewBag.CurrentPage;
-    ViewData["Title"] = "Danh sách lô sản phẩm" + CurrentPage;
+
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="main-content">
+<div class="main-content" id="main-content-ProductBatches">
     <div class="page-header">
         <h2 class="header-title">Quản lý sản phẩm</h2>
         <div class="header-sub-title">
@@ -42,15 +40,21 @@
                 <div class="dropdown col-lg-3 text-right">
                     <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                         <i class="anticon anticon-plus-circle m-r-5"></i>
-                        <span>Thêm</span>
+                        <span>Tác vụ</span>
                     </button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" asp-controller="AdminProductBatches" asp-action="Create">Thêm mới lô sản phẩm</a>
                         <a class="dropdown-item" asp-controller="AdminProductBatches" asp-action="AddFromExcel">Thêm từ Excel</a>
+                        <button id="update-action-DeleteMultiple" class="dropdown-item" title="Xóa các lô được chọn">
+                            Xóa các lô được chọn
+                        </button>
+                        <button id="update-action-UpdateStatusMultiple" class="dropdown-item" title="Thay đổi trạng thái các lô được chọn">
+                            Thay đổi trạng thái
+                        </button>
                     </div>
                 </div>
                 <div class="m-b-10 m-r-15">
-                    <input id="" type="text" name="keyword" class="form-control" placeholder="Tìm kiếm lô sản phẩm" />
+                    <input id="keyword" type="text" name="keyword" class="form-control" placeholder="Tìm kiếm lô sản phẩm" />
                 </div>
             </div>
 

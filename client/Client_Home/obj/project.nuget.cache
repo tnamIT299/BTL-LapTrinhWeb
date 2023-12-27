@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "HyEl37Ba8GoLhllSvHvLRbMrm4UDp/gDmizcf1WLlkQbLkrQkePp+OhKNG6S4GG/h1qJeMp2PsW1JepHl8Gx2w==",
+  "dgSpecHash": "Mp/gtmGJC1P08fzzmK2Pk9tOxUz4eGjI3CEM2McwpxYmkMGs9534HWruKkeIAC+i8ZpNn09mBwiajCLyHjbKkg==",
   "success": true,
   "projectFilePath": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\Client_Home.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\huypro\\.nuget\\packages\\aforge\\2.2.5\\aforge.2.2.5.nupkg.sha512",
     "C:\\Users\\huypro\\.nuget\\packages\\aspnetcorehero.toastnotification\\1.1.0\\aspnetcorehero.toastnotification.1.1.0.nupkg.sha512",
     "C:\\Users\\huypro\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\huypro\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
@@ -280,6 +281,16 @@
     "C:\\Users\\huypro\\.nuget\\packages\\zxing.net\\0.16.9\\zxing.net.0.16.9.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'AForge 2.2.5' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "AForge",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    },
     {
       "code": "NU1701",
       "level": "Warning",

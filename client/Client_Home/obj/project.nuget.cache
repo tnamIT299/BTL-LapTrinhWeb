@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Mp/gtmGJC1P08fzzmK2Pk9tOxUz4eGjI3CEM2McwpxYmkMGs9534HWruKkeIAC+i8ZpNn09mBwiajCLyHjbKkg==",
+  "dgSpecHash": "itGoTtASlD8+mBNDM4K9oaGquD2lxVzzusb6kWPJNmpVoRhtkeUpZNKefV6vv6Flhj0EevQFyJvK5Fd0Wp3JcQ==",
   "success": true,
   "projectFilePath": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\Client_Home.csproj",
   "expectedPackageFiles": [
@@ -71,6 +71,8 @@
     "C:\\Users\\huypro\\.nuget\\packages\\itextsharp\\5.5.13.3\\itextsharp.5.5.13.3.nupkg.sha512",
     "C:\\Users\\huypro\\.nuget\\packages\\jetbrains.annotations\\2022.3.1\\jetbrains.annotations.2022.3.1.nupkg.sha512",
     "C:\\Users\\huypro\\.nuget\\packages\\mailkit\\4.3.0\\mailkit.4.3.0.nupkg.sha512",
+    "C:\\Users\\huypro\\.nuget\\packages\\microsoft.aspnetcore.authentication.facebook\\7.0.14\\microsoft.aspnetcore.authentication.facebook.7.0.14.nupkg.sha512",
+    "C:\\Users\\huypro\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\7.0.14\\microsoft.aspnetcore.authentication.google.7.0.14.nupkg.sha512",
     "C:\\Users\\huypro\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.14\\microsoft.aspnetcore.cryptography.internal.7.0.14.nupkg.sha512",
     "C:\\Users\\huypro\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\7.0.14\\microsoft.aspnetcore.cryptography.keyderivation.7.0.14.nupkg.sha512",
     "C:\\Users\\huypro\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\7.0.13\\microsoft.aspnetcore.identity.entityframeworkcore.7.0.13.nupkg.sha512",

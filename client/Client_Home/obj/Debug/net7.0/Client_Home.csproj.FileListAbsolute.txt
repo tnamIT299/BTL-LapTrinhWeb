@@ -318,7 +318,6 @@ C:\Javascript\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\runtimes\win-a
 C:\Javascript\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Javascript\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\runtimes\win-x86\native\e_sqlite3.dll
 C:\Javascript\BTL-LapTrinhWeb\client\Client_Home\obj\Debug\net7.0\Client_Home.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\appsettings.Development.json
 C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\Client_Home.staticwebassets.runtime.json
 C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\Client_Home.exe
 C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\Client_Home.deps.json

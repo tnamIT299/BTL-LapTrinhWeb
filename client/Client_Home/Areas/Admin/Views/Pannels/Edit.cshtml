@@ -1,0 +1,192 @@
+﻿@model Client_Home.Models.Pannel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Chỉnh sửa</h1>
+
+<h4>Pannel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdPannel" />
+            <div class="form-group">
+                <label asp-for="NamePannel" class="control-label">Tên Banner</label>
+                <input asp-for="NamePannel" class="form-control" />
+                <span asp-validation-for="NamePannel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UrlPannel" class="control-label">Hình Ảnh</label>
+                <input asp-for="UrlPannel" type="file" id="fileInput" multiple accept="image/*" hidden>
+
+                <div id="imagePreviews"></div>
+                <button class=" btn btn-primary m-r-5" id="selectImageButton">Tải hình ảnh</button>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const selectImageButton = document.getElementById('selectImageButton');
+        const fileInput = document.getElementById('fileInput');
+        const imagePreviews = document.getElementById('imagePreviews');
+        let pinnedImage = null; // Track the currently pinned image
+        selectImageButton.addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent default form submission behavior
+            fileInput.click(); // Trigger a click on the file input
+        });
+
+        fileInput.addEventListener('change', handleFileUpload);
+
+        function handleFileUpload(event) {
+            const files = event.target.files;
+
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const reader = new FileReader();
+
+                reader.onload = function () {
+                    const preview = createImage_webpPreview(file, reader.result);
+                    imagePreviews.appendChild(preview);
+                    fileInput = preview.querySelector('fileInput').src;
+                }
+
+                reader.readAsDataURL(file);
+            }
+        }
+
+
+        function createImagePreview(file, src) {
+            const preview = document.createElement('div');
+            preview.classList.add('image-preview');
+
+            const image = document.createElement('img');
+            image.src = src;
+            image.style.width = '100%';
+            image.style.height = '100%';
+            preview.appendChild(image);
+
+            const deleteIcon = document.createElement('span');
+            deleteIcon.classList.add('delete-icon');
+            deleteIcon.innerHTML = 'X';
+            deleteIcon.addEventListener('click', function () {
+                preview.remove();
+            });
+            preview.appendChild(deleteIcon);
+
+            const pinIcon = document.createElement('span');
+            pinIcon.classList.add('pin-icon');
+            pinIcon.addEventListener('click', function () {
+                if (pinnedImage) {
+                    pinnedImage.classList.remove('pinned');
+                }
+                pinnedImage = preview;
+                pinnedImage.classList.add('pinned');
+                imagePreviews.prepend(preview);
+            });
+            preview.appendChild(pinIcon);
+
+            return preview;
+        }
+
+        function createImage_webpPreview(file, src) {
+            const preview = document.createElement('div');
+            preview.classList.add('image-preview');
+
+            const image = document.createElement('img');
+
+            if (file.type === 'image/png') {
+                // Convert PNG to WebP
+                convertImageToWebP(file, function (webpImage) {
+                    image.src = webpImage;
+                });
+            } else {
+                // For other image types, use the original source
+                image.src = src;
+            }
+
+            image.style.width = '100%';
+            image.style.height = '100%';
+            preview.appendChild(image);
+
+            const deleteIcon = document.createElement('span');
+            deleteIcon.classList.add('delete-icon');
+            deleteIcon.innerHTML = 'X';
+            deleteIcon.addEventListener('click', function () {
+                preview.remove();
+            });
+            preview.appendChild(deleteIcon);
+
+            const pinIcon = document.createElement('span');
+            pinIcon.classList.add('pin-icon');
+            pinIcon.innerHTML = '📌';
+            pinIcon.addEventListener('click', function () {
+                if (pinnedImage) {
+                    pinnedImage.classList.remove('pinned');
+                }
+                pinnedImage = preview;
+                pinnedImage.classList.add('pinned');
+                imagePreviews.prepend(preview);
+            });
+            preview.appendChild(pinIcon);
+
+            return preview;
+        }
+
+        function convertImageToWebP(file, callback) {
+            const reader = new FileReader();
+
+            reader.onload = function () {
+                const img = new Image();
+                img.src = reader.result;
+
+                img.onload = function () {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0);
+
+                    const webpImage = canvas.toDataURL('image/webp');
+                    callback(webpImage);
+                };
+            };
+
+            reader.readAsDataURL(file);
+        }
+
+    });
+
+    document.getElementById('add-button').addEventListener('click', function () {
+        var descriptions = document.getElementById('descriptions');
+        var newDescription = document.createElement('div');
+        newDescription.innerHTML = `
+                        <div class="form-row">
+                            <input type="text" class="form-control small-input" name="Name" />
+                            <input type="text" class=" form-control large-input" name="Value" />
+                                <button class="btn btn-primary remove-button">X</button>
+                        </div>
+                    `;
+        descriptions.appendChild(newDescription);
+
+        // Add event listener for remove button
+        var removeButton = newDescription.querySelector('.remove-button');
+        removeButton.addEventListener('click', function () {
+            this.parentNode.remove();
+        });
+    });
+
+</script>

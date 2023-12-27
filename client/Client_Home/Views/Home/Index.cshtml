@@ -1,4 +1,4 @@
-﻿@model List<Product>
+﻿@model HomeModel
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -105,23 +105,14 @@
                 <div class="col-7 col-md-9 text-end position-static">
                     <nav class="main-menu menu-sticky1 d-none d-lg-block link-inherit">
                         <ul>
-                            <li class="menu-item-has-children">
+                            <li>
                                 <a asp-controller="Home" asp-action="Index">Home</a>
-                                <ul class="sub-menu">
-                                    <li><a asp-controller="Home" asp-action="Index">Home Style 1</a></li>
-                                    <li><a href="index-2.html">Home Style 2</a></li>
-                                    <li><a href="index-3.html">Home Style 3</a></li>
-                                    <li><a href="index-4.html">Home Style 4</a></li>
-                                    <li><a href="index-5.html">Home Style 5</a></li>
-                                    <li><a href="index-6.html">Home Style 6</a></li>
-                                    <li><a href="index-7.html">Home Style 7</a></li>
-                                    <li><a href="index-8.html">Home Style 8</a></li>
-                                </ul>
                             </li>
+                            
                             <li class="menu-item-has-children">
                                 <a href="/home/shop">Shop</a>
                                 <ul class="sub-menu">
-                                    <li><a href="/home/shop">Shop</a></li>
+                                    <li><a href="/home/shop?maloai=1#">Shop</a></li>
                                     <li><a href="shop-list.html">Shop List</a></li>
                                     <li><a href="shop-details.html">Shop Details</a></li>
                                     <li><a href="cart.html">Shopping Cart</a></li>
@@ -339,23 +330,13 @@
                     <div class="col-auto">
                         <nav class="main-menu mobile-menu-active menu-style4">
                             <ul>
-                                <li class="menu-item-has-children">
+                                <li>
                                     <a asp-controller="Home" asp-action="Index">Home</a>
-                                    <ul class="sub-menu">
-                                        <li><a asp-controller="Home" asp-action="Index">Home Style 1</a></li>
-                                        <li><a href="index-2.html">Home Style 2</a></li>
-                                        <li><a href="index-3.html">Home Style 3</a></li>
-                                        <li><a href="index-4.html">Home Style 4</a></li>
-                                        <li><a href="index-5.html">Home Style 5</a></li>
-                                        <li><a href="index-6.html">Home Style 6</a></li>
-                                        <li><a href="index-7.html">Home Style 7</a></li>
-                                        <li><a href="index-8.html">Home Style 8</a></li>
-                                    </ul>
                                 </li>
                                 <li class="menu-item-has-children">
                                     <a href="/Products">Shop</a>
                                     <ul class="sub-menu">
-                                        <li><a href="/home/shop">Shop</a></li>
+                                        <li><a href="/home/shop?maloai=1#">Shop</a></li>
                                         <li><a href="shop-list.html">Shop List</a></li>
                                         <li><a href="shop-details.html">Shop Details</a></li>
                                         <li><a href="cart.html">Shopping Cart</a></li>
@@ -416,7 +397,7 @@
                                         <li>
                                             <a href="#">Pagelist 4</a>
                                             <ul>
-                                                <li><a href="/home/shop">Shop</a></li>
+                                                <li><a href="/home/shop?maloai=1#">Shop</a></li>
                                                 <li><a href="shop-list.html">Shop List</a></li>
                                                 <li><a href="shop-details.html">Shop Details</a></li>
                                                 <li><a href="cart.html">Shopping Cart</a></li>
@@ -456,8 +437,11 @@
         <div class="vs-hero-carousel" data-navprevnext="true" data-height="795" data-container="1900" data-slidertype="responsive">
 
             <!-- Slide 1-->
+             @foreach (var item in Model.PanelItems)
+    {
+        if(item.IdPannel == 1){
             <div class="ls-slide" data-ls="duration:12000; transition2d:5; kenburnszoom:in; kenburnsscale:1.1;">
-                <img width="1920" height="796" src="~/assets/img/banner/hero-bg-8-3.jpg" class="ls-bg" alt="bg" />
+                        <img width="1920" height="796" src="@Url.Content("~/assets/img/banner/" + item.UrlPannel)" class="ls-bg" alt="bg" />
                 <img width="263" height="236" src="~/assets/img/banner/hero-8-1-1.png" class="ls-l ls-hide-tablet ls-hide-phone" alt="" style="top:140px; left:610px; background-size:inherit; background-position:inherit;" data-ls="offsetxin:-200; offsetyin:top; durationin:1500; rotatein:-90; durationout:1500; easingout:easeOutQuint;">
                 <h1 style="top:380px; left:464px; font-weight:700; background-size:inherit; background-position:inherit; font-size:90px; color:#ffffff; font-family:'Amatic SC', cursive;" class="ls-l ls-hide-tablet ls-hide-phone" data-ls="offsetyin:200; durationin:1600; easingin:easeOutQuint;">
                     Live Better, Naturally
@@ -478,10 +462,15 @@
                 <a class="ls-l ls-hide-desktop ls-hide-tablet" href="/home/shop" target="_self" data-ls="offsetyin:150; durationin:1500; delayin:400; easingin:easeOutQuint; offsetyout:200; durationout:1500; easingout:easeOutQuint; hover:true; hoverbgcolor:#76a713; hovercolor:#ffffff;"><span style='top:385px; left:50%; font-weight:700; background-size:inherit; background-position:inherit; padding-top:60px; padding-right:120px; padding-bottom:60px; padding-left:120px; font-family:"Lato", sans-serif; font-size:62px; background-color:#ffffff; color:#000000; border-radius:9999px;' class="">START SHOPPING</span></a>
                 <img width="263" height="236" src="~/assets/img/hero/hero-8-1-1.png" class="ls-l ls-hide-desktop ls-hide-tablet" alt="" style="top:442px; left:13px; background-size:inherit; background-position:inherit;" data-ls="offsetxin:50; offsetyin:100; durationin:1500; rotatein:-90; durationout:1500; easingout:easeOutQuint;">
             </div>
+            }
+            }
 
             <!-- Slide 2-->
+             @foreach (var item in Model.PanelItems)
+    {
+        if(item.IdPannel == 2){
             <div class="ls-slide" data-ls="duration:12000; transition2d:5; kenburnszoom:out; kenburnsscale:1.1;">
-                <img width="1920" height="795" src="~/assets/img/banner/hero-bg-1.jpg" class="ls-bg" alt="hero bg" />
+                        <img width="1920" height="795" src="@Url.Content("~/assets/img/banner/" + item.UrlPannel)" class="ls-bg" alt="hero bg" />
                 <img width="263" height="236" src="~/assets/img/banner/hero-8-1-1.png" class="ls-l ls-hide-tablet ls-hide-phone" alt="" style="top:140px; left:610px; background-size:inherit; background-position:inherit;" data-ls="offsetxin:-200; offsetyin:top; durationin:1500; rotatein:-90; durationout:1500; easingout:easeOutQuint;">
                 <h1 style="top:380px; left:435px; font-weight:700; background-size:inherit; background-position:inherit; font-size:90px; color:#ffffff; font-family:'Amatic SC', cursive;" class="ls-l ls-hide-tablet ls-hide-phone" data-ls="offsetyin:200; durationin:1600; easingin:easeOutQuint;">
                     Enjoy Pure Natural Food
@@ -502,10 +491,15 @@
                 <a class="ls-l ls-hide-desktop ls-hide-tablet" href="/home/shop" target="_self" data-ls="offsetyin:150; durationin:1500; delayin:400; easingin:easeOutQuint; offsetyout:200; durationout:1500; easingout:easeOutQuint; hover:true; hoverbgcolor:#76a713; hovercolor:#ffffff;"><span style='top:385px; left:50%; font-weight:700; background-size:inherit; background-position:inherit; padding-top:60px; padding-right:120px; padding-bottom:60px; padding-left:120px; font-family:"Lato", sans-serif; font-size:62px; background-color:#ffffff; color:#000000; border-radius:9999px;' class="">START SHOPPING</span></a>
                 <img width="263" height="236" src="~/assets/img/banner/hero-8-1-1.png" class="ls-l ls-hide-desktop ls-hide-tablet" alt="" style="top:442px; left:13px; background-size:inherit; background-position:inherit;" data-ls="offsetxin:50; offsetyin:100; durationin:1500; rotatein:-90; durationout:1500; easingout:easeOutQuint;">
             </div>
+            }
+            }
 
             <!-- Slide 3-->
+              @foreach (var item in Model.PanelItems)
+    {
+        if(item.IdPannel == 3){
             <div class="ls-slide" data-ls="duration:12000; transition2d:5; kenburnszoom:in; kenburnsscale:1.1;">
-                <img width="1920" height="795" src="~/assets/img/banner/hero-bg-8-3.jpg" class="ls-bg" alt="hero bg" />
+                        <img width="1920" height="795" src="@Url.Content("~/assets/img/banner/" + item.UrlPannel)" class="ls-bg" alt="hero bg" />
                 <img width="263" height="236" src="~/assets/img/banner/hero-8-1-1.png" class="ls-l ls-hide-tablet ls-hide-phone" alt="" style="top:140px; left:610px; background-size:inherit; background-position:inherit;" data-ls="offsetxin:-200; offsetyin:top; durationin:1500; rotatein:-90; durationout:1500; easingout:easeOutQuint;">
                 <h1 style="top:380px; left:452px; font-weight:700; background-size:inherit; background-position:inherit; font-size:90px; color:#ffffff; font-family:'Amatic SC', cursive;" class="ls-l ls-hide-tablet ls-hide-phone" data-ls="offsetyin:200; durationin:1600; easingin:easeOutQuint;">
                     Get Fresh Organic Food
@@ -526,6 +520,8 @@
                 <a class="ls-l ls-hide-desktop ls-hide-tablet" href="/home/shop" target="_self" data-ls="offsetyin:150; durationin:1500; delayin:400; easingin:easeOutQuint; offsetyout:200; durationout:1500; easingout:easeOutQuint; hover:true; hoverbgcolor:#76a713; hovercolor:#ffffff;"><span style='top:385px; left:50%; font-weight:700; background-size:inherit; background-position:inherit; padding-top:60px; padding-right:120px; padding-bottom:60px; padding-left:120px; font-family:"Lato", sans-serif; font-size:62px; background-color:#ffffff; color:#000000; border-radius:9999px;' class="">START SHOPPING</span></a>
                 <img width="263" height="236" src="~/assets/img/banner/hero-8-1-1.png" class="ls-l ls-hide-desktop ls-hide-tablet" alt="" style="top:442px; left:13px; background-size:inherit; background-position:inherit;" data-ls="offsetxin:50; offsetyin:100; durationin:1500; rotatein:-90; durationout:1500; easingout:easeOutQuint;">
             </div>
+            }
+            }
 
         </div>
     </section>
@@ -572,7 +568,7 @@
                                  @if (Model != null)
                                 {
 
-                                    @foreach (var item in Model)
+                                    @foreach (var item in Model.ProductItem)
                                     {
                                         @if (item.BestsellerFlag == true)
                                         {
@@ -609,7 +605,7 @@
                                  @if (Model != null)
                                 {
 
-                                    @foreach (var item in Model)
+                                    @foreach (var item in Model.ProductItem)
                                     {
                                         @if (item.HomeFlag == true)
                                         {
@@ -648,7 +644,7 @@
                                  @if (Model != null)
                                 {
 
-                                    @foreach (var item in Model)
+                                    @foreach (var item in Model.ProductItem)
                                     {
                                         @if (item.HomeFlag == false)
                                         {
@@ -680,7 +676,7 @@
                         <div>
                             <div class="row gx-30">
                                  @if (Model != null){
-                                    @foreach (var item in Model)
+                                    @foreach (var item in Model.ProductItem)
                                     {
                                         @if (item.Active == 1)
                                         {
@@ -852,11 +848,20 @@
             <h2 class="sec-title3">Weekly Specials</h2>
         </div>
         <div class="container">
+             @foreach (var item in Model.PanelItems)
+    {
+        if(item.IdPannel == 4){
+            <div style="padding:40px">
+                        <img src="@Url.Content("~/assets/img/banner/" + item.UrlPannel)" />
+            </div>
+        }
+    }
+
             <div class="row vs-carousel dots-style2" data-slide-show="2" data-lg-slide-show="2" data-sm-slide-show="1" data-dots="true">
                 @if (Model != null)
 {
  
-    @foreach (var item in Model)
+    @foreach (var item in Model.ProductItem)
     {
                 <div class="col-xl-6">
                     <div class="vs-product-box6">
@@ -899,11 +904,20 @@
             <h2 class="sec-title3">Featured Products</h2>
         </div>
         <div class="container">
+            @foreach (var item in Model.PanelItems)
+    {
+        if(item.IdPannel == 5){
+             <div style="padding:40px">
+                        <img src="@Url.Content("~/assets/img/banner/" + item.UrlPannel)" />
+            </div>
+        }
+    }
+
             <div class="row vs-carousel dots-style2" data-slide-show="6" data-lg-slide-show="4" data-md-slide-show="3" data-dots="true">
                  @if (Model != null)
 {
  
-    @foreach (var item in Model)
+    @foreach (var item in Model.ProductItem)
     {
                 <div class="col-xl-2">
                     <div class="vs-product-box5">

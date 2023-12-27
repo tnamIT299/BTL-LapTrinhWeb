@@ -1,68 +1,526 @@
-﻿@model Client_Home.Models.Product
+﻿@using Newtonsoft.Json.Linq;
+@model Client_Home.Models.Product
 
 @{
     ViewData["Title"] = "Details";
-    
-}
-@section styles{
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
-    <link rel="stylesheet" href="/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    Layout = "~/Views/Shared/_Layout_Shop.cshtml";
 
 }
-<h2 style="font-weight:600; font-family:sans-serif;color:#7fad39">Details Product</h2>
+<link rel="stylesheet" href="~/assets/css/ProductDetail.css" />
+<!--==============================
+      Preloader
+   ==============================-->
+<div class="preloader  ">
+    <button class="vs-btn preloaderCls">Cancel Preloader </button>
+    <div class="preloader-inner">
+        <div class="loader-logo">
+            <img src="~/assets/img/logo.svg" alt="Foodano">
+        </div>
+        <div class="loader-wrap pt-4">
+            <span class="loader"></span>
+        </div>
+    </div>
+</div>
+<!--==============================
+    Header Top
+==============================-->
+<!--========================
+    Sticky Header
+========================-->
+<div class="sticky-header-wrap sticky-header py-2 py-lg-1">
+    <div class="container position-relative">
+        <div class="row align-items-center">
+            <div class="col-5 col-md-3">
+                <div class="logo">
+                    <a href="index.html"><img src="~/assets/img/logo.svg" alt="Foodano"></a>
+                </div>
+            </div>
+            <div class="col-7 col-md-9 text-end position-static">
+                <nav class="main-menu menu-sticky1 d-none d-lg-block link-inherit">
+                    <ul>
+                        <li class="menu-item-has-children">
+                            <a href="index.html">Home</a>
+                            <ul class="sub-menu">
+                                <li><a href="index.html">Home Style 1</a></li>
+                                <li><a href="index-2.html">Home Style 2</a></li>
+                                <li><a href="index-3.html">Home Style 3</a></li>
+                                <li><a href="index-4.html">Home Style 4</a></li>
+                                <li><a href="index-5.html">Home Style 5</a></li>
+                                <li><a href="index-6.html">Home Style 6</a></li>
+                                <li><a href="index-7.html">Home Style 7</a></li>
+                                <li><a href="index-8.html">Home Style 8</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="shop.html">Shop</a>
+                            <ul class="sub-menu">
+                                <li><a href="shop.html">Shop</a></li>
+                                <li><a href="shop-list.html">Shop List</a></li>
+                                <li><a href="shop-details.html">Shop Details</a></li>
+                                <li><a href="cart.html">Shopping Cart</a></li>
+                                <li><a href="checkout.html">Check Out</a></li>
+                                <li><a href="wishlist.html">Wishlist</a></li>
+                                <li><a href="login-register.html">Login & Register</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="blog.html">Blog</a>
+                            <ul class="sub-menu">
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="blog-list.html">Blog List</a></li>
+                                <li><a href="blog-grid.html">Blog Grid</a></li>
+                                <li><a href="blog-grid-sidebar.html">Blog Grid Sidebar</a></li>
+                                <li><a href="blog-masonry.html">Blog Masonry</a></li>
+                                <li><a href="blog-details.html">Blog Details</a></li>
+                            </ul>
+                        </li>
+                        <li class="mega-menu-wrap menu-item-has-children">
+                            <a href="#">Pages</a>
+                            <ul class="mega-menu">
+                                <li>
+                                    <a href="shop.html">Pagelist 1</a>
+                                    <ul>
+                                        <li><a href="index.html">Home Style 1</a></li>
+                                        <li><a href="index-2.html">Home Style 2</a></li>
+                                        <li><a href="index-3.html">Home Style 3</a></li>
+                                        <li><a href="index-4.html">Home Style 4</a></li>
+                                        <li><a href="index-5.html">Home Style 5</a></li>
+                                        <li><a href="index-6.html">Home Style 6</a></li>
+                                        <li><a href="index-7.html">Home Style 7</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Pagelist 2</a>
+                                    <ul>
+                                        <li><a href="index-8.html">Home Style 8</a></li>
+                                        <li><a href="about.html">About</a></li>
+                                        <li><a href="service.html">Services</a></li>
+                                        <li><a href="team.html">Team</a></li>
+                                        <li><a href="faq.html">FAQ Page</a></li>
+                                        <li><a href="contact.html">Contact Us</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Pagelist 3</a>
+                                    <ul>
+                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="blog-list.html">Blog List</a></li>
+                                        <li><a href="blog-grid.html">Blog Grid</a></li>
+                                        <li><a href="blog-grid-sidebar.html">Blog Grid Sidebar</a></li>
+                                        <li><a href="blog-masonry.html">Blog Masonry</a></li>
+                                        <li><a href="blog-details.html">Blog Details</a></li>
+                                        <li><a href="error.html">Error Page</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Pagelist 4</a>
+                                    <ul>
+                                        <li><a href="shop.html">Shop</a></li>
+                                        <li><a href="shop-list.html">Shop List</a></li>
+                                        <li><a href="shop-details.html">Shop Details</a></li>
+                                        <li><a href="cart.html">Shopping Cart</a></li>
+                                        <li><a href="checkout.html">Check Out</a></li>
+                                        <li><a href="wishlist.html">Wishlist</a></li>
+                                        <li><a href="login-register.html">Login / Register</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="contact.html">Contact Us</a>
+                        </li>
+                    </ul>
+                </nav>
+                <button class="vs-menu-toggle d-inline-block d-lg-none"><i class="far fa-bars"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--==============================
+  Mobile Menu
+============================== -->
+<div class="vs-menu-wrapper">
+    <div class="vs-menu-area">
+        <button class="vs-menu-toggle"><i class="fal fa-times"></i></button>
+        <div class="mobile-logo">
+            <a href="index.html"><img src="assets/img/logo.svg" alt="Foodano"></a>
+        </div>
+        <div class="vs-mobile-menu link-inherit"></div><!-- Menu Will Append With Javascript -->
+    </div>
+</div>
+<!--==============================
+    Sidemenu
+============================== -->
+<div class="sidemenu-wrapper d-none d-lg-block  ">
+    <div class="sidemenu-content">
+        <button class="closeButton border-theme text-theme bg-theme-hover sideMenuCls"><i class="far fa-times"></i></button>
+        <div class="widget widget_shopping_cart">
+            <h3 class="widget_title">Shopping cart</h3>
+            <div class="widget_shopping_cart_content">
+                <ul class="cart_list ">
+                    <li class="mini_cart_item">
+                        <a href="shop.html" class="remove"><i class="fal fa-trash-alt"></i></a>
+                        <a href="shop.html"><img src="assets/img/cart/cart-img-1-1.jpg" alt="Cart Image">Hot Burger</a>
+                        <span class="quantity">
+                            1 ×
+                            <span class="amount">
+                                <span>$</span>40.00
+                            </span>
+                        </span>
+                    </li>
+                    <li class="mini_cart_item">
+                        <a href="shop.html" class="remove"><i class="fal fa-trash-alt"></i></a>
+                        <a href="shop.html"><img src="assets/img/cart/cart-img-1-2.jpg" alt="Cart Image">Vegetable</a>
+                        <span class="quantity">
+                            1 ×
+                            <span class="amount">
+                                <span>$</span>99.00
+                            </span>
+                        </span>
+                    </li>
+
+                    <li class="mini_cart_item">
+                        <a href="shop.html" class="remove"><i class="fal fa-trash-alt"></i></a>
+                        <a href="shop.html"><img src="assets/img/cart/cart-img-1-3.jpg" alt="Cart Image">Pop Pizza</a>
+                        <span class="quantity">
+                            1 ×
+                            <span class="amount">
+                                <span>$</span>56.00
+                            </span>
+                        </span>
+                    </li>
+                    <li class="mini_cart_item">
+                        <a href="shop.html" class="remove"><i class="fal fa-trash-alt"></i></a>
+                        <a href="shop.html"><img src="assets/img/cart/cart-img-1-4.jpg" alt="Cart Image">Onion & Tomato</a>
+                        <span class="quantity">
+                            1 ×
+                            <span class="amount">
+                                <span>$</span>23.00
+                            </span>
+                        </span>
+                    </li>
+                    <li class="mini_cart_item">
+                        <a href="shop.html" class="remove"><i class="fal fa-trash-alt"></i></a>
+                        <a href="shop.html"><img src="assets/img/cart/cart-img-1-5.jpg" alt="Cart Image">Cool Drinks</a>
+                        <span class="quantity">
+                            1 ×
+                            <span class="amount">
+                                <span>$</span>100.00
+                            </span>
+                        </span>
+                    </li>
+                </ul>
+                <p class="total">
+                    <strong>Subtotal:</strong>
+                    <span class="amount">
+                        <span>$</span>318.00
+                    </span>
+                </p>
+                <p class="buttons">
+                    <a href="cart.html" class="vs-btn">View cart</a>
+                    <a href="checkout.html" class="vs-btn">Checkout</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--==============================
+    Header Area
+==============================-->
+<header class="header-wrapper header-layout3 header3-margin ">
+    <div class="container py-30">
+        <div class="row align-items-center">
+            <div class="col-6">
+                <div class="header-logo">
+                    <a href="index.html"><img src="~/assets/img/logo.svg" alt="Foodano"></a>
+                </div>
+            </div>
+            <div class="col-6 text-end">
+                <button type="button" class="vs-menu-toggle d-inline-block d-lg-none"><i class="far fa-bars"></i></button>
+                <div class="head-top-links text-body2 d-none d-lg-block">
+                    <a href="wishlist.html" class="icon-btn has-badge bg3 me-3"><i class="fal fa-heart"></i><span class="badge">0</span></a>
+                    <a href="#" class="icon-btn has-badge bg2 me-4 sideMenuToggler"><i class="fal fa-shopping-cart"></i><span class="badge">0</span></a>
+                    <span class="icon-btn bg4"><i class="fal fa-user"></i></span>
+                    <ul>
+                        <li><a href="login-register.html">Login</a></li>
+                        <li><a href="login-register.html">Register</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container d-none d-lg-block">
+        <div class="header3-inner position-relative">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-xl-7">
+                    <nav class="main-menu menu-style1 mobile-menu-active menu-style2">
+                        <ul>
+                            <li class="menu-item-has-children">
+                                <a href="index.html">Home</a>
+                                <ul class="sub-menu">
+                                    <li><a href="index.html">Home Style 1</a></li>
+                                    <li><a href="index-2.html">Home Style 2</a></li>
+                                    <li><a href="index-3.html">Home Style 3</a></li>
+                                    <li><a href="index-4.html">Home Style 4</a></li>
+                                    <li><a href="index-5.html">Home Style 5</a></li>
+                                    <li><a href="index-6.html">Home Style 6</a></li>
+                                    <li><a href="index-7.html">Home Style 7</a></li>
+                                    <li><a href="index-8.html">Home Style 8</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="shop.html">Shop</a>
+                                <ul class="sub-menu">
+                                    <li><a href="~/home/shop?maloai=1">Shop</a></li>
+                                    <li><a href="shop-list.html">Shop List</a></li>
+                                    <li><a href="shop-details.html">Shop Details</a></li>
+                                    <li><a href="cart.html">Shopping Cart</a></li>
+                                    <li><a href="checkout.html">Check Out</a></li>
+                                    <li><a href="wishlist.html">Wishlist</a></li>
+                                    <li><a href="login-register.html">Login & Register</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="blog.html">Blog</a>
+                                <ul class="sub-menu">
+                                    <li><a href="blog.html">Blog</a></li>
+                                    <li><a href="blog-list.html">Blog List</a></li>
+                                    <li><a href="blog-grid.html">Blog Grid</a></li>
+                                    <li><a href="blog-grid-sidebar.html">Blog Grid Sidebar</a></li>
+                                    <li><a href="blog-masonry.html">Blog Masonry</a></li>
+                                    <li><a href="blog-details.html">Blog Details</a></li>
+                                </ul>
+                            </li>
+                            <li class="mega-menu-wrap menu-item-has-children">
+                                <a href="#">Pages</a>
+                                <ul class="mega-menu">
+                                    <li>
+                                        <a href="shop.html">Pagelist 1</a>
+                                        <ul>
+                                            <li><a href="index.html">Home Style 1</a></li>
+                                            <li><a href="index-2.html">Home Style 2</a></li>
+                                            <li><a href="index-3.html">Home Style 3</a></li>
+                                            <li><a href="index-4.html">Home Style 4</a></li>
+                                            <li><a href="index-5.html">Home Style 5</a></li>
+                                            <li><a href="index-6.html">Home Style 6</a></li>
+                                            <li><a href="index-7.html">Home Style 7</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Pagelist 2</a>
+                                        <ul>
+                                            <li><a href="index-8.html">Home Style 8</a></li>
+                                            <li><a href="about.html">About</a></li>
+                                            <li><a href="service.html">Services</a></li>
+                                            <li><a href="team.html">Team</a></li>
+                                            <li><a href="faq.html">FAQ Page</a></li>
+                                            <li><a href="contact.html">Contact Us</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Pagelist 3</a>
+                                        <ul>
+                                            <li><a href="blog.html">Blog</a></li>
+                                            <li><a href="blog-list.html">Blog List</a></li>
+                                            <li><a href="blog-grid.html">Blog Grid</a></li>
+                                            <li><a href="blog-grid-sidebar.html">Blog Grid Sidebar</a></li>
+                                            <li><a href="blog-masonry.html">Blog Masonry</a></li>
+                                            <li><a href="blog-details.html">Blog Details</a></li>
+                                            <li><a href="error.html">Error Page</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Pagelist 4</a>
+                                        <ul>
+                                            <li><a href="~/home/shop.?maloai=1">Shop</a></li>
+                                            <li><a href="shop-list.html">Shop List</a></li>
+                                            <li><a href="shop-details.html">Shop Details</a></li>
+                                            <li><a href="cart.html">Shopping Cart</a></li>
+                                            <li><a href="checkout.html">Check Out</a></li>
+                                            <li><a href="wishlist.html">Wishlist</a></li>
+                                            <li><a href="login-register.html">Login / Register</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="contact.html">Contact Us</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-6 col-xl-5">
+                    <form action="#" class="header-search">
+                        <input type="text" placeholder="Search your product" class="form-control">
+                        <button type="submit" class="vs-btn">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
 
 <div class="container mt-5 mb-5">
-    <div class="row d-flex justify-content-center">
+    <div class="row d-flex justify-content-center m-3">
         <div class="col-md-10">
             <div class="card">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="images p-3">
-                            <div class="text-center p-4"> <img id="main-image" src="@Html.DisplayFor(model => model.ThumbnailUrl)" width="250" height="300" /> </div>
-                            
+
+                             <a href="/Products/Details/@Html.DisplayFor(model => model.ProductId)"><img src="@Url.Content("~/adminassets/images/others/" + @Html.DisplayFor(model => model.ThumbnailUrl))" alt="Product Image" class="w-100"></a>
+                         @*    <a href="/Products/Details/@Html.DisplayFor(model => model.ProductId)"><img src="~/assets/img/shop/product-demo.png" alt="Product Image" class="w-100 img_swap"></a> *@
+
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="product p-4">
+                        <div class="product mt-4 ">
                             <div class="d-flex justify-content-between align-items-center">
-                                <div class="d-flex align-items-center"> <i class="fa fa-long-arrow-left"></i><a href="/home/shop" style="font-family:sans-serif;font-size:16px;color:#7fad39" class="ml-1">Back To List</a> </div>
+                                <div class="d-flex align-items-center"> <i class="fa fa-long-arrow-left"></i><a asp-action="Index" style="font-family:sans-serif;font-size:16px;color:#7fad39" class="ml-1">Back To List</a> </div>
                             </div>
-                            <div class="mt-4 mb-3">
-                                <span class="text-uppercase text-muted brand">Orianz</span>
+                            <div class="mt-3 ">
+                                @* <span class="text-uppercase text-muted brand">Orianz</span> *@
                                 <h5 class="@Html.DisplayFor(model => model.Name)</h5>
                                 <div class="price d-flex flex-row align-items-center">
-                                    <span class="act-price">@Html.DisplayFor(model => model.SellPrice)</span>
-                                    <div class="ml-2"> <small class="dis-price">@Html.DisplayFor(model => model.SellPrice)*@Html.DisplayFor(model => model.Discount)</small> <span>@Html.DisplayFor(model => model.Discount) OFF</span> </div>
+                                    <span class="act-name">@Html.DisplayFor(model => model.Name)</span> </br>
+                                    @if (Model.Discount == null)
+                                    {
+                                        <!-- Nếu DiscountPrice là NULL, chỉ hiển thị SellPrice -->
+                                        <h5>Giá bán : @Html.DisplayFor(model => model.SellPrice)</h5>
+                                    }
+                                    else
+                                    {
+                                        <span>Giá bán :</span>
+                                        <!-- Nếu DiscountPrice khác NULL, hiển thị cả hai giá -->
+                                        <span class="price font-theme" style="font-size: 17px;"><strong style="text-decoration: line-through;">@Html.DisplayFor(model => model.SellPrice)đ</strong></span>
+                                        <span class="price font-theme" style="font-size: 25px;color: black;"><strong>@Html.DisplayFor(model => model.DiscountPrice) đ</strong></span>
+                                    }
                                 </div>
+                                <p class="about">Số lượng : @Html.DisplayFor(model => model.TotalQuantity)</p>
                             </div>
-                            <p class="about">@Html.DisplayFor(model => model.Description)</p>
-                            
-                            <div class="cart mt-4 align-items-center"> <a href="/Cart/AddToCart/?productId=@Html.DisplayFor(model => model.ProductId)" class="btn btn-danger text-uppercase mr-2 px-4">Add to cart</a> </div>
+
+
+                            <div class="cart align-items-center"> <a href="/Cart/AddToCart/?productId=@Html.DisplayFor(model => model.ProductId)" class="btn btn-danger text-uppercase mb-4 px-4">Add to cart</a> </div>
                         </div>
                     </div>
                 </div>
+                <div>
+                    <div class="table-container">
+                        <h4>Thông tin chi tiết sản phẩm </h4>
+                    @if (!string.IsNullOrEmpty(Model.Description))
+                    {
+                            <table>
+                            @{
+                                JObject descriptionObject = JObject.Parse(Model.Description);
+                                foreach (var detail in descriptionObject)
+                                {
+                                        <tr>
+                                            <th>@detail.Key</th>
+                                            <td>@detail.Value</td>
+                                        </tr>
+                                }
+                            }
+                            </table>
+                    }
+                    </div>
+                </div>
+
+                <div class="comments">
+                    <h4 class="ml-16 font-arial"> Bình luận</h4>
+                    <!-- Đoạn mã HTML/Razor (cshtml) -->
+                    <div class="product-ratings">
+                        <div class="rating-container">
+                        @if (Model.TotalRatings != null && Model.AverageRating != null)
+                        {
+                                <spa class="average-rating"> @Model.AverageRating</spa>
+                            for (int i = 1; i <= 5; i++)
+                            {
+                                    <span class="star @(i <= Model.AverageRating ? "star-filled" : "")">&#9733;</span>
+                            }
+                                <span class="total-ratings"> @Model.TotalRatings đánh giá </span>
+                        }
+                        else
+                        {
+                                <span class="average-rating"> 0  </span>
+                            for (int i = 1; i <= 5; i++)
+                            {
+                                    <span class="star">&#9733;</span>
+                            }
+                                <span class="total-ratings"> 0 đánh giá </span>
+                        }
+                        </div>
+                    </div>
+                    <div>
+                    @if (Model.ProductComments.Any())
+                    {
+                        foreach (var comment in Model.ProductComments)
+                        {
+                                <div class="comment">
+                                    <div class="user-avatar"></div>
+                                    <div class="comment-content">
+                                        <div class="comment-header">
+                                            <div class="user-info-date">
+                                                <div class="user-info">@comment.User.Fullname</div>
+                                                <div class="comment-date">@comment.CreatedDate.ToString("dd/MM/yyyy")</div>
+                                            </div>
+                                        </div>
+                                        <div class="comment-text">@comment.CommentText</div>
+                                    </div>
+                                </div>
+                        }
+                    }
+                    else
+                    {
+                            <p>Chưa có đánh giá nào về sản phẩm này </p>
+                    }
+                    </div>
+
+                </div>
+                <div>
+                @if (User.Identity.IsAuthenticated)
+                {
+                        <div class="comment-form">
+                            <textarea id="commentText" placeholder="Add a comment..."></textarea>
+                            <div>
+                                <!-- Hiển thị giao diện đánh giá (ví dụ: sao) -->
+                            <span class="rating" onclick="rateProduct(1)">&#9733;</span>
+                            <span class="rating" onclick="rateProduct(2)">&#9733;</span>
+                            <span class="rating" onclick="rateProduct(3)">&#9733;</span>
+                            <span class="rating" onclick="rateProduct(4)">&#9733;</span>
+                            <span class="rating" onclick="rateProduct(5)">&#9733;</span>
+                            </div>
+                            <button id="postComment" onclick="postComment()">Post Comment</button>
+                        </div>
+                 } 
+                 else
+                {
+                        <p>Please <a href="~/Adim/Indentity/Page/Account/Login">log in</a> to leave a comment.</p>
+                }
+                </div>
+
+                <script>
+                    function postComment() {
+                        // Lấy giá trị từ textarea
+                        var commentText = document.getElementById("commentText").value;
+
+                        // Kiểm tra xem người dùng đã nhập bình luận hay chưa
+                        if (commentText.trim() === "") {
+                            alert("Please enter a comment before posting.");
+                            return;
+                        }
+
+                        // TODO: Gửi bình luận đến server (ví dụ: sử dụng AJAX)
+                        // ...
+                        // Sau khi gửi bình luận, có thể làm mới trang hoặc thêm bình luận mới vào DOM
+                        // ...
+
+                        // Ghi nhận bình luận trong console (đoạn mã dưới đây chỉ là để minh họa)
+                        console.log("Posted comment:", commentText);
+                    }
+                </script>
+
             </div>
         </div>
     </div>
-</div>
-@section Scripts{
-    <!-- Js Plugins -->
-    <script src="/js/jquery-3.3.1.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="/js/jquery-ui.min.js"></script>
-    <script src="/js/jquery.slicknav.js"></script>
-    <script src="/js/mixitup.min.js"></script>
-    <script src="/js/owl.carousel.min.js"></script>
-    <script src="/js/main.js"></script>
-}
+

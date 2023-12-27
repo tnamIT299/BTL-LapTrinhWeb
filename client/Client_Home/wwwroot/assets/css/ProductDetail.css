@@ -1,0 +1,119 @@
+﻿body {
+}
+.table-container {
+    border: 1px solid #ddd; /* Kẻ border 1px đen xung quanh div */
+    border-radius: 5px; /* Làm tròn góc của border */
+    padding: 10px; /* Kích thước padding trong div */
+}
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+.comments {
+    margin-top: 20px;
+}
+
+.comment {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.comment-content {
+    flex-grow: 1;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.user-info {
+    font-weight: bold;
+}
+
+.user-info-date {
+    display: flex;
+    align-items: center; /* Đảm bảo tên và ngày chia sẻ cùng một đường ngang */
+}
+
+.comment-date {
+    color: #888;
+    margin-left: 20px;
+}
+
+.comment-text {
+    margin-top: 5px;
+}
+
+.comment-form {
+    margin-top: 20px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+.rating-container {
+    display: flex;
+    align-items: center;
+}
+
+.star {
+    font-size: 24px;
+    margin-right: 5px;
+}
+
+.star-filled {
+    color: gold;
+}
+
+.total-ratings {
+    color: red;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.average-rating {
+    color: red;
+    font-size: 18px;
+    margin-right: 15px;
+}
+
+.product-ratings {
+    margin-bottom: 20px;
+}
+
+.rating {
+    font-size: 24px;
+    cursor: pointer;
+    color: #ccc;
+}
+
+

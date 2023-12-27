@@ -1,0 +1,147 @@
+﻿@model IEnumerable<Client_Home.Models.Pannel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Quản lý Pannel </h1>
+
+@* <p>
+    <a asp-action="Create">Create New</a>
+</p> *@
+
+@* <a asp-area="Admin" asp-controller="Pannels" asp-action="Create">
+    <button class="btn btn-primary">
+        <span>Thêm pannel mới</span>
+    </button>
+</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Image
+            </th>
+            <th>
+              Tên Pannel
+            </th>
+            <th>
+               Url
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td >
+                    <img src="@Url.Content("~/assets/img/banner/" + item.UrlPannel)" style="width:50px;height:30px;">
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NamePannel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UrlPannel)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdPannel">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdPannel">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdPannel">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table> *@
+
+<div class="main-content">
+    <div class="page-header">
+        <h2 class="header-title">Quản lý Pannel</h2>
+        <div class="header-sub-title">
+            <nav class="breadcrumb breadcrumb-dash">
+                <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
+                <a class="breadcrumb-item" href="#">Quản lý Pannel</a>
+            </nav>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="row m-b-30">
+                <div class="col-lg-7">
+                    <div class="d-md-flex">
+                      
+                    </div>
+                </div>
+                <div class="col-lg-3 text-right">
+                    <a asp-area="Admin" asp-controller="Pannels" asp-action="Create">
+                        <button class="btn btn-primary">
+                            <i class="anticon anticon-file-excel m-r-5"></i>
+                            <span>Thêm Pannel</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-hover e-commerce-table">
+                    <thead>
+                        <tr>
+                            <th>
+                               Hình Ảnh 
+                            </th>
+                            <th>
+                                Tên Pannel
+                            </th>
+                            <th>
+                                Url
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="records_table">
+                        <tr>
+                            @if (Model != null)
+                            {
+                                int i = 1;
+                                @foreach (var item in Model)
+                                {
+                                <tr>
+                                    <td>
+                                        <img src="@Url.Content("~/assets/img/banner/" + item.UrlPannel)" style="width:50px;height:30px;">
+                                    </td>
+                                    <td>
+                                            @Html.DisplayFor(modelItem => item.NamePannel)
+                                    </td>
+                                    <td>
+                                            @Html.DisplayFor(modelItem => item.UrlPannel)
+                                    </td>
+
+                                    <td class="text-right">
+                                        <a asp-area="Admin" asp-controller="Pannels" asp-action="Details" asp-route-id="@item.IdPannel">
+                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xem chi tiết thông tin phiếu nhập">
+                                                <i class="anticon anticon-eye"></i>
+                                            </button>
+                                        </a>
+
+                                        <a asp-area="Admin" asp-controller="Pannels" asp-action="Edit" asp-route-id="@item.IdPannel">
+                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right" title="Sửa thông tin phiếu nhập">
+                                                <i class="anticon anticon-edit"></i>
+                                            </button>
+                                        </a>
+
+                                        <a asp-area="Admin" asp-controller="Pannels" asp-action="Delete" asp-route-id="@item.IdPannel">
+                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xóa phiếu nhập này">
+                                                <i class="anticon anticon-delete"></i>
+                                            </button>
+                                        </a>
+
+                                    </td>
+                                </tr>
+                                    i++;
+                                }
+                            }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

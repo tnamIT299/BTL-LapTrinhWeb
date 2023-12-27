@@ -35,5 +35,7 @@ public partial class User
 
     public virtual ICollection<ProductComment> ProductComments { get; set; } = new List<ProductComment>();
 
+    public virtual ICollection<Rating> Ratings { get; set; } = new List<Rating>();
+
     public virtual Role? Role { get; set; }
 }

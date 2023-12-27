@@ -33,14 +33,7 @@ namespace Client_Home.Areas.Admin.Controllers
         // GET: Admin/AdminSuppliers
         public async Task<IActionResult> Index(int? page)
         {
-            var pageNumber = page == null || page <= 0 ? 1 : page.Value;
-            var pageSize = 15;
-            var isSupplier = _context.Suppliers
-                .AsNoTracking()
-                .OrderByDescending(x => x.SupplierId);
-            PagedList.Core.IPagedList<Supplier> models = new PagedList.Core.PagedList<Supplier>(isSupplier, pageNumber, pageSize);
-            ViewBag.CurrentPage = pageNumber;
-            return View(models);
+            return View();
         }
 
         // GET: Admin/AdminSuppliers/Details/5

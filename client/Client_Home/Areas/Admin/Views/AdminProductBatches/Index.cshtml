@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 <div class="col-lg-2 text-right">
-                    <a asp-area="Admin" asp-controller="" asp-action="ExportToExcel">
+                    <a asp-area="Admin" asp-controller="AdminProductBatches" asp-action="ExportToExcel">
                         <button class="btn btn-primary">
                             <i class="anticon anticon-file-excel m-r-5"></i>
                             <span>Xuất file Excel</span>
@@ -54,108 +54,8 @@
                 </div>
             </div>
 
-            <div class="table-responsive">
-                <table class="table table-hover e-commerce-table">
-                    <thead>
-                        <tr>
-                            <th>
-                                Mã lô
-                            </th>
-                            <th>
-                                Mã sản phẩm
-                            </th>
-                            <th>
-                                Ngày sản xuất
-                            </th>
-                            <th>
-                                Ngày hết hạn
-                            </th>
-                            <th>
-                                Số lượng
-                            </th>
-                            <th>
-                                Barcode
-                            </th>
-                            <th>
-                                Giá nhập
-                            </th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            @if (Model != null)
-                            {
-                                int i = 1;
-                                @foreach (var item in Model)
-                                {
-                                <tr>
-                                    <td>
-                                            @Html.DisplayFor(modelItem => item.BatchId)
-                                    </td>
-                                    <td>
-                                            @Html.DisplayFor(modelItem => item.ProductId)
-                                    </td>
-                                    <td>
-
-                                            @{
-                                                string MFGDateText = item.ManufactureDate.HasValue ? item.ManufactureDate.Value.ToString("dd/MM/yyyy") : "";
-                                            }
-                                            @Html.DisplayFor(modelItem => MFGDateText)
-                                    </td>
-                                    <td>
-                                            @{
-                                                string EXPDateText = item.ExpiryDate.HasValue ? item.ExpiryDate.Value.ToString("dd/MM/yyyy") : "";
-                                            }
-                                            @Html.DisplayFor(modelItem => EXPDateText)
-                                    </td>
-
-                                    <td>
-                                            @Html.DisplayFor(modelItem => item.Quantity)
-                                    </td>
-                                    <td>
-
-                                            @Html.DisplayFor(modelItem => item.Barcode)
-                                    </td>
-                                    <td>
-
-                                            @Html.DisplayFor(modelItem => item.ImportPrice)
-                                    </td>
-
-
-                                    <td class="text-right">
-                                        <a asp-area="Admin" asp-controller="AdminProductBatches" asp-action="Details" asp-route-id="@item.BatchId">
-                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xem chi tiết thông tin lô sản phẩm">
-                                                <i class="anticon anticon-eye"></i>
-                                            </button>
-                                        </a>
-
-                                        <a asp-area="Admin" asp-controller="AdminProductBatches" asp-action="Edit" asp-route-id="@item.BatchId">
-                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right" title="Sửa thông tin lô sản phẩm">
-                                                <i class="anticon anticon-edit"></i>
-                                            </button>
-                                        </a>
-
-                                        <a asp-area="Admin" asp-controller="AdminProductBatches" asp-action="Delete" asp-route-id="@item.BatchId">
-                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xóa lô sản phẩm này">
-                                                <i class="anticon anticon-delete"></i>
-                                            </button>
-                                        </a>
-
-                                    </td>
-                                </tr>
-                                    i++;
-                                }
-                            }
-                        </tr>
-                    </tbody>
-                </table>
-                <div aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <pager class="page-container" list="@Model" asp-area="Admin" asp-controller="AdminProductBatches" asp-action="Index"></pager>
-                    </ul>
-
-                </div>
+            <div class="table-responsive " id="records_table">
+                
             </div>
         </div>
     </div>

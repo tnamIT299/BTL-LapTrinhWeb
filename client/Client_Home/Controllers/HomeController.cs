@@ -30,14 +30,17 @@ namespace Client_Home.Controllers
                 // For example, you might want to display products from the first category
                 productsQuery = productsQuery.Where(p => p.CategoryId == 5);
             }
-            List<Product> lstProduct = productsQuery.OrderBy(p => p.Name).ToList();
+            var homeModel = new HomeModel
+            {
+                PanelItems = _context.Pannels.ToList(),
+                ProductItem = productsQuery.OrderBy(p => p.Name).ToList()
+            };
             // List<Product> lstProduct = _context.Products.Where(p => p.CategoryId == maloai).OrderBy(p => p.Name).ToList();
-            return View(lstProduct);
+            return View(homeModel);
         }
         public IActionResult Shop(int? maloai)
         {
             IQueryable<Product> productsQuery = _context.Products;
-
             if (maloai.HasValue)
             {
                 // Filter products based on the specified category
@@ -47,11 +50,15 @@ namespace Client_Home.Controllers
             {
                 // Display a default category (adjust the CategoryId accordingly)
                 // For example, you might want to display products from the first category
-                productsQuery = productsQuery.Where(p => p.CategoryId == 1);
+                productsQuery = productsQuery.Where(p => p.CategoryId == 5);
             }
-            List<Product> lstProduct = productsQuery.OrderBy(p => p.Name).ToList();
+            var homeModel = new HomeModel
+            {
+                PanelItems = _context.Pannels.ToList(),
+                ProductItem = productsQuery.OrderBy(p => p.Name).ToList()
+            };
             // List<Product> lstProduct = _context.Products.Where(p => p.CategoryId == maloai).OrderBy(p => p.Name).ToList();
-            return View(lstProduct);
+            return View(homeModel);
         }
 
         public IActionResult Blog()

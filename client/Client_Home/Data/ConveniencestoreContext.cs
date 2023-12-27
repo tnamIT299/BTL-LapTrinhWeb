@@ -55,6 +55,8 @@ public partial class ConveniencestoreContext : DbContext
 
     public virtual DbSet<ProductSubImage> ProductSubImages { get; set; }
 
+    public virtual DbSet<Rating> Ratings { get; set; }
+
     public virtual DbSet<Role> Roles { get; set; }
 
     public virtual DbSet<Salary> Salaries { get; set; }
@@ -71,7 +73,7 @@ public partial class ConveniencestoreContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("server=THANHNAM\\MSSQLSERVER02;database=CONVENIENCESTORE;Encrypt=False;Integrated Security=true; TrustServerCertificate=True");
+        => optionsBuilder.UseSqlServer("server=DESKTOP-BVECHRQ\\PHUHUYIT;database=CONVENIENCESTORE;Encrypt=False;Integrated Security=true;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -351,6 +353,7 @@ public partial class ConveniencestoreContext : DbContext
             entity.Property(e => e.Active)
                 .HasDefaultValueSql("((1))")
                 .HasColumnName("active");
+            entity.Property(e => e.AverageRating).HasDefaultValueSql("((0))");
             entity.Property(e => e.BestsellerFlag)
                 .HasDefaultValueSql("((0))")
                 .HasColumnName("bestsellerFlag");
@@ -358,10 +361,7 @@ public partial class ConveniencestoreContext : DbContext
             entity.Property(e => e.DateAdded)
                 .HasColumnType("date")
                 .HasColumnName("dateAdded");
-            entity.Property(e => e.Description)
-                .HasMaxLength(200)
-                .IsUnicode(false)
-                .HasColumnName("description");
+            entity.Property(e => e.Description).HasColumnName("description");
             entity.Property(e => e.Discount)
                 .HasColumnType("decimal(10, 2)")
                 .HasColumnName("discount");
@@ -387,6 +387,7 @@ public partial class ConveniencestoreContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("thumbnailUrl");
             entity.Property(e => e.TotalQuantity).HasColumnName("totalQuantity");
+            entity.Property(e => e.TotalRatings).HasDefaultValueSql("((0))");
             entity.Property(e => e.Unit).HasMaxLength(20);
             entity.Property(e => e.VideoUrl)
                 .HasMaxLength(255)
@@ -457,13 +458,19 @@ public partial class ConveniencestoreContext : DbContext
                 .HasColumnName("importPrice");
             entity.Property(e => e.ManufactureDate).HasColumnType("date");
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
+            entity.Property(e => e.Status).HasColumnName("status");
+
+            entity.HasOne(d => d.Product).WithMany(p => p.ProductBatches)
+                .HasForeignKey(d => d.ProductId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__ProductBa__Produ__59FA5E80");
         });
 
         modelBuilder.Entity<ProductComment>(entity =>
         {
             entity.HasKey(e => e.CommentId).HasName("PK__product___CDDE919D0E6B08DC");
 
-            entity.ToTable("productComments");
+            entity.ToTable("productComments", tb => tb.HasTrigger("UpdateLastUpdatedDateTime"));
 
             entity.Property(e => e.CommentId)
                 .ValueGeneratedNever()
@@ -473,8 +480,7 @@ public partial class ConveniencestoreContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("commentText");
             entity.Property(e => e.CreatedDate)
-                .IsRowVersion()
-                .IsConcurrencyToken()
+                .HasColumnType("datetime")
                 .HasColumnName("createdDate");
             entity.Property(e => e.ProductId).HasColumnName("productId");
             entity.Property(e => e.UserId).HasColumnName("userID");
@@ -503,6 +509,21 @@ public partial class ConveniencestoreContext : DbContext
             entity.HasOne(d => d.Product).WithMany(p => p.ProductSubImages)
                 .HasForeignKey(d => d.ProductId)
                 .HasConstraintName("FK__productSu__produ__160F4887");
+        });
+
+        modelBuilder.Entity<Rating>(entity =>
+        {
+            entity.HasKey(e => e.RatingId).HasName("PK__Rating__FCCDF87C57864EAE");
+
+            entity.ToTable("Rating", tb => tb.HasTrigger("trg_AfterInsertOrUpdateRating"));
+
+            entity.HasOne(d => d.Product).WithMany(p => p.Ratings)
+                .HasForeignKey(d => d.ProductId)
+                .HasConstraintName("FK_Ratings_Product");
+
+            entity.HasOne(d => d.User).WithMany(p => p.Ratings)
+                .HasForeignKey(d => d.UserId)
+                .HasConstraintName("FK_Ratings_User");
         });
 
         modelBuilder.Entity<Role>(entity =>

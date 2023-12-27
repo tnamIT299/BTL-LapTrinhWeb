@@ -14,19 +14,22 @@ using Client_Home.Areas.Admin.DTO.ProductBatch;
 using Client_Home.Areas.Admin.DTO.Employees;
 using System.Data;
 using Client_Home.Areas.Admin.Models;
+using Client_Home.Areas.Admin.Services;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class AdminProductBatchesController : Controller
     {
+        private readonly AdminQRService _barcodeService;
         private readonly Data.ConveniencestoreContext _context;
         private IWebHostEnvironment _webHostEnvironment;
         private readonly IAddProductBatchFromExcel _addFromExcel;
         private readonly ILogger<AdminProductBatchesController> _logger;
         public INotyfService _notifyService { get; }
-        public AdminProductBatchesController(ILogger<AdminProductBatchesController> logger, Data.ConveniencestoreContext context, INotyfService notifyService, IWebHostEnvironment webHostEnvironment, IAddProductBatchFromExcel addFromExcel)
+        public AdminProductBatchesController(ILogger<AdminProductBatchesController> logger, Data.ConveniencestoreContext context, INotyfService notifyService, IWebHostEnvironment webHostEnvironment, IAddProductBatchFromExcel addFromExcel, AdminQRService barcodeService)
         {
+            _barcodeService = barcodeService;
             _logger = logger;
             _context = context;
             _notifyService = notifyService;
@@ -37,16 +40,16 @@ namespace Client_Home.Areas.Admin.Controllers
         // GET: Admin/AdminProductBatches
         public async Task<IActionResult> Index(int? page)
         {
-            var pageNumber = page == null || page <= 0 ? 1 : page.Value;
-            var pageSize = 15;
-            var isPrBatch = _context.ProductBatches
-            .AsNoTracking()
-            .Include(p => p.Product).
-            AsNoTracking().
-            OrderByDescending(x => x.BatchId);
-            PagedList.Core.IPagedList<ProductBatch> models = new PagedList.Core.PagedList<ProductBatch>(isPrBatch, pageNumber, pageSize);
-            ViewBag.CurrentPage = pageNumber;
-            return View(models);
+            //var pageNumber = page == null || page <= 0 ? 1 : page.Value;
+            //var pageSize = 15;
+            //var isPrBatch = _context.ProductBatches
+            //.AsNoTracking()
+            //.Include(p => p.Product).
+            //AsNoTracking().
+            //OrderByDescending(x => x.BatchId);
+            //PagedList.Core.IPagedList<ProductBatch> models = new PagedList.Core.PagedList<ProductBatch>(isPrBatch, pageNumber, pageSize);
+            //ViewBag.CurrentPage = pageNumber;
+            return View(/*models*/);
         }
 
         // GET: Admin/AdminProductBatches/Details/5
@@ -81,9 +84,11 @@ namespace Client_Home.Areas.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("BatchId,ProductId,ManufactureDate,ExpiryDate,Quantity,Barcode,ImportPrice")] ProductBatch productBatch)
-        {
+        {   
             if (ModelState.IsValid)
             {
+                productBatch.Barcode = productBatch.BatchId + ".png";
+                _barcodeService.GenerateQRCode(productBatch.BatchId.ToString());
                 _context.Add(productBatch);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -277,7 +282,79 @@ namespace Client_Home.Areas.Admin.Controllers
                 }
             }
         }
-        [HttpPost("/Admin/AdminProductBatches/DeleteMultiple")]
+        [HttpPost]
+        public async Task<IActionResult> DeleteMultiple([FromBody] DeleteMulti itemIds)
+        {
+            try
+            {
+                if (_context.ProductBatches == null)
+                {
+                    return Problem("Entity set 'ConveniencestoreContext.ProductBatches' is null.");
+                }
+
+                var errors = new List<object>(); // List to store information about records that could not be updated
+
+                foreach (var productBatchID in itemIds.itemIds)
+                {
+                    var ProductBatch = await _context.ProductBatches.FindAsync(productBatchID);
+
+                    if (ProductBatch != null)
+                    {
+                        var hasForeignKeyReferences = CheckForeignKeyReferences(ProductBatch);
+
+                        if (hasForeignKeyReferences)
+                        {
+                            errors.Add(new { productBatchID, message = $"Lô có ID {productBatchID} không thể bị xóa vì có liên kết khóa ngoại." });
+                        }
+                        else
+                        {
+                            _context.ProductBatches.Remove(ProductBatch);
+                        }
+                    }
+                    else
+                    {
+                        errors.Add(new { productBatchID, message = $"Lô có ID {productBatchID} không tồn tại." });
+                    }
+                }
+
+                try
+                {
+                    await _context.SaveChangesAsync();
+                }
+                catch (Exception ex)
+                {
+                    // Log the exception or handle it appropriately
+                    return Json(new { success = false, message = "Error updating product batches status.", errors });
+                }
+
+                if (errors.Any())
+                {
+                    // If there are errors, return the list of records that could not be updated along with a message
+                    return Json(new { success = false, message = "Some product batch statuses were not updated.", errors });
+                }
+
+                // If there are no errors, return a success message
+                return Json(new { success = true, message = "Cập nhật trạng thái sản phẩm thành công!" });
+            }
+            catch (Exception)
+            {
+                return Json(new { success = false, message = "Error updating product statuses." });
+            }
+        }
+
+        private bool CheckForeignKeyReferences(ProductBatch batch)
+        {
+            if (_context.InvoiceDetails.Any(e => e.ProductBatchId == batch.BatchId))
+            {
+                // Có ràng buộc khóa ngoại với bảng khác (đổi tên bảng và khóa ngoại theo thực tế)
+                return true;
+            }
+
+            // Nếu không có ràng buộc khóa ngoại
+            return false;
+        }
+
+        [HttpPost]
         public async Task<IActionResult> UpdateStatusMultiple([FromBody] DeleteMulti itemIds)
         {
             try
@@ -295,11 +372,7 @@ namespace Client_Home.Areas.Admin.Controllers
 
                     if (ProductBatch != null)
                     {
-                        // Update the status of the product to inactive (or any other status you prefer)
-                        //ProductBatch.Active = -1; // Assuming there is a property like IsActive in your Product entity
-
-                        // Optionally, you can add some additional logic or validation before updating
-                        // For example, check for foreign key references, business rules, etc.
+                        ProductBatch.Status = (ProductBatch.Status==true) ? false:true;
 
                         _context.ProductBatches.Update(ProductBatch);
                     }
@@ -316,13 +389,13 @@ namespace Client_Home.Areas.Admin.Controllers
                 catch (Exception ex)
                 {
                     // Log the exception or handle it appropriately
-                    return Json(new { success = false, message = "Error updating product status.", errors });
+                    return Json(new { success = false, message = "Error updating product batches status.", errors });
                 }
 
                 if (errors.Any())
                 {
                     // If there are errors, return the list of records that could not be updated along with a message
-                    return Json(new { success = false, message = "Some product statuses were not updated.", errors });
+                    return Json(new { success = false, message = "Some product batch statuses were not updated.", errors });
                 }
 
                 // If there are no errors, return a success message

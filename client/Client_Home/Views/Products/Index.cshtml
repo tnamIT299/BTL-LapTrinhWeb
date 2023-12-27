@@ -322,7 +322,7 @@
                                         </div>
                                         <div class="product-content">
                                             <div class="actions-btn">
-                                                <a href="/Cart/AddToCart/?productId=@Html.DisplayFor(modelItem => item.ProductId)"><i class="fal fa-cart-plus"></i></a>
+                                                <a id="checkout" onclick="checkout(@Html.DisplayFor(modelItem => item.TotalQuantity),@Html.DisplayFor(modelItem => item.ProductId))" href="#"><i class="fal fa-cart-plus"></i></a>
                                                 <a href="assets/img/shop/product-1-1.png" class="popup-image"><i class="far fa-search"></i></a>
                                                 <a href="wishlist.html"><i class="fal fa-heart"></i></a>
                                             </div>
@@ -687,4 +687,25 @@
     <script src="/js/mixitup.min.js"></script>
     <script src="/js/owl.carousel.min.js"></script>
     <script src="/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 }
+<script >
+    // Lấy thẻ <a> bằng ID
+    function checkout(id,link) { 
+        // Hiển thị thông báo khi người dùng nhấp vào liên kết
+        const total = id
+        if (total > 0) {            
+            window.location.href = 'https://localhost:44322/Cart/AddToCart/?productId=' + encodeURIComponent(link);
+         
+        }else {
+            Swal.fire({
+                icon: "warning", // success, error, warning, info, question
+                title: 'Thông báo',
+                text: 'Sản phẩm này đã hết! Vui lòng chọn sản phẩm khác!',
+                timer: 3000,
+            });
+        }
+        
+    };
+</script>

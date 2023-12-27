@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\Client_Home.csproj": {}
+    "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\Client_Home.csproj": {}
   },
   "projects": {
-    "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\Client_Home.csproj": {
+    "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\Client_Home.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\Client_Home.csproj",
+        "projectUniqueName": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\Client_Home.csproj",
         "projectName": "Client_Home",
-        "projectPath": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\Client_Home.csproj",
-        "packagesPath": "C:\\Users\\huypro\\.nuget\\packages\\",
-        "outputPath": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\obj\\",
+        "projectPath": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\Client_Home.csproj",
+        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+        "outputPath": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\huypro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -56,17 +56,17 @@
               "target": "Package",
               "version": "[7.0.0, )"
             },
-            "Hangfire.AspNetCore": {
-              "target": "Package",
-              "version": "[1.8.6, )"
-            },
-            "Hangfire.SqlServer": {
-              "target": "Package",
-              "version": "[1.8.6, )"
-            },
-            "Microsoft.AspNetCore.Authentication.MicrosoftAccount": {
+            "MailKit": {
               "target": "Package",
               "version": "[4.3.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Facebook": {
+              "target": "Package",
+              "version": "[7.0.14, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Google": {
+              "target": "Package",
+              "version": "[7.0.14, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
@@ -166,7 +166,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -13,7 +13,50 @@
 
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        .login-form {
+            display:none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: rgba(118, 167, 19, 1);
+            z-index: 1;
+            height:350px;
+            width:300px;
+            border-radius:5px
+        }
+        .style_login{
+            margin:10px 0;
+           
+            border-radius:5px;
+            height:40px;
+            outline: none;
+            border: 1px solid rgba(118, 167, 19, 1);
+            font-family: sans-serif,'Times New Roman', Times, serif;
+        }
 
+        /* Style cho biểu tượng (icon) */
+        #loginIcon {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            
+        }
+
+        /* Style cho nút đóng form đăng nhập */
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size:25px;
+            cursor: pointer;
+            color:black
+
+        }
+    </style>
     <!--==============================
        Google Web Fonts
     ============================== -->
@@ -343,7 +386,19 @@
             <div class="container">
                 <div class="row align-items-center justify-content-between">
                     <div class="col-auto col-xxl-3 d-none d-lg-block" style="display:flex">
-                        <a href="login-register.html" class="header-login"><i class="fas fa-user-circle"></i> </a>
+                        <a onclick="showLoginForm()"  class="header-login"><i class="fas fa-user-circle"></i> </a>
+                        <div id="loginForm" class="login-form">
+                            <div style=" display:flex;justify-content:center;flex-direction:column">
+                                <span class="close" onclick="hideLoginForm()">&times;</span>
+                                <h2>Login</h2>
+                                <label for="username">Username:</label>
+                                <input type="text" id="username" class="style_login" name="username">
+                                <label for="password">Password:</label>
+                                <input type="password" id="password" class="style_login" name="password">
+                                <button onclick="login()" style="border-radius:5px;height:40px;border:1px solid rgba(118, 167, 19, 1) ">Login</button>
+                            </div>
+
+                        </div>
                         <partial name="_loginPartial" />
 
                     </div>
@@ -460,7 +515,7 @@
                         <div class="header-buttons">
                             <button type="button" class="searchBoxTggler"><i class="far fa-search"></i></button>
                             <a href="wishlist.html"><i class="fal fa-heart"></i></a>
-                            <button class="sideMenuToggler has-badge" type="button"><i class="fal fa-shopping-cart"></i><span class="badge">0</span></button>
+                            <button class="sideMenuToggler has-badge" type="button"><i class="fal fa-shopping-cart"></i><span class="badge"> @await Component.InvokeAsync("CartWidget")</span></button>
                         </div>
                     </div>
                     <div class="col-auto d-block d-lg-none">
@@ -595,8 +650,38 @@
     <script src="~/assets/js/ajax-mail.js"></script>
     <!-- Main Js File -->
     <script src="~/assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @await RenderSectionAsync("Scripts", required: false)
 
 </body>
 
 </html>
+<script>
+    function showLoginForm() {
+    var loginForm = document.getElementById('loginForm');
+    loginForm.style.display = 'block';
+    }
+
+    // Ẩn form đăng nhập
+    function hideLoginForm() {
+    var loginForm = document.getElementById('loginForm');
+    loginForm.style.display = 'none';
+    }
+
+    // Xử lý đăng nhập (chưa xử lý logic đăng nhập thực tế)
+    function login() {
+    // Thực hiện xử lý đăng nhập ở đây
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        if (username == "admin" & password == "123456") {
+            window.location.href = 'https://localhost:44322/Admin';
+        } else {
+            Swal.fire({
+                icon: "warning", // success, error, warning, info, question
+                title: 'Thông báo',
+                text: 'Tên đăng nhập hoặc mật khẩu không đúng!',
+                timer: 3000,
+            });
+        }
+    }
+</script>

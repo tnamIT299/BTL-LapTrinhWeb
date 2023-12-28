@@ -18,6 +18,10 @@ namespace Client_Home.Controllers
         {
             return View("Cart",HttpContext.Session.GetJson<Cart>("cart"));
         }
+        public IActionResult Checkout()
+        {
+            return View("Checkout", HttpContext.Session.GetJson<Cart>("cart"));
+        }
         public IActionResult AddToCart(int productId)
         {
             Product? product = _context.Products

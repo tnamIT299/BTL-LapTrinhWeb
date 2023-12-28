@@ -111,7 +111,7 @@ namespace Client_Home.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", employee.UserId);
+            //ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", employee.UserId);
             return View(employee);
         }
 
@@ -147,7 +147,7 @@ namespace Client_Home.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", employee.UserId);
+            //ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", employee.UserId);
             return View(employee);
         }
 

@@ -1,0 +1,434 @@
+﻿@model Cart
+@{
+}
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Foodano - Organic Food Store HTML Template - Check Out</title>
+<meta name="author" content="Vecuro">
+<meta name="description" content="Foodano - Organic Food Store HTML Template">
+<meta name="keywords" content="Foodano - Organic Food Store HTML Template" />
+<meta name="robots" content="INDEX,FOLLOW">
+
+<!-- Mobile Specific Metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!--==============================
+   Google Web Fonts
+============================== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@200;300;400;500;600;700&family=Amatic+SC:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- Favicons - Place favicon.ico in the root directory -->
+<link rel="apple-touch-icon" sizes="57x57" href="assets/img/favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="assets/img/favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="assets/img/favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="assets/img/favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="assets/img/favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="assets/img/favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
+<link rel="manifest" href="assets/img/favicons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="assets/img/favicons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+<!--==============================
+    All CSS File
+============================== -->
+<!-- Bootstrap -->
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="assets/css/bootstrap.rtl.min.css"> -->
+<!-- <link rel="stylesheet" href="assets/css/app.min.css"> -->
+<!-- Fontawesome Icon -->
+<link rel="stylesheet" href="assets/css/fontawesome.min.css">
+<!-- Flaticon -->
+<link rel="stylesheet" href="assets/css/flaticon.min.css">
+<!-- Layerslider -->
+<link rel="stylesheet" href="assets/css/layerslider.min.css">
+<!-- Date Picker -->
+<link rel="stylesheet" href="assets/css/jquery.datetimepicker.min.css">
+<!-- Magnific Popup -->
+<link rel="stylesheet" href="assets/css/magnific-popup.min.css">
+<!-- Slick Slider -->
+<link rel="stylesheet" href="assets/css/slick.min.css">
+<!-- Animation CSS -->
+<link rel="stylesheet" href="assets/css/animate.min.css">
+<!-- Theme Custom CSS -->
+<link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+<div class="breadcumb-wrapper breadcumb-layout1 bg-fluid pt-200 pb-200" style="padding:50px 0;" data-bg-src="assets/img/breadcumb/breadcumb-img-1.jpg">
+    <div class="container">
+        <div class="breadcumb-content text-center">
+            <h1 class="breadcumb-title">Check out</h1>
+            <ul class="breadcumb-menu-style1 mx-auto">
+                <li><a href="index.html">Home</a></li>
+                <li class="active">Check out</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="vs-checkout-wrapper space-top space-md-bottom">
+    <div class="container">
+        <div class="woocommerce-form-login-toggle">
+            <div class="woocommerce-info">Returning customer? <a href="#" class="showlogin">Click here to login</a> </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <form action="#" class="woocommerce-form-login">
+                    <div class="form-group">
+                        <label>Username or email *</label>
+                        <input type="text" class="form-control" placeholder="Username or email">
+                    </div>
+                    <div class="form-group">
+                        <label>Password *</label>
+                        <input type="text" class="form-control" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-checkbox">
+                            <input type="checkbox" id="remembermylogin">
+                            <label for="remembermylogin">Remember Me</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="vs-btn shadow-none">Login</button>
+                        <p class="fs-xs mt-2 mb-0"><a class="text-reset" href="#">Lost your password?</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="woocommerce-form-coupon-toggle">
+            <div class="woocommerce-info">Have a coupon? <a href="#" class="showcoupon">Click here to enter your code</a> </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <form action="#" class="woocommerce-form-coupon">
+                    <div class="form-group">
+                        <label>Coupon code</label>
+                        <input type="text" class="form-control" placeholder="Write your coupon code">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="vs-btn shadow-none">Apply coupon</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <form action="#" class="woocommerce-checkout mt-40">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="h4">Billing Details</h2>
+                    <div class="row gx-2">
+                        <div class="col-md-6 form-group">
+                            <label>First Name *</label>
+                            <input type="text" class="form-control" placeholder="First Name">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Last Name *</label>
+                            <input type="text" class="form-control" placeholder="Last Name">
+                        </div>
+                        <div class="col-12 form-group">
+                            <label>Thành Phố</label>
+                            <select class="form-select" aria-label="Default select example" id="provinces">
+                                <option value=''>-----Chọn tỉnh , thành phố-----</option>
+                            </select>
+                        </div>
+                        
+                        <div class="col-12 form-group">                            
+                            <label>Quận , huyện </label>
+                            <select class="form-select" aria-label="Default select example" id="district">
+                                <option value=''>-----Chọn quận , huyện-----</option>
+                            </select>
+                        </div>
+                        
+                        <div class="col-12 form-group">
+                            <label>Phường , xã</label>
+                            <select class="form-select" aria-label="Default select example" id="ward">
+                                <option value=''>-----Chọn phường , xã-----</option>
+                            </select>
+                        </div>
+                        <div class="col-12 form-group">
+                            <label>Địa chỉ chi tiết *</label>
+                            <input type="text" class="form-control" placeholder="Street Address">
+                            
+                        </div>
+                        <div class="col-12 form-group">
+                            <label>Thông tin liên lạc *</label>
+                            <input type="text" class="form-control" placeholder="Email Address">
+                            <input type="text" class="form-control" placeholder="Phone number">
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                   
+                    <div class="shipping_address">
+                        <div class="row gx-2">
+                            <div class="col-12 form-group">
+                                <label>Thành phố *</label>
+                                <select class="form-select">
+                                    
+                                </select>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>First Name *</label>
+                                <input type="text" class="form-control" placeholder="First Name">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Last Name *</label>
+                                <input type="text" class="form-control" placeholder="Last Name">
+                            </div>
+                            <div class="col-12 form-group">
+                                <label>Company Name</label>
+                                <input type="text" class="form-control" placeholder="Your Company Name">
+                            </div>
+                            <div class="col-12 form-group">
+                                <label>Address *</label>
+                                <input type="text" class="form-control" placeholder="Street Address">
+                                <input type="text" class="form-control" placeholder="Apartment, suite, unit etc. (optional)">
+                            </div>
+                            <div class="col-12 form-group">
+                                <label>Town / City *</label>
+                                <input type="text" class="form-control" placeholder="Town / City">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Country *</label>
+                                <input type="text" class="form-control" placeholder="Country">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Postcode / Zip *</label>
+                                <input type="text" class="form-control" placeholder="Postcode / Zip">
+                            </div>
+                            <div class="col-12 form-group">
+                                <label>Contact Info *</label>
+                                <input type="text" class="form-control" placeholder="Email Address">
+                                <input type="text" class="form-control" placeholder="Phone number">
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </form>
+        <h4 class="mt-4 pt-lg-2">Your Order</h4>
+        <form action="#" class="woocommerce-cart-form">
+            <table class="cart_table mb-20">
+                <thead>
+                    <tr>
+                        <th class="cart-col-image">Image</th>
+                        <th class="cart-col-productname">Product Name</th>
+                        <th class="cart-col-price">Price</th>
+                        <th class="cart-col-quantity">Quantity</th>
+                        <th class="cart-col-total">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null)
+                    {
+                        @foreach (var line in Model?.Lines)
+                        {
+                            <tr class="cart_item">
+                                <td data-title="Product">
+                                    <a class="cart-productimage" href="shop-details.html"><img width="91" height="91" src="@line.Product.ThumbnailUrl" alt="Image"></a>
+                                </td>
+                                <td data-title="Name">
+                                    <a class="cart-productname" href="shop-details.html">@line.Product.Name</a>
+                                </td>
+                                <td data-title="Price">
+                                    <span class="amount"><bdi><span>$</span>@line.Product.SellPrice</bdi></span>
+                                </td>
+                                <td data-title="Quantity">
+                                    <div class="quantity">
+                                        <a href="/Cart/UpdateCart/?productId=@line.Product.ProductId"> <i class="fas fa-minus"></i></a>
+                                        <input type="number" class="qty-input" value="@line.Quantity" min="1" max="99">
+                                        <a href="/Cart/AddToCart/?productId=@line.Product.ProductId"><i class="fas fa-plus"></i></a>
+                                    </div>
+                                </td>
+                                <td data-title="Total">
+                                    <span class="amount"><bdi><span>$</span></bdi>@(line.Product.SellPrice * line.Quantity)</span>
+                                </td>
+                                <td data-title="Remove">
+
+                                    <a href="/Cart/RemoveFromCart/?productId=@line.Product.ProductId" class="text-danger"><i class="fal fa-trash-alt"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    <tr class="cart_item">
+                        <td data-title="Product">
+                            <a class="cart-productimage" href="#"><img width="91" height="91" src="assets/img/cart/cat-img-1.png" alt="Image"></a>
+                        </td>
+                        <td data-title="Name">
+                            <a class="cart-productname" href="#">Parmesan Vegetable</a>
+                        </td>
+                        <td data-title="Price">
+                            <span class="amount"><bdi><span>$</span>18</bdi></span>
+                        </td>
+                        <td data-title="Quantity">
+                            <strong class="product-quantity">01</strong>
+                        </td>
+                        <td data-title="Total">
+                            <span class="amount"><bdi><span>$</span>18</bdi></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+        <div class="border ps-2 py-2 border-light">
+            <div class="row  justify-content-lg-end">
+                <div class="col-md-8 col-lg-6 col-xl-4">
+                    <table class="checkout-ordertable mb-0">
+                        <tbody>
+                            <tr class="cart-subtotal">
+                                <th>Cart Subtotal</th>
+                                <td>
+                                    <span class="amount">
+                                        @if (Model != null)
+                                        {
+                                                    <h5 class="fw-bold mb-0">$@Model.ComputeTotalValue()</h5>
+                                        }
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr class="woocommerce-shipping-totals shipping">
+                                <th>Shipping and Handling</th>
+                                <td data-title="Shipping">
+                                    <ul class="woocommerce-shipping-methods list-unstyled">
+                                        <li>
+                                            <input type="checkbox" name="shipping_method" class="shipping_method" checked="checked">
+                                            <label>Flat rate</label>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr class="order-total">
+                                <th>Order Total</th>
+                                <td>
+                                    <strong>
+                                        <span class="amount">
+                                            <bdi>
+                                                @if (Model != null)
+                                                {
+                                                    <h5 class="fw-bold mb-0">$@Model.ComputeTotalValue()</h5>
+                                                }
+                                            </bdi>
+                                        </span>
+                                    </strong>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="pt-10 pt-lg-5 mb-30">
+            <div class="woocommerce-checkout-payment">
+                <ul class="wc_payment_methods payment_methods methods">
+                    <li class="wc_payment_method payment_method_bacs">
+                        <input id="payment_method_bacs" type="radio" class="input-radio" name="payment_method" value="bacs" checked="checked">
+                        <label for="payment_method_bacs">Direct bank transfer</label>
+                        <div class="payment_box payment_method_bacs">
+                            <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.</p>
+                        </div>
+                    </li>
+                    <li class="wc_payment_method payment_method_cheque">
+                        <input id="payment_method_cheque" type="radio" class="input-radio" name="payment_method" value="cheque">
+                        <label for="payment_method_cheque">Cheque Payment</label>
+                        <div class="payment_box payment_method_cheque">
+                            <p>Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
+                        </div>
+                    </li>
+                    <li class="wc_payment_method payment_method_cod">
+                        <input id="payment_method_cod" type="radio" class="input-radio" name="payment_method">
+                        <label for="payment_method_cod">Credit Cart <img src="assets/img/card/all.jpg" alt="image"></label>
+                        <div class="payment_box payment_method_cod">
+                            <p>Pay with cash upon delivery.</p>
+                        </div>
+                    </li>
+                    <li class="wc_payment_method payment_method_paypal">
+                        <input id="payment_method_paypal" type="radio" class="input-radio" name="payment_method" value="paypal">
+                        <label for="payment_method_paypal">Paypal<img src="assets/img/card/paypal.jpg" alt="PayPal acceptance mark"></label>
+                        <div class="payment_box payment_method_paypal">
+                            <p>Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</p>
+                        </div>
+                    </li>
+                </ul>
+                <div class="form-row place-order">
+                    <button type="submit" class="vs-btn" onclick="checkout()">Place order</button>  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script>
+    const host = "https://provinces.open-api.vn/api/";
+    var callAPI = (api) => {
+        return axios.get(api)
+            .then((response) => {
+                renderData(response.data, "provinces");
+            });
+    }
+    callAPI('https://provinces.open-api.vn/api/?depth=1');
+    var callApiDistrict = (api) => {
+        return axios.get(api)
+            .then((response) => {
+                renderData(response.data.districts, "district");
+            });
+    }
+    var callApiWard = (api) => {
+        return axios.get(api)
+            .then((response) => {
+                renderData(response.data.wards, "ward");
+            });
+    }
+
+    var renderData = (array, select) => {
+        let row = ' <option disable value="">-----Chọn-----</option>';
+        array.forEach(element => {
+            row += `<option data-id="${element.code}" value="${element.name}">${element.name}</option>`
+        });
+        document.querySelector("#" + select).innerHTML = row
+    }
+
+    $("#provinces").change(() => {
+        callApiDistrict(host + "p/" + $("#provinces").find(':selected').data('id') + "?depth=2");
+
+    });
+    $("#district").change(() => {
+        callApiWard(host + "d/" + $("#district").find(':selected').data('id') + "?depth=2");
+
+    });
+</script>
+@section Scripts{
+    <!-- Js Plugins -->
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="/js/jquery-ui.min.js"></script>
+    <script src="/js/jquery.slicknav.js"></script>
+    <script src="/js/mixitup.min.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+}
+<script>
+    // Lấy thẻ <a> bằng ID
+    function checkout() {
+        // Hiển thị thông báo khi người dùng nhấp vào liên kết
+        
+            Swal.fire({
+                icon: "success", // success, error, warning, info, question
+                title: 'Thông báo',
+                text: 'Đặt hàng thành công',
+                timer: 3000,
+            });
+    };
+</script>

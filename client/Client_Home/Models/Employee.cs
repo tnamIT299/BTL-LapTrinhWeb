@@ -7,8 +7,6 @@ public partial class Employee
 {
     public int EmployeeId { get; set; }
 
-    public int? UserId { get; set; }
-
     public string? FirstName { get; set; }
 
     public string? LastName { get; set; }
@@ -27,9 +25,11 @@ public partial class Employee
 
     public string? PhoneNumber { get; set; }
 
+    public string? UserId { get; set; }
+
     public virtual ICollection<Invoice> Invoices { get; set; } = new List<Invoice>();
 
     public virtual ICollection<Salary> Salaries { get; set; } = new List<Salary>();
 
-    public virtual User? User { get; set; }
+    public virtual AspNetUser? User { get; set; }
 }

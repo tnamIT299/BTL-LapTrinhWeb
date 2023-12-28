@@ -24,26 +24,6 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\asp1\BTL-LapTrinhWeb\client\Client_Home
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminAccounts/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5BY2NvdW50c1xDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminAccounts/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5BY2NvdW50c1xEZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminAccounts/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5BY2NvdW50c1xEZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminAccounts/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5BY2NvdW50c1xFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminAccounts/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5BY2NvdW50c1xJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminCategories/AddFromExcel.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DYXRlZ29yaWVzXEFkZEZyb21FeGNlbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -204,14 +184,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Qcm9kdWN0c1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminQR/GenerateQRCode.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5RUlxHZW5lcmF0ZVFSQ29kZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminQR/ScanQRPartialView.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5RUlxTY2FuUVJQYXJ0aWFsVmlldy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminRoles/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Sb2xlc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -316,11 +288,11 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VhcmNoXExpc3RPcmRlcnNTZWFyY2hQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/Search/ListProductBatchesSearchPartial.cshtml]
+[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Search/ListProductBatchesSearchPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VhcmNoXExpc3RQcm9kdWN0QmF0Y2hlc1NlYXJjaFBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/Search/ListProductSearchPartial.cshtml]
+[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Search/ListProductSearchPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VhcmNoXExpc3RQcm9kdWN0U2VhcmNoUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
@@ -518,6 +490,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Views/Cart/Cart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxDYXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Views/Cart/Checkout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxDaGVja291dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/asp1/BTL-LapTrinhWeb/client/Client_Home/Views/Home/Blog.cshtml]

@@ -3385,3 +3385,4 @@ D:\Laptrinhtrucquan_Web\btl\client\Client_Home\obj\Debug\net7.0\ref\Client_Home.
 D:\Laptrinhtrucquan_Web\btl\client\Client_Home\bin\Debug\net7.0\AForge.dll
 D:\Laptrinhtrucquan_Web\btl\client\Client_Home\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.Facebook.dll
 D:\Laptrinhtrucquan_Web\btl\client\Client_Home\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.Google.dll
+C:\asp1\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\AForge.dll

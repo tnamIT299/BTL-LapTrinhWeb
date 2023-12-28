@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Client_Home.Areas.Admin.Models;
 using Client_Home.Models;
 using Microsoft.EntityFrameworkCore;
+using Client_Home.Areas.Admin.Models;
 
 namespace Client_Home.Data;
 
@@ -21,6 +21,18 @@ public partial class ConveniencestoreContext : DbContext
     public virtual DbSet<AdminRevenueByMonth> AdminRevenueByMonth { get; set; }
     public virtual DbSet<AdminRichestCustomerView> AdminRichestCustomerView { get; set; }
     public virtual DbSet<AdminSingleIntForProcedure> AdminSingleIntForProcedure { get; set; }
+    public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
+
+    public virtual DbSet<AspNetRoleClaim> AspNetRoleClaims { get; set; }
+
+    public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
+
+    public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
+
+    public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
+
+    public virtual DbSet<AspNetUserToken> AspNetUserTokens { get; set; }
+
     public virtual DbSet<CartItem> CartItems { get; set; }
 
     public virtual DbSet<Category> Categories { get; set; }
@@ -37,7 +49,7 @@ public partial class ConveniencestoreContext : DbContext
 
     public virtual DbSet<InvoiceDetail> InvoiceDetails { get; set; }
 
-    public virtual DbSet<Orders> Orders { get; set; }
+    public virtual DbSet<Order> Orders { get; set; }
 
     public virtual DbSet<OrderDetail> OrderDetails { get; set; }
 
@@ -57,9 +69,9 @@ public partial class ConveniencestoreContext : DbContext
 
     public virtual DbSet<Rating> Ratings { get; set; }
 
-    public virtual DbSet<Role> Roles { get; set; }
-
     public virtual DbSet<Salary> Salaries { get; set; }
+
+    public virtual DbSet<SalesLead> SalesLeads { get; set; }
 
     public virtual DbSet<SellPriceHistory> SellPriceHistories { get; set; }
 
@@ -69,14 +81,86 @@ public partial class ConveniencestoreContext : DbContext
 
     public virtual DbSet<Supplier> Suppliers { get; set; }
 
-    public virtual DbSet<User> Users { get; set; }
-
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("server=DESKTOP-BVECHRQ\\PHUHUYIT;database=CONVENIENCESTORE;Encrypt=False;Integrated Security=true;");
+        => optionsBuilder.UseSqlServer("Server=LAPTOP-U09IUJKK\\SQLEXPRESS01;Initial Catalog=CONVENIENCESTORE;Integrated Security=true;Connection Timeout=30;Encrypt=False;Trust Server Certificate=True;Application Intent =ReadWrite;Multi Subnet Failover=False");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.UseCollation("Latin1_General_CI_AS");
+
+        modelBuilder.Entity<AspNetRole>(entity =>
+        {
+            entity.HasIndex(e => e.NormalizedName, "RoleNameIndex")
+                .IsUnique()
+                .HasFilter("([NormalizedName] IS NOT NULL)");
+
+            entity.Property(e => e.Name).HasMaxLength(256);
+            entity.Property(e => e.NormalizedName).HasMaxLength(256);
+        });
+
+        modelBuilder.Entity<AspNetRoleClaim>(entity =>
+        {
+            entity.HasIndex(e => e.RoleId, "IX_AspNetRoleClaims_RoleId");
+
+            entity.HasOne(d => d.Role).WithMany(p => p.AspNetRoleClaims).HasForeignKey(d => d.RoleId);
+        });
+
+        modelBuilder.Entity<AspNetUser>(entity =>
+        {
+            entity.HasIndex(e => e.NormalizedEmail, "EmailIndex");
+
+            entity.HasIndex(e => e.NormalizedUserName, "UserNameIndex")
+                .IsUnique()
+                .HasFilter("([NormalizedUserName] IS NOT NULL)");
+
+            entity.Property(e => e.Email).HasMaxLength(256);
+            entity.Property(e => e.NormalizedEmail).HasMaxLength(256);
+            entity.Property(e => e.NormalizedUserName).HasMaxLength(256);
+            entity.Property(e => e.UserName).HasMaxLength(256);
+
+            entity.HasMany(d => d.Roles).WithMany(p => p.Users)
+                .UsingEntity<Dictionary<string, object>>(
+                    "AspNetUserRole",
+                    r => r.HasOne<AspNetRole>().WithMany().HasForeignKey("RoleId"),
+                    l => l.HasOne<AspNetUser>().WithMany().HasForeignKey("UserId"),
+                    j =>
+                    {
+                        j.HasKey("UserId", "RoleId");
+                        j.ToTable("AspNetUserRoles");
+                        j.HasIndex(new[] { "RoleId" }, "IX_AspNetUserRoles_RoleId");
+                    });
+        });
+
+        modelBuilder.Entity<AspNetUserClaim>(entity =>
+        {
+            entity.HasIndex(e => e.UserId, "IX_AspNetUserClaims_UserId");
+
+            entity.HasOne(d => d.User).WithMany(p => p.AspNetUserClaims).HasForeignKey(d => d.UserId);
+        });
+
+        modelBuilder.Entity<AspNetUserLogin>(entity =>
+        {
+            entity.HasKey(e => new { e.LoginProvider, e.ProviderKey });
+
+            entity.HasIndex(e => e.UserId, "IX_AspNetUserLogins_UserId");
+
+            entity.Property(e => e.LoginProvider).HasMaxLength(128);
+            entity.Property(e => e.ProviderKey).HasMaxLength(128);
+
+            entity.HasOne(d => d.User).WithMany(p => p.AspNetUserLogins).HasForeignKey(d => d.UserId);
+        });
+
+        modelBuilder.Entity<AspNetUserToken>(entity =>
+        {
+            entity.HasKey(e => new { e.UserId, e.LoginProvider, e.Name });
+
+            entity.Property(e => e.LoginProvider).HasMaxLength(128);
+            entity.Property(e => e.Name).HasMaxLength(128);
+
+            entity.HasOne(d => d.User).WithMany(p => p.AspNetUserTokens).HasForeignKey(d => d.UserId);
+        });
+
         modelBuilder.Entity<CartItem>(entity =>
         {
             entity.HasKey(e => e.CartId).HasName("PK__cartItem__415B03B86F8BCDF9");
@@ -91,7 +175,7 @@ public partial class ConveniencestoreContext : DbContext
             entity.Property(e => e.Total)
                 .HasColumnType("decimal(10, 0)")
                 .HasColumnName("total");
-            entity.Property(e => e.UserId).HasColumnName("userId");
+            entity.Property(e => e.UserId).HasMaxLength(450);
 
             entity.HasOne(d => d.Product).WithMany(p => p.CartItems)
                 .HasForeignKey(d => d.ProductId)
@@ -99,7 +183,7 @@ public partial class ConveniencestoreContext : DbContext
 
             entity.HasOne(d => d.User).WithMany(p => p.CartItems)
                 .HasForeignKey(d => d.UserId)
-                .HasConstraintName("FK__cartItems__userI__11158940");
+                .HasConstraintName("FK_cartItems_AspNetUsers");
         });
 
         modelBuilder.Entity<Category>(entity =>
@@ -136,7 +220,7 @@ public partial class ConveniencestoreContext : DbContext
                 .IsRowVersion()
                 .IsConcurrencyToken()
                 .HasColumnName("timestamp");
-            entity.Property(e => e.UserId).HasColumnName("userID");
+            entity.Property(e => e.UserId).HasMaxLength(450);
 
             entity.HasOne(d => d.Comment).WithMany(p => p.CommentReplies)
                 .HasForeignKey(d => d.CommentId)
@@ -144,7 +228,7 @@ public partial class ConveniencestoreContext : DbContext
 
             entity.HasOne(d => d.User).WithMany(p => p.CommentReplies)
                 .HasForeignKey(d => d.UserId)
-                .HasConstraintName("FK__commentRe__userI__1C873BEC");
+                .HasConstraintName("FK_commentReplies_AspNetUsers");
         });
 
         modelBuilder.Entity<Customer>(entity =>
@@ -155,11 +239,13 @@ public partial class ConveniencestoreContext : DbContext
             entity.Property(e => e.FirstName).HasMaxLength(50);
             entity.Property(e => e.LastName).HasMaxLength(50);
             entity.Property(e => e.Phone).HasMaxLength(20);
-            entity.Property(e => e.UserId).HasColumnName("UserID");
+            entity.Property(e => e.UserId)
+                .HasMaxLength(450)
+                .HasColumnName("UserID");
 
             entity.HasOne(d => d.User).WithMany(p => p.Customers)
                 .HasForeignKey(d => d.UserId)
-                .HasConstraintName("FK__TempCusto__UserI__03BB8E22");
+                .HasConstraintName("FK_Cus_UserId_AspNetUsers");
         });
 
         modelBuilder.Entity<Discount>(entity =>
@@ -215,11 +301,13 @@ public partial class ConveniencestoreContext : DbContext
             entity.Property(e => e.Position)
                 .HasMaxLength(100)
                 .IsUnicode(false);
-            entity.Property(e => e.UserId).HasColumnName("UserID");
+            entity.Property(e => e.UserId)
+                .HasMaxLength(450)
+                .HasColumnName("UserID");
 
             entity.HasOne(d => d.User).WithMany(p => p.Employees)
                 .HasForeignKey(d => d.UserId)
-                .HasConstraintName("FK__Employees__UserI__70A8B9AE");
+                .HasConstraintName("FK_Employees_UserId_AspNetUsers");
         });
 
         modelBuilder.Entity<Invoice>(entity =>
@@ -271,6 +359,9 @@ public partial class ConveniencestoreContext : DbContext
             entity.Property(e => e.InvoiceId).HasColumnName("InvoiceID");
             entity.Property(e => e.Price).HasColumnType("decimal(10, 2)");
             entity.Property(e => e.ProductBatchId).HasColumnName("productBatchID");
+            entity.Property(e => e.UnitPrice)
+                .HasColumnType("decimal(10, 2)")
+                .HasColumnName("unitPrice");
 
             entity.HasOne(d => d.Invoice).WithMany(p => p.InvoiceDetails)
                 .HasForeignKey(d => d.InvoiceId)
@@ -281,7 +372,7 @@ public partial class ConveniencestoreContext : DbContext
                 .HasConstraintName("FK__InvoiceDe__produ__662B2B3B");
         });
 
-        modelBuilder.Entity<Orders>(entity =>
+        modelBuilder.Entity<Order>(entity =>
         {
             entity.HasKey(e => e.OrderId).HasName("PK__Orders__C3905BAFD0BC4AE7");
 
@@ -292,10 +383,10 @@ public partial class ConveniencestoreContext : DbContext
                 .HasColumnType("decimal(10, 2)")
                 .HasColumnName("totalAmount");
 
-            //entity.HasOne(d => d.Supplier).WithMany(p => p.Orders)
-            //    .HasForeignKey(d => d.SupplierId)
-            //    .OnDelete(DeleteBehavior.ClientSetNull)
-            //    .HasConstraintName("FK__Orders__Supplier__6CD828CA");
+            entity.HasOne(d => d.Supplier).WithMany(p => p.Orders)
+                .HasForeignKey(d => d.SupplierId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Orders__Supplier__6CD828CA");
         });
 
         modelBuilder.Entity<OrderDetail>(entity =>
@@ -318,6 +409,22 @@ public partial class ConveniencestoreContext : DbContext
                 .HasForeignKey(d => d.ProductId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__OrderDeta__Produ__681373AD");
+        });
+
+        modelBuilder.Entity<Pannel>(entity =>
+        {
+            entity.HasKey(e => e.IdPannel);
+
+            entity.ToTable("Pannel");
+
+            entity.Property(e => e.IdPannel).HasColumnName("Id_pannel");
+            entity.Property(e => e.NamePannel)
+                .HasMaxLength(150)
+                .HasColumnName("name_pannel");
+            entity.Property(e => e.UrlPannel)
+                .HasMaxLength(255)
+                .IsFixedLength()
+                .HasColumnName("url_pannel");
         });
 
         modelBuilder.Entity<Payment>(entity =>
@@ -483,7 +590,7 @@ public partial class ConveniencestoreContext : DbContext
                 .HasColumnType("datetime")
                 .HasColumnName("createdDate");
             entity.Property(e => e.ProductId).HasColumnName("productId");
-            entity.Property(e => e.UserId).HasColumnName("userID");
+            entity.Property(e => e.UserId).HasMaxLength(450);
 
             entity.HasOne(d => d.Product).WithMany(p => p.ProductComments)
                 .HasForeignKey(d => d.ProductId)
@@ -491,7 +598,7 @@ public partial class ConveniencestoreContext : DbContext
 
             entity.HasOne(d => d.User).WithMany(p => p.ProductComments)
                 .HasForeignKey(d => d.UserId)
-                .HasConstraintName("FK__product_c__userI__15DA3E5D");
+                .HasConstraintName("FK_productComments_AspNetUsers");
         });
 
         modelBuilder.Entity<ProductSubImage>(entity =>
@@ -517,28 +624,15 @@ public partial class ConveniencestoreContext : DbContext
 
             entity.ToTable("Rating", tb => tb.HasTrigger("trg_AfterInsertOrUpdateRating"));
 
+            entity.Property(e => e.UserId).HasMaxLength(450);
+
             entity.HasOne(d => d.Product).WithMany(p => p.Ratings)
                 .HasForeignKey(d => d.ProductId)
                 .HasConstraintName("FK_Ratings_Product");
 
             entity.HasOne(d => d.User).WithMany(p => p.Ratings)
                 .HasForeignKey(d => d.UserId)
-                .HasConstraintName("FK_Ratings_User");
-        });
-
-        modelBuilder.Entity<Role>(entity =>
-        {
-            entity.HasKey(e => e.Roleid).HasName("PK__ROLES__006568E9599A1705");
-
-            entity.ToTable("ROLES");
-
-            entity.Property(e => e.Roleid).HasColumnName("ROLEID");
-            entity.Property(e => e.Description)
-                .HasMaxLength(255)
-                .HasColumnName("DESCRIPTION");
-            entity.Property(e => e.Rolename)
-                .HasMaxLength(50)
-                .HasColumnName("ROLENAME");
+                .HasConstraintName("FK_Rating_AspNetUsers");
         });
 
         modelBuilder.Entity<Salary>(entity =>
@@ -560,20 +654,9 @@ public partial class ConveniencestoreContext : DbContext
                 .HasConstraintName("FK__Salaries__Employ__3B75D760");
         });
 
-        modelBuilder.Entity<Pannel>(entity =>
+        modelBuilder.Entity<SalesLead>(entity =>
         {
-            entity.HasKey(e => e.IdPannel);
-
-            entity.ToTable("Pannel");
-
-            entity.Property(e => e.IdPannel).HasColumnName("Id_pannel");
-            entity.Property(e => e.NamePannel)
-                .HasMaxLength(150)
-                .HasColumnName("name_pannel");
-            entity.Property(e => e.UrlPannel)
-                .HasMaxLength(255)
-                .IsFixedLength()
-                .HasColumnName("url_pannel");
+            entity.ToTable("SalesLead");
         });
 
         modelBuilder.Entity<SellPriceHistory>(entity =>
@@ -677,47 +760,6 @@ public partial class ConveniencestoreContext : DbContext
             entity.Property(e => e.SupplierName)
                 .HasMaxLength(255)
                 .IsUnicode(false);
-        });
-
-        modelBuilder.Entity<User>(entity =>
-        {
-            entity.HasKey(e => e.UserId).HasName("PK__ACCOUNTS__1F64FDFCD3B51490");
-
-            entity.ToTable("users");
-
-            entity.Property(e => e.UserId).HasColumnName("userID");
-            entity.Property(e => e.Active)
-                .IsRequired()
-                .HasDefaultValueSql("((1))")
-                .HasColumnName("active");
-            entity.Property(e => e.Createdate)
-                .HasColumnType("datetime")
-                .HasColumnName("CREATEDATE");
-            entity.Property(e => e.Email)
-                .HasMaxLength(50)
-                .HasColumnName("EMAIL");
-            entity.Property(e => e.Fullname)
-                .HasMaxLength(150)
-                .HasColumnName("FULLNAME");
-            entity.Property(e => e.Lastlogin)
-                .HasColumnType("datetime")
-                .HasColumnName("LASTLOGIN");
-            entity.Property(e => e.Password)
-                .HasMaxLength(50)
-                .HasColumnName("PASSWORD");
-            entity.Property(e => e.Phone)
-                .HasMaxLength(12)
-                .IsUnicode(false)
-                .HasColumnName("PHONE");
-            entity.Property(e => e.Roleid).HasColumnName("ROLEID");
-            entity.Property(e => e.Salt)
-                .HasMaxLength(10)
-                .IsFixedLength()
-                .HasColumnName("SALT");
-
-            entity.HasOne(d => d.Role).WithMany(p => p.Users)
-                .HasForeignKey(d => d.Roleid)
-                .HasConstraintName("FK__ACCOUNTS__ROLEID__74AE54BC");
         });
 
         OnModelCreatingPartial(modelBuilder);

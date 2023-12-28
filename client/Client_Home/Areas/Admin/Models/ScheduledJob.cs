@@ -70,7 +70,7 @@ namespace Client_Home.Areas.Admin.Models
                     }
 
                     // Gửi email
-                    _emailService.SendEmail("Sếp Phú Huy", "phuhuy12330@gmail.com", emailSubject, emailBody);
+                   // _emailService.SendEmail("Sếp Phú Huy", "phuhuy12330@gmail.com", emailSubject, emailBody);
                 }
             }
         }

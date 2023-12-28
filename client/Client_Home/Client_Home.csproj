@@ -38,6 +38,7 @@
     <PackageReference Include="PagedList.Core.Mvc" Version="3.0.0" />
     <PackageReference Include="QRCoder" Version="1.4.3" />
     <PackageReference Include="System.Data.OleDb" Version="8.0.0" />
+    <PackageReference Include="WampSharp.NewtonsoftJson" Version="23.8.1" />
     <PackageReference Include="X.PagedList" Version="8.4.7" />
     <PackageReference Include="X.PagedList.Mvc.Core" Version="8.4.7" />
     <PackageReference Include="ZXing.Net" Version="0.16.9" />

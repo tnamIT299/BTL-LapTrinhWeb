@@ -1,5 +1,8 @@
 ﻿
 @model Cart
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
 @section styles{
     <!-- Google Font -->
@@ -44,7 +47,7 @@
             <div class="row align-items-center justify-content-between">
                 <div class="col col-lg-auto py-3 py-lg-0">
                     <div class="header-logo">
-                        <a href="index.html"><img src="assets/img/logo-white.svg" alt="Foodano"></a>
+                        <a href="index.html"><img src="~/assets/img/logo-white.svg" alt="Foodano"></a>
                     </div>
                 </div>
                 <div class="col-auto">
@@ -64,7 +67,7 @@
                                 </ul>
                             </li>
                             <li class="menu-item-has-children">
-                                <a href="/Products">Shop</a>
+                                <a href="/home/shop">Shop</a>
                                 <ul class="sub-menu">
                                     <li><a href="/home/shop">Shop</a></li>
                                     <li><a href="shop-list.html">Shop List</a></li>
@@ -76,7 +79,7 @@
                                 </ul>
                             </li>
                             <li class="menu-item-has-children">
-                                <a href="blog.html">Blog</a>
+                                <a href="/home/blog">Blog</a>
                                 <ul class="sub-menu">
                                     <li><a href="blog.html">Blog</a></li>
                                     <li><a href="blog-list.html">Blog List</a></li>
@@ -86,60 +89,9 @@
                                     <li><a href="blog-details.html">Blog Details</a></li>
                                 </ul>
                             </li>
-                            <li class="mega-menu-wrap menu-item-has-children">
-                                <a href="#">Pages</a>
-                                <ul class="mega-menu">
-                                    <li>
-                                        <a href="shop.html">Pagelist 1</a>
-                                        <ul>
-                                            <li><a href="index.html">Home Style 1</a></li>
-                                            <li><a href="index-2.html">Home Style 2</a></li>
-                                            <li><a href="index-3.html">Home Style 3</a></li>
-                                            <li><a href="index-4.html">Home Style 4</a></li>
-                                            <li><a href="index-5.html">Home Style 5</a></li>
-                                            <li><a href="index-6.html">Home Style 6</a></li>
-                                            <li><a href="index-7.html">Home Style 7</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">Pagelist 2</a>
-                                        <ul>
-                                            <li><a href="index-8.html">Home Style 8</a></li>
-                                            <li><a href="about.html">About</a></li>
-                                            <li><a href="service.html">Services</a></li>
-                                            <li><a href="team.html">Team</a></li>
-                                            <li><a href="faq.html">FAQ Page</a></li>
-                                            <li><a href="contact.html">Contact Us</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">Pagelist 3</a>
-                                        <ul>
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><a href="blog-list.html">Blog List</a></li>
-                                            <li><a href="blog-grid.html">Blog Grid</a></li>
-                                            <li><a href="blog-grid-sidebar.html">Blog Grid Sidebar</a></li>
-                                            <li><a href="blog-masonry.html">Blog Masonry</a></li>
-                                            <li><a href="blog-details.html">Blog Details</a></li>
-                                            <li><a href="error.html">Error Page</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">Pagelist 4</a>
-                                        <ul>
-                                            <li><a href="/home/shop">Shop</a></li>
-                                            <li><a href="shop-list.html">Shop List</a></li>
-                                            <li><a href="shop-details.html">Shop Details</a></li>
-                                            <li><a href="cart.html">Shopping Cart</a></li>
-                                            <li><a href="checkout.html">Check Out</a></li>
-                                            <li><a href="wishlist.html">Wishlist</a></li>
-                                            <li><a href="login-register.html">Login / Register</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
+                            
                             <li>
-                                <a href="contact.html">Contact Us</a>
+                                <a href="/home/contact">Contact Us</a>
                             </li>
                         </ul>
                     </nav>
@@ -181,7 +133,7 @@
                                             <div class="card-body p-4">
                                                 <div class="row d-flex justify-content-between align-items-center">
                                                     <div class="col-md-2 col-lg-2 col-xl-2">
-                                                        <img src="@line.Product.ThumbnailUrl"
+                                                        <img src="@Url.Content("~/adminassets/images/others/" +@line.Product.ThumbnailUrl)"
                                                              class="img-fluid rounded-3" alt="Cotton T-shirt">
                                                     </div>
                                                     <div class="col-md-3 col-lg-3 col-xl-3">
@@ -237,10 +189,10 @@
                                     <p class="fw-bold">Chi tiết thanh toán</p>
                                     <p class="dis mb-3">Hoàn thành thanh toán bằng cách cung cấp đầy đủ thông tin thanh toán</p>
                                 </div>
-                                <form action="">
+                                <form method="">
                                     <div class="mb-3">
                                         <p class="dis fw-bold mb-2">Địa chỉ email</p>
-                                        <input class="form-control" type="email"  placeholder="Email">
+                                        <input class="form-control" id="email" type="email" placeholder="Email">
                                     </div>
                                     <div>
                                         <p class="dis fw-bold mb-2">Chi tiết thẻ</p>
@@ -251,7 +203,7 @@
                                         </div>
                                         <div class="my-3 cardname">
                                             <p class="dis fw-bold mb-2">Tên chủ thẻ</p>
-                                            <input class="form-control" type="text">
+                                            <input class="form-control" id="name" type="text">
                                         </div>
                                         <div class="address">
                                             <p class="dis fw-bold mb-3">Địa chỉ nhận hàng</p>
@@ -268,7 +220,7 @@
                                                 <option value=''>-----Chọn phường , xã-----</option>
                                             </select>
                                              <p>Địa chỉ</p>
-                                            <input class="form-control" type="text">
+                                            <input class="form-control" id="address" type="text">
                                            
                                             <div class="d-flex flex-column dis">
                                                 <div class="d-flex align-items-center justify-content-between mb-2">
@@ -287,9 +239,9 @@
                                                     <p class="fw-bold">Tổng cần thanh toán</p>
                                                     <p class="fw-bold"><span class="fas fa-dollar-sign"></span>35.80</p>
                                                 </div>
-                                                <div class="btn btn-primary mt-2">
-                                                    Thanh toán<span class="fas fa-dollar-sign px-1"></span>35.80
-                                                </div>
+                                                <button class="btn btn-primary mt-2" onclick="submitCheckout()">
+                                                    Thanh Toán<span class="fas fa-dollar-sign px-1"></span>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -346,7 +298,38 @@
         callApiWard(host + "d/" + $("#district").find(':selected').data('id') + "?depth=2");
     
     });
+
+
+
+
+    //Xử lý phần gửi mail xác nhận khách hàng đã đặt hàng 
+    function submitCheckout() {
+        var email = document.getElementById('email').value;
+
+        // Tạo một đối tượng XMLHttpRequest để gửi dữ liệu về server
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/testmail', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        // Gửi dữ liệu dưới dạng JSON
+       xhr.send(JSON.stringify({ email: email}));
+     
+
+        // Xử lý phản hồi nếu cần
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                console.log('Checkout successful');
+            } else {
+                console.error('Checkout failed. Server returned:', xhr.status, xhr.statusText);
+            }
+        };
+    }
 </script>
+
+
+
+
+
 @section Scripts{
     <!-- Js Plugins -->
     <script src="/js/jquery-3.3.1.min.js"></script>

@@ -316,8 +316,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VhcmNoXExpc3RPcmRlcnNTZWFyY2hQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/source/repos/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Search/ListProductsSearchPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VhcmNoXExpc3RQcm9kdWN0c1NlYXJjaFBhcnRpYWwuY3NodG1s
+[C:/Users/Admin/source/repos/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Search/ListProductBatchesSearchPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VhcmNoXExpc3RQcm9kdWN0QmF0Y2hlc1NlYXJjaFBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/source/repos/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Search/ListProductSearchPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VhcmNoXExpc3RQcm9kdWN0U2VhcmNoUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Admin/source/repos/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Search/ListSupplierSearchPartial.cshtml]

@@ -2,7 +2,7 @@
   "version": 2,
   "dgSpecHash": "itGoTtASlD8+mBNDM4K9oaGquD2lxVzzusb6kWPJNmpVoRhtkeUpZNKefV6vv6Flhj0EevQFyJvK5Fd0Wp3JcQ==",
   "success": true,
-  "projectFilePath": "C:\\asp1\\BTL-LapTrinhWeb\\client\\Client_Home\\Client_Home.csproj",
+  "projectFilePath": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\Client_Home.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\huypro\\.nuget\\packages\\aforge\\2.2.5\\aforge.2.2.5.nupkg.sha512",
     "C:\\Users\\huypro\\.nuget\\packages\\aspnetcorehero.toastnotification\\1.1.0\\aspnetcorehero.toastnotification.1.1.0.nupkg.sha512",

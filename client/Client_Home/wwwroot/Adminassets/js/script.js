@@ -1,4 +1,47 @@
 ﻿function addEvents(controllerName) {
+
+
+
+
+
+
+
+
+
+
+
+
+    $(document).ready(function () {
+        $('input[type="checkbox"]').change(function () {
+            var row = $(this).closest('tr');
+            var productName = row.find('#product-name').data('name');
+            var productPrice = parseFloat(row.find('#product-price').data('price'));
+            if (this.checked) {
+                addProductToTable(productName, productPrice);
+                updateTotalProductPrice(productPrice);
+            }
+        });
+
+        $(document).on('click', '.delete-button', function () {
+            var row = $(this).closest('tr');
+            var productPrice = parseFloat(row.find('#product-price').data('price'));
+            row.remove();
+            updateTotalProductPrice(-productPrice);
+        });
+
+        $('#discount').change(function () {
+            updateTotalAmount();
+        });
+    });
+
+
+    // Attach event listener to the "Generate Invoice" button
+    document.getElementById("generateInvoice").addEventListener("click", function () {
+        // Add logic to generate the invoice based on the selected products and billing information
+        // For example: alert("Invoice generated!");
+    });
+
+
     var checkAllCheckbox = document.getElementById('checkAll');
     checkAllCheckbox.addEventListener('click', function () {
         var checkboxes = document.querySelectorAll('[id^="check-item-"]');
@@ -6,7 +49,7 @@
             checkbox.checked = checkAllCheckbox.checked;
         });
     });
-
+    console.log("Hello");
     var deleteButton = document.getElementById('update-action-DeleteMultiple');
     var updateStatusButton = document.getElementById('update-action-UpdateStatusMultiple');
     //Get controllerName
@@ -68,8 +111,49 @@
             }
         }
     }
+
 }
 
+function updateTotalProductPrice(change) {
+    var totalProductPriceInput = document.getElementById("totalProductPrice");
+    var currentTotal = parseFloat(totalProductPriceInput.value) || 0;
+    totalProductPriceInput.value = (currentTotal + change).toFixed(2);
+    updateTotalAmount();
+}
+
+function updateTotalAmount() {
+    var totalProductPriceInput = document.getElementById("totalProductPrice");
+    var discountInput = document.getElementById("discount");
+    var totalAmountInput = document.getElementById("totalAmount");
+
+    var totalProductPrice = parseFloat(totalProductPriceInput.value) || 0;
+    var discount = parseFloat(discountInput.value) || 0;
+
+    totalAmountInput.value = (totalProductPrice - discount).toFixed(2);
+}
+
+function addProductToTable(productName, productPrice) {
+    var selectedProductsList = document.getElementById("selectedProductsList");
+    var tr = document.createElement("tr");
+
+    var tdName = document.createElement("td");
+    tdName.textContent = productName;
+    tr.appendChild(tdName);
+
+    var tdPrice = document.createElement("td");
+    tdPrice.textContent = productPrice;
+    tr.appendChild(tdPrice);
+
+    var tdButton = document.createElement("td");
+    var button = document.createElement("button");
+    button.style.backgroundColor = "red";
+    button.textContent = "x";
+    button.className = "delete-button";
+    tdButton.appendChild(button);
+    tr.appendChild(tdButton);
+
+    selectedProductsList.appendChild(tr);
+}
 
 function performAjaxRequest(pageNumber) {
 

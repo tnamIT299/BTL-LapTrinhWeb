@@ -16,12 +16,12 @@ namespace Client_Home.Areas.Admin.Controllers
     [Area("Admin")]
     public class AdminSuppliersController : Controller
     {
-        private readonly Client_Home.Data.ConveniencestoreContext _context;
+        private readonly Data.ConveniencestoreContext _context;
         private IWebHostEnvironment _webHostEnvironment;
         private readonly IAddSupplierFromExcel _addFromExcel;
         private readonly ILogger<AdminSuppliersController> _logger;
         public INotyfService _notifyService { get; }
-        public AdminSuppliersController(ILogger<AdminSuppliersController> logger, ConveniencestoreContext context, INotyfService notifyService, IWebHostEnvironment webHostEnvironment, IAddSupplierFromExcel addFromExcel)
+        public AdminSuppliersController(ILogger<AdminSuppliersController> logger, Data.ConveniencestoreContext context, INotyfService notifyService, IWebHostEnvironment webHostEnvironment, IAddSupplierFromExcel addFromExcel)
         {
             _logger = logger;
             _context = context;
@@ -33,12 +33,7 @@ namespace Client_Home.Areas.Admin.Controllers
         // GET: Admin/AdminSuppliers
         public async Task<IActionResult> Index(int? page)
         {
-            var pageNumber = page == null || page <= 0 ? 1 : page.Value;
-            var pageSize = 15;
-            var isSupplier = _context.Suppliers.AsNoTracking().OrderByDescending(x => x.SupplierName);
-            PagedList.Core.IPagedList<Supplier> models = new PagedList.Core.PagedList<Supplier>(isSupplier, pageNumber, pageSize);
-            ViewBag.CurrentPage = pageNumber;
-            return View(models);
+            return View();
         }
 
         // GET: Admin/AdminSuppliers/Details/5

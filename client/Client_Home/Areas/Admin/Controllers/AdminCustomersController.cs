@@ -16,6 +16,7 @@ using Microsoft.Data.SqlClient;
 using OfficeOpenXml;
 using Org.BouncyCastle.Asn1.X509;
 using Client_Home.Areas.Admin.DTO.Customers;
+using ConveniencestoreContext = Client_Home.Data.ConveniencestoreContext;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
@@ -28,7 +29,7 @@ namespace Client_Home.Areas.Admin.Controllers
         private readonly ILogger<AdminCustomersController> _logger;
 
         public INotyfService _notifyService { get; }
-        public AdminCustomersController(ILogger<AdminCustomersController> logger, ConveniencestoreContext context, INotyfService notifyService,IWebHostEnvironment webHostEnvironment , IAddCusFromExcel addFromExcel)
+        public AdminCustomersController(ILogger<AdminCustomersController> logger, Data.ConveniencestoreContext context, INotyfService notifyService,IWebHostEnvironment webHostEnvironment , IAddCusFromExcel addFromExcel)
         {
             _logger = logger;
             _context = context;
@@ -40,14 +41,7 @@ namespace Client_Home.Areas.Admin.Controllers
         // GET: Admin/AdminCustomers
         public IActionResult Index(int? page)
         {
-                var pageNumber = page == null || page <=0 ? 1 : page.Value;
-                var pageSize = 15;
-                var isCustomers = _context.Customers
-                .AsNoTracking()
-                .OrderByDescending(x => x.Email); 
-                PagedList.Core.IPagedList <Customer> models= new PagedList.Core.PagedList<Customer>(isCustomers,pageNumber,pageSize);
-                ViewBag.CurrentPage = pageNumber;
-                return View(models);
+                return View();
         }
 
         // GET: Admin/AdminCustomers/Details/5
@@ -247,8 +241,81 @@ namespace Client_Home.Areas.Admin.Controllers
                 }
             }
         }
+        [HttpPost("/Admin/AdminCustomers/DeleteMultiple")]
+        public async Task<IActionResult> DeleteMultipleCustomers([FromBody] DeleteMulti listIds)
+        {
+            try
+            {
+                if (_context.Customers == null)
+                {
+                    return Problem("Entity set 'ConveniencestoreContext.Customers' is null.");
+                }
 
-       
+                var errors = new List<object>(); // List to store information about records that couldn't be deleted
+
+                foreach (var customerId in listIds.itemIds)
+                {
+                    var customer = await _context.Customers.FindAsync(customerId);
+
+                    if (customer != null)
+                    {
+                        // Check foreign key references before deleting
+                        var hasForeignKeyReferences = CheckForeignKeyReferencesForCustomer(customer);
+
+                        if (hasForeignKeyReferences)
+                        {
+                            errors.Add(new { customerId, message = $"Khách hàng có ID {customerId} không thể bị xóa vì có liên kết khóa ngoại." });
+                        }
+                        else
+                        {
+                            _context.Customers.Remove(customer);
+                        }
+                    }
+                    else
+                    {
+                        errors.Add(new { customerId, message = $"Khách hàng có ID {customerId} không tồn tại." });
+                    }
+                }
+
+                try
+                {
+                    await _context.SaveChangesAsync();
+                }
+                catch (Exception ex)
+                {
+                    // Log the exception or handle it appropriately
+                    return Json(new { success = false, message = "Error deleting customers.", errors });
+                }
+
+                if (errors.Any())
+                {
+                    // If there are errors, return a list of records that couldn't be deleted along with a message
+                    return Json(new { success = false, message = "Some customers were not deleted.", errors });
+                }
+
+                // If no errors, return a success message
+                errors.Add(new { V = "Xóa thành công" });
+                return Json(new { success = true, message = "Customers deleted successfully.", errors });
+            }
+            catch (Exception)
+            {
+                return Json(new { success = false, message = "Error deleting customers." });
+            }
+        }
+
+        // Helper method to check foreign key references for customers
+        private bool CheckForeignKeyReferencesForCustomer(Customer customer)
+        {
+            if (_context.ShippingLocations.Any(e => e.CustomerId == customer.CustomerId))
+            {
+                return true;
+            }
+            if (_context.Invoices.Any(e => e.CustomerId == customer.CustomerId))
+            {
+                return true;
+            }
+            return false; 
+        }
 
     }
 }

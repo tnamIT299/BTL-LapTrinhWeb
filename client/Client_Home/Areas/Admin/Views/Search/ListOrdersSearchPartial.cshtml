@@ -1,0 +1,75 @@
+﻿@using Client_Home.Areas.Admin.Models;
+@model Pager<Orders>
+<table class="table table-hover e-commerce-table">
+    <thead>
+        <tr>
+            <th>
+                Mã phiếu nhập
+            </th>
+            <th>
+                Nhà cung cấp
+            </th>
+            <th>
+                Ngày đặt hàng
+            </th>
+            <th>
+                Tổng số lượng
+            </th>
+
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody >
+        <tr>
+            @if (Model != null)
+            {
+                int i = 1;
+                @foreach (var item in Model.Items)
+                {
+                <tr>
+                    <td>
+                            @Html.DisplayFor(model => item.OrderId)
+                    </td>
+                    <td>
+                            @Html.DisplayFor(model => item.Supplier.SupplierName)
+
+                    </td>
+                    <td>
+                            @Html.DisplayFor(model => item.OrderDate)
+                    </td>
+                    <td>
+
+                            @Html.DisplayFor(model => item.TotalAmount)
+                    </td>
+
+
+
+                    <td class="text-right">
+                        <a asp-area="Admin" asp-controller="AdminOrders" asp-action="Details" asp-route-id="@item.OrderId">
+                            <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xem chi tiết thông tin phiếu nhập">
+                                <i class="anticon anticon-eye"></i>
+                            </button>
+                        </a>
+
+                        <a asp-area="Admin" asp-controller="AdminOrders" asp-action="Edit" asp-route-id="@item.OrderId">
+                            <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right" title="Sửa thông tin phiếu nhập">
+                                <i class="anticon anticon-edit"></i>
+                            </button>
+                        </a>
+
+                        <a asp-area="Admin" asp-controller="AdminOrders" asp-action="Delete" asp-route-id="@item.OrderId">
+                            <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xóa phiếu nhập này">
+                                <i class="anticon anticon-delete"></i>
+                            </button>
+                        </a>
+
+                    </td>
+                </tr>
+                    i++;
+                }
+            }
+        </tr>
+    </tbody>
+</table>
+@Html.Partial("//Areas//Admin//Views//Search//PaginationPartialView.cshtml");

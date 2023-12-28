@@ -1,52 +1,94 @@
-﻿@model List<Invoice>
+﻿@using Client_Home.Areas.Admin.Models;
+@model Pager<Invoice>
 @*
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@if (Model != null)
-{
-    int i = 1;
-    @foreach (var item in Model)
-    {
+<table class="table table-hover e-commerce-table">
+    <thead>
         <tr>
-
-            <td>
-                @Html.DisplayFor(modelItem => item.InvoiceId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Customer.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Employee.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-
-            <td>
-                @Html.DisplayFor(modelItem => item.TotalAmount)
-            </td>
-
-            <td class="text-right">
-                <a asp-area="Admin" asp-controller="AdminInvoices" asp-action="Details" asp-route-id="@item.InvoiceId">
-                    <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xem chi tiết hóa đơn">
-                        <i class="anticon anticon-eye"></i>
-                    </button>
-                </a>
-                @*                                         <a asp-area="Admin" asp-controller="AdminInvoices" asp-action="Edit" asp-route-id="@item.InvoiceId">
-        <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right" title="Sửa thông tin hóa đơn">
-        <i class="anticon anticon-edit"></i>
-        </button>
-        </a> *@
-                @*  <a asp-area="Admin" asp-controller="AdminInvoices" asp-action="Delete" asp-route-id="@item.InvoiceId">
-        <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xóa hóa đơn này">
-        <i class="anticon anticon-delete"></i>
-        </button>
-        </a> *@
-            </td>
+            <th>
+                <div class="checkbox">
+                    <input id="checkAll" type="checkbox">
+                    <label for="checkAll" class="m-b-0"></label>
+                </div>
+            </th>
+            <th>
+                Số hóa đơn
+            </th>
+            <th>
+                Tên khách hàng
+            </th>
+            <th>
+                Tên nhân viên
+            </th>
+            <th>
+                Ngày tạo
+            </th>
+            <th>
+                Trạng thái
+            </th>
+            <th>
+                Tổng tiền
+            </th>
+            <th></th>
         </tr>
-        i++;
-    }
-}
+    </thead>
+    <tbody>
+        <tr>
+            @if (Model != null)
+            {
+                int i = 1;
+                @foreach (var item in Model.Items)
+                {
+                <tr>
+                    <td>
+                        <div class="checkbox">
+                            <input id="@("check-item-" + item.InvoiceId)" type="checkbox">
+                            <label for="@("check-item-" + item.InvoiceId)" class="m-b-0"></label>
+                        </div>
+                    </td>
+                    <td>
+                            @Html.DisplayFor(modelItem => item.InvoiceId)
+                    </td>
+                    <td>
+                            @Html.DisplayFor(modelItem => item.Customer.LastName)
+                    </td>
+                    <td>
+                            @Html.DisplayFor(modelItem => item.Employee.LastName)
+                    </td>
+                    <td>
+                            @Html.DisplayFor(modelItem => item.CreatedDate)
+                    </td>
+                    <td>
+                            @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+
+                    <td>
+                            @Html.DisplayFor(modelItem => item.TotalAmount)
+                    </td>
+
+                    <td class="text-right">
+                        <a asp-area="Admin" asp-controller="AdminInvoices" asp-action="Details" asp-route-id="@item.InvoiceId">
+                            <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xem chi tiết hóa đơn">
+                                <i class="anticon anticon-eye"></i>
+                            </button>
+                        </a>
+                        <a asp-area="Admin" asp-controller="AdminInvoices" asp-action="Edit" asp-route-id="@item.InvoiceId">
+                            <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right" title="Sửa thông tin hóa đơn">
+                                <i class="anticon anticon-edit"></i>
+                            </button>
+                        </a>
+                        <a asp-area="Admin" asp-controller="AdminInvoices" asp-action="Delete" asp-route-id="@item.InvoiceId">
+                            <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xóa hóa đơn này">
+                                <i class="anticon anticon-delete"></i>
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+                    i++;
+                }
+            }
+        </tr>
+    </tbody>
+</table>
+@Html.Partial("//Areas//Admin//Views//Search//PaginationPartialView.cshtml");

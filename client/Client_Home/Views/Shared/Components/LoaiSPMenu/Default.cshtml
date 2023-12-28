@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Category>
+<div class="widget widget_categories">
+    <h3 class="widget_title">Categories</h3>
+    <ul>
+
+        @foreach (var item in Model)
+        {
+            <li>
+                <a asp-controller="Home" asp-action="Shop" asp-route-maloai="@item.CategoryId">@item.CategoryName</a>
+                <span></span>
+            </li>
+        }
+
+
+    </ul>
+</div>

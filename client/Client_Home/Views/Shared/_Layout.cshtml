@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Foodano - Organic Food Store HTML Template - Home One</title>
+    <title>Foodano - Organic Food Store HTML Template - Home Three</title>
     <meta name="author" content="Vecuro">
     <meta name="description" content="Foodano - Organic Food Store HTML Template">
     <meta name="keywords" content="Foodano - Organic Food Store HTML Template" />
@@ -45,8 +45,8 @@
     ============================== -->
     <!-- Bootstrap -->
     <link rel="stylesheet" href="~/assets/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="~/assets/css/bootstrap.rtl.min.css"> -->
-    <!-- <link rel="stylesheet" href="~/assets/css/app.min.css"> -->
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap.rtl.min.css"> -->
+    <!-- <link rel="stylesheet" href="assets/css/app.min.css"> -->
     <!-- Fontawesome Icon -->
     <link rel="stylesheet" href="~/assets/css/fontawesome.min.css">
     <!-- Flaticon -->
@@ -63,11 +63,22 @@
     <link rel="stylesheet" href="~/assets/css/animate.min.css">
     <!-- Theme Custom CSS -->
     <link rel="stylesheet" href="~/assets/css/style.css">
-    @RenderSection("styles", false)
 
+  
 </head>
 
 <body>
+    <div class="preloader  ">
+        <button class="vs-btn preloaderCls">Cancel Preloader </button>
+        <div class="preloader-inner">
+            <div class="loader-logo">
+                <img src="~/assets/img/logo.svg" alt="Foodano">
+            </div>
+            <div class="loader-wrap pt-4">
+                <span class="loader"></span>
+            </div>
+        </div>
+    </div>
     <!--==============================
         Header Top
     ==============================-->
@@ -131,7 +142,7 @@
             <div class="row align-items-center">
                 <div class="col-5 col-md-3">
                     <div class="logo">
-                        <a href="index.html"><img src="assets/img/logo.svg" alt="Foodano"></a>
+                        <a href="index.html"><img src="~/assets/img/logo.svg" alt="Foodano"></a>
                     </div>
                 </div>
                 <div class="col-7 col-md-9 text-end position-static">
@@ -241,7 +252,7 @@
     <div class="vs-menu-wrapper">
         <div class="vs-menu-area">
             <button class="vs-menu-toggle"><i class="fal fa-times"></i></button>
-            <div class="mobile-logo">
+            <div class="mobile-logo">                                                                                       
                 <a href="index.html"><img src="assets/img/logo.svg" alt="Foodano"></a>
             </div>
             <div class="vs-mobile-menu link-inherit"></div><!-- Menu Will Append With Javascript -->
@@ -326,51 +337,46 @@
     <!--==============================
         Header Area
     ==============================-->
-    @* <header class="header-wrapper header-layout3 pb-50">
-        <div class="container py-30">
-            <div class="row align-items-center">
-                <div class="col-6">
-                    <div class="header-logo">
-                        <a href="index.html"><img src="assets/img/logo.svg" alt="Foodano"></a>
+    <header class="header-wrapper header-layout7">
+        <div class="header-top">
+            <div class="header-top-shape"></div>
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-auto col-xxl-3 d-none d-lg-block" style="display:flex">
+                        <a href="login-register.html" class="header-login"><i class="fas fa-user-circle"></i> </a>
+                        <partial name="_loginPartial" />
+
                     </div>
-                </div>
-                <div class="col-6 text-end">
-                    <button type="button" class="vs-menu-toggle d-inline-block d-lg-none"><i class="far fa-bars"></i></button>
-                    <div class="head-top-links text-body2 d-none d-lg-block">
-                        <a href="wishlist.html" class="icon-btn has-badge bg3 me-3"><i class="fal fa-heart"></i><span class="badge">0</span></a>
-                        <a href="#" class="icon-btn has-badge bg2 me-4 sideMenuToggler"><i class="fal fa-shopping-cart"></i><span class="badge">0</span></a>
-                        <span class="icon-btn bg4"><i class="fal fa-user"></i></span>
-                        <ul>
-                            <li><a href="login-register.html">Login</a></li>
-                            <li><a href="login-register.html">Register</a></li>
-                        </ul>
+
+                    <div class="col-lg-auto col-xxl text-center text-lg-end py-2 py-lg-0">
+                        <div class="header-infos">
+                            <p class="info"><i class="fas fa-phone-alt"></i>Phone:<a href="tel:02073885619">020 7388 5619</a></p>
+                            <p class="info d-none d-sm-inline-block"><i class="fas fa-envelope"></i>Email:<a href="mailto:info@username.com.uk">info@username.com.uk</a></p>
+
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container d-none d-lg-block">
-            <div class="header3-inner position-relative">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 col-xl-7">
-                        <nav class="main-menu menu-style1 mobile-menu-active menu-style2">
+        <div class="menu-area">
+            <div class="header-shape" data-bg-src="@Url.Content("~/assets/img/shape/header-shape-9-1.png")"></div>
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col col-lg-auto py-3 py-lg-0">
+                        <div class="header-logo">
+                            <a asp-controller="Home" asp-action="Index><img src="~/assets/img/logo-white.svg" alt="Foodano"></a>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <nav class="main-menu mobile-menu-active menu-style4">
                             <ul>
-                                <li class="menu-item-has-children">
-                                    <a href="index.html">Home</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="index.html">Home Style 1</a></li>
-                                        <li><a href="index-2.html">Home Style 2</a></li>
-                                        <li><a href="index-3.html">Home Style 3</a></li>
-                                        <li><a href="index-4.html">Home Style 4</a></li>
-                                        <li><a href="index-5.html">Home Style 5</a></li>
-                                        <li><a href="index-6.html">Home Style 6</a></li>
-                                        <li><a href="index-7.html">Home Style 7</a></li>
-                                        <li><a href="index-8.html">Home Style 8</a></li>
-                                    </ul>
+                                <li>
+                                    <a asp-controller="Home" asp-action="Index">Home</a>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="shop.html">Shop</a>
+                                    <a href="/Products">Shop</a>
                                     <ul class="sub-menu">
-                                        <li><a href="shop.html">Shop</a></li>
+                                        <li><a href="/home/shop?maloai=1#">Shop</a></li>
                                         <li><a href="shop-list.html">Shop List</a></li>
                                         <li><a href="shop-details.html">Shop Details</a></li>
                                         <li><a href="cart.html">Shopping Cart</a></li>
@@ -380,9 +386,9 @@
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="blog.html">Blog</a>
+                                    <a href="/home/blog">Blog</a>
                                     <ul class="sub-menu">
-                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="/home/blog">Blog</a></li>
                                         <li><a href="blog-list.html">Blog List</a></li>
                                         <li><a href="blog-grid.html">Blog Grid</a></li>
                                         <li><a href="blog-grid-sidebar.html">Blog Grid Sidebar</a></li>
@@ -413,13 +419,13 @@
                                                 <li><a href="service.html">Services</a></li>
                                                 <li><a href="team.html">Team</a></li>
                                                 <li><a href="faq.html">FAQ Page</a></li>
-                                                <li><a href="contact.html">Contact Us</a></li>
+                                                <li><a href="/home/contact">Contact Us</a></li>
                                             </ul>
                                         </li>
                                         <li>
                                             <a href="#">Pagelist 3</a>
                                             <ul>
-                                                <li><a href="blog.html">Blog</a></li>
+                                                <li><a href="/home/blog">Blog</a></li>
                                                 <li><a href="blog-list.html">Blog List</a></li>
                                                 <li><a href="blog-grid.html">Blog Grid</a></li>
                                                 <li><a href="blog-grid-sidebar.html">Blog Grid Sidebar</a></li>
@@ -431,7 +437,7 @@
                                         <li>
                                             <a href="#">Pagelist 4</a>
                                             <ul>
-                                                <li><a href="shop.html">Shop</a></li>
+                                                <li><a href="/home/shop?maloai=1#">Shop</a></li>
                                                 <li><a href="shop-list.html">Shop List</a></li>
                                                 <li><a href="shop-details.html">Shop Details</a></li>
                                                 <li><a href="cart.html">Shopping Cart</a></li>
@@ -442,22 +448,28 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li>
-                                    <a href="contact.html">Contact Us</a>
+
+                                <li class="menu-item-has-children">
+                                    <a asp-controller="ProblemCustomers" asp-action="Create">Contact Us</a>
                                 </li>
+
                             </ul>
                         </nav>
                     </div>
-                    <div class="col-lg-6 col-xl-5">
-                        <form action="#" class="header-search">
-                            <input type="text" placeholder="Search your product" class="form-control">
-                            <button type="submit" class="vs-btn">Search</button>
-                        </form>
+                    <div class="col-auto d-none d-sm-block">
+                        <div class="header-buttons">
+                            <button type="button" class="searchBoxTggler"><i class="far fa-search"></i></button>
+                            <a href="wishlist.html"><i class="fal fa-heart"></i></a>
+                            <button class="sideMenuToggler has-badge" type="button"><i class="fal fa-shopping-cart"></i><span class="badge">0</span></button>
+                        </div>
+                    </div>
+                    <div class="col-auto d-block d-lg-none">
+                        <button type="button" class="vs-menu-toggle "><i class="far fa-bars"></i></button>
                     </div>
                 </div>
             </div>
         </div>
-    </header> *@
+    </header>
 
     <div class="main-content">
         @RenderBody()
@@ -466,7 +478,7 @@
     <!--==============================
             Footer Area
     ==============================-->
-    <footer class="footer-wrapper footer-layout2" data-bg-src="assets/img/shape/footer-5-1.jpg">
+    <footer class="footer-wrapper footer-layout2" data-bg-src="@Url.Content("~/assets/img/shape/footer-5-1.jpg")">
         <div class="container">
             <div class="widget-area">
                 <div class="row">
@@ -474,7 +486,7 @@
                         <div class="widget  footer-widget">
                             <div class="footer-info-widget">
                                 <div class="footer-info-logo">
-                                    <img src="assets/img/logo-white.svg" alt="Foodano">
+                                    <img src="~/assets/img/logo-white.svg" alt="Foodano">
                                 </div>
                                 <div class="footer-info">
                                     <i class="fas fa-phone-alt"></i>
@@ -511,22 +523,22 @@
                             <h3 class="widget_title">Instagram Photos</h3>
                             <div class="sidebar-gallery">
                                 <div class="gallery-thumb">
-                                    <a class="popup-image" href="assets/img/gallery/gal-2-1.jpg"><img src="assets/img/gallery/gal-2-1.jpg" alt="Gallery Image" class="w-100"></a>
+                                    <a class="popup-image" href="~/assets/img/gallery/gal-2-1.jpg"><img src="~/assets/img/gallery/gal-2-1.jpg" alt="Gallery Image" class="w-100"></a>
                                 </div>
                                 <div class="gallery-thumb">
-                                    <a class="popup-image" href="assets/img/gallery/gal-2-2.jpg"><img src="assets/img/gallery/gal-2-2.jpg" alt="Gallery Image" class="w-100"></a>
+                                    <a class="popup-image" href="~/assets/img/gallery/gal-1-2.jpg"><img src="~/assets/img/gallery/gal-1-2.jpg" alt="Gallery Image" class="w-100"></a>
                                 </div>
                                 <div class="gallery-thumb">
-                                    <a class="popup-image" href="assets/img/gallery/gal-2-3.jpg"><img src="assets/img/gallery/gal-2-3.jpg" alt="Gallery Image" class="w-100"></a>
+                                    <a class="popup-image" href="~/assets/img/gallery/gal-2-3.jpg"><img src="~/assets/img/gallery/gal-2-3.jpg" alt="Gallery Image" class="w-100"></a>
                                 </div>
                                 <div class="gallery-thumb">
-                                    <a class="popup-image" href="assets/img/gallery/gal-2-4.jpg"><img src="assets/img/gallery/gal-2-4.jpg" alt="Gallery Image" class="w-100"></a>
+                                    <a class="popup-image" href="~/assets/img/gallery/gal-2-4.jpg"><img src="~/assets/img/gallery/gal-2-4.jpg" alt="Gallery Image" class="w-100"></a>
                                 </div>
                                 <div class="gallery-thumb">
-                                    <a class="popup-image" href="assets/img/gallery/gal-2-5.jpg"><img src="assets/img/gallery/gal-2-5.jpg" alt="Gallery Image" class="w-100"></a>
+                                    <a class="popup-image" href="~/assets/img/gallery/gal-2-5.jpg"><img src="~/assets/img/gallery/gal-2-5.jpg" alt="Gallery Image" class="w-100"></a>
                                 </div>
                                 <div class="gallery-thumb">
-                                    <a class="popup-image" href="assets/img/gallery/gal-2-6.jpg"><img src="assets/img/gallery/gal-2-6.jpg" alt="Gallery Image" class="w-100"></a>
+                                    <a class="popup-image" href="~/assets/img/gallery/gal-2-6.jpg"><img src="~/assets/img/gallery/gal-2-6.jpg" alt="Gallery Image" class="w-100"></a>
                                 </div>
                             </div>
                         </div>
@@ -534,12 +546,12 @@
                 </div>
             </div>
         </div>
-        <div class="copyright-area" data-bg-src="assets/img/shape/footer-5-2.png">
+        <div class="copyright-area" data-bg-src="@Url.Content("~/assets/img/shape/footer-5-2.png")">
             <div class="container">
                 <div class="row justify-content-between align-items-center">
                     <div class="col-lg-auto text-center text-lg-start">
                         <div class="copyright">
-                            <p class="mb-0 link-inherit">Copyright &copy; 2022 <a href="index.html">Foodano</a> - All Rights Reserved by <a href="https://themeforest.net/user/vecuro_themes">Vecuro</a></p>
+                            <p class="mb-0 link-inherit">Copyright &copy; 2022 <a asp-controller="Home" asp-action="Index>Foodano</a> - All Rights Reserved by <a href="https://themeforest.net/user/vecuro_themes">Vecuro</a></p>
                         </div>
                     </div>
                     <div class="col-auto d-none d-lg-block">

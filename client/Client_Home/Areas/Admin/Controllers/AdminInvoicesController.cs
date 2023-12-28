@@ -9,15 +9,16 @@ using Client_Home.Data;
 using Client_Home.Models;
 using DocumentFormat.OpenXml.InkML;
 using PagedList;
+using Client_Home.Areas.Admin.Models;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class AdminInvoicesController : Controller
     {
-        private readonly Client_Home.Data.ConveniencestoreContext _context;
+        private readonly Data.ConveniencestoreContext _context;
 
-        public AdminInvoicesController(Client_Home.Data.ConveniencestoreContext context)
+        public AdminInvoicesController(Data.ConveniencestoreContext context)
         {
             _context = context;
         }
@@ -27,16 +28,7 @@ namespace Client_Home.Areas.Admin.Controllers
         // GET: Admin/AdminInvoices
         public IActionResult Index(int? page)
         {
-            var pageNumber = page == null || page <= 0 ? 1 : page.Value;
-            var pageSize = 10;
-            var isInvoice = _context.Invoices
-                .Include(i => i.Customer)
-                .Include(i => i.Employee)
-                .AsNoTracking()
-                .OrderByDescending(x => x.InvoiceId);
-            PagedList.Core.IPagedList<Invoice> models = new PagedList.Core.PagedList<Invoice>(isInvoice, pageNumber, pageSize);
-            ViewBag.CurrentPage = pageNumber;
-            return View(models);
+            return View();
         }
 
 
@@ -68,7 +60,7 @@ namespace Client_Home.Areas.Admin.Controllers
         // GET: Admin/AdminInvoices/Create
         public async Task<IActionResult> Create()
         {
-            using (var context = new Client_Home.Data.ConveniencestoreContext())
+            using (var context = new Data.ConveniencestoreContext())
             {
                 var product = await context.Products.FromSqlRaw("EXEC GetProduct").ToListAsync();
                 ViewBag.product = product;
@@ -206,6 +198,83 @@ namespace Client_Home.Areas.Admin.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+        [HttpPost("/Admin/AdminInvoices/DeleteMultiple")]
+        public async Task<IActionResult> DeleteMultiple([FromBody] DeleteMulti listIds)
+        {
+            try
+            {
+                if (_context.Invoices == null)
+                {
+                    return Problem("Entity set 'ConveniencestoreContext.Products' is null.");
+                }
+
+                var errors = new List<object>(); // Danh sách lưu trữ thông tin về các record không xóa được
+
+                foreach (var invoiceId in listIds.itemIds)
+                {
+                    var invoice = await _context.Invoices.FindAsync(invoiceId);
+
+                    if (invoice != null)
+                    {
+                        // Kiểm tra các ràng buộc khóa ngoại trước khi xóa
+                        var hasForeignKeyReferences = CheckForeignKeyReferences(invoice);
+
+                        if (hasForeignKeyReferences)
+                        {
+                            errors.Add(new { invoiceId, message = $"Hóa đơn có ID {invoiceId} không thể bị xóa vì có liên kết khóa ngoại." });
+                        }
+                        else
+                        {
+                            _context.Invoices.Remove(invoice);
+                        }
+                    }
+                    else
+                    {
+                        errors.Add(new { invoiceId, message = $"Hóa đơn có ID {invoiceId} không tồn tại." });
+                    }
+                }
+
+                try
+                {
+                    await _context.SaveChangesAsync();
+                }
+                catch (Exception ex)
+                {
+                    // Log the exception or handle it appropriately
+                    return Json(new { success = false, message = "Error deleting invoices.", errors });
+                }
+
+                if (errors.Any())
+                {
+                    // Nếu có lỗi xảy ra, trả về danh sách các record không xóa được cùng với thông báo
+                    return Json(new { success = false, message = "Some invoices were not deleted.", errors });
+                }
+
+                // Nếu không có lỗi, trả về thông báo thành công
+                errors.Add(new { V = "Xóa thành công" });
+                return Json(new { success = true, message = "Invoices deleted successfully.", errors });
+            }
+            catch (Exception)
+            {
+                return Json(new { success = false, message = "Error deleting invoices." });
+            }
+        }
+
+        // Hàm kiểm tra các ràng buộc khóa ngoại
+        private bool CheckForeignKeyReferences(Invoice invoice)
+        {
+           
+            if (_context.InvoiceDetails.Any(e => e.InvoiceId == invoice.InvoiceId))
+            {
+                // Có ràng buộc khóa ngoại với bảng khác (đổi tên bảng và khóa ngoại theo thực tế)
+                return true;
+            }
+
+            // Nếu không có ràng buộc khóa ngoại
+            return false;
+        }
+
+
 
         private bool InvoiceExists(int id)
         {

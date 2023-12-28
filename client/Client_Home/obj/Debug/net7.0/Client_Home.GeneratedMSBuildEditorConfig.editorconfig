@@ -204,10 +204,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Qcm9kdWN0c1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminQR/GenerateQRCode.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5RUlxHZW5lcmF0ZVFSQ29kZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/AdminRoles/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Sb2xlc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -256,6 +252,46 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Pannels/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUGFubmVsc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Pannels/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUGFubmVsc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Pannels/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUGFubmVsc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Pannels/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUGFubmVsc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Pannels/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUGFubmVsc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/ProblemCustomers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvYmxlbUN1c3RvbWVyc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/ProblemCustomers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvYmxlbUN1c3RvbWVyc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/ProblemCustomers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvYmxlbUN1c3RvbWVyc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/ProblemCustomers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvYmxlbUN1c3RvbWVyc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/ProblemCustomers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvYmxlbUN1c3RvbWVyc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Search/ListCustomerSearchPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VhcmNoXExpc3RDdXN0b21lclNlYXJjaFBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -268,8 +304,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VhcmNoXExpc3RJbnZvaWNlc1NlYXJjaFBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Search/ListProductsSearchPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VhcmNoXExpc3RQcm9kdWN0c1NlYXJjaFBhcnRpYWwuY3NodG1s
+[C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Search/ListOrdersSearchPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VhcmNoXExpc3RPcmRlcnNTZWFyY2hQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Search/ListProductBatchesSearchPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VhcmNoXExpc3RQcm9kdWN0QmF0Y2hlc1NlYXJjaFBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Search/ListProductSearchPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VhcmNoXExpc3RQcm9kdWN0U2VhcmNoUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Search/ListSupplierSearchPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VhcmNoXExpc3RTdXBwbGllclNlYXJjaFBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Search/PaginationPartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VhcmNoXFBhZ2luYXRpb25QYXJ0aWFsVmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Areas/Admin/Views/Shared/Error.cshtml]
@@ -456,14 +508,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Views/AppRoles/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwUm9sZXNcQ3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Views/AppRoles/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwUm9sZXNcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Views/Cart/Cart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxDYXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -508,6 +552,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVhZHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Views/ProblemCustomers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvYmxlbUN1c3RvbWVyc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Views/ProblemCustomers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvYmxlbUN1c3RvbWVyc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Views/ProblemCustomers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvYmxlbUN1c3RvbWVyc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Views/ProblemCustomers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvYmxlbUN1c3RvbWVyc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Views/ProblemCustomers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvYmxlbUN1c3RvbWVyc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Views/Products/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -532,8 +596,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQ2FydFdpZGdldFxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Views/Shared/Components/LoaiSPMenu/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTG9haVNQTWVudVxEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Views/Shared/_Layout_Shop.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRfU2hvcC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/DIEM QUYNH/source/repos/BTL-LapTrinhWeb/client/Client_Home/Views/Shared/_LoginPartial.cshtml]

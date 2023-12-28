@@ -216,7 +216,7 @@
                                                         string data = item.ProductId.ToString() + newDateString;
                                                         string fileName = data + ".webp";
                                                         string filePath = "~/adminimages/barcodes/" + fileName;
-                                                    <img src="@Url.Action("GenerateQR", "AdminQR", new { data = data, fileName = fileName })" hidden></img>
+  
                                                         <img src="@Url.Content(filePath)" style="height: 70px; width: 70px" />
                                                     }                                             
                                                     

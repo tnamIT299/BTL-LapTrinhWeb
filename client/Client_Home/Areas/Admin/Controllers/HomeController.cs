@@ -12,10 +12,11 @@ namespace Client_Home.Areas.Admin.Controllers
     {
         public async Task<IActionResult> Index()
         {
-            using (var context = new Client_Home.Data.ConveniencestoreContext())
+            using (var context = new Data.ConveniencestoreContext())
             {
+
                 var invoices = await context.Invoices.FromSqlRaw("EXEC GetLatestInvoices").ToListAsync();
-                var TopCustomers = await context.   AdminRichestCustomerView.FromSqlRaw("EXEC GetTopCustomers").ToListAsync();
+                var TopCustomers = await context.AdminRichestCustomerView.FromSqlRaw("EXEC GetTopCustomers").ToListAsync();
                 var TopProduct = await context.AdminBestSellingProduct.FromSqlRaw("EXEC GetTop5Products").ToListAsync();
                 var revenueByMonth = await context.AdminRevenueByMonth.FromSqlRaw("EXEC GetRevenueByMonth").ToListAsync();
                 var profitByMonth = await context.AdminRevenueByMonth.FromSqlRaw("EXEC CalculateMonthlyProfit").ToListAsync();

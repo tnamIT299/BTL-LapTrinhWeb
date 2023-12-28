@@ -1,0 +1,106 @@
+﻿@using Client_Home.Areas.Admin.Models;
+@model Pager<Supplier>
+<table class="table table-hover e-commerce-table">
+    <thead>
+        <tr>
+            <th>
+                <div class="checkbox">
+                    <input id="checkAll" type="checkbox">
+                    <label for="checkAll" class="m-b-0"></label>
+                </div>
+            </th>
+            <th>
+                Tên
+            </th>
+            <th>
+                Tên Liên Hệ
+            </th>
+            <th>
+                Địa Chỉ
+            </th>
+            <th>
+                Thành Phố
+            </th>
+            <th>
+                Mã PostCode
+            </th>
+            <th>
+                Quốc Gia
+            </th>
+            <th>
+                Số Điện Thoại
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            @if (Model != null)
+            {
+                int i = 1;
+                @foreach (var item in Model.Items)
+                {
+                <tr>
+                    <td>
+                        <div class="checkbox">
+                            <input id="@("check-item-" + item.SupplierId)" type="checkbox">
+                            <label for="@("check-item-" + item.SupplierId)" class="m-b-0"></label>
+                        </div>
+                    </td>
+                    <td>
+                            @Html.DisplayFor(modelItem => item.SupplierName)
+                    </td>
+                    <td>
+                            @Html.DisplayFor(modelItem => item.ContactName)
+                    </td>
+                    <td>
+
+                            @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+
+                            @Html.DisplayFor(modelItem =>item.City)
+
+                    </td>
+
+                    <td>
+                            @Html.DisplayFor(modelItem => item.PostalCode)
+                    </td>
+                    <td>
+
+                            @Html.DisplayFor(modelItem => item.Country)
+                    </td>
+                    <td>
+
+                            @Html.DisplayFor(modelItem => item.Phone)
+                    </td>
+
+
+                    <td class="text-right">
+
+                        <a asp-area="Admin" asp-controller="AdminSuppliers" asp-action="Details" asp-route-id="@item.SupplierId">
+                            <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xem chi tiết thông tin nhà cung cấp ">
+                                <i class="anticon anticon-eye"></i>
+                            </button>
+                        </a>
+
+                        <a asp-area="Admin" asp-controller="AdminSuppliers" asp-action="Edit" asp-route-id="@item.SupplierId">
+                            <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right" title="Sửa thông tin nhà cung cấp">
+                                <i class="anticon anticon-edit"></i>
+                            </button>
+                        </a>
+
+                        <a asp-area="Admin" asp-controller="AdminSuppliers" asp-action="Delete" asp-route-id="@item.SupplierId">
+                            <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xóa nhà cung cấp này">
+                                <i class="anticon anticon-delete"></i>
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+                    i++;
+                }
+            }
+        </tr>
+    </tbody>
+</table>
+@Html.Partial("//Areas//Admin//Views//Search//PaginationPartialView.cshtml");

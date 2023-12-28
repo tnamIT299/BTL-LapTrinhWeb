@@ -14,9 +14,9 @@ namespace Client_Home.Areas.Admin.Controllers
     [Area("Admin")]
     public class AdminOrdersController : Controller
     {
-        private readonly Client_Home.Data.ConveniencestoreContext _context;
+        private readonly Data.ConveniencestoreContext _context;
 
-        public AdminOrdersController(Client_Home.Data.ConveniencestoreContext context)
+        public AdminOrdersController(Data.ConveniencestoreContext context)
         {
             _context = context;
         }
@@ -24,17 +24,7 @@ namespace Client_Home.Areas.Admin.Controllers
         // GET: Admin/AdminOrders
         public async Task<IActionResult> Index(int? page)
         {
-            var pageNumber = page == null || page <= 0 ? 1 : page.Value;
-            var pageSize = 10;
-            var isOrder = _context.Orders
-                 .Include(p => p.Supplier)
-                .AsNoTracking()
-                .OrderByDescending(x => x.OrderId);
-            PagedList.Core.IPagedList<Orders> models = new PagedList.Core.PagedList<Orders>(isOrder, pageNumber, pageSize);
-            ViewBag.CurrentPage = pageNumber;
-            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierName");
-            return View(models);
-           
+            return View();
         }
 
         // GET: Admin/AdminOrders/Details/5
@@ -166,14 +156,14 @@ namespace Client_Home.Areas.Admin.Controllers
             {
                 _context.Orders.Remove(order);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool OrderExists(int id)
         {
-          return (_context.Orders?.Any(e => e.OrderId == id)).GetValueOrDefault();
+            return (_context.Orders?.Any(e => e.OrderId == id)).GetValueOrDefault();
         }
     }
 }

@@ -104,13 +104,28 @@
                             <div class="form-row">
                                 <div class="col">
                                     <label asp-for="SellPrice" class="control-label">Giá Bán</label>
-                                    <input asp-for="SellPrice" required pattern="[0-9]+" class="form-control" />
+                                    <input id="sellPriceInput" asp-for="SellPrice" required pattern="[0-9]+" class="form-control" />
                                     <span asp-validation-for="SellPrice" class="text-danger"></span>
                                 </div>
                                 <div class="col">
                                     <label asp-for="Qrcode" class="control-label">Mã Code</label>
                                     <input asp-for="Qrcode" required pattern="[0-9]+" class="form-control" />
                                     <span asp-validation-for="Qrcode" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col">
+                                    <label asp-for="Discount" class="control-label">Giảm giá</label>
+                                    <input id="discountInput" asp-for="Discount" required pattern="[0-9]+" class="form-control" />
+                                    <span asp-validation-for="Discount" class="text-danger"></span>
+                                </div>
+                                <div class="col">
+                                    <label asp-for="DiscountPrice" class="control-label">Giá đã giảm giá</label>
+                                    <input class="form-control" id="discountPriceInput" readonly />
+                                  @*   <span asp-validation-for="DiscountPrice" class="text-danger"></span> *@
                                 </div>
                             </div>
                         </div>
@@ -332,4 +347,21 @@
         });
     });
 
+</script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    // Sử dụng jQuery để lắng nghe sự kiện khi giá trị của SellPrice hoặc Discount thay đổi
+    $(document).ready(function () {
+        $("#sellPriceInput, #discountInput").on("input", function () {
+            // Lấy giá trị của SellPrice và Discount
+            var sellPrice = parseFloat($("#sellPriceInput").val()) || 0;
+            var discount = parseFloat($("#discountInput").val()) || 0;
+
+            // Tính toán giá trị mới của DiscountPrice
+            var discountPrice = sellPrice - (sellPrice * discount / 100);
+
+            // Cập nhật giá trị của DiscountPrice input
+            $("#discountPriceInput").val(discountPrice.toFixed(2));
+        });
+    });
 </script>

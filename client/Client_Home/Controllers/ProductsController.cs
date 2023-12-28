@@ -14,9 +14,9 @@ namespace Client_Home.Controllers
 {
     public class ProductsController : Controller
     {
-        private readonly Client_Home.Data.ConveniencestoreContext _context;
+        private readonly Data.ConveniencestoreContext _context;
 
-        public ProductsController(Client_Home.Data.ConveniencestoreContext context)
+        public ProductsController(Data.ConveniencestoreContext context)
         {
             _context = context;
         }
@@ -42,7 +42,7 @@ namespace Client_Home.Controllers
 
             }
             var pageNumber = page == null || page <= 0 ? 1 : page.Value;
-            var pageSize = 8;
+            var pageSize = 9;
             PagedList.Core.IPagedList<Product> model = new PagedList.Core.PagedList<Product>(lsProducts, pageNumber, pageSize);
             ViewBag.CurrentPage = pageNumber;
 
@@ -62,6 +62,9 @@ namespace Client_Home.Controllers
             var product = await _context.Products
                 .Include(p => p.Category)
                 .Include(p => p.Supplier)
+                .Include(p => p.ProductComments)
+                   .ThenInclude(pc => pc.User)
+                .Include(p => p.Ratings)
                 .FirstOrDefaultAsync(m => m.ProductId == id);
             if (product == null)
             {

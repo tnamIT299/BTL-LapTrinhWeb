@@ -1,18 +1,16 @@
-﻿@model PagedList.Core.IPagedList<Client_Home.Models.ProductBatch>
+﻿
 ﻿@using Azure;
 @using DocumentFormat.OpenXml.Spreadsheet;
 @using Microsoft.AspNetCore.Mvc.RazorPages;
-@using PagedList.Core.Mvc
-@using X.PagedList.Mvc.Core;
+
 
 
 @{
-    int CurrentPage = ViewBag.CurrentPage;
-    ViewData["Title"] = "Danh sách lô sản phẩm" + CurrentPage;
+
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="main-content">
+<div class="main-content" id="main-content-ProductBatches">
     <div class="page-header">
         <h2 class="header-title">Quản lý sản phẩm</h2>
         <div class="header-sub-title">
@@ -32,7 +30,7 @@
                     </div>
                 </div>
                 <div class="col-lg-2 text-right">
-                    <a asp-area="Admin" asp-controller="" asp-action="ExportToExcel">
+                    <a asp-area="Admin" asp-controller="AdminProductBatches" asp-action="ExportToExcel">
                         <button class="btn btn-primary">
                             <i class="anticon anticon-file-excel m-r-5"></i>
                             <span>Xuất file Excel</span>
@@ -42,120 +40,26 @@
                 <div class="dropdown col-lg-3 text-right">
                     <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                         <i class="anticon anticon-plus-circle m-r-5"></i>
-                        <span>Thêm</span>
+                        <span>Tác vụ</span>
                     </button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" asp-controller="AdminProductBatches" asp-action="Create">Thêm mới lô sản phẩm</a>
                         <a class="dropdown-item" asp-controller="AdminProductBatches" asp-action="AddFromExcel">Thêm từ Excel</a>
+                        <button id="update-action-DeleteMultiple" class="dropdown-item" title="Xóa các lô được chọn">
+                            Xóa các lô được chọn
+                        </button>
+                        <button id="update-action-UpdateStatusMultiple" class="dropdown-item" title="Thay đổi trạng thái các lô được chọn">
+                            Thay đổi trạng thái
+                        </button>
                     </div>
                 </div>
                 <div class="m-b-10 m-r-15">
-                    <input id="" type="text" name="keyword" class="form-control" placeholder="Tìm kiếm lô sản phẩm" />
+                    <input id="keyword" type="text" name="keyword" class="form-control" placeholder="Tìm kiếm lô sản phẩm" />
                 </div>
             </div>
 
-            <div class="table-responsive">
-                <table class="table table-hover e-commerce-table">
-                    <thead>
-                        <tr>
-                            <th>
-                                Mã lô
-                            </th>
-                            <th>
-                                Mã sản phẩm
-                            </th>
-                            <th>
-                                Ngày sản xuất
-                            </th>
-                            <th>
-                                Ngày hết hạn
-                            </th>
-                            <th>
-                                Số lượng
-                            </th>
-                            <th>
-                                Barcode
-                            </th>
-                            <th>
-                                Giá nhập
-                            </th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            @if (Model != null)
-                            {
-                                int i = 1;
-                                @foreach (var item in Model)
-                                {
-                                <tr>
-                                    <td>
-                                            @Html.DisplayFor(modelItem => item.BatchId)
-                                    </td>
-                                    <td>
-                                            @Html.DisplayFor(modelItem => item.ProductId)
-                                    </td>
-                                    <td>
-
-                                            @{
-                                                string MFGDateText = item.ManufactureDate.HasValue ? item.ManufactureDate.Value.ToString("dd/MM/yyyy") : "";
-                                            }
-                                            @Html.DisplayFor(modelItem => MFGDateText)
-                                    </td>
-                                    <td>
-                                            @{
-                                                string EXPDateText = item.ExpiryDate.HasValue ? item.ExpiryDate.Value.ToString("dd/MM/yyyy") : "";
-                                            }
-                                            @Html.DisplayFor(modelItem => EXPDateText)
-                                    </td>
-
-                                    <td>
-                                            @Html.DisplayFor(modelItem => item.Quantity)
-                                    </td>
-                                    <td>
-
-                                            @Html.DisplayFor(modelItem => item.Barcode)
-                                    </td>
-                                    <td>
-
-                                            @Html.DisplayFor(modelItem => item.ImportPrice)
-                                    </td>
-
-
-                                    <td class="text-right">
-                                        <a asp-area="Admin" asp-controller="AdminProductBatches" asp-action="Details" asp-route-id="@item.BatchId">
-                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xem chi tiết thông tin lô sản phẩm">
-                                                <i class="anticon anticon-eye"></i>
-                                            </button>
-                                        </a>
-
-                                        <a asp-area="Admin" asp-controller="AdminProductBatches" asp-action="Edit" asp-route-id="@item.BatchId">
-                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded pull-right" title="Sửa thông tin lô sản phẩm">
-                                                <i class="anticon anticon-edit"></i>
-                                            </button>
-                                        </a>
-
-                                        <a asp-area="Admin" asp-controller="AdminProductBatches" asp-action="Delete" asp-route-id="@item.BatchId">
-                                            <button class="btn btn-icon btn-hover btn-sm btn-rounded" title="Xóa lô sản phẩm này">
-                                                <i class="anticon anticon-delete"></i>
-                                            </button>
-                                        </a>
-
-                                    </td>
-                                </tr>
-                                    i++;
-                                }
-                            }
-                        </tr>
-                    </tbody>
-                </table>
-                <div aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <pager class="page-container" list="@Model" asp-area="Admin" asp-controller="AdminProductBatches" asp-action="Index"></pager>
-                    </ul>
-
-                </div>
+            <div class="table-responsive " id="records_table">
+                
             </div>
         </div>
     </div>

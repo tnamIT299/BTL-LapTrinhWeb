@@ -13,18 +13,20 @@ using ClosedXML.Excel;
 using Client_Home.Areas.Admin.DTO.Employees;
 using Client_Home.Areas.Admin.DTO.Customers;
 using System.Data;
+using X.PagedList;
+using Client_Home.Areas.Admin.Models;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class AdminEmployeesController : Controller
     {
-        private readonly Client_Home.Data.ConveniencestoreContext _context;
+        private readonly Data.ConveniencestoreContext _context;
         private IWebHostEnvironment _webHostEnvironment;
         private readonly IAddEmployFromExcel _addFromExcel;
         private readonly ILogger<AdminEmployeesController> _logger;
         public INotyfService _notifyService { get; }
-        public AdminEmployeesController(ILogger<AdminEmployeesController> logger, ConveniencestoreContext context, INotyfService notifyService, IWebHostEnvironment webHostEnvironment, IAddEmployFromExcel addFromExcel)
+        public AdminEmployeesController(ILogger<AdminEmployeesController> logger, Data.ConveniencestoreContext context, INotyfService notifyService, IWebHostEnvironment webHostEnvironment, IAddEmployFromExcel addFromExcel)
         {
             _logger = logger;
             _context = context;
@@ -34,17 +36,10 @@ namespace Client_Home.Areas.Admin.Controllers
         }
 
         // GET: Admin/AdminEmployees
-        public async Task<IActionResult> Index(int?page)
+        public Task<IActionResult> Index(int?page)
         {
-            var pageNumber = page == null || page <= 0 ? 1 : page.Value;
-            var pageSize = 10;
-            var conveniencestoreContext = _context.Employees.Include(e => e.User)
-                .AsNoTracking()
-                .OrderByDescending(x=>x.EmployeeId);
-            ViewBag.CurrentPage = pageNumber;
-            PagedList.Core.IPagedList<Employee> model = new PagedList.Core.PagedList<Employee>(conveniencestoreContext, pageNumber, pageSize);
 
-            return View(model);
+            return Task.FromResult<IActionResult>(View());
         }
 
         // GET: Admin/AdminEmployees/Details/5
@@ -245,6 +240,82 @@ namespace Client_Home.Areas.Admin.Controllers
                 }
             }
         }
+
+        [HttpPost("/Admin/AdminEmployees/DeleteMultiple")]
+        public async Task<IActionResult> DeleteMultipleEmployees([FromBody] DeleteMulti listIds)
+        {
+            try
+            {
+                if (_context.Employees == null)
+                {
+                    return Problem("Entity set 'ConveniencestoreContext.Employees' is null.");
+                }
+
+                var errors = new List<object>(); // List to store information about records that could not be deleted
+
+                foreach (var employeeId in listIds.itemIds)
+                {
+                    var employee = await _context.Employees.FindAsync(employeeId);
+
+                    if (employee != null)
+                    {
+                        // Check foreign key references before deletion
+                        var hasForeignKeyReferences = CheckForeignKeyReferencesForEmployees(employee);
+
+                        if (hasForeignKeyReferences)
+                        {
+                            errors.Add(new { employeeId, message = $"Nhân viên với ID {employeeId} không thể bị xóa vì có liên kết khóa ngoại" });
+                        }
+                        else
+                        {
+                            _context.Employees.Remove(employee);
+                        }
+                    }
+                    else
+                    {
+                        errors.Add(new { employeeId, message = $"Nhân viên với ID {employeeId} không tồn tại." });
+                    }
+                }
+
+                try
+                {
+                    await _context.SaveChangesAsync();
+                }
+                catch (Exception ex)
+                {
+                    // Log the exception or handle it appropriately
+                    return Json(new { success = false, message = "Error deleting employees.", errors });
+                }
+
+                if (errors.Any())
+                {
+                    // If there are errors, return a list of records that could not be deleted along with a message
+                    return Json(new { success = false, message = "Some employees were not deleted.", errors });
+                }
+
+                // If there are no errors, return a success message
+                errors.Add(new { V = "Xóa thành công" });
+                return Json(new { success = true, message = "Employees deleted successfully.", errors });
+            }
+            catch (Exception)
+            {
+                return Json(new { success = false, message = "Error deleting employees." });
+            }
+        }
+
+        private bool CheckForeignKeyReferencesForEmployees(Employee employee)
+        {
+            if (_context.Salaries.Any(e => e.EmployeeId == employee.EmployeeId))
+            {
+                return true;
+            }
+            if (_context.Invoices.Any(e => e.InvoiceId == employee.EmployeeId))
+            {
+                return true;
+            }
+            return false;
+        }
+
 
         private bool EmployeeExists(int id)
         {

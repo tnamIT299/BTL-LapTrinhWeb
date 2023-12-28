@@ -17,12 +17,12 @@ namespace Client_Home.Areas.Admin.Controllers
     [Area("Admin")]
     public class AdminCategoriesController : Controller
     {
-        private readonly Client_Home.Data.ConveniencestoreContext _context;
+        private readonly Data.ConveniencestoreContext _context;
         private IWebHostEnvironment _webHostEnvironment;
         private readonly IAddCategoryFromExcel _addFromExcel;
         private readonly ILogger<AdminCategoriesController> _logger;
         public INotyfService _notifyService { get; }
-        public AdminCategoriesController(ILogger<AdminCategoriesController> logger, ConveniencestoreContext context, INotyfService notifyService, IWebHostEnvironment webHostEnvironment, IAddCategoryFromExcel addFromExcel)
+        public AdminCategoriesController(ILogger<AdminCategoriesController> logger, Data.ConveniencestoreContext context, INotyfService notifyService, IWebHostEnvironment webHostEnvironment, IAddCategoryFromExcel addFromExcel)
         {
             _logger = logger;
             _context = context;

@@ -9,6 +9,8 @@ using Client_Home.Data;
 using Client_Home.Models;
 using iTextSharp.text;
 using PagedList;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace Client_Home.Controllers
 {
@@ -198,5 +200,75 @@ namespace Client_Home.Controllers
         {
           return (_context.Products?.Any(e => e.ProductId == id)).GetValueOrDefault();
         }
+        [HttpPost]
+        public IActionResult AddComment(int productId, string commentText)
+        {
+            // Lấy sản phẩm từ cơ sở dữ liệu
+            var product = _context.Products
+                .Include(p => p.ProductComments)
+                   .ThenInclude(pc => pc.User)
+                .FirstOrDefault(p => p.ProductId == productId);
+
+            if (product == null)
+            {
+                return NotFound(); // Hoặc xử lý theo ý muốn của bạn
+            }
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            // Tạo một đối tượng ProductComment mới
+            var newComment = new ProductComment
+            {
+                ProductId = productId,
+                CommentText = commentText,
+                UserId = userId,
+                CreatedDate = DateTime.Now
+                // Nếu bạn muốn lưu thông tin người dùng, bạn có thể sử dụng User.Identity.Name hoặc thông tin từ đăng nhập
+            };
+            var existingComment = _context.ProductComments.Local.FirstOrDefault(pc => pc.CommentId == newComment.CommentId);
+            if (existingComment != null)
+            {
+                _context.Entry(existingComment).State = EntityState.Detached;
+            }
+            // Thêm comment vào danh sách comment của sản phẩm
+            product.ProductComments.Add(newComment);
+
+            // Lưu thay đổi vào cơ sở dữ liệu
+            _context.SaveChanges();
+
+            // Redirect hoặc trả về JSON hoặc thông báo thành công tùy thuộc vào yêu cầu của bạn
+            return RedirectToAction("Details", new { id = productId });
+        }
+        [HttpPost]
+        public IActionResult AddRating(int productId, int rating)
+        {
+            // Lấy sản phẩm từ cơ sở dữ liệu
+            var product = _context.Products.FirstOrDefault(p => p.ProductId == productId);
+
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            // Tạo đối tượng Rating mới
+            var newRating = new Rating
+            {
+                ProductId = productId,
+                UserId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value,
+                StarRating = rating,
+            };
+            var existingRating = _context.Ratings.Local.FirstOrDefault(pc => pc.RatingId == newRating.RatingId);
+            if (existingRating != null)
+            {
+                _context.Entry(existingRating).State = EntityState.Detached;
+            }
+            // Thêm rating vào danh sách rating của sản phẩm
+            product.Ratings.Add(newRating);
+
+            // Lưu thay đổi vào cơ sở dữ liệu
+            _context.SaveChanges();
+
+            // Redirect hoặc trả về JSON hoặc thông báo thành công tùy thuộc vào yêu cầu của bạn
+            return RedirectToAction("Details", new { id = productId });
+        }
+
     }
 }

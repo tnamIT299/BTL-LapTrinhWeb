@@ -9,13 +9,13 @@ public partial class CommentReply
 
     public int? CommentId { get; set; }
 
-    public int? UserId { get; set; }
-
     public string? ReplyText { get; set; }
 
     public byte[] Timestamp { get; set; } = null!;
 
+    public string? UserId { get; set; }
+
     public virtual ProductComment? Comment { get; set; }
 
-    public virtual User? User { get; set; }
+    public virtual AspNetUser? User { get; set; }
 }

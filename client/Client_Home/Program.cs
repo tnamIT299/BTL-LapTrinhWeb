@@ -78,16 +78,13 @@ builder.Services.AddAuthentication()
         // Thiết lập đường dẫn Facebook chuyển hướng đến
         facebookOptions.CallbackPath = "/signin-facebook";
     });
-//builder.Services.AddHostedService<ScheduledJob>();
-//var smtpSettingsSection = builder.Configuration.GetSection("SmtpSettings");
-//builder.Services.Configure<SmtpSettings>(smtpSettingsSection);
-//services.AddSingleton<EmailService>();
-
-
+// Add Barcode services
+builder.Services.AddSingleton<AdminQRService>();
 
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();
 builder.Services.AddScoped<ILoaiSpRepository, LoaiSpRepository>();
+
 var app = builder.Build();
 app.UseStatusCodePagesWithReExecute("/Account/Login", "?statusCode={0}");
 // Configure the HTTP request pipeline.

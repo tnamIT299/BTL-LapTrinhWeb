@@ -116,4 +116,65 @@ button {
     color: #ccc;
 }
 
+/* Styles for Rating Form */
+.rating-form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.star-rating {
+    font-size: 30px;
+    color: #f39c12;
+    background: none;
+    cursor: pointer;
+}
+
+    .star-rating option {
+        font-size: 16px;
+        margin: 0;
+    }
+
+.submit-button {
+    background-color: #4caf50; /* Màu xanh lá cây hoặc màu chính xác của bạn */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+    .submit-button:hover {
+        background-color: #45a049; /* Màu xanh lá cây nhạt hoặc màu chính xác của bạn */
+    }
+
+/* Styles for Comment Form */
+.Comment-form {
+    margin-top: 20px;
+}
+
+    .Comment-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc; /* Màu viền xám hoặc màu chính xác của bạn */
+        border-radius: 5px;
+    }
+
+    .Comment-form .submit-button {
+        background-color: #4caf50; /* Màu xanh lá cây hoặc màu chính xác của bạn */
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+        .Comment-form .submit-button:hover {
+            background-color: #45a049; /* Màu xanh lá cây nhạt hoặc màu chính xác của bạn */
+        }
+
 

@@ -7,6 +7,12 @@
     <thead>
         <tr>
             <th>
+                <div class="checkbox">
+                    <input id="checkAll" type="checkbox">
+                    <label for="checkAll" class="m-b-0"></label>
+                </div>
+            </th>
+            <th>
                 Mã lô
             </th>
             <th>
@@ -27,6 +33,9 @@
             <th>
                 Giá nhập
             </th>
+            <th>
+                Trạng thái
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -38,6 +47,12 @@
                 @foreach (var item in Model.Items)
                 {
                 <tr>
+                    <td>
+                        <div class="checkbox">
+                            <input id="@("check-item-" + item.BatchId)" type="checkbox">
+                            <label for="@("check-item-" + item.BatchId)" class="m-b-0"></label>
+                        </div>
+                    </td>
                     <td>
                             @Html.DisplayFor(modelItem => item.BatchId)
                     </td>
@@ -62,14 +77,35 @@
                             @Html.DisplayFor(modelItem => item.Quantity)
                     </td>
                     <td>
+                            @if (string.IsNullOrEmpty(item.Barcode))
+                            {
+                                <img src="@Url.Action("GenerateQRCode", "AdminQRService", new { BatchId = item.BatchId })" alt="Barcode Image" />
+                            }
+                            else
+                            {
+                                string filePath = "~/AdminImages/Barcodes/" + item.Barcode;
+                            <img src="@Url.Content(filePath)" style="height: 70px; width: 70px" />
+                            }
 
-                            @Html.DisplayFor(modelItem => item.Barcode)
                     </td>
                     <td>
 
                             @Html.DisplayFor(modelItem => item.ImportPrice)
                     </td>
-
+                    <td>
+                        <div class="d-flex align-items-center">
+                                @if (item.Status == true)
+                                {
+                                <div class="badge badge-success badge-dot m-r-10"></div>
+                                <div>Đang bán</div>
+                                }
+                                else
+                                {
+                                <div class="badge badge-danger badge-dot m-r-10"></div>
+                                <div>Hết hàng</div>
+                                }
+                        </div>
+                    </td>
 
                     <td class="text-right">
                         <a asp-area="Admin" asp-controller="AdminProductBatches" asp-action="Details" asp-route-id="@item.BatchId">

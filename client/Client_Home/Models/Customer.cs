@@ -21,13 +21,13 @@ public partial class Customer
 
     public int? Rank { get; set; }
 
-    public int? UserId { get; set; }
-
     public int? Gender { get; set; }
+
+    public string? UserId { get; set; }
 
     public virtual ICollection<Invoice> Invoices { get; set; } = new List<Invoice>();
 
     public virtual ICollection<ShippingLocation> ShippingLocations { get; set; } = new List<ShippingLocation>();
 
-    public virtual User? User { get; set; }
+    public virtual AspNetUser? User { get; set; }
 }

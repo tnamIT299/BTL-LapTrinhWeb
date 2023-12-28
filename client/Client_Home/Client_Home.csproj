@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AForge" Version="2.2.5" />
     <PackageReference Include="AspNetCoreHero.ToastNotification" Version="1.1.0" />
     <PackageReference Include="Chart.js" Version="3.7.1" />
     <PackageReference Include="ClosedXML" Version="0.102.1" />
@@ -46,6 +47,7 @@
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="wwwroot\AdminImages\" />
     <Folder Include="wwwroot\AdminImages\Barcodes\" />
     <Folder Include="wwwroot\uploaded_doc\" />
   </ItemGroup>

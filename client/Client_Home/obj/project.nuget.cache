@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "jHXjtyMtJtkctqfVxUqyPpLIPAvGFLen3jR/7ODKTRFGMen93uzJAUU2wLxI0D+VnNnUSaoKNLU1ePBD7Yn6vQ==",
+  "dgSpecHash": "EtSxkTO5+9MNwtupkN25P4H7KLRksWsWezomVtar05ShOKJs1KIO4XwRQafNmWISN2OHjMLob6dlAx+b8tgZSg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Tan Thinh\\Source\\Repos\\BTL-LapTrinhWeb-demo\\client\\Client_Home\\Client_Home.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\Client_Home.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\aforge\\2.2.5\\aforge.2.2.5.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\aspnetcorehero.toastnotification\\1.1.0\\aspnetcorehero.toastnotification.1.1.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

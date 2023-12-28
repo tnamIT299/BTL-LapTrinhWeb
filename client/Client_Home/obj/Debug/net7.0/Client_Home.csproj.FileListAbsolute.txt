@@ -2141,3 +2141,5 @@ C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\
 C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\System.Runtime.InteropServices.WindowsRuntime.dll
 C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\WampSharp.dll
 C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\WampSharp.NewtonsoftJson.dll
+C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\appsettings.Development.json
+C:\Users\Admin\source\repos\BTL-LapTrinhWeb\client\Client_Home\bin\Debug\net7.0\AForge.dll

@@ -56,14 +56,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DYXRlZ29yaWVzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminCategories/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DYXRlZ29yaWVzXERldGFpbHMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminCategories/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DYXRlZ29yaWVzXEVkaXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminCategories/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DYXRlZ29yaWVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -78,10 +70,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminCustomers/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lcnNcRGVsZXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminCustomers/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lcnNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminCustomers/Edit.cshtml]
@@ -168,10 +156,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Qcm9kdWN0QmF0Y2hlc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminProductBatches/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Qcm9kdWN0QmF0Y2hlc1xEZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminProductBatches/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Qcm9kdWN0QmF0Y2hlc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -234,10 +218,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminSuppliers/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5TdXBwbGllcnNcRGVsZXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminSuppliers/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5TdXBwbGllcnNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Laptrinhtrucquan_Web/btl/client/Client_Home/Areas/Admin/Views/AdminSuppliers/Edit.cshtml]

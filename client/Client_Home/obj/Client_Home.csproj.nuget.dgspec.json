@@ -13,6 +13,9 @@
         "packagesPath": "C:\\Users\\huypro\\.nuget\\packages\\",
         "outputPath": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\huypro\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -118,6 +121,10 @@
               "target": "Package",
               "version": "[7.0.11, )"
             },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
             "PagedList": {
               "target": "Package",
               "version": "[1.17.0, )"
@@ -133,6 +140,10 @@
             "System.Data.OleDb": {
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "WampSharp.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[23.8.1, )"
             },
             "X.PagedList": {
               "target": "Package",

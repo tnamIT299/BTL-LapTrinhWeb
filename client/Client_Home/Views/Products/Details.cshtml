@@ -454,7 +454,7 @@
                         </div>
                     </div>
                     <div>
-                    @if (Model.ProductComments.Any())
+                    @if (Model.ProductComments != null && Model.ProductComments.Any())
                     {
                         foreach (var comment in Model.ProductComments)
                         {
@@ -463,7 +463,7 @@
                                     <div class="comment-content">
                                         <div class="comment-header">
                                             <div class="user-info-date">
-                                                <div class="user-info">@comment.User.Fullname</div>
+                                                <div class="user-info">@comment.User.UserName</div>
                                                 <div class="comment-date">@comment.CreatedDate?.ToString("dd/MM/yyyy")</div>
                                             </div>
                                         </div>
@@ -478,11 +478,12 @@
                     }
                     </div>
 
+
                 </div>
                 <div>
                 @if (User.Identity.IsAuthenticated)
                 {
-                        <div class="comment-form">
+                       @*  <div class="comment-form">
                             <textarea id="commentText" placeholder="Add a comment..."></textarea>
                             <div>
                                 <!-- Hiển thị giao diện đánh giá (ví dụ: sao) -->
@@ -493,35 +494,33 @@
                             <span class="rating" onclick="rateProduct(5)">&#9733;</span>
                             </div>
                             <button id="postComment" onclick="postComment()">Post Comment</button>
-                        </div>
+                            <textarea id="commentText" name="commentText" placeholder="Thêm bình luận..."></textarea>
+                            <button type="button" onclick="addComment()">Gửi Bình Luận</button>
+                        </div> *@
+                        <!-- Form đánh giá -->
+                        <form class="rating-form" asp-controller="Product" asp-action="AddRating" method="post">
+                            <select name="rating" id="rating" class="star-rating">
+                                <option value="1">★</option>
+                                <option value="2">★★</option>
+                                <option value="3">★★★</option>
+                                <option value="4">★★★★</option>
+                                <option value="5">★★★★★</option>
+                            </select>
+                            <input type="hidden" name="productId" value="@Model.ProductId" />
+                            <button type="submit" class="submit-button">Submit Rating</button>
+                        </form>
+
+                        <form class="Comment-form" asp-controller="Products" asp-action="AddComment" method="post">
+                            <input type="hidden" name="productId" value="@Model.ProductId" />
+                            <textarea name="commentText" placeholder="Add a comment..."></textarea>
+                            <button type="submit" class="submit-button">Post Comment</button>
+                        </form>
                  } 
                  else
                 {
                         <p>Please <a href="/Identity/Account/Login">log in</a> to leave a comment.</p>
                 }
                 </div>
-
-                <script>
-                    function postComment() {
-                        // Lấy giá trị từ textarea
-                        var commentText = document.getElementById("commentText").value;
-
-                        // Kiểm tra xem người dùng đã nhập bình luận hay chưa
-                        if (commentText.trim() === "") {
-                            alert("Please enter a comment before posting.");
-                            return;
-                        }
-
-                        // TODO: Gửi bình luận đến server (ví dụ: sử dụng AJAX)
-                        // ...
-                        // Sau khi gửi bình luận, có thể làm mới trang hoặc thêm bình luận mới vào DOM
-                        // ...
-
-                        // Ghi nhận bình luận trong console (đoạn mã dưới đây chỉ là để minh họa)
-                        console.log("Posted comment:", commentText);
-                    }
-                </script>
-
             </div>
         </div>
     </div>

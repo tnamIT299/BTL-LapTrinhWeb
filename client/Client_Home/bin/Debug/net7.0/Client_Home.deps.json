@@ -39,9 +39,9 @@
           "Chart.js": "3.7.1",
           "ClosedXML": "0.102.1",
           "EPPlus": "7.0.0",
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.12",
-          "Microsoft.AspNetCore.Identity.UI": "7.0.12",
-          "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "7.0.12",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.13",
+          "Microsoft.AspNetCore.Identity.UI": "7.0.13",
+          "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "7.0.13",
           "Microsoft.CodeAnalysis.Analyzers": "3.3.4",
           "Microsoft.EntityFrameworkCore": "7.0.13",
           "Microsoft.EntityFrameworkCore.Design": "7.0.13",
@@ -1968,7 +1968,7 @@
         }
       },
       "Microsoft.Extensions.FileSystemGlobbing/7.0.0": {},
-      "Microsoft.Extensions.Identity.Core/7.0.12": {
+      "Microsoft.Extensions.Identity.Core/7.0.13": {
         "dependencies": {
           "Microsoft.AspNetCore.Cryptography.KeyDerivation": "7.0.13",
           "Microsoft.Extensions.Logging": "7.0.0",
@@ -6106,7 +6106,7 @@
       "path": "microsoft.extensions.filesystemglobbing/7.0.0",
       "hashPath": "microsoft.extensions.filesystemglobbing.7.0.0.nupkg.sha512"
     },
-    "Microsoft.Extensions.Identity.Core/7.0.12": {
+    "Microsoft.Extensions.Identity.Core/7.0.13": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-030d6U9PS9OLnY8Jai1PU3K4DMMc6jBLqbm/VaizBEWxDZEwytOYpFJNiqgTRmJLj2NOa83lBY8wUcDv+XYPQQ==",

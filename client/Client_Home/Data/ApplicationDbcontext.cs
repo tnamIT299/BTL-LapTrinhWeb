@@ -12,7 +12,7 @@ namespace Client_Home.Data
         public DbSet<SalesLeadEntity> SalesLeadEntities { get; set;}
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"server=LAPTOP-U09IUJKK\\SQLEXPRESS01;database=CONVENIENCESTORE;Encrypt=False;Integrated Security=true;");
+            optionsBuilder.UseSqlServer(@"server=QUYNH;database=CONVENIENCESTORE;Encrypt=False;Integrated Security=true;");
         }
     }
 }

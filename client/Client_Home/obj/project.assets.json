@@ -1895,7 +1895,6 @@
           "buildMultiTargeting/_._": {}
         }
       },
-      "Microsoft.Extensions.Identity.Core/7.0.13": {
       "Microsoft.Extensions.FileProviders.Physical/7.0.0": {
         "type": "package",
         "dependencies": {
@@ -1933,7 +1932,7 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "Microsoft.Extensions.Identity.Core/7.0.12": {
+      "Microsoft.Extensions.Identity.Core/7.0.13": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Cryptography.KeyDerivation": "7.0.13",
@@ -7407,8 +7406,6 @@
         "tasks/netstandard2.0/Microsoft.Extensions.FileProviders.Embedded.Manifest.Task.dll"
       ]
     },
-    "Microsoft.Extensions.Identity.Core/7.0.13": {
-      "sha512": "030d6U9PS9OLnY8Jai1PU3K4DMMc6jBLqbm/VaizBEWxDZEwytOYpFJNiqgTRmJLj2NOa83lBY8wUcDv+XYPQQ==",
     "Microsoft.Extensions.FileProviders.Physical/7.0.0": {
       "sha512": "K8D2MTR+EtzkbZ8z80LrG7Ur64R7ZZdRLt1J5cgpc/pUWl0C6IkAUapPuK28oionHueCPELUqq0oYEvZfalNdg==",
       "type": "package",
@@ -7463,8 +7460,8 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.Identity.Core/7.0.12": {
-      "sha512": "R6my15aCB3VM/eLYgpleY2t/27LtpuuU5Dpa7tx/bwTUhl+P2ZcxK712IieTdWu223XvgHAC8wBj7JYZUuoMwA==",
+    "Microsoft.Extensions.Identity.Core/7.0.13": {
+      "sha512": "030d6U9PS9OLnY8Jai1PU3K4DMMc6jBLqbm/VaizBEWxDZEwytOYpFJNiqgTRmJLj2NOa83lBY8wUcDv+XYPQQ==",
       "type": "package",
       "path": "microsoft.extensions.identity.core/7.0.13",
       "files": [
@@ -13353,13 +13350,10 @@
       "AspNetCoreHero.ToastNotification >= 1.1.0",
       "Chart.js >= 3.7.1",
       "ClosedXML >= 0.102.1",
+      "EPPlus >= 7.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 7.0.13",
       "Microsoft.AspNetCore.Identity.UI >= 7.0.13",
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 7.0.13",
-      "EPPlus >= 7.0.0",
-      "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 7.0.12",
-      "Microsoft.AspNetCore.Identity.UI >= 7.0.12",
-      "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 7.0.12",
       "Microsoft.CodeAnalysis.Analyzers >= 3.3.4",
       "Microsoft.EntityFrameworkCore >= 7.0.13",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.13",
@@ -13378,27 +13372,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\huypro\\.nuget\\packages\\": {}
-    "C:\\Users\\Admin\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\DIEM QUYNH\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\Client_Home.csproj",
-      "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\Client_Home.csproj",
+      "projectUniqueName": "C:\\Users\\DIEM QUYNH\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\Client_Home.csproj",
       "projectName": "Client_Home",
-      "projectPath": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\Client_Home.csproj",
-      "packagesPath": "C:\\Users\\huypro\\.nuget\\packages\\",
-      "outputPath": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\obj\\",
-      "projectPath": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\Client_Home.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\obj\\",
+      "projectPath": "C:\\Users\\DIEM QUYNH\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\Client_Home.csproj",
+      "packagesPath": "C:\\Users\\DIEM QUYNH\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\DIEM QUYNH\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\huypro\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\DIEM QUYNH\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -13538,7 +13524,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   },

@@ -1,28 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\Client_Home.csproj": {}
-    "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\Client_Home.csproj": {}
+    "C:\\Users\\DIEM QUYNH\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\Client_Home.csproj": {}
   },
   "projects": {
-    "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\Client_Home.csproj": {
-    "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\Client_Home.csproj": {
+    "C:\\Users\\DIEM QUYNH\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\Client_Home.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\Client_Home.csproj",
-        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\Client_Home.csproj",
+        "projectUniqueName": "C:\\Users\\DIEM QUYNH\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\Client_Home.csproj",
         "projectName": "Client_Home",
-        "projectPath": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\Client_Home.csproj",
-        "packagesPath": "C:\\Users\\huypro\\.nuget\\packages\\",
-        "outputPath": "D:\\Laptrinhtrucquan_Web\\btl\\client\\Client_Home\\obj\\",
-        "projectPath": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\Client_Home.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\obj\\",
+        "projectPath": "C:\\Users\\DIEM QUYNH\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\Client_Home.csproj",
+        "packagesPath": "C:\\Users\\DIEM QUYNH\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DIEM QUYNH\\source\\repos\\BTL-LapTrinhWeb\\client\\Client_Home\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\huypro\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\DIEM QUYNH\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -162,7 +154,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

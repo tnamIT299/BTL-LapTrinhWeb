@@ -5,51 +5,57 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Details</h1>
+<h1>Quản lý sản phẩm</h1>
 
-<div>
-    <h4>ProductBatch</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ManufactureDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ManufactureDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ExpiryDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ExpiryDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Quantity)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Quantity)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Barcode)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Barcode)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ImportPrice)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ImportPrice)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Product)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Product.ProductId)
-        </dd>
-    </dl>
+<div class="main-content">
+    <div class="page-header">
+        <h2 class="header-title">Danh sách lô sản phẩm</h2>
+        <div class="header-sub-title">
+            <nav class="breadcrumb breadcrumb-dash">
+                <a href="#" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
+                <a class="breadcrumb-item" href="#">Quản lý sản phẩm</a>
+                <a class="breadcrumb-item" href="#">Danh sách lô sản phẩm</a>
+            </nav>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Thông tin lô sản phẩm</h4>
+            <div class="table-responsive">
+                <table class="product-info-table m-t-20">
+                    <tbody>
+                        <tr>
+                            <td>Ngày sản xuất</td>
+                            <td class="text-dark font-weight-semibold">@Model.ManufactureDate</td>
+                        </tr>
+                        <tr>
+                            <td>Ngày hết hạn</td>
+                            <td>@Model.ExpiryDate</td>
+                        </tr>
+                        <tr>
+                            <td>Số lượng</td>
+                            <td>@Model.Quantity</td>
+                        </tr>
+                        <tr>
+                            <td>Barcode</td>
+                            <td>@Model.Barcode</td>
+                        </tr>
+                        <tr>
+                            <td>Giá nhập</td>
+                            <td>@Model.ImportPrice</td>
+                        </tr>
+                        <tr>
+                            <td>Mã sản phẩm</td>
+                            <td>@Model.ProductId</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.BatchId">Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model.ProductId">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+

@@ -13,6 +13,8 @@ using PagedList;
 using DocumentFormat.OpenXml.Office2010.Excel;
 using Client_Home.Areas.Admin.Models;
 using Humanizer;
+using Client_Home.Areas.Admin.DTO.Product;
+using System.Data;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
@@ -34,11 +36,56 @@ namespace Client_Home.Areas.Admin.Controllers
         }
 
         // GET: Admin/AdminProducts
-        public IActionResult Index(int page = 1, int CatID = 0, int SupID = 0,decimal? to=null,decimal? from=null)
+        public IActionResult Index(int page = 1, int CatID = 0, int SupID = 0, decimal? to = null, decimal? from = null)
 
         {
+            var pageNumber = page;
+            var pageSize = 10;
+            List<Product> isProducts = new List<Product>();
+            if (SupID != 0)
+            {
+                isProducts = _context.Products
+                    .AsNoTracking().Where(x => x.SupplierId == SupID)
+                .Include(p => p.Category)
+                .Include(p => p.Supplier)
+                .OrderByDescending(x => x.ProductId).ToList();
+            }
+            else if (CatID != 0)
+            {
+                isProducts = _context.Products
+                    .AsNoTracking().Where(x => x.CategoryId == CatID)
+                .Include(p => p.Category)
+                .Include(p => p.Supplier)
+                .OrderByDescending(x => x.ProductId).ToList();
+            }
+            else
+            {
+                isProducts = _context.Products
+                .Include(p => p.Category)
+                .Include(p => p.Supplier).
+                AsNoTracking().
+                OrderByDescending(x => x.ProductId).ToList();
+                if (to != null && from != null)
+                {
+                    isProducts = _context.Products
+                    .AsNoTracking()
+                       .Where(x => x.SellPrice >= to && x.SellPrice <= from)
+                        .Include(p => p.Category)
+                    .Include(p => p.Supplier)
+                    .OrderByDescending(x => x.ProductId).ToList();
+                    ;
+                }
+            }
 
-            return View();
+
+            PagedList.Core.IPagedList<Product> model = new PagedList.Core.PagedList<Product>(isProducts.AsQueryable(), pageNumber, pageSize);
+            ViewBag.CurrentCateID = CatID;
+            ViewBag.CurrentPage = pageNumber;
+            ViewData["Danhmuc"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", CatID);
+            ViewData["Nhacungcap"] = new SelectList(_context.Suppliers, "SupplierId", "SupplierName", SupID);
+
+
+            return View(model);
             // return _context.Products != null ?
             //View(await _context.Products.Include(p =>p.Category).Include(p => p.Supplier).ToListAsync()) :
             //Problem("Entity set 'ConveniencestoreContext.Products'  is null.");

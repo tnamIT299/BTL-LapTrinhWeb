@@ -40,6 +40,9 @@ namespace Client_Home.Areas.Admin.Controllers
                     .Where(x => x.Name.Contains(keyword))
                     .OrderByDescending(x => x.Name);
             }
+            List<Product> ls = query.ToList();
+            PagedList.Core.IPagedList<Product> model = new PagedList.Core.PagedList<Product>(ls.AsQueryable(), pageNumber, pageSize);
+            return PartialView("ListProductsSearchPartial", model);
         }
         [HttpPost]
         public IActionResult FindEmployee(string keyword)
@@ -114,10 +117,10 @@ namespace Client_Home.Areas.Admin.Controllers
             }
         }
 
-            List<Product> ls = query.ToList();
-            PagedList.Core.IPagedList<Product> model = new PagedList.Core.PagedList<Product>(ls.AsQueryable(), pageNumber, pageSize);
-            return PartialView("ListProductsSearchPartial", model);
-        }
+        //    List<Product> ls = query.ToList();
+        //    PagedList.Core.IPagedList<Product> model = new PagedList.Core.PagedList<Product>(ls.AsQueryable(), pageNumber, pageSize);
+          
+        //}
 
 
     }

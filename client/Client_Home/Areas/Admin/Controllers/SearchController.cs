@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Client_Home.Data;
 using DocumentFormat.OpenXml.Spreadsheet;
 using Client_Home.Areas.Admin.Models;
-
+using Client_Home.Areas.Admin.DTO;
 
 namespace Client_Home.Areas.Admin.Controllers
 {
@@ -17,7 +17,41 @@ namespace Client_Home.Areas.Admin.Controllers
             _context = context;
         }
 
+        [HttpPost]
+        public IActionResult FindProductsForInvoices(int page, string keyword)
+        {
+            var pageSize = 20;
 
+            IQueryable<Product> ls = _context.Products
+                            .AsNoTracking()
+                            .OrderByDescending(x => x.ProductId);
+
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                ls = _context.Products
+                    .AsNoTracking()
+                    .Include(a => a.Category)
+                    .Where(x => x.Name.Contains(keyword))
+                    .OrderByDescending(x => x.Name);
+            }
+
+            if (page <= 0)
+            {
+                page = 1;
+            }
+
+            var paginatedItems = ls.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+            var models = new Pager<Product>
+            {
+                Items = paginatedItems,
+                CurrentPage = page,
+                PageIndex = page,
+                PageSize = pageSize,
+                TotalItems = ls.Count()
+            };
+
+            return PartialView("ListProductsSearchForCreateInvoicePartial", models);
+        }
         [HttpPost]
         public IActionResult FindProducts(int page, string keyword)
         {
@@ -53,7 +87,27 @@ namespace Client_Home.Areas.Admin.Controllers
 
             return PartialView("ListProductSearchPartial", models);
         }
-
+        [HttpPost]
+        public async Task<ActionResult<ScannedProductInfo>> GetProductInfo([FromBody] ProductQRScanInfo barcode)
+        {
+            var productBatch = await _context.ProductBatches
+                .Where(p => p.BatchId == barcode.barcode)
+                .Select(p => new { p.ProductId })
+                .FirstOrDefaultAsync();
+            if (productBatch == null)
+            {
+                return Json("Cúc");
+            }
+            var product = await _context.Products
+               .Where(p => p.ProductId == productBatch.ProductId)
+               .Select(p => new ScannedProductInfo { Name = p.Name, DiscountPrice = (decimal)p.DiscountPrice })
+               .FirstOrDefaultAsync();
+            if (product == null)
+            {
+                return NotFound();
+            }
+            return Ok(product);
+        }
 
         [HttpPost]
         public IActionResult FindEmployees(int page, string keyword)

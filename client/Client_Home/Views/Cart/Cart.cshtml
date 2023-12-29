@@ -1,10 +1,8 @@
 ﻿
 @model Cart
 @{
-    ViewData["Title"] = "Cart";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<head>
 
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -384,7 +382,38 @@
         callApiWard(host + "d/" + $("#district").find(':selected').data('id') + "?depth=2");
     
     });
+
+
+
+
+    //Xử lý phần gửi mail xác nhận khách hàng đã đặt hàng 
+    function submitCheckout() {
+        var email = document.getElementById('email').value;
+
+        // Tạo một đối tượng XMLHttpRequest để gửi dữ liệu về server
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/testmail', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        // Gửi dữ liệu dưới dạng JSON
+       xhr.send(JSON.stringify({ email: email}));
+     
+
+        // Xử lý phản hồi nếu cần
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                console.log('Checkout successful');
+            } else {
+                console.error('Checkout failed. Server returned:', xhr.status, xhr.statusText);
+            }
+        };
+    }
 </script>
+
+
+
+
+
 @section Scripts{
     <!-- Js Plugins -->
     <script src="/js/jquery-3.3.1.min.js"></script>

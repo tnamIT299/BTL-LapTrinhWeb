@@ -224,7 +224,7 @@ public partial class ConveniencestoreContext : DbContext
 
             entity.HasOne(d => d.Comment).WithMany(p => p.CommentReplies)
                 .HasForeignKey(d => d.CommentId)
-                .HasConstraintName("FK__commentRe__comme__1B9317B3");
+                .HasConstraintName("FK_comm_rep");
 
             entity.HasOne(d => d.User).WithMany(p => p.CommentReplies)
                 .HasForeignKey(d => d.UserId)
@@ -565,7 +565,7 @@ public partial class ConveniencestoreContext : DbContext
                 .HasColumnName("importPrice");
             entity.Property(e => e.ManufactureDate).HasColumnType("date");
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
-            entity.Property(e => e.Status).HasColumnName("status");
+           
 
             entity.HasOne(d => d.Product).WithMany(p => p.ProductBatches)
                 .HasForeignKey(d => d.ProductId)
@@ -575,17 +575,10 @@ public partial class ConveniencestoreContext : DbContext
 
         modelBuilder.Entity<ProductComment>(entity =>
         {
-            entity.HasKey(e => e.CommentId).HasName("PK__product___CDDE919D0E6B08DC");
+            entity.HasKey(e => e.CommentId).HasName("PK__productC__C3B4DFCA897E4106");
 
-            entity.ToTable("productComments", tb => tb.HasTrigger("UpdateLastUpdatedDateTime"));
+            entity.ToTable("productComments");
 
-            entity.Property(e => e.CommentId)
-                .ValueGeneratedNever()
-                .HasColumnName("commentId");
-            entity.Property(e => e.CommentText)
-                .HasMaxLength(1000)
-                .IsUnicode(false)
-                .HasColumnName("commentText");
             entity.Property(e => e.CreatedDate)
                 .HasColumnType("datetime")
                 .HasColumnName("createdDate");
@@ -594,7 +587,7 @@ public partial class ConveniencestoreContext : DbContext
 
             entity.HasOne(d => d.Product).WithMany(p => p.ProductComments)
                 .HasForeignKey(d => d.ProductId)
-                .HasConstraintName("FK__product_c__produ__14E61A24");
+                .HasConstraintName("FK_productComments_Product");
 
             entity.HasOne(d => d.User).WithMany(p => p.ProductComments)
                 .HasForeignKey(d => d.UserId)
